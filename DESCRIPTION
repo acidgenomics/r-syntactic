@@ -1,0 +1,25 @@
+Package: syntactic
+Title: Syntactically Valid Names
+Description: Make syntactically valid names out of character vectors.
+Version: 0.1.0
+Date: 2018-12-26
+Authors@R: person(
+    "Michael", "Steinbaugh",
+    email = "mike@steinbaugh.com",
+    role = c("aut", "cre"),
+    comment = c(ORCID = "0000-0002-2403-2221"))
+URL: https://github.com/steinbaugh/syntactic/
+BugReports: https://github.com/steinbaugh/syntactic/issues/
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 3.5)
+Imports:
+    GenomicRanges,
+    S4Vectors,
+    bioverbs (>= 0.1),
+    magrittr (>= 1.5)
+Remotes:
+    steinbaugh/bioverbs@develop
+biocViews: DataImport
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
