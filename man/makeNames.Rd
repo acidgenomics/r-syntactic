@@ -12,21 +12,6 @@ makeNames(names, unique = TRUE)
 
 \item{unique}{logical; if \code{TRUE}, the resulting elements are
      unique.  This may be desired for, e.g., column names.}
-
-\item{object}{\code{character} or class supporting \code{names}.}
-
-\item{rownames}{\code{logical(1)}.
-Apply sanitization on row names. This is not generally recommended by
-default, since rownames commonly contain gene identifiers that should not
-be modified.}
-
-\item{colnames}{\code{logical(1)}.
-Apply sanitization on column names. This is generally recommended by
-default.}
-
-\item{strict}{\code{logical(1)}.
-Enforce strict name sanitization. When \code{TRUE}, this does not allow the
-return of any capitalized acronyms. "RNA" will become "Rna", for example.}
 }
 \value{
 Modified object.
@@ -88,13 +73,5 @@ snake(x) \%>\% names()
 upperCamel(x) \%>\% names()
 }
 \seealso{
-\itemize{
-\item \code{make.names}.
-\item \href{https://cran.r-project.org/package=janitor}{janitor} contains a number of
-useful functions that provide similar sanitization support, but isn't
-designed to work natively with \href{https://bioconductor.org}{Bioconductor} and
-S4 object classes.
-\item \href{https://cran.r-project.org/package=lettercase}{lettercase}.
-\item \href{https://tazinho.github.io/snakecase}{snakecase}.
-}
+\code{make.names()}.
 }

@@ -9,32 +9,12 @@
 #'
 #' @export
 #' @inheritParams base::make.names
-#' @inheritParams params
-#'
-#' @param object `character` or class supporting `names`.
-#' @param rownames `logical(1)`.
-#'   Apply sanitization on row names. This is not generally recommended by
-#'   default, since rownames commonly contain gene identifiers that should not
-#'   be modified.
-#' @param colnames `logical(1)`.
-#'   Apply sanitization on column names. This is generally recommended by
-#'   default.
-#' @param strict `logical(1)`.
-#'   Enforce strict name sanitization. When `TRUE`, this does not allow the
-#'   return of any capitalized acronyms. "RNA" will become "Rna", for example.
 #'
 #' @return Modified object.
 #' Contains syntatically valid names. For objects supporting `names`, the
 #' underlying data returns unchanged.
 #'
-#' @seealso
-#' - `make.names`.
-#' - [janitor](https://cran.r-project.org/package=janitor) contains a number of
-#'   useful functions that provide similar sanitization support, but isn't
-#'   designed to work natively with [Bioconductor](https://bioconductor.org) and
-#'   S4 object classes.
-#' - [lettercase](https://cran.r-project.org/package=lettercase).
-#' - [snakecase](https://tazinho.github.io/snakecase).
+#' @seealso `make.names()`.
 #'
 #' @examples
 #' loadRemoteData(url = file.path(basejumpCacheURL, "mn.rda"))
