@@ -1,3 +1,9 @@
+#' @name snake
+#' @inherit bioverbs::snake
+NULL
+
+
+
 #' @importFrom bioverbs snake
 #' @aliases NULL
 #' @export
@@ -25,7 +31,7 @@ snake.ANY <-  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
@@ -49,7 +55,7 @@ snake.character <-  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
@@ -72,7 +78,7 @@ snake.factor <-  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
@@ -103,7 +109,7 @@ snake.matrix <-  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
@@ -117,7 +123,7 @@ snake.data.frame <- snake.matrix  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
@@ -131,7 +137,7 @@ snake.DataFrame <- snake.data.frame  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
@@ -149,7 +155,7 @@ snake.GRanges <-  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
@@ -163,7 +169,7 @@ snake.GRangesList <- snake.GRanges  # nolint
 
 
 
-#' @rdname makeNames
+#' @rdname snake
 #' @export
 setMethod(
     f = "snake",
