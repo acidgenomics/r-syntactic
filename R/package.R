@@ -12,6 +12,4 @@
 #' @importFrom utils globalVariables
 "_PACKAGE"
 
-# mcols mcols<-
-
 globalVariables(".")

@@ -1,5 +1,6 @@
 #' @name upperCamel
 #' @inherit bioverbs::upperCamel
+#' @inheritParams params
 NULL
 
 

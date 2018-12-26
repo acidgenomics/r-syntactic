@@ -1,5 +1,6 @@
 #' @name snake
 #' @inherit bioverbs::snake
+#' @inheritParams params
 NULL
 
 
