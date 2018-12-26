@@ -31,6 +31,15 @@
 }
 \arguments{
 \item{object}{Object.}
+
+\item{rownames}{\code{logical(1)}.
+Apply sanitization on row names. This is not generally recommended by
+default, since rownames commonly contain gene identifiers that should not
+be modified.}
+
+\item{colnames}{\code{logical(1)}.
+Apply sanitization on column names. This is generally recommended by
+default.}
 }
 \description{
 Snake case

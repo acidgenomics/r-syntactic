@@ -20,6 +20,8 @@ Imports:
     goalie (>= 0.1),
     magrittr (>= 1.5),
     methods
+Suggests:
+    testthat
 Remotes:
     steinbaugh/bioverbs@develop,
     steinbaugh/goalie@develop
