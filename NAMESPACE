@@ -3,6 +3,7 @@
 export(camel)
 export(capitalize)
 export(dotted)
+export(makeDimnames)
 export(makeNames)
 export(snake)
 export(upperCamel)

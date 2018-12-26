@@ -1,3 +1,7 @@
+#' Make syntactically valid dimnames
+#'
+#' @export
+#' @inheritParams params
 makeDimnames <- function(object) {
     assert(hasDimnames(object))
     # Row names.
