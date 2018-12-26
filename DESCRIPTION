@@ -17,9 +17,12 @@ Imports:
     GenomicRanges,
     S4Vectors,
     bioverbs (>= 0.1),
-    magrittr (>= 1.5)
+    goalie (>= 0.1),
+    magrittr (>= 1.5),
+    methods
 Remotes:
-    steinbaugh/bioverbs@develop
+    steinbaugh/bioverbs@develop,
+    steinbaugh/goalie@develop
 biocViews: DataImport
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1

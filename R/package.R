@@ -5,6 +5,13 @@
 #' @importClassesFrom GenomicRanges GRanges GRangesList
 #' @importClassesFrom S4Vectors DataFrame
 #'
-#' @importFrom goalie assert isCharacter
+#' @importFrom S4Vectors mcols mcols<-
+#' @importFrom goalie assert hasColnames hasDimnames hasNames hasRownames
+#'   isCharacter isFlag
 #' @importFrom magrittr %>%
+#' @importFrom utils globalVariables
 "_PACKAGE"
+
+# mcols mcols<-
+
+globalVariables(".")
