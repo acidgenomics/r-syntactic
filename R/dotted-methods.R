@@ -33,8 +33,7 @@ bioverbs::dotted
             # Strip leading or trailing dots.
             gsub("(^\\.|\\.$)", "", .) %>%
             # Coerce `"NA"` back to `NA` after `make.names()` call.
-            # FIXME Need to export this in package...
-            sanitizeNA() %>%
+            gsub("^NA$", NA_character_, .) %>%
             # Standardize any mixed case acronyms.
             .sanitizeAcronyms() %>%
             # Establish word boundaries for camelCase acronyms
