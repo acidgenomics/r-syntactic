@@ -34,6 +34,19 @@
 }
 \arguments{
 \item{object}{Object.}
+
+\item{strict}{\code{logical(1)}.
+Enforce strict name sanitization. When \code{TRUE}, this does not allow the
+return of any capitalized acronyms. "RNA" will become "Rna", for example.}
+
+\item{rownames}{\code{logical(1)}.
+Apply sanitization on row names. This is not generally recommended by
+default, since rownames commonly contain gene identifiers that should not
+be modified.}
+
+\item{colnames}{\code{logical(1)}.
+Apply sanitization on column names. This is generally recommended by
+default.}
 }
 \description{
 Upper camel case
