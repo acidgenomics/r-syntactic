@@ -2,7 +2,7 @@ Package: syntactic
 Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
 Version: 0.1.0
-Date: 2018-12-26
+Date: 2019-01-01
 Authors@R: person(
     "Michael", "Steinbaugh",
     email = "mike@steinbaugh.com",
@@ -23,8 +23,8 @@ Imports:
 Suggests:
     testthat
 Remotes:
-    steinbaugh/bioverbs@develop,
-    steinbaugh/goalie@develop
+    steinbaugh/bioverbs,
+    steinbaugh/goalie
 biocViews: DataImport
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
