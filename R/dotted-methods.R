@@ -145,6 +145,20 @@ setMethod(
 
 
 
+dotted.Matrix <- dotted.matrix  # nolint
+
+
+
+#' @rdname dotted
+#' @export
+setMethod(
+    f = "dotted",
+    signature = signature("Matrix"),
+    definition = dotted.Matrix
+)
+
+
+
 dotted.data.frame <- dotted.matrix  # nolint
 
 

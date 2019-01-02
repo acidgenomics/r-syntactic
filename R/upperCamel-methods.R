@@ -14,7 +14,7 @@ bioverbs::upperCamel
 
 .upperCamel <-  # nolint
     function(object, strict = FALSE) {
-        camel(object, format = "upper", strict = strict)
+        .camel(object, format = "upper", strict = strict)
     }
 
 
@@ -116,6 +116,20 @@ setMethod(
     f = "upperCamel",
     signature = signature("matrix"),
     definition = upperCamel.matrix
+)
+
+
+
+upperCamel.Matrix <- upperCamel.matrix  # nolint
+
+
+
+#' @rdname upperCamel
+#' @export
+setMethod(
+    f = "upperCamel",
+    signature = signature("Matrix"),
+    definition = upperCamel.Matrix
 )
 
 
