@@ -7,6 +7,7 @@
 \alias{snake,character-method}
 \alias{snake,factor-method}
 \alias{snake,matrix-method}
+\alias{snake,Matrix-method}
 \alias{snake,data.frame-method}
 \alias{snake,DataFrame-method}
 \alias{snake,GRanges-method}
@@ -20,6 +21,8 @@
 \S4method{snake}{factor}(object)
 
 \S4method{snake}{matrix}(object, rownames = FALSE, colnames = TRUE)
+
+\S4method{snake}{Matrix}(object, rownames = FALSE, colnames = TRUE)
 
 \S4method{snake}{data.frame}(object, rownames = FALSE, colnames = TRUE)
 
