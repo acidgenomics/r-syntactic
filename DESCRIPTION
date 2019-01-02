@@ -21,6 +21,7 @@ Imports:
     magrittr (>= 1.5),
     methods
 Suggests:
+    patrick,
     testthat
 Remotes:
     steinbaugh/bioverbs,
