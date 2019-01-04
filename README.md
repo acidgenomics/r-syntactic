@@ -4,6 +4,8 @@ Make syntactically valid names out of character vectors.
 
 ## Installation
 
+This package is part of the [basejump][] toolkit. Refer to its website for installation instructions.
+
 ## Overview
 
 [syntactic][] improves upon the `make.names()` functionality defined in base [R][], and is designed to return syntactically valid names from biological metadata. The package exports these primary functions:
@@ -28,6 +30,7 @@ If [syntactic][] doesn't work quite right for you, these popular packages also p
 - [lettercase][] by Christopher Brown.
 - [snakecase][] by Malte Grosser.
 
+[basejump]: https://steinbaugh.com/basejump/
 [Bioconductor]: https://bioconductor.org/
 [janitor]: https://cran.r-project.org/package=janitor
 [lettercase]: https://cran.r-project.org/package=lettercase
