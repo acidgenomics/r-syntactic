@@ -7,6 +7,7 @@
 \alias{dotted,character-method}
 \alias{dotted,factor-method}
 \alias{dotted,matrix-method}
+\alias{dotted,Matrix-method}
 \alias{dotted,data.frame-method}
 \alias{dotted,DataFrame-method}
 \alias{dotted,GRanges-method}
@@ -20,6 +21,8 @@
 \S4method{dotted}{factor}(object)
 
 \S4method{dotted}{matrix}(object, rownames = FALSE, colnames = TRUE)
+
+\S4method{dotted}{Matrix}(object, rownames = FALSE, colnames = TRUE)
 
 \S4method{dotted}{data.frame}(object, rownames = FALSE,
   colnames = TRUE)

@@ -7,6 +7,7 @@
 \alias{upperCamel,character-method}
 \alias{upperCamel,factor-method}
 \alias{upperCamel,matrix-method}
+\alias{upperCamel,Matrix-method}
 \alias{upperCamel,data.frame-method}
 \alias{upperCamel,DataFrame-method}
 \alias{upperCamel,GRanges-method}
@@ -20,6 +21,9 @@
 \S4method{upperCamel}{factor}(object, strict = FALSE)
 
 \S4method{upperCamel}{matrix}(object, rownames = FALSE,
+  colnames = TRUE, strict = FALSE)
+
+\S4method{upperCamel}{Matrix}(object, rownames = FALSE,
   colnames = TRUE, strict = FALSE)
 
 \S4method{upperCamel}{data.frame}(object, rownames = FALSE,
