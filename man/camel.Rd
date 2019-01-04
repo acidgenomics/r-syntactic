@@ -7,6 +7,7 @@
 \alias{camel,character-method}
 \alias{camel,factor-method}
 \alias{camel,matrix-method}
+\alias{camel,Matrix-method}
 \alias{camel,data.frame-method}
 \alias{camel,DataFrame-method}
 \alias{camel,GRanges-method}
@@ -20,6 +21,9 @@
 \S4method{camel}{factor}(object, strict = FALSE)
 
 \S4method{camel}{matrix}(object, rownames = FALSE, colnames = TRUE,
+  strict = FALSE)
+
+\S4method{camel}{Matrix}(object, rownames = FALSE, colnames = TRUE,
   strict = FALSE)
 
 \S4method{camel}{data.frame}(object, rownames = FALSE, colnames = TRUE,

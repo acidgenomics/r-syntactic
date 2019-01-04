@@ -1,8 +1,8 @@
 Package: syntactic
 Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.1.0
-Date: 2018-12-26
+Version: 0.1.1
+Date: 2019-01-04
 Authors@R: person(
     "Michael", "Steinbaugh",
     email = "mike@steinbaugh.com",
@@ -21,10 +21,11 @@ Imports:
     magrittr (>= 1.5),
     methods
 Suggests:
+    patrick,
     testthat
 Remotes:
-    steinbaugh/bioverbs@develop,
-    steinbaugh/goalie@develop
+    steinbaugh/bioverbs,
+    steinbaugh/goalie
 biocViews: DataImport
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1

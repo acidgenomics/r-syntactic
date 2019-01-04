@@ -120,6 +120,20 @@ setMethod(
 
 
 
+snake.Matrix <- snake.matrix  # nolint
+
+
+
+#' @rdname snake
+#' @export
+setMethod(
+    f = "snake",
+    signature = signature("Matrix"),
+    definition = snake.Matrix
+)
+
+
+
 snake.data.frame <- snake.matrix  # nolint
 
 

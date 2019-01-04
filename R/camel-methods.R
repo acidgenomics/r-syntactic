@@ -169,6 +169,20 @@ setMethod(
 
 
 
+camel.Matrix <- camel.matrix  # nolint
+
+
+
+#' @rdname camel
+#' @export
+setMethod(
+    f = "camel",
+    signature = signature("Matrix"),
+    definition = camel.Matrix
+)
+
+
+
 camel.data.frame <- camel.matrix  # nolint
 
 
