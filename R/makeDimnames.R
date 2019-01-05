@@ -2,6 +2,14 @@
 #'
 #' @export
 #' @inheritParams params
+#'
+#' @return Modified object.
+#' Both row and columns names will be made syntactically valid.
+#'
+#' @examples
+#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' object <- mn$matrix
+#' makeDimnames(object)
 makeDimnames <- function(object) {
     assert(hasDimnames(object))
     # Row names.

@@ -1,9 +1,16 @@
 #' @name dotted
-#' @inherit bioverbs::dotted
-#' @inheritParams params
+#'
 #' @note [dotted()] support is provided for matching against base R parameters.
 #'   However, it is recommended to avoid using it for variable assignments into
 #'   an `environment`, as that can introduce conflicts with base functions.
+#'
+#' @inherit bioverbs::dotted
+#' @inherit camel return
+#' @inheritParams params
+#'
+#' @examples
+#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' lapply(mn, dotted)
 NULL
 
 

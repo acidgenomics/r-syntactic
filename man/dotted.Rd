@@ -45,6 +45,12 @@ be modified.}
 Apply sanitization on column names. This is generally recommended by
 default.}
 }
+\value{
+Modified object.
+Contains syntatically valid names. For objects supporting
+\code{\link[base:names]{names()}}, the underlying data returns unchanged, except for
+\code{character} or \code{vector} class.
+}
 \description{
 Dotted case
 }
@@ -52,4 +58,8 @@ Dotted case
 \code{\link[=dotted]{dotted()}} support is provided for matching against base R parameters.
 However, it is recommended to avoid using it for variable assignments into
 an \code{environment}, as that can introduce conflicts with base functions.
+}
+\examples{
+load(system.file("extdata", "mn.rda", package = "syntactic"))
+lapply(mn, dotted)
 }
