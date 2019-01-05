@@ -1,6 +1,16 @@
 #' @name camel
+#'
 #' @inherit bioverbs::camel
 #' @inheritParams params
+#'
+#' @return Modified object.
+#' Contains syntatically valid names. For objects supporting
+#' [`names()`][base::names], the underlying data returns unchanged, except for
+#' `character` or `vector` class.
+#'
+#' @examples
+#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' lapply(mn, camel)
 NULL
 
 

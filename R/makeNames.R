@@ -1,20 +1,23 @@
 #' Make syntactically valid names
 #'
 #' For `atomic` vectors, these functions will sanitize the values. Otherwise,
-#' they will set `names`, `rownames`, and/or `colnames` without
-#' modification of the values.
+#' they will set [`names()`][base::names], [`rownames()`][base::rownames()],
+#' and/or [`colnames()`][base::colnames] without modification of the values.
 #'
-#' @note `makeNames` sanitizes names using underscores instead of dots, the
-#' convention used by `make.names`.
+#' @note [makeNames()] sanitizes names using underscores instead of dots, the
+#' convention used by [`make.names()`][base::make.names].
 #'
 #' @export
 #' @inheritParams base::make.names
 #'
-#' @return Modified object.
-#' Contains syntatically valid names. For objects supporting `names`, the
-#' underlying data returns unchanged.
-#'
 #' @seealso `make.names()`.
+#'
+#' @return `character`.
+#'
+#' @examples
+#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' names <- mn$character
+#' makeNames(names)
 makeNames <- function(names, unique = TRUE) {
     assert(
         is.atomic(names),

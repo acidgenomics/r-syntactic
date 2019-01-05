@@ -52,6 +52,16 @@ be modified.}
 Apply sanitization on column names. This is generally recommended by
 default.}
 }
+\value{
+Modified object.
+Contains syntatically valid names. For objects supporting
+\code{\link[base:names]{names()}}, the underlying data returns unchanged, except for
+\code{character} or \code{vector} class.
+}
 \description{
 Camel case
+}
+\examples{
+load(system.file("extdata", "mn.rda", package = "syntactic"))
+lapply(mn, camel)
 }
