@@ -1,8 +1,8 @@
 Package: syntactic
 Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.1.1
-Date: 2019-01-04
+Version: 0.1.2
+Date: 2019-01-05
 Authors@R: person(
     "Michael", "Steinbaugh",
     email = "mike@steinbaugh.com",
@@ -15,14 +15,15 @@ Encoding: UTF-8
 Depends: R (>= 3.5)
 Imports:
     GenomicRanges,
+    Matrix,
     S4Vectors,
-    bioverbs (>= 0.1),
-    goalie (>= 0.1),
+    bioverbs (>= 0.1.2),
+    goalie (>= 0.2.3),
     magrittr (>= 1.5),
     methods
 Suggests:
     patrick,
-    testthat
+    testthat (>= 2.0)
 Remotes:
     steinbaugh/bioverbs,
     steinbaugh/goalie
