@@ -1,0 +1,19 @@
+## syntactic v0.1.2 (2019-01-05
+
+- Matrix NAMESPACE fix.
+- Documentation improvements.
+
+
+## syntactic v0.1.1 (2019-01-04)
+
+- Added back [Matrix][] S4 class method support.
+
+
+## syntactic v0.1.0 (2019-01-01)
+
+Initial release. Migrated syntactic name functions from [basejump][] package
+here to form a more compact package that is easier to unit test.
+
+
+[basejump]: https://steinbaugh.com/basejump/
+[Matrix]: https://cran.r-project.org/package=Matrix
