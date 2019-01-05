@@ -20,7 +20,8 @@ Imports:
     bioverbs (>= 0.1.2),
     goalie (>= 0.2.3),
     magrittr (>= 1.5),
-    methods
+    methods,
+    utils
 Suggests:
     patrick,
     testthat (>= 2.0)
