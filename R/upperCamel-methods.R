@@ -1,6 +1,12 @@
 #' @name upperCamel
+#'
 #' @inherit bioverbs::upperCamel
+#' @inherit camel return
 #' @inheritParams params
+#'
+#' @examples
+#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' lapply(mn, upperCamel)
 NULL
 
 

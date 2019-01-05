@@ -1,6 +1,12 @@
 #' @name snake
+#'
 #' @inherit bioverbs::snake
+#' @inherit camel return
 #' @inheritParams params
+#'
+#' @examples
+#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' lapply(mn, snake)
 NULL
 
 

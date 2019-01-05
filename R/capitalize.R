@@ -1,9 +1,13 @@
 #' Capitalize
 #'
+#' Capitalize the first letter of each string in a `character` vector.
+#'
 #' @export
 #' @inheritParams params
 #'
 #' @seealso `R.utils::capitalize()`.
+#'
+#' @return `character`.
 #'
 #' @examples
 #' capitalize(c("hello", "world"))

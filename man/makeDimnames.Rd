@@ -9,6 +9,15 @@ makeDimnames(object)
 \arguments{
 \item{object}{Object.}
 }
+\value{
+Modified object.
+Both row and columns names will be made syntactically valid.
+}
 \description{
 Make syntactically valid dimnames
+}
+\examples{
+load(system.file("extdata", "mn.rda", package = "syntactic"))
+object <- mn$matrix
+makeDimnames(object)
 }

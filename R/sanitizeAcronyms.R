@@ -1,5 +1,3 @@
-# `stringr::str_replace_all` is an alternate approach that uses `regex`.
-# https://stringr.tidyverse.org/articles/regular-expressions.html
 .sanitizeAcronyms <- function(object) {
     assert(is.atomic(object))
     object %>%

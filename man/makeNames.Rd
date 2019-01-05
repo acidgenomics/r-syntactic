@@ -14,18 +14,21 @@ makeNames(names, unique = TRUE)
      unique.  This may be desired for, e.g., column names.}
 }
 \value{
-Modified object.
-Contains syntatically valid names. For objects supporting \code{names}, the
-underlying data returns unchanged.
+\code{character}.
 }
 \description{
 For \code{atomic} vectors, these functions will sanitize the values. Otherwise,
-they will set \code{names}, \code{rownames}, and/or \code{colnames} without
-modification of the values.
+they will set \code{\link[base:names]{names()}}, \code{\link[base:rownames]{rownames()}},
+and/or \code{\link[base:colnames]{colnames()}} without modification of the values.
 }
 \note{
-\code{makeNames} sanitizes names using underscores instead of dots, the
-convention used by \code{make.names}.
+\code{\link[=makeNames]{makeNames()}} sanitizes names using underscores instead of dots, the
+convention used by \code{\link[base:make.names]{make.names()}}.
+}
+\examples{
+load(system.file("extdata", "mn.rda", package = "syntactic"))
+names <- mn$character
+makeNames(names)
 }
 \seealso{
 \code{make.names()}.

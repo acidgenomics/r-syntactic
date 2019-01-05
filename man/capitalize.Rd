@@ -9,8 +9,11 @@ capitalize(x)
 \arguments{
 \item{x}{Object.}
 }
+\value{
+\code{character}.
+}
 \description{
-Capitalize
+Capitalize the first letter of each string in a \code{character} vector.
 }
 \examples{
 capitalize(c("hello", "world"))
