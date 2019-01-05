@@ -15,11 +15,17 @@ env:
   global:
     - LINTR_COMMENT_BOT=true
 
+r_packages:
+  - covr
+bioc_packages:
+  - BiocCheck
 github_packages:
   - mjsteinbaugh/lintr
 
 after_success:
   - Rscript -e 'lintr::lint_package()'
+  - Rscript -e 'covr::codecov()'
+  - R CMD BiocCheck .
 
 notifications:
   email:
