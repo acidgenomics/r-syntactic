@@ -1,15 +1,28 @@
-## syntactic v0.1.2 (2019-01-05)
+## syntactic 0.1.3 (2019-01-23)
+
+### Minor changes
+
+- Split out imports into `imports.R` file, to match conventions used in the
+  other [basejump][] subpackages.
+- Added [pkgdown][] website.
+
+
+## syntactic 0.1.2 (2019-01-05)
+
+### Minor changes
 
 - Matrix NAMESPACE fix.
 - Documentation improvements.
 
 
-## syntactic v0.1.1 (2019-01-04)
+## syntactic 0.1.1 (2019-01-04)
+
+### Minor changes
 
 - Added back [Matrix][] S4 class method support.
 
 
-## syntactic v0.1.0 (2019-01-01)
+## syntactic 0.1.0 (2019-01-01)
 
 Initial release. Migrated syntactic name functions from [basejump][] package
 here to form a more compact package that is easier to unit test.
@@ -17,3 +30,4 @@ here to form a more compact package that is easier to unit test.
 
 [basejump]: https://steinbaugh.com/basejump/
 [Matrix]: https://cran.r-project.org/package=Matrix
+[pkgdown]: https://pkgdown.r-lib.org/
