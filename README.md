@@ -3,6 +3,7 @@
 [![Travis CI build status](https://travis-ci.com/steinbaugh/syntactic.svg?branch=master)](https://travis-ci.com/steinbaugh/syntactic)
 [![AppVeyor CI build status](https://ci.appveyor.com/api/projects/status/9alj3hqmvfha9a02/branch/master?svg=true)](https://ci.appveyor.com/project/mjsteinbaugh/syntactic/branch/master)
 [![Codecov percent coverage](https://codecov.io/gh/steinbaugh/syntactic/branch/master/graph/badge.svg)](https://codecov.io/gh/steinbaugh/syntactic)
+[![Anaconda cloud version](https://anaconda.org/bioconda/r-syntactic/badges/version.svg)](https://anaconda.org/bioconda/r-syntactic)
 [![Repo status: active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 Make syntactically valid names out of character vectors.
