@@ -12,9 +12,9 @@
 
 ## syntactic 0.1.4 (2019-02-11)
 
-### New functions
+### Minor changes
 
-- `capitalize`: Added character vector method support.
+- Converted `capitalize` to S4 method that dispatches on character vectors.
 
 
 
