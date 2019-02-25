@@ -51,7 +51,11 @@ Contains syntatically valid names. For objects supporting
 \code{character} or \code{vector} class.
 }
 \description{
-Snake case
+Format character strings to use snake-style formatting, where word boundaries
+are defined by underscores (e.g. \code{this_is_snake_case}).
+}
+\details{
+Snake case is recommended by the tidyverse for variable and function names.
 }
 \examples{
 load(system.file("extdata", "mn.rda", package = "syntactic"))
