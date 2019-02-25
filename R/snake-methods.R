@@ -20,10 +20,10 @@ bioverbs::snake
 
 .snake <-  # nolint
     function(object) {
-        object %>%
-            dotted() %>%
-            tolower() %>%
-            gsub("\\.", "_", .)
+        object <- dotted(object)
+        object <- tolower(object)
+        object <- gsub(pattern = "\\.", replacement = "_", x = object)
+        object
     }
 
 
@@ -75,10 +75,9 @@ setMethod(
 snake.factor <-  # nolint
     function(object) {
         names <- names(object)
-        object <- object %>%
-            as.character() %>%
-            snake() %>%
-            as.factor()
+        object <- as.character(object)
+        object <- snake(object)
+        object <- as.factor(object)
         names(object) <- snake(names)
         object
     }
