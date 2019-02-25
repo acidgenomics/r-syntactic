@@ -59,7 +59,11 @@ Contains syntatically valid names. For objects supporting
 \code{character} or \code{vector} class.
 }
 \description{
-Camel case
+Format character strings to use (lower) camel-style formatting, where word
+boundaries are defined by capitlization only (e.g. \code{thisIsCamelCase}).
+}
+\details{
+Camel case is recommended by Bioconductor for variable and function names.
 }
 \examples{
 load(system.file("extdata", "mn.rda", package = "syntactic"))
