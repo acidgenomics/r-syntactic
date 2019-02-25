@@ -127,10 +127,9 @@ setMethod(
 camel.factor <-  # nolint
     function(object, strict = FALSE) {
         names <- names(object)
-        object <- object %>%
-            as.character() %>%
-            camel(strict = strict) %>%
-            as.factor()
+        object <- as.character(object)
+        object <- camel(object, strict = strict)
+        object <- as.factor(object)
         names(object) <- camel(names, strict = strict)
         object
     }

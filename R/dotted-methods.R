@@ -22,34 +22,81 @@ bioverbs::dotted
 
 
 
-# Dotted case formatting is used internally by camel and snake.
+# Dotted case formatting is used internally by camel, kebab, and snake.
 .dotted <-  # nolint
     function(object) {
-        object %>%
-            as.character() %>%
-            # Handle "+" as a special case. Spell out as "plus".
-            gsub("\\+", ".plus.", .) %>%
-            # Handle "%" as a special case. Spell out as "percent".
-            gsub("%", "percent", .) %>%
-            # Strip comma delims in between numbers (e.g. 1,000,000).
-            gsub("(\\d),(\\d)", "\\1\\2", .) %>%
-            make.names(unique = FALSE, allow_ = FALSE) %>%
-            # Ensure all non-alphanumeric characters get coerced to periods.
-            gsub("[^[:alnum:]]", ".", .) %>%
-            # Combine multiple dots.
-            gsub("[\\.]+", ".", .) %>%
-            # Strip leading or trailing dots.
-            gsub("(^\\.|\\.$)", "", .) %>%
-            # Coerce `"NA"` back to `NA` after `make.names()` call.
-            gsub("^NA$", NA_character_, .) %>%
-            # Standardize any mixed case acronyms.
-            .sanitizeAcronyms() %>%
-            # Establish word boundaries for camelCase acronyms
-            # (e.g. `worfdbHTMLRemap` -> `worfdb.HTML.remap`).
-            # Acronym following a word.
-            gsub("([a-z])([A-Z])", "\\1.\\2", .) %>%
-            # Word following an acronym.
-            gsub("([A-Z0-9])([A-Z])([a-z])", "\\1.\\2\\3", .)
+        assert(is.atomic(object))
+        object <- as.character(object)
+
+        # Handle "+" as a special case. Spell out as "plus".
+        object <- gsub(
+            pattern = "\\+",
+            replacement = ".plus.",
+            x = object
+        )
+        # Handle "%" as a special case. Spell out as "percent".
+        object <- gsub(
+            pattern = "%",
+            replacement = "percent",
+            x = object
+        )
+
+        # Strip comma delims in between numbers (e.g. 1,000,000).
+        object <- gsub(
+            pattern = "(\\d),(\\d)",
+            replacement = "\\1\\2",
+            x = object
+        )
+
+        # Now we're ready to sanitize using base conventions.
+        object <- make.names(object, unique = FALSE, allow_ = FALSE)
+
+        # Ensure all non-alphanumeric characters get coerced to periods.
+        object <- gsub(
+            pattern = "[^[:alnum:]]",
+            replacement = ".",
+            x = object
+        )
+
+        # Combine multiple dots.
+        object <- gsub(
+            pattern = "[\\.]+",
+            replacement = ".",
+            x = object
+        )
+        # Strip leading or trailing dots.
+        object <- gsub(
+            pattern = "(^\\.|\\.$)",
+            replacement = "",
+            x = object
+        )
+
+        # Coerce `"NA"` back to `NA` after `make.names()` call.
+        object <- gsub(
+            pattern = "^NA$",
+            replacement = NA_character_,
+            x = object
+        )
+
+        # Standardize any mixed case acronyms.
+        object <- .sanitizeAcronyms(object)
+
+        # Establish word boundaries for camelCase acronyms
+        # (e.g. `worfdbHTMLRemap` -> `worfdb.HTML.remap`).
+        # Acronym following a word.
+        object <- gsub(
+            pattern = "([a-z])([A-Z])",
+            replacement = "\\1.\\2",
+            x = object
+        )
+        # Word following an acronym.
+        object <- gsub(
+            pattern = "([A-Z0-9])([A-Z])([a-z])",
+            replacement = "\\1.\\2\\3",
+            x = object
+        )
+
+        object
     }
 
 
@@ -101,10 +148,9 @@ setMethod(
 dotted.factor <-  # nolint
     function(object) {
         names <- names(object)
-        object <- object %>%
-            as.character() %>%
-            dotted() %>%
-            as.factor()
+        object <- as.character(object)
+        object <- dotted(object)
+        object <- as.factor(object)
         names(object) <- dotted(names)
         object
     }
