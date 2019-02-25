@@ -72,10 +72,9 @@ setMethod(
 upperCamel.factor <-  # nolint
     function(object, strict = FALSE) {
         names <- names(object)
-        object <- object %>%
-            as.character() %>%
-            upperCamel(strict = strict) %>%
-            as.factor()
+        object <- as.character(object)
+        object <- upperCamel(object, strict = strict)
+        object <- as.factor(object)
         names(object) <- upperCamel(names, strict = strict)
         object
     }
