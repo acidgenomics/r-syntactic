@@ -1,8 +1,8 @@
 # syntactic
 
-[![Travis CI build status](https://travis-ci.com/steinbaugh/syntactic.svg?branch=master)](https://travis-ci.com/steinbaugh/syntactic)
+[![Travis CI build status](https://travis-ci.com/acidgenomics/syntactic.svg?branch=master)](https://travis-ci.com/acidgenomics/syntactic)
 [![AppVeyor CI build status](https://ci.appveyor.com/api/projects/status/9alj3hqmvfha9a02/branch/master?svg=true)](https://ci.appveyor.com/project/mjsteinbaugh/syntactic/branch/master)
-[![Codecov percent coverage](https://codecov.io/gh/steinbaugh/syntactic/branch/master/graph/badge.svg)](https://codecov.io/gh/steinbaugh/syntactic)
+[![Codecov percent coverage](https://codecov.io/gh/acidgenomics/syntactic/branch/master/graph/badge.svg)](https://codecov.io/gh/acidgenomics/syntactic)
 [![Anaconda cloud version](https://anaconda.org/bioconda/r-syntactic/badges/version.svg)](https://anaconda.org/bioconda/r-syntactic)
 [![Repo status: active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
@@ -36,10 +36,10 @@ If [syntactic][] doesn't work quite right for you, these popular packages also p
 - [lettercase][] by Christopher Brown.
 - [snakecase][] by Malte Grosser.
 
-[basejump]: https://steinbaugh.com/basejump/
+[basejump]: https://basejump.acidgenomics.com/
 [Bioconductor]: https://bioconductor.org/
 [janitor]: https://cran.r-project.org/package=janitor
 [lettercase]: https://cran.r-project.org/package=lettercase
 [R]: https://www.r-project.org/
 [snakecase]: https://cran.r-project.org/package=snakecase
-[syntactic]: https://steinbaugh.com/syntactic/
+[syntactic]: https://syntactic.acidgenomics.com/
