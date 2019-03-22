@@ -1,28 +1,34 @@
 Package: syntactic
 Title: Syntactically valid names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.1.5
-Date: 2019-02-25
-Authors@R: person(
-    "Michael", "Steinbaugh",
-    email = "mike@steinbaugh.com",
-    role = c("aut", "cre"),
-    comment = c(ORCID = "0000-0002-2403-2221"))
+Version: 0.1.6
+Date: 2019-03-22
+Authors@R: c(
+    person(
+        "Michael", "Steinbaugh",
+        email = "mike@steinbaugh.com",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0000-0002-2403-2221")
+    ),
+    person(
+        given = "Acid Genomics",
+        role = c("cph", "fnd")
+    ))
 URL: https://github.com/steinbaugh/syntactic/
 BugReports: https://github.com/steinbaugh/syntactic/issues/
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.4)
 Imports:
-    bioverbs (>= 0.1.8), goalie (>= 0.2.8),
+    bioverbs (>= 0.1.9), goalie (>= 0.2.11),
     GenomicRanges, S4Vectors,
     Matrix,
     methods, utils
 Suggests:
     patrick, testthat
 Remotes:
-    steinbaugh/bioverbs,
-    steinbaugh/goalie
+    acidgenomics/bioverbs,
+    acidgenomics/goalie
 biocViews: DataImport
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
