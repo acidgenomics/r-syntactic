@@ -14,7 +14,9 @@ Authors@R: c(
         given = "Acid Genomics",
         role = c("cph", "fnd")
     ))
-URL: https://github.com/steinbaugh/syntactic/
+URL:
+    https://syntactic.acidgenomics.com/,
+    https://github.com/acidgenomics/syntactic/
 BugReports: https://github.com/steinbaugh/syntactic/issues/
 License: MIT + file LICENSE
 Encoding: UTF-8
