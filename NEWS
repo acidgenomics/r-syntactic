@@ -1,3 +1,11 @@
+## syntactic 0.1.6 (2019-03-22)
+
+### Minor changes
+
+- Migrated code to [Acid Genomics].
+
+
+
 ## syntactic 0.1.5 (2019-02-25)
 
 ### New functions
@@ -52,6 +60,7 @@ here to form a more compact package that is easier to unit test.
 
 
 
-[basejump]: https://steinbaugh.com/basejump/
+[Acid Genomics]: https://acidgenomics.com/
+[basejump]: https://basejump.acidgenomics.com/
 [Matrix]: https://cran.r-project.org/package=Matrix
 [pkgdown]: https://pkgdown.r-lib.org/
