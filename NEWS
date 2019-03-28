@@ -4,6 +4,7 @@
 
 - Added SummarizedExperiment methods for syntactic naming functions, which
   reenables support for `rownames` and `colnames` arguments.
+- Switched to using acidtest package for example test data.
 
 
 
