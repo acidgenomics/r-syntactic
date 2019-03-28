@@ -1,7 +1,6 @@
 context("S4 methods")
 
-load(system.file("extdata/mn.rda", package = "syntactic"))
-load(system.file("extdata/gr.rda", package = "syntactic"))
+data(gr, mn, package = "acidtest", envir = environment())
 
 funs <- list(
     camel = camel,

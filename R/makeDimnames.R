@@ -7,7 +7,7 @@
 #' Both row and columns names will be made syntactically valid.
 #'
 #' @examples
-#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' data(mn, package = "acidtest")
 #' object <- mn$matrix
 #' makeDimnames(object)
 makeDimnames <- function(object) {
