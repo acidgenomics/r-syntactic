@@ -269,3 +269,17 @@ setMethod(
     signature = signature("GRangesList"),
     definition = dotted.GRangesList
 )
+
+
+
+dotted.SummarizedExperiment <- dotted.matrix  # nolint
+
+
+
+#' @rdname dotted
+#' @export
+setMethod(
+    f = "dotted",
+    signature = signature("SummarizedExperiment"),
+    definition = dotted.SummarizedExperiment
+)

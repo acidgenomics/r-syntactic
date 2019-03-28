@@ -12,6 +12,7 @@
 \alias{upperCamel,DataFrame-method}
 \alias{upperCamel,GRanges-method}
 \alias{upperCamel,GRangesList-method}
+\alias{upperCamel,SummarizedExperiment-method}
 \title{Upper camel case}
 \usage{
 \S4method{upperCamel}{ANY}(object, strict = FALSE)
@@ -35,6 +36,9 @@
 \S4method{upperCamel}{GRanges}(object, strict = FALSE)
 
 \S4method{upperCamel}{GRangesList}(object, strict = FALSE)
+
+\S4method{upperCamel}{SummarizedExperiment}(object, rownames = FALSE,
+  colnames = TRUE, strict = FALSE)
 }
 \arguments{
 \item{object}{Object.}

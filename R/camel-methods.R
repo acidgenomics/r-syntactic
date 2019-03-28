@@ -250,3 +250,17 @@ setMethod(
     signature = signature("GRangesList"),
     definition = camel.GRangesList
 )
+
+
+
+camel.SummarizedExperiment <- camel.matrix  # nolint
+
+
+
+#' @rdname camel
+#' @export
+setMethod(
+    f = "camel",
+    signature = signature("SummarizedExperiment"),
+    definition = camel.SummarizedExperiment
+)
