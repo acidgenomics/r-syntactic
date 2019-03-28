@@ -12,6 +12,7 @@
 \alias{dotted,DataFrame-method}
 \alias{dotted,GRanges-method}
 \alias{dotted,GRangesList-method}
+\alias{dotted,SummarizedExperiment-method}
 \title{Dotted case}
 \usage{
 \S4method{dotted}{ANY}(object)
@@ -32,6 +33,9 @@
 \S4method{dotted}{GRanges}(object)
 
 \S4method{dotted}{GRangesList}(object)
+
+\S4method{dotted}{SummarizedExperiment}(object, rownames = FALSE,
+  colnames = TRUE)
 }
 \arguments{
 \item{object}{Object.}
