@@ -9,7 +9,7 @@
 #' `character` or `vector` class.
 #'
 #' @examples
-#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' data(mn, package = "acidtest")
 #' lapply(mn, camel)
 NULL
 

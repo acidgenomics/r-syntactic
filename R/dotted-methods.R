@@ -9,7 +9,7 @@
 #' @inheritParams params
 #'
 #' @examples
-#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' data(mn, package = "acidtest")
 #' lapply(mn, dotted)
 NULL
 
