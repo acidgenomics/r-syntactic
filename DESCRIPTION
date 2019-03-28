@@ -27,8 +27,10 @@ Imports:
     Matrix,
     methods, utils
 Suggests:
+    acidtest (>= 0.1),
     patrick, testthat
 Remotes:
+    acidgenomics/acidtest,
     acidgenomics/bioverbs,
     acidgenomics/goalie
 biocViews: DataImport
