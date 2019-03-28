@@ -73,6 +73,6 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \examples{
-load(system.file("extdata", "mn.rda", package = "syntactic"))
+data(mn, package = "acidtest")
 lapply(mn, upperCamel)
 }

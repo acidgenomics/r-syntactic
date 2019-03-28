@@ -26,7 +26,7 @@ and/or \code{\link[base:colnames]{colnames()}} without modification of the value
 convention used by \code{\link[base:make.names]{make.names()}}.
 }
 \examples{
-load(system.file("extdata", "mn.rda", package = "syntactic"))
+data(mn, package = "acidtest")
 names <- mn$character
 makeNames(names)
 }
