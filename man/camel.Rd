@@ -70,6 +70,6 @@ boundaries are defined by capitlization only (e.g. \code{thisIsCamelCase}).
 Camel case is recommended by Bioconductor for variable and function names.
 }
 \examples{
-load(system.file("extdata", "mn.rda", package = "syntactic"))
+data(mn, package = "acidtest")
 lapply(mn, camel)
 }
