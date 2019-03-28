@@ -15,7 +15,7 @@
 #' @return `character`.
 #'
 #' @examples
-#' load(system.file("extdata", "mn.rda", package = "syntactic"))
+#' data(mn, package = "acidtest")
 #' names <- mn$character
 #' makeNames(names)
 makeNames <- function(names, unique = TRUE) {

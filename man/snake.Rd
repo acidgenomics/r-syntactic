@@ -58,6 +58,6 @@ are defined by underscores (e.g. \code{this_is_snake_case}).
 Snake case is recommended by the tidyverse for variable and function names.
 }
 \examples{
-load(system.file("extdata", "mn.rda", package = "syntactic"))
+data(mn, package = "acidtest")
 lapply(mn, snake)
 }
