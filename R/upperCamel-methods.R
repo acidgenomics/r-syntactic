@@ -197,3 +197,17 @@ setMethod(
     signature = signature("GRangesList"),
     definition = upperCamel.GRangesList
 )
+
+
+
+upperCamel.SummarizedExperiment <- upperCamel.matrix  # nolint
+
+
+
+#' @rdname upperCamel
+#' @export
+setMethod(
+    f = "upperCamel",
+    signature = signature("SummarizedExperiment"),
+    definition = upperCamel.SummarizedExperiment
+)

@@ -12,6 +12,7 @@
 \alias{camel,DataFrame-method}
 \alias{camel,GRanges-method}
 \alias{camel,GRangesList-method}
+\alias{camel,SummarizedExperiment-method}
 \title{Camel case}
 \usage{
 \S4method{camel}{ANY}(object, strict = FALSE)
@@ -35,6 +36,9 @@
 \S4method{camel}{GRanges}(object, strict = FALSE)
 
 \S4method{camel}{GRangesList}(object, strict = FALSE)
+
+\S4method{camel}{SummarizedExperiment}(object, rownames = FALSE,
+  colnames = TRUE, strict = FALSE)
 }
 \arguments{
 \item{object}{Object.}
