@@ -2,7 +2,7 @@ data(mn, package = "acidtest", envir = environment())
 
 
 
-context("atomic")
+context("Atomic functions")
 
 vec <- mn[["character"]]
 
@@ -86,7 +86,7 @@ test_that("kebab", {
 
 
 
-context("matrix")
+context("Matrix functions")
 
 test_that("makeDimnames", {
     mat <- matrix(
