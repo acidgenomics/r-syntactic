@@ -1,3 +1,13 @@
+## syntactic 0.1.8 (2019-03-29)
+
+### Minor changes
+
+- Bug fixes for `SummarizedExperiment` method support in syntactic functions.
+  Added method suport for `snake`, which was missing, and forgot to import
+  SummarizedExperiment as a class.
+
+
+
 ## syntactic 0.1.7 (2019-03-28)
 
 ### Minor changes
