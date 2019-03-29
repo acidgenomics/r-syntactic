@@ -12,6 +12,7 @@
 \alias{snake,DataFrame-method}
 \alias{snake,GRanges-method}
 \alias{snake,GRangesList-method}
+\alias{snake,SummarizedExperiment-method}
 \title{Snake case}
 \usage{
 \S4method{snake}{ANY}(object)
@@ -31,6 +32,9 @@
 \S4method{snake}{GRanges}(object)
 
 \S4method{snake}{GRangesList}(object)
+
+\S4method{snake}{SummarizedExperiment}(object, rownames = FALSE,
+  colnames = TRUE)
 }
 \arguments{
 \item{object}{Object.}
