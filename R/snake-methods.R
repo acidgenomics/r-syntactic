@@ -196,3 +196,17 @@ setMethod(
     signature = signature("GRangesList"),
     definition = snake.GRangesList
 )
+
+
+
+snake.SummarizedExperiment <- snake.matrix  # nolint
+
+
+
+#' @rdname snake
+#' @export
+setMethod(
+    f = "snake",
+    signature = signature("SummarizedExperiment"),
+    definition = snake.SummarizedExperiment
+)
