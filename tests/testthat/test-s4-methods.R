@@ -1,8 +1,6 @@
-data(gr, mn, package = "acidtest", envir = environment())
-
-
-
 context("S4 methods")
+
+data(gr, mn, package = "acidtest", envir = environment())
 
 funs <- list(
     camel = camel,
