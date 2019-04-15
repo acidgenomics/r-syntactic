@@ -9,9 +9,6 @@ install:
 
 platform: x64
 
-# cache:
-#   - C:\RLibrary
-
 branches:
   only:
     - master
@@ -34,21 +31,18 @@ on_failure:
 artifacts:
   - path: '*.Rcheck\**\*.log'
     name: Logs
-
   - path: '*.Rcheck\**\*.out'
     name: Logs
-
   - path: '*.Rcheck\**\*.fail'
     name: Logs
-
   - path: '*.Rcheck\**\*.Rout'
     name: Logs
-
   - path: '\*_*.tar.gz'
     name: Bits
-
   - path: '\*_*.zip'
     name: Bits
+  - path: all-Rout.zip
+    name: AllRout
 
 notifications:
   - provider: Email
