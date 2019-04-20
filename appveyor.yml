@@ -15,8 +15,21 @@ branches:
 
 environment:
   global:
+    GCC_PATH: mingw_64
     R_ARCH: x64
     USE_RTOOLS: true
+  matrix:
+    - configuration: release
+      R_VERSION: release
+    - configuration: oldrel
+      R_VERSION: oldrel
+    - configuration: devel
+      R_VERSION: devel
+
+matrix:
+  allow_failures:
+    - configuration: devel
+  fast_finish: true
 
 build_script:
   - travis-tool.sh install_deps
