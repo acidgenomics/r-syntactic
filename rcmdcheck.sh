@@ -22,6 +22,9 @@ echo "Session information"
 Rscript -e "utils::sessionInfo()"
 Rscript -e "sessioninfo::session_info()"
 
+echo "Installed packages"
+Rscript -e "installed.packages()[, \"Version\", drop = TRUE]"
+
 echo "R CMD check"
 # Set `--as-cran` flag for extra verbose incoming package checks.
 R CMD build . --no-build-vignettes --no-manual
@@ -43,7 +46,7 @@ Rscript -e "BiocCheck::BiocCheck( \
 rm "$PKG_TARBALL"
 
 echo "Coverage"
-Rscript -e "covr::package_coverage()"
+./coverage.R
 
 echo "lintr"
 Rscript -e "if (packageVersion(\"base\") >= \"3.6\") \
