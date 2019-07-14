@@ -24,13 +24,14 @@ bioverbs::kebab
 
 # Note that by calling `snake()` internally, this will handle special words
 # like "%" and "+", which we want. Refer to `dotted()` for this code.
-kebab.character <- function(object) {
-    names <- names(object)
-    object <- snake(object)
-    object <- gsub(pattern = "_", replacement = "-", x = object)
-    names(object) <- names
-    object
-}
+kebab.character <-  # nolint
+    function(object) {
+        names <- names(object)
+        object <- snake(object)
+        object <- gsub(pattern = "_", replacement = "-", x = object)
+        names(object) <- names
+        object
+    }
 
 
 
