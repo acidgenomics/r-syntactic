@@ -84,10 +84,16 @@ NULL
 
 
 
+# Base R classes ===============================================================
 # Updated 2019-07-19.
-`camelCase,ANY` <-  # nolint
-    function(object, strict = FALSE) {
-        if (hasNames(object)) {
+`camelCase,atomic` <-  # nolint
+    function(object, names = TRUE, strict = FALSE) {
+        validObject(object)
+        assert(
+            isFlag(names),
+            isFlag(strict)
+        )
+        if (isTRUE(names) && hasNames(object)) {
             names(object) <- camelCase(names(object), strict = strict)
         }
         object
@@ -99,19 +105,24 @@ NULL
 #' @export
 setMethod(
     f = "camelCase",
-    signature = signature("ANY"),
-    definition = `camelCase,ANY`
+    signature = signature("atomic"),
+    definition = `camelCase,atomic`
 )
 
 
 
 # Updated 2019-07-19.
 `camelCase,character` <-  # nolint
-    function(object, strict = FALSE) {
-        if (hasNames(object)) {
+    function(object, names = TRUE, strict = FALSE) {
+        validObject(object)
+        assert(
+            isFlag(names),
+            isFlag(strict)
+        )
+        if (isTRUE(names) && hasNames(object)) {
             names <- .camelCase(names(object), strict = strict)
         } else {
-            names <- NULL
+            names <- names(object)
         }
         object <- .camelCase(object, strict = strict)
         names(object) <- names
@@ -132,12 +143,21 @@ setMethod(
 
 # Updated 2019-07-19.
 `camelCase,factor` <-  # nolint
-    function(object, strict = FALSE) {
-        names <- names(object)
+    function(object, names = TRUE, strict = FALSE) {
+        validObject(object)
+        assert(
+            isFlag(names),
+            isFlag(strict)
+        )
+        if (isTRUE(names) && hasNames(object)) {
+            names <- .camelCase(names(object), strict = strict)
+        } else {
+            names <- names(object)
+        }
         object <- as.character(object)
         object <- camelCase(object, strict = strict)
         object <- as.factor(object)
-        names(object) <- camelCase(names, strict = strict)
+        names(object) <- names
         object
     }
 
@@ -154,6 +174,21 @@ setMethod(
 
 
 # Updated 2019-07-19.
+`camelCase,list` <- `camelCase,atomic`  # nolint
+
+
+
+#' @rdname camelCase
+#' @export
+setMethod(
+    f = "camelCase",
+    signature = signature("list"),
+    definition = `camelCase,list`
+)
+
+
+
+# Updated 2019-07-19.
 `camelCase,matrix` <-  # nolint
     function(
         object,
@@ -161,9 +196,12 @@ setMethod(
         colnames = TRUE,
         strict = FALSE
     ) {
+        validObject(object)
         assert(
             hasDimnames(object),
-            isFlag(rownames)
+            isFlag(rownames),
+            isFlag(colnames),
+            isFlag(strict)
         )
         if (isTRUE(rownames) && hasRownames(object)) {
             rownames(object) <- camelCase(rownames(object), strict = strict)
@@ -187,21 +225,6 @@ setMethod(
 
 
 # Updated 2019-07-19.
-`camelCase,Matrix` <- `camelCase,matrix`  # nolint
-
-
-
-#' @rdname camelCase
-#' @export
-setMethod(
-    f = "camelCase",
-    signature = signature("Matrix"),
-    definition = `camelCase,Matrix`
-)
-
-
-
-# Updated 2019-07-19.
 `camelCase,data.frame` <- `camelCase,matrix`  # nolint
 
 
@@ -216,26 +239,35 @@ setMethod(
 
 
 
+# S4 virtual classes ===========================================================
 # Updated 2019-07-19.
-`camelCase,DataFrame` <- `camelCase,data.frame`  # nolint
-
-
-
-#' @rdname camelCase
-#' @export
-setMethod(
-    f = "camelCase",
-    signature = signature("DataFrame"),
-    definition = `camelCase,DataFrame`
-)
-
-
-
-# Updated 2019-07-19.
-`camelCase,GRanges` <-  # nolint
-    function(object, strict = FALSE) {
-        colnames(mcols(object)) <-
-            camelCase(colnames(mcols(object)), strict = strict)
+`camelCase,Vector` <-  # nolint
+    function(
+        object,
+        names = TRUE,
+        mcols = TRUE,
+        metadata = TRUE,
+        strict = FALSE
+    ) {
+        validObject(object)
+        assert(
+            isFlag(names),
+            isFlag(mcols),
+            isFlag(metadata),
+            isFlag(strict)
+        )
+        if (isTRUE(names) && hasNames(object)) {
+            names(object) <-
+                camelCase(names(object), strict = strict)
+        }
+        if (isTRUE(mcols) && hasNames(mcols(object))) {
+            mcolnames(object) <-
+                camelCase(mcolnames(object), strict = strict)
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <-
+                camelCase(names(metadata(object)), strict = strict)
+        }
         object
     }
 
@@ -245,14 +277,49 @@ setMethod(
 #' @export
 setMethod(
     f = "camelCase",
-    signature = signature("GRanges"),
-    definition = `camelCase,GRanges`
+    signature = signature("Vector"),
+    definition = `camelCase,Vector`
 )
 
 
 
 # Updated 2019-07-19.
-`camelCase,GRangesList` <- `camelCase,GRanges`  # nolint
+# mcols metadata
+`camelCase,DataTable` <-  # nolint
+    function(
+        object,
+        rownames = FALSE,
+        colnames = TRUE,
+        mcols = TRUE,
+        metadata = TRUE,
+        strict = FALSE
+    ) {
+        validObject(object)
+        assert(
+            hasDimnames(object),
+            isFlag(rownames),
+            isFlag(colnames),
+            isFlag(mcols),
+            isFlag(metadata),
+            isFlag(strict)
+        )
+        if (isTRUE(rownames) && hasRownames(object)) {
+            rownames(object) <- camelCase(rownames(object), strict = strict)
+        }
+        if (isTRUE(colnames) && hasColnames(object)) {
+            colnames(object) <- camelCase(colnames(object), strict = strict)
+        }
+        if (isTRUE(mcols) && hasNames(mcols(object))) {
+            mcolnames(object) <-
+                camelCase(mcolnames(object), strict = strict)
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <-
+                camelCase(names(metadata(object)), strict = strict)
+        }
+        object
+
+    }
 
 
 
@@ -260,14 +327,91 @@ setMethod(
 #' @export
 setMethod(
     f = "camelCase",
-    signature = signature("GRangesList"),
-    definition = `camelCase,GRangesList`
+    signature = signature("DataTable"),
+    definition = `camelCase,DataTable`
 )
 
 
 
 # Updated 2019-07-19.
-`camelCase,SummarizedExperiment` <- `camelCase,matrix`  # nolint
+`camelCase,Ranges` <- `camelCase,Vector`  # nolint
+formals(`camelCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
+
+
+
+#' @rdname camelCase
+#' @export
+setMethod(
+    f = "camelCase",
+    signature = signature("Ranges"),
+    definition = `camelCase,Ranges`
+)
+
+
+
+# Updated 2019-07-19.
+`camelCase,Matrix` <- `camelCase,matrix`  # nolint
+
+
+
+#' @rdname camelCase
+#' @export
+setMethod(
+    f = "camelCase",
+    signature = signature("Matrix"),
+    definition = `camelCase,Matrix`
+)
+
+
+
+# S4 classes ===================================================================
+# Updated 2019-07-19.
+`camelCase,SummarizedExperiment` <-  # nolint
+    function(
+        object,
+        rownames = FALSE,
+        colnames = TRUE,
+        assayNames = TRUE,
+        rowData = TRUE,
+        colData = TRUE,
+        metadata = TRUE,
+        strict = FALSE
+    ) {
+        validObject(object)
+        assert(
+            isFlag(rownames),
+            isFlag(colnames),
+            isFlag(assayNames),
+            isFlag(rowData),
+            isFlag(colData),
+            isFlag(metadata),
+            isFlag(strict)
+        )
+        if (isTRUE(rownames) && hasRownames(object)) {
+            rownames(object) <- camelCase(rownames(object), strict = strict)
+        }
+        if (isTRUE(colnames) && hasColnames(object)) {
+            colnames(object) <- camelCase(colnames(object), strict = strict)
+        }
+        if (isTRUE(assayNames) && isCharacter(assayNames(object))) {
+            # `assayNames<-` assignment method doesn't work reliably.
+            names(assays(object)) <-
+                camelCase(names(assays(object)), strict = strict)
+        }
+        if (isTRUE(rowData) && hasColnames(rowData(object))) {
+            colnames(rowData(object)) <-
+                     camelCase(colnames(rowData(object)), strict = strict)
+        }
+        if (isTRUE(colData) && hasColnames(colData(object))) {
+            colnames(colData(object)) <-
+                camelCase(colnames(colData(object)), strict = strict)
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <-
+                camelCase(names(metadata(object)), strict = strict)
+        }
+        object
+    }
 
 
 
