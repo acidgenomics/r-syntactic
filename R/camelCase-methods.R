@@ -278,3 +278,13 @@ setMethod(
     signature = signature("SummarizedExperiment"),
     definition = `camelCase,SummarizedExperiment`
 )
+
+
+
+# Aliases ======================================================================
+#' @rdname camelCase
+#' @usage NULL
+#' @export
+camel <- function(...) {
+    camelCase(...)
+}
