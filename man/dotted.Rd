@@ -50,10 +50,7 @@ Apply sanitization on column names. This is generally recommended by
 default.}
 }
 \value{
-Modified object.
-Contains syntatically valid names. For objects supporting
-\code{\link[base:names]{names()}}, the underlying data returns unchanged, except for
-\code{character} or \code{vector} class.
+Modified object, with names formatted in dotted case.
 }
 \description{
 Dotted case

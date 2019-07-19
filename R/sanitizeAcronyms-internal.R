@@ -1,3 +1,4 @@
+# Updated 2019-07-19.
 .sanitizeAcronyms <- function(object) {
     assert(is.atomic(object))
     object <- as.character(object)

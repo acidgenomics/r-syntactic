@@ -10,6 +10,8 @@
 #' data(mn, package = "acidtest")
 #' object <- mn$matrix
 #' makeDimnames(object)
+
+# Updated 2019-07-19.
 makeDimnames <- function(object) {
     assert(hasDimnames(object))
     # Row names.
