@@ -6,10 +6,17 @@
 \alias{capitalize,character-method}
 \title{Capitalize}
 \usage{
+capitalize(object, ...)
+
 \S4method{capitalize}{character}(object)
 }
 \arguments{
 \item{object}{Object.}
+
+\item{...}{Additional arguments.}
+}
+\value{
+Modified object, with names capitalized.
 }
 \description{
 Capitalize

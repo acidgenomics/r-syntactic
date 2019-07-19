@@ -1,7 +1,8 @@
-#' @name camel
+#' @name camelCase
 #'
-#' @inherit bioverbs::camel
+#' @inherit bioverbs::camelCase
 #' @inheritParams params
+#' @param ... Additional arguments.
 #'
 #' @return Modified object.
 #' Contains syntatically valid names. For objects supporting
@@ -10,19 +11,22 @@
 #'
 #' @examples
 #' data(mn, package = "acidtest")
-#' lapply(mn, camel)
+#' lapply(mn, camelCase)
 NULL
 
 
 
-#' @importFrom bioverbs camel
-#' @aliases NULL
+#' @rdname camelCase
+#' @name camelCase
+#' @importFrom bioverbs camelCase
+#' @usage camelCase(object, ...)
 #' @export
-bioverbs::camel
+NULL
 
 
 
-.camel <-  # nolint
+# Updated 2019-07-19.
+.camelCase <-  # nolint
     function(
         object,
         format = c("lower", "upper"),
@@ -80,73 +84,77 @@ bioverbs::camel
 
 
 
-camel.ANY <-  # nolint
+# Updated 2019-07-19.
+`camelCase,ANY` <-  # nolint
     function(object, strict = FALSE) {
         if (hasNames(object)) {
-            names(object) <- camel(names(object), strict = strict)
+            names(object) <- camelCase(names(object), strict = strict)
         }
         object
     }
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("ANY"),
-    definition = camel.ANY
+    definition = `camelCase,ANY`
 )
 
 
 
-camel.character <-  # nolint
+# Updated 2019-07-19.
+`camelCase,character` <-  # nolint
     function(object, strict = FALSE) {
         if (hasNames(object)) {
-            names <- .camel(names(object), strict = strict)
+            names <- .camelCase(names(object), strict = strict)
         } else {
             names <- NULL
         }
-        object <- .camel(object, strict = strict)
+        object <- .camelCase(object, strict = strict)
         names(object) <- names
         object
     }
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("character"),
-    definition = camel.character
+    definition = `camelCase,character`
 )
 
 
 
-camel.factor <-  # nolint
+# Updated 2019-07-19.
+`camelCase,factor` <-  # nolint
     function(object, strict = FALSE) {
         names <- names(object)
         object <- as.character(object)
-        object <- camel(object, strict = strict)
+        object <- camelCase(object, strict = strict)
         object <- as.factor(object)
-        names(object) <- camel(names, strict = strict)
+        names(object) <- camelCase(names, strict = strict)
         object
     }
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("factor"),
-    definition = camel.factor
+    definition = `camelCase,factor`
 )
 
 
 
-camel.matrix <-  # nolint
+# Updated 2019-07-19.
+`camelCase,matrix` <-  # nolint
     function(
         object,
         rownames = FALSE,
@@ -158,109 +166,115 @@ camel.matrix <-  # nolint
             isFlag(rownames)
         )
         if (isTRUE(rownames) && hasRownames(object)) {
-            rownames(object) <- camel(rownames(object), strict = strict)
+            rownames(object) <- camelCase(rownames(object), strict = strict)
         }
         if (isTRUE(colnames) && hasColnames(object)) {
-            colnames(object) <- camel(colnames(object), strict = strict)
+            colnames(object) <- camelCase(colnames(object), strict = strict)
         }
         object
     }
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("matrix"),
-    definition = camel.matrix
+    definition = `camelCase,matrix`
 )
 
 
 
-camel.Matrix <- camel.matrix  # nolint
+# Updated 2019-07-19.
+`camelCase,Matrix` <- `camelCase,matrix`  # nolint
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("Matrix"),
-    definition = camel.Matrix
+    definition = `camelCase,Matrix`
 )
 
 
 
-camel.data.frame <- camel.matrix  # nolint
+# Updated 2019-07-19.
+`camelCase,data.frame` <- `camelCase,matrix`  # nolint
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("data.frame"),
-    definition = camel.data.frame
+    definition = `camelCase,data.frame`
 )
 
 
 
-camel.DataFrame <- camel.data.frame  # nolint
+# Updated 2019-07-19.
+`camelCase,DataFrame` <- `camelCase,data.frame`  # nolint
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("DataFrame"),
-    definition = camel.DataFrame
+    definition = `camelCase,DataFrame`
 )
 
 
 
-camel.GRanges <-  # nolint
+# Updated 2019-07-19.
+`camelCase,GRanges` <-  # nolint
     function(object, strict = FALSE) {
         colnames(mcols(object)) <-
-            camel(colnames(mcols(object)), strict = strict)
+            camelCase(colnames(mcols(object)), strict = strict)
         object
     }
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("GRanges"),
-    definition = camel.GRanges
+    definition = `camelCase,GRanges`
 )
 
 
 
-camel.GRangesList <- camel.GRanges  # nolint
+# Updated 2019-07-19.
+`camelCase,GRangesList` <- `camelCase,GRanges`  # nolint
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("GRangesList"),
-    definition = camel.GRangesList
+    definition = `camelCase,GRangesList`
 )
 
 
 
-camel.SummarizedExperiment <- camel.matrix  # nolint
+# Updated 2019-07-19.
+`camelCase,SummarizedExperiment` <- `camelCase,matrix`  # nolint
 
 
 
-#' @rdname camel
+#' @rdname camelCase
 #' @export
 setMethod(
-    f = "camel",
+    f = "camelCase",
     signature = signature("SummarizedExperiment"),
-    definition = camel.SummarizedExperiment
+    definition = `camelCase,SummarizedExperiment`
 )
