@@ -46,3 +46,13 @@ setMethod(
     signature = signature("character"),
     definition = `kebabCase,character`
 )
+
+
+
+# Aliases ======================================================================
+#' @rdname kebabCase
+#' @usage NULL
+#' @export
+kebab <- function(...) {
+    kebabCase(...)
+}
