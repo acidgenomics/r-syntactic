@@ -225,3 +225,13 @@ setMethod(
     signature = signature("SummarizedExperiment"),
     definition = `upperCamelCase,SummarizedExperiment`
 )
+
+
+
+# Aliases ======================================================================
+#' @rdname upperCamelCase
+#' @usage NULL
+#' @export
+upperCamel <- function(...) {
+    upperCamelCase(...)
+}

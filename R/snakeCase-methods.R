@@ -224,3 +224,13 @@ setMethod(
     signature = signature("SummarizedExperiment"),
     definition = `snakeCase,SummarizedExperiment`
 )
+
+
+
+# Aliases ======================================================================
+#' @rdname snakeCase
+#' @usage NULL
+#' @export
+snake <- function(...) {
+    snakeCase(...)
+}
