@@ -8,6 +8,15 @@
 Apply sanitization on column names. This is generally recommended by
 default.}
 
+\item{mcols}{\code{logical(1)}.
+FIXME}
+
+\item{metadata}{\code{logical(1)}.
+FIXME}
+
+\item{names}{\code{logical(1)}.
+Sanitize names.}
+
 \item{object}{Object.}
 
 \item{rownames}{\code{logical(1)}.
