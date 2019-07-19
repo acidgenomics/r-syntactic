@@ -1,30 +1,34 @@
-#' @name kebab
+#' @name kebabCase
 #'
 #' @note We're not including the additional S4 methods that work on
 #' [`names()`][base::names] and/or [`dimnames()`][base::dimnames] because dashes
 #' are not syntactically valid for names in R.
 #'
-#' @inherit bioverbs::kebab
+#' @inherit bioverbs::kebabCase
 #' @inheritParams params
+#' @param ... Additional arguments.
 #'
 #' @return Modified object.
 #'
 #' @examples
-#' kebab("this is kebab case")
+#' kebabCase("this is kebabCase case")
 NULL
 
 
 
-#' @importFrom bioverbs kebab
-#' @aliases NULL
+#' @rdname kebabCase
+#' @name kebabCase
+#' @importFrom bioverbs kebabCase
+#' @usage kebabCase(object, ...)
 #' @export
-bioverbs::kebab
+NULL
 
 
 
 # Note that by calling `snake()` internally, this will handle special words
 # like "%" and "+", which we want. Refer to `dotted()` for this code.
-kebab.character <-  # nolint
+# Updated 2019-07-19.
+`kebabCase,character` <-  # nolint
     function(object) {
         names <- names(object)
         object <- snake(object)
@@ -35,10 +39,10 @@ kebab.character <-  # nolint
 
 
 
-#' @rdname kebab
+#' @rdname kebabCase
 #' @export
 setMethod(
-    f = "kebab",
+    f = "kebabCase",
     signature = signature("character"),
-    definition = kebab.character
+    definition = `kebabCase,character`
 )

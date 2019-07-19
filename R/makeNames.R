@@ -18,6 +18,8 @@
 #' data(mn, package = "acidtest")
 #' names <- mn$character
 #' makeNames(names)
+
+# Updated 2019-07-19.
 makeNames <- function(names, unique = TRUE) {
     assert(
         is.atomic(names),

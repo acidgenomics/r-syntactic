@@ -1,3 +1,10 @@
+## syntactic 0.1.11 (2019-07-19)
+
+### Minor changes
+
+- Updated naming consistency of internal S4 functions.
+- Updated basejump dependencies.
+
 ## syntactic 0.1.10 (2019-07-12)
 
 ### Minor changes
