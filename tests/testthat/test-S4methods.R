@@ -1,27 +1,15 @@
-context("S4 methods")
+context("atomic")
 
-data(gr, mn, package = "acidtest", envir = environment())
-
-funs <- list(
-    camel = camel,
-    dotted = dotted,
-    snake = snake,
-    upperCamel = upperCamel
-)
-
-
-
-## atomic =======================================================================
 with_parameters_test_that(
-    "makeNames : atomic : unnamed", {
-        x <- 1L
-        expect_identical(f(x), x)
+    "Unnamed", {
+        object <- 1L
+        expect_identical(f(object), object)
     },
     f = funs
 )
 
 with_parameters_test_that(
-    "makeNames : atomic : named", {
+    "Named", {
         object <- c("hello.world" = 1L)
         expect_identical(names(f(object)), expected)
     },
@@ -36,10 +24,11 @@ with_parameters_test_that(
 
 
 
-## character ====================================================================
+context("character")
+
 with_parameters_test_that(
-    "makeNames : character", {
-        object <- mn[["character"]]
+    "character", {
+        object <- syntactic[["character"]]
         expect_identical(f(object), expected)
     },
     f = funs,
@@ -113,7 +102,7 @@ with_parameters_test_that(
 
 with_parameters_test_that(
     "makeNames : character (named)", {
-        object <- mn[["namedCharacter"]]
+        object <- syntactic[["namedCharacter"]]
         expect_identical(f(object), expected)
     },
     f = funs,
@@ -164,10 +153,11 @@ with_parameters_test_that(
 
 
 
-## factor =======================================================================
+context("factor")
+
 with_parameters_test_that(
-    "makeNames : factor", {
-        object <- mn[["factor"]]
+    "factor", {
+        object <- syntactic[["factor"]]
         expect_identical(
             object = levels(f(object)),
             expected = levels
@@ -194,10 +184,11 @@ with_parameters_test_that(
 
 
 
-## matrix / data.frame ==========================================================
+context("matrix")
+
 with_parameters_test_that(
-    "makeNames : matrix", {
-        object <- mn[["matrix"]][1L:3L, 1L:3L]
+    "matrix", {
+        object <- syntactic[["matrix"]][1L:3L, 1L:3L]
         expect_identical(
             object = dimnames(f(object, rownames = TRUE, colnames = TRUE)),
             expected = expected
@@ -226,10 +217,11 @@ with_parameters_test_that(
 
 
 
-## list =========================================================================
+context("list")
+
 with_parameters_test_that(
-    "makeNames : list", {
-        object <- mn[["list"]]
+    "list", {
+        object <- syntactic[["list"]]
         expect_identical(
             object = names(f(object)),
             expected = expected
@@ -246,63 +238,22 @@ with_parameters_test_that(
 
 
 
-## GRanges ======================================================================
-test_that("camel : GRanges", {
-    ## gr object is already camel formatted.
-    expect <- list(
-        camel = c("geneID", "geneName"),
-        dotted = c("gene.ID", "gene.Name"),
-        snake = c("gene_id", "gene_name"),
-        upperCamel = c("GeneID", "GeneName"))
-    lapply(seq_along(funs), function(i) {
-        expect_identical(
-            colnames(mcols(funs[[i]](gr))),
-            expect[[i]]
-        )
-    })
-})
+context("GRanges")
 
-
-
-## camel-specific ===============================================================
 with_parameters_test_that(
-    "camel : Strict mode", {
-        x <- mn[["character"]]
-        expect_identical(f(x, strict = TRUE), expected)
-    },
-    f = list(camel, upperCamel),
-    expected = list(
-        camel = c(
-            "helloWorld",
-            "helloWorld",
-            "rnaiClones",
-            "nCount",
-            "tx2gene",
-            "tx2GeneId",
-            "g2mScore",
-            "worfdbHtmlRemap",
-            "mazdaRx4",
-            "percentGc",
-            "x5prime",
-            "x5x3Bias",
-            "x123",
-            NA
-        ),
-        upperCamel = c(
-            "HelloWorld",
-            "HelloWorld",
-            "RnaiClones",
-            "NCount",
-            "Tx2gene",
-            "Tx2GeneId",
-            "G2mScore",
-            "WorfdbHtmlRemap",
-            "MazdaRx4",
-            "PercentGc",
-            "X5prime",
-            "X5X3Bias",
-            "X123",
-            NA
+    "GRanges", {
+        x <- f(gr)
+        expect_identical(
+            object = colnames(mcols(x)),
+            expected = expected
         )
+    },
+    f = funs,
+    ## gr object is already camel formatted.
+    expected = list(
+        camelCase = c("geneID", "geneName"),
+        dottedCase = c("gene.ID", "gene.Name"),
+        snakeCase = c("gene_id", "gene_name"),
+        upperCamelCase = c("GeneID", "GeneName")
     )
 )
