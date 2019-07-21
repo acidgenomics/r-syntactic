@@ -7,8 +7,8 @@
 #' Both row and columns names will be made syntactically valid.
 #'
 #' @examples
-#' data(mn, package = "acidtest")
-#' object <- mn$matrix
+#' data(syntactic, package = "acidtest")
+#' object <- syntactic$matrix
 #' makeDimnames(object)
 
 ## Updated 2019-07-19.
