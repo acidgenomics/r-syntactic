@@ -6,7 +6,6 @@
 \alias{mcolnames<-}
 \alias{mcolnames,Vector-method}
 \alias{mcolnames<-,Vector,character-method}
-\alias{mcolnames<-,Vector,NULL-method}
 \title{Metadata column names}
 \usage{
 mcolnames(x, ...)
@@ -16,8 +15,6 @@ mcolnames(x, ...) <- value
 \S4method{mcolnames}{Vector}(x)
 
 \S4method{mcolnames}{Vector,character}(x) <- value
-
-\S4method{mcolnames}{Vector,`NULL`}(x) <- value
 }
 \arguments{
 \item{x}{Object.}
