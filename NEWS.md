@@ -1,4 +1,4 @@
-## syntactic 0.2.0 (2019-07-19)
+## syntactic 0.2.0 (2019-07-21)
 
 - Renamed case functions. `camel` to `camelCase`; `kebab` to `kebabCase`;
   `snake` to `snakeCase`; `upperCamel` to `upperCamelCase`.
