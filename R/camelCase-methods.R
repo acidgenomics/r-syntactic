@@ -10,8 +10,8 @@
 #' `character` or `vector` class.
 #'
 #' @examples
-#' data(mn, package = "acidtest")
-#' lapply(mn, camelCase)
+#' data(syntactic, package = "acidtest")
+#' lapply(syntactic, camelCase)
 NULL
 
 
@@ -84,7 +84,7 @@ NULL
 
 
 
-## Base R classes ===============================================================
+## Base R classes ==============================================================
 ## Updated 2019-07-19.
 `camelCase,atomic` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
@@ -239,7 +239,7 @@ setMethod(
 
 
 
-## S4 virtual classes ===========================================================
+## S4 virtual classes ==========================================================
 ## Updated 2019-07-19.
 `camelCase,Vector` <-  # nolint
     function(
@@ -364,7 +364,7 @@ setMethod(
 
 
 
-## S4 classes ===================================================================
+## S4 classes ==================================================================
 ## Updated 2019-07-19.
 `camelCase,SummarizedExperiment` <-  # nolint
     function(
@@ -425,9 +425,8 @@ setMethod(
 
 
 
-## Aliases ======================================================================
+## Aliases =====================================================================
 #' @rdname camelCase
-#' @usage NULL
 #' @export
 camel <- function(...) {
     camelCase(...)

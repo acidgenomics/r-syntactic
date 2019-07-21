@@ -15,8 +15,8 @@
 #' @return `character`.
 #'
 #' @examples
-#' data(mn, package = "acidtest")
-#' names <- mn$character
+#' data(syntactic, package = "acidtest")
+#' names <- syntactic$character
 #' makeNames(names)
 
 ## Updated 2019-07-19.

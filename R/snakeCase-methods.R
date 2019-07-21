@@ -6,8 +6,8 @@
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(mn, package = "acidtest")
-#' lapply(mn, snakeCase)
+#' data(syntactic, package = "acidtest")
+#' lapply(syntactic, snakeCase)
 NULL
 
 
@@ -227,9 +227,8 @@ setMethod(
 
 
 
-## Aliases ======================================================================
+## Aliases =====================================================================
 #' @rdname snakeCase
-#' @usage NULL
 #' @export
 snake <- function(...) {
     snakeCase(...)
