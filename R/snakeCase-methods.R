@@ -32,11 +32,16 @@ NULL
 
 
 
-## Updated 2019-07-19.
-`snakeCase,ANY` <-  # nolint
-    function(object) {
-        if (hasNames(object)) {
-            names(object) <- .snakeCase(names(object))
+## Base R classes ==============================================================
+## Updated 2019-07-21.
+`snakeCase,atomic` <-  # nolint
+    function(object, names = TRUE) {
+        assert(
+            isFlag(names),
+            isFlag(strict)
+        )
+        if (isTRUE(names) && hasNames(object)) {
+            names(object) <- snakeCase(names(object))
         }
         object
     }
@@ -47,19 +52,20 @@ NULL
 #' @export
 setMethod(
     f = "snakeCase",
-    signature = signature("ANY"),
-    definition = `snakeCase,ANY`
+    signature = signature("atomic"),
+    definition = `snakeCase,atomic`
 )
 
 
 
-## Updated 2019-07-19.
+## Updated 2019-07-21.
 `snakeCase,character` <-  # nolint
-    function(object) {
-        if (hasNames(object)) {
+    function(object, names = TRUE) {
+        assert(isFlag(names))
+        if (isTRUE(names) && hasNames(object)) {
             names <- .snakeCase(names(object))
         } else {
-            names <- NULL
+            names <- names(object)
         }
         object <- .snakeCase(object)
         names(object) <- names
@@ -78,14 +84,19 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
+## Updated 2019-07-21.
 `snakeCase,factor` <-  # nolint
-    function(object) {
-        names <- names(object)
+    function(object, names = TRUE) {
+        assert(isFlag(names))
+        if (isTRUE(names) && hasNames(object)) {
+            names <- snakeCase(names(object))
+        } else {
+            names <- names(object)
+        }
         object <- as.character(object)
         object <- snakeCase(object)
         object <- as.factor(object)
-        names(object) <- snakeCase(names)
+        names(object) <- names
         object
     }
 
@@ -101,7 +112,22 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
+## Updated 2019-07-21.
+`snakeCase,list` <- `snakeCase,atomic`  # nolint
+
+
+
+#' @rdname snakeCase
+#' @export
+setMethod(
+    f = "snakeCase",
+    signature = signature("list"),
+    definition = `snakeCase,list`
+)
+
+
+
+## Updated 2019-07-21.
 `snakeCase,matrix` <-  # nolint
     function(
         object,
@@ -110,7 +136,8 @@ setMethod(
     ) {
         assert(
             hasDimnames(object),
-            isFlag(rownames)
+            isFlag(rownames),
+            isFlag(colnames)
         )
         if (isTRUE(rownames) && hasRownames(object)) {
             rownames(object) <- snakeCase(rownames(object))
@@ -133,6 +160,122 @@ setMethod(
 
 
 
+## Updated 2019-07-21.
+`snakeCase,data.frame` <- `snakeCase,matrix`  # nolint
+
+
+
+#' @rdname snakeCase
+#' @export
+setMethod(
+    f = "snakeCase",
+    signature = signature("data.frame"),
+    definition = `snakeCase,data.frame`
+)
+
+
+
+## S4 virtual classes ==========================================================
+## Updated 2019-07-19.
+`snakeCase,Vector` <-  # nolint
+    function(
+        object,
+        names = TRUE,
+        mcols = TRUE,
+        metadata = TRUE
+    ) {
+        validObject(object)
+        assert(
+            isFlag(names),
+            isFlag(mcols),
+            isFlag(metadata)
+        )
+        if (isTRUE(names) && hasNames(object)) {
+            names(object) <- snakeCase(names(object))
+        }
+        if (isTRUE(mcols) && hasNames(mcols(object))) {
+            mcolnames(object) <- snakeCase(mcolnames(object))
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <- snakeCase(names(metadata(object)))
+        }
+        object
+    }
+
+
+
+#' @rdname snakeCase
+#' @export
+setMethod(
+    f = "snakeCase",
+    signature = signature("Vector"),
+    definition = `snakeCase,Vector`
+)
+
+
+
+## Updated 2019-07-19.
+## mcols metadata
+`snakeCase,DataTable` <-  # nolint
+    function(
+        object,
+        rownames = FALSE,
+        colnames = TRUE,
+        mcols = TRUE,
+        metadata = TRUE
+    ) {
+        validObject(object)
+        assert(
+            hasDimnames(object),
+            isFlag(rownames),
+            isFlag(colnames),
+            isFlag(mcols),
+            isFlag(metadata)
+        )
+        if (isTRUE(rownames) && hasRownames(object)) {
+            rownames(object) <- snakeCase(rownames(object))
+        }
+        if (isTRUE(colnames) && hasColnames(object)) {
+            colnames(object) <- snakeCase(colnames(object))
+        }
+        if (isTRUE(mcols) && hasNames(mcols(object))) {
+            mcolnames(object) <- snakeCase(mcolnames(object))
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <- snakeCase(names(metadata(object)))
+        }
+        object
+
+    }
+
+
+
+#' @rdname snakeCase
+#' @export
+setMethod(
+    f = "snakeCase",
+    signature = signature("DataTable"),
+    definition = `snakeCase,DataTable`
+)
+
+
+
+## Updated 2019-07-19.
+`snakeCase,Ranges` <- `snakeCase,Vector`  # nolint
+formals(`snakeCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
+
+
+
+#' @rdname snakeCase
+#' @export
+setMethod(
+    f = "snakeCase",
+    signature = signature("Ranges"),
+    definition = `snakeCase,Ranges`
+)
+
+
+
 ## Updated 2019-07-19.
 `snakeCase,Matrix` <- `snakeCase,matrix`  # nolint
 
@@ -148,72 +291,48 @@ setMethod(
 
 
 
+## S4 classes ==================================================================
 ## Updated 2019-07-19.
-`snakeCase,data.frame` <- `snakeCase,matrix`  # nolint
-
-
-
-#' @rdname snakeCase
-#' @export
-setMethod(
-    f = "snakeCase",
-    signature = signature("data.frame"),
-    definition = `snakeCase,data.frame`
-)
-
-
-
-## Updated 2019-07-19.
-`snakeCase,DataFrame` <- `snakeCase,data.frame`  # nolint
-
-
-
-#' @rdname snakeCase
-#' @export
-setMethod(
-    f = "snakeCase",
-    signature = signature("DataFrame"),
-    definition = `snakeCase,DataFrame`
-)
-
-
-
-## Updated 2019-07-19.
-`snakeCase,GRanges` <-  # nolint
-    function(object) {
-        colnames(mcols(object)) <- snakeCase(colnames(mcols(object)))
+`snakeCase,SummarizedExperiment` <-  # nolint
+    function(
+        object,
+        rownames = FALSE,
+        colnames = TRUE,
+        assayNames = TRUE,
+        rowData = TRUE,
+        colData = TRUE,
+        metadata = TRUE
+    ) {
+        validObject(object)
+        assert(
+            isFlag(rownames),
+            isFlag(colnames),
+            isFlag(assayNames),
+            isFlag(rowData),
+            isFlag(colData),
+            isFlag(metadata)
+        )
+        if (isTRUE(rownames) && hasRownames(object)) {
+            rownames(object) <- snakeCase(rownames(object))
+        }
+        if (isTRUE(colnames) && hasColnames(object)) {
+            colnames(object) <- snakeCase(colnames(object))
+        }
+        if (isTRUE(assayNames) && isCharacter(assayNames(object))) {
+            ## `assayNames<-` assignment method doesn't work reliably.
+            names(assays(object)) <- snakeCase(names(assays(object)))
+        }
+        if (isTRUE(rowData) && hasColnames(rowData(object))) {
+            colnames(rowData(object)) <- snakeCase(colnames(rowData(object)))
+        }
+        if (isTRUE(colData) && hasColnames(colData(object))) {
+            colnames(colData(object)) <- snakeCase(colnames(colData(object)))
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <- snakeCase(names(metadata(object)))
+        }
         object
     }
-
-
-
-#' @rdname snakeCase
-#' @export
-setMethod(
-    f = "snakeCase",
-    signature = signature("GRanges"),
-    definition = `snakeCase,GRanges`
-)
-
-
-
-## Updated 2019-07-19.
-`snakeCase,GRangesList` <- `snakeCase,GRanges`  # nolint
-
-
-
-#' @rdname snakeCase
-#' @export
-setMethod(
-    f = "snakeCase",
-    signature = signature("GRangesList"),
-    definition = `snakeCase,GRangesList`
-)
-
-
-
-## Updated 2019-07-19.
-`snakeCase,SummarizedExperiment` <- `snakeCase,matrix`  # nolint
 
 
 
