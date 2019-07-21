@@ -27,12 +27,27 @@ NULL
 
 ## Note that by calling `snake()` internally, this will handle special words
 ## like "%" and "+", which we want. Refer to `dotted()` for this code.
-## Updated 2019-07-19.
-`kebabCase,character` <-  # nolint
+## Updated 2019-07-21.
+.kebabCase <-  # nolint
     function(object) {
-        names <- names(object)
         object <- snake(object)
         object <- gsub(pattern = "_", replacement = "-", x = object)
+        object
+    }
+
+
+
+## Base R classes ==============================================================
+## Updated 2019-07-21.
+`kebabCase,character` <-  # nolint
+    function(object, names = TRUE) {
+        assert(isFlag(names))
+        if (isTRUE(names) && hasNames(object)) {
+            names <- .kebabCase(names(object))
+        } else {
+            names <- names(object)
+        }
+        object <- .kebabCase(object)
         names(object) <- names
         object
     }
