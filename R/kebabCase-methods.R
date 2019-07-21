@@ -40,13 +40,8 @@ NULL
 ## Base R classes ==============================================================
 ## Updated 2019-07-21.
 `kebabCase,character` <-  # nolint
-    function(object, names = TRUE) {
-        assert(isFlag(names))
-        if (isTRUE(names) && hasNames(object)) {
-            names <- .kebabCase(names(object))
-        } else {
-            names <- names(object)
-        }
+    function(object) {
+        names <- names(object)
         object <- .kebabCase(object)
         names(object) <- names
         object
