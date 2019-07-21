@@ -51,7 +51,11 @@ NULL
         )
 
         ## Now we're ready to sanitize using base conventions.
-        object <- make.names(object, unique = FALSE, allow_ = FALSE)
+        object <- make.names(
+            names = object,
+            unique = FALSE,
+            allow_ = FALSE
+        )
 
         ## Ensure all non-alphanumeric characters get coerced to periods.
         object <- gsub(
