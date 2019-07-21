@@ -21,7 +21,7 @@ NULL
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 .snakeCase <-  # nolint
     function(object) {
         object <- dotted(object)
@@ -32,7 +32,7 @@ NULL
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,ANY` <-  # nolint
     function(object) {
         if (hasNames(object)) {
@@ -53,7 +53,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,character` <-  # nolint
     function(object) {
         if (hasNames(object)) {
@@ -78,7 +78,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,factor` <-  # nolint
     function(object) {
         names <- names(object)
@@ -101,7 +101,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,matrix` <-  # nolint
     function(
         object,
@@ -133,7 +133,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,Matrix` <- `snakeCase,matrix`  # nolint
 
 
@@ -148,7 +148,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,data.frame` <- `snakeCase,matrix`  # nolint
 
 
@@ -163,7 +163,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,DataFrame` <- `snakeCase,data.frame`  # nolint
 
 
@@ -178,7 +178,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,GRanges` <-  # nolint
     function(object) {
         colnames(mcols(object)) <- snakeCase(colnames(mcols(object)))
@@ -197,7 +197,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,GRangesList` <- `snakeCase,GRanges`  # nolint
 
 
@@ -212,7 +212,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `snakeCase,SummarizedExperiment` <- `snakeCase,matrix`  # nolint
 
 
@@ -227,7 +227,7 @@ setMethod(
 
 
 
-# Aliases ======================================================================
+## Aliases ======================================================================
 #' @rdname snakeCase
 #' @usage NULL
 #' @export

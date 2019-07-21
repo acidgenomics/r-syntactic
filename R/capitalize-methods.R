@@ -17,8 +17,8 @@ NULL
 
 
 
-# Using `vapply()` call here to preserve `NA_character_`.
-# Updated 2019-07-19.
+## Using `vapply()` call here to preserve `NA_character_`.
+## Updated 2019-07-19.
 `capitalize,character` <-  # nolint
     function(object) {
         vapply(

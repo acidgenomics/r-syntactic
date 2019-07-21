@@ -25,7 +25,7 @@ NULL
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 .camelCase <-  # nolint
     function(
         object,
@@ -36,15 +36,15 @@ NULL
         format <- match.arg(format)
         assert(isFlag(strict))
 
-        # Simplify mixed case acronyms in strict mode.
+        ## Simplify mixed case acronyms in strict mode.
         if (isTRUE(strict)) {
             object <- tolower(object)
         }
 
-        # lowerCamelCase or UpperCamelCase.
+        ## lowerCamelCase or UpperCamelCase.
         if (format == "lower") {
-            # lowerCamelCase
-            # Coerce first word to lower.
+            ## lowerCamelCase
+            ## Coerce first word to lower.
             object <- gsub(
                 pattern = "^(\\w+)\\b",
                 replacement = "\\L\\1",
@@ -52,8 +52,8 @@ NULL
                 perl = TRUE
             )
         } else if (format == "upper") {
-            # UpperCamelCase
-            # Capitalize the first letter.
+            ## UpperCamelCase
+            ## Capitalize the first letter.
             object <- gsub(
                 pattern = "^([a-z])",
                 replacement = "\\U\\1",
@@ -62,13 +62,13 @@ NULL
             )
         }
 
-        # Remove dots in between numbers following a letter.
+        ## Remove dots in between numbers following a letter.
         object <- gsub("([[:alpha:]])\\.([[:digit:]])", "\\1\\2", object)
 
-        # First letter of second word must be capitalized.
+        ## First letter of second word must be capitalized.
         object <- gsub("\\.([[:alpha:]])", "\\U\\1", object, perl = TRUE)
 
-        # Remaining dots should be sanitized with "X" character.
+        ## Remaining dots should be sanitized with "X" character.
         pattern <- "\\."
         if (any(grepl(pattern, object))) {
             if (format == "lower") {
@@ -84,8 +84,8 @@ NULL
 
 
 
-# Base R classes ===============================================================
-# Updated 2019-07-19.
+## Base R classes ===============================================================
+## Updated 2019-07-19.
 `camelCase,atomic` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         validObject(object)
@@ -111,7 +111,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `camelCase,character` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         validObject(object)
@@ -141,7 +141,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `camelCase,factor` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         validObject(object)
@@ -173,7 +173,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `camelCase,list` <- `camelCase,atomic`  # nolint
 
 
@@ -188,7 +188,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `camelCase,matrix` <-  # nolint
     function(
         object,
@@ -224,7 +224,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `camelCase,data.frame` <- `camelCase,matrix`  # nolint
 
 
@@ -239,8 +239,8 @@ setMethod(
 
 
 
-# S4 virtual classes ===========================================================
-# Updated 2019-07-19.
+## S4 virtual classes ===========================================================
+## Updated 2019-07-19.
 `camelCase,Vector` <-  # nolint
     function(
         object,
@@ -283,8 +283,8 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
-# mcols metadata
+## Updated 2019-07-19.
+## mcols metadata
 `camelCase,DataTable` <-  # nolint
     function(
         object,
@@ -333,7 +333,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `camelCase,Ranges` <- `camelCase,Vector`  # nolint
 formals(`camelCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
 
@@ -349,7 +349,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `camelCase,Matrix` <- `camelCase,matrix`  # nolint
 
 
@@ -364,8 +364,8 @@ setMethod(
 
 
 
-# S4 classes ===================================================================
-# Updated 2019-07-19.
+## S4 classes ===================================================================
+## Updated 2019-07-19.
 `camelCase,SummarizedExperiment` <-  # nolint
     function(
         object,
@@ -394,7 +394,7 @@ setMethod(
             colnames(object) <- camelCase(colnames(object), strict = strict)
         }
         if (isTRUE(assayNames) && isCharacter(assayNames(object))) {
-            # `assayNames<-` assignment method doesn't work reliably.
+            ## `assayNames<-` assignment method doesn't work reliably.
             names(assays(object)) <-
                 camelCase(names(assays(object)), strict = strict)
         }
@@ -425,7 +425,7 @@ setMethod(
 
 
 
-# Aliases ======================================================================
+## Aliases ======================================================================
 #' @rdname camelCase
 #' @usage NULL
 #' @export

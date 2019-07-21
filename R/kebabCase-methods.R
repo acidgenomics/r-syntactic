@@ -25,9 +25,9 @@ NULL
 
 
 
-# Note that by calling `snake()` internally, this will handle special words
-# like "%" and "+", which we want. Refer to `dotted()` for this code.
-# Updated 2019-07-19.
+## Note that by calling `snake()` internally, this will handle special words
+## like "%" and "+", which we want. Refer to `dotted()` for this code.
+## Updated 2019-07-19.
 `kebabCase,character` <-  # nolint
     function(object) {
         names <- names(object)
@@ -49,7 +49,7 @@ setMethod(
 
 
 
-# Aliases ======================================================================
+## Aliases ======================================================================
 #' @rdname kebabCase
 #' @usage NULL
 #' @export

@@ -21,7 +21,7 @@ NULL
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 .upperCamelCase <-  # nolint
     function(object, strict = FALSE) {
         .camel(object, format = "upper", strict = strict)
@@ -29,7 +29,7 @@ NULL
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,ANY` <-  # nolint
     function(object, strict = FALSE) {
         if (hasNames(object)) {
@@ -50,7 +50,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,character` <-  # nolint
     function(object, strict = FALSE) {
         if (hasNames(object)) {
@@ -75,7 +75,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,factor` <-  # nolint
     function(object, strict = FALSE) {
         names <- names(object)
@@ -98,7 +98,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,matrix` <-  # nolint
     function(
         object,
@@ -133,7 +133,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,Matrix` <- `upperCamelCase,matrix`  # nolint
 
 
@@ -148,7 +148,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,data.frame` <- `upperCamelCase,matrix`  # nolint
 
 
@@ -163,7 +163,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,DataFrame` <- `upperCamelCase,data.frame`  # nolint
 
 
@@ -178,7 +178,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,GRanges` <-  # nolint
     function(object, strict = FALSE) {
         colnames(mcols(object)) <-
@@ -198,7 +198,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,GRangesList` <- `upperCamelCase,GRanges`  # nolint
 
 
@@ -213,7 +213,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `upperCamelCase,SummarizedExperiment` <- `upperCamelCase,matrix`  # nolint
 
 
@@ -228,7 +228,7 @@ setMethod(
 
 
 
-# Aliases ======================================================================
+## Aliases ======================================================================
 #' @rdname upperCamelCase
 #' @usage NULL
 #' @export
