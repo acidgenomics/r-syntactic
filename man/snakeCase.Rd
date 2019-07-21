@@ -40,6 +40,8 @@ snakeCase(object, ...)
 
 \S4method{snakeCase}{SummarizedExperiment}(object, rownames = FALSE,
   colnames = TRUE)
+
+snake(...)
 }
 \arguments{
 \item{object}{Object.}
@@ -66,6 +68,6 @@ are defined by underscores (e.g. \code{this_is_snake_case}).
 Snake case is recommended by the tidyverse for variable and function names.
 }
 \examples{
-data(mn, package = "acidtest")
-lapply(mn, snakeCase)
+data(syntactic, package = "acidtest")
+lapply(syntactic, snakeCase)
 }

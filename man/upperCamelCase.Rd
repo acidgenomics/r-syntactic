@@ -42,6 +42,8 @@ upperCamelCase(object, ...)
 
 \S4method{upperCamelCase}{SummarizedExperiment}(object, rownames = FALSE,
   colnames = TRUE, strict = FALSE)
+
+upperCamel(...)
 }
 \arguments{
 \item{object}{Object.}
@@ -75,6 +77,6 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \examples{
-data(mn, package = "acidtest")
-lapply(mn, upperCamelCase)
+data(syntactic, package = "acidtest")
+lapply(syntactic, upperCamelCase)
 }
