@@ -3,50 +3,59 @@
 \docType{methods}
 \name{dottedCase}
 \alias{dottedCase}
-\alias{dottedCase,ANY-method}
+\alias{dottedCase,atomic-method}
 \alias{dottedCase,character-method}
 \alias{dottedCase,factor-method}
+\alias{dottedCase,list-method}
 \alias{dottedCase,matrix-method}
-\alias{dottedCase,Matrix-method}
 \alias{dottedCase,data.frame-method}
-\alias{dottedCase,DataFrame-method}
-\alias{dottedCase,GRanges-method}
-\alias{dottedCase,GRangesList-method}
+\alias{dottedCase,Vector-method}
+\alias{dottedCase,DataTable-method}
+\alias{dottedCase,Ranges-method}
+\alias{dottedCase,Matrix-method}
 \alias{dottedCase,SummarizedExperiment-method}
 \alias{dotted}
 \title{Dotted case}
 \usage{
 dottedCase(object, ...)
 
-\S4method{dottedCase}{ANY}(object)
+\S4method{dottedCase}{atomic}(object, names = TRUE)
 
 \S4method{dottedCase}{character}(object)
 
-\S4method{dottedCase}{factor}(object)
+\S4method{dottedCase}{factor}(object, names = TRUE)
+
+\S4method{dottedCase}{list}(object, names = TRUE)
 
 \S4method{dottedCase}{matrix}(object, rownames = FALSE,
-  colnames = TRUE)
-
-\S4method{dottedCase}{Matrix}(object, rownames = FALSE,
   colnames = TRUE)
 
 \S4method{dottedCase}{data.frame}(object, rownames = FALSE,
   colnames = TRUE)
 
-\S4method{dottedCase}{DataFrame}(object, rownames = FALSE,
+\S4method{dottedCase}{Vector}(object, names = TRUE, mcols = TRUE,
+  metadata = TRUE)
+
+\S4method{dottedCase}{DataTable}(object, rownames = FALSE,
+  colnames = TRUE, mcols = TRUE, metadata = TRUE)
+
+\S4method{dottedCase}{Ranges}(object, names = FALSE, mcols = TRUE,
+  metadata = TRUE)
+
+\S4method{dottedCase}{Matrix}(object, rownames = FALSE,
   colnames = TRUE)
-
-\S4method{dottedCase}{GRanges}(object)
-
-\S4method{dottedCase}{GRangesList}(object)
 
 \S4method{dottedCase}{SummarizedExperiment}(object, rownames = FALSE,
-  colnames = TRUE)
+  colnames = TRUE, assayNames = TRUE, rowData = TRUE,
+  colData = TRUE, metadata = TRUE)
 
 dotted(...)
 }
 \arguments{
 \item{object}{Object.}
+
+\item{names}{\code{logical(1)}.
+Sanitize names.}
 
 \item{rownames}{\code{logical(1)}.
 Apply sanitization on row names. This is not generally recommended by
@@ -56,6 +65,12 @@ be modified.}
 \item{colnames}{\code{logical(1)}.
 Apply sanitization on column names. This is generally recommended by
 default.}
+
+\item{mcols}{\code{logical(1)}.
+FIXME}
+
+\item{metadata}{\code{logical(1)}.
+FIXME}
 
 \item{...}{Additional arguments.}
 }
