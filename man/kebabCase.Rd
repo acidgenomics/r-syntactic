@@ -9,15 +9,12 @@
 \usage{
 kebabCase(object, ...)
 
-\S4method{kebabCase}{character}(object, names = TRUE)
+\S4method{kebabCase}{character}(object)
 
 kebab(...)
 }
 \arguments{
 \item{object}{Object.}
-
-\item{names}{\code{logical(1)}.
-Sanitize names.}
 
 \item{...}{Additional arguments.}
 }

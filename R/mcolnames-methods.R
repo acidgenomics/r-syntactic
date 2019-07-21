@@ -74,25 +74,3 @@ setMethod(
     ),
     definition = `mcolnames<-,Vector,character`
 )
-
-
-
-## Updated 2019-07-19.
-`mcolnames<-,Vector,NULL` <-  # nolint
-    function(x, value) {
-        names(mcols(x)) <- NULL
-        x
-    }
-
-
-
-#' @rdname mcolnames
-#' @export
-setMethod(
-    f = "mcolnames<-",
-    signature = signature(
-        x = "Vector",
-        value = "NULL"
-    ),
-    definition = `mcolnames<-,Vector,NULL`
-)
