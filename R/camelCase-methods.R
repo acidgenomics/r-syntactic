@@ -88,7 +88,6 @@ NULL
 ## Updated 2019-07-19.
 `camelCase,atomic` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
-        validObject(object)
         assert(
             isFlag(names),
             isFlag(strict)
@@ -114,7 +113,6 @@ setMethod(
 ## Updated 2019-07-19.
 `camelCase,character` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
-        validObject(object)
         assert(
             isFlag(names),
             isFlag(strict)
@@ -144,13 +142,12 @@ setMethod(
 ## Updated 2019-07-19.
 `camelCase,factor` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
-        validObject(object)
         assert(
             isFlag(names),
             isFlag(strict)
         )
         if (isTRUE(names) && hasNames(object)) {
-            names <- .camelCase(names(object), strict = strict)
+            names <- camelCase(names(object), strict = strict)
         } else {
             names <- names(object)
         }
@@ -196,7 +193,6 @@ setMethod(
         colnames = TRUE,
         strict = FALSE
     ) {
-        validObject(object)
         assert(
             hasDimnames(object),
             isFlag(rownames),
