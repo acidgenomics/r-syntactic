@@ -2,9 +2,8 @@ context("camelCase")
 
 with_parameters_test_that(
     "Strict mode", {
-        x <- syntactic[["character"]]
         expect_identical(
-            object = f(x, strict = TRUE),
+            object = f(vec, strict = TRUE),
             expected = expected
         )
     },
