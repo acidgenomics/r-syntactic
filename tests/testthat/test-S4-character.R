@@ -1,9 +1,47 @@
 context("character")
 
+## Don't attempt to test kebabCase here, it doesn't support names argument.
+with_parameters_test_that(
+    "Named", {
+        object <- syntactic[["character_named"]]
+        expect_identical(
+            object = f(object, names = TRUE),
+            expected = expected
+        )
+        expect_identical(
+            object = names(f(object, names = FALSE)),
+            expected = names(object)
+        )
+    },
+    f = funs,
+    expected = list(
+        camelCase = c(
+            itemA = "helloWorld",
+            itemB = "helloWORLD"
+        ),
+        dottedCase = c(
+            "Item.A" = "hello.world",
+            "Item.B" = "HELLO.WORLD"
+        ),
+        snakeCase = c(
+            "item_a" = "hello_world",
+            "item_b" = "hello_world"
+        ),
+        upperCamelCase = c(
+            ItemA = "HelloWorld",
+            ItemB = "HELLOWORLD"
+        )
+    )
+)
+
+funs <- c(funs, kebabCase = kebabCase)
+funs <- funs[sort(names(funs))]
+
 with_parameters_test_that(
     "Unnamed", {
+        object <- syntactic[["character"]]
         expect_identical(
-            object = f(syntactic[["character"]]),
+            object = f(object),
             expected = expected
         )
     },
@@ -41,6 +79,23 @@ with_parameters_test_that(
             "TX2.Gene.ID",
             "worfdb.HTML.Remap",
             "X123",
+            NA
+        ),
+        kebabCase = c(
+            "percent-gc",
+            "x10um",
+            "x5-3-bias",
+            "x5prime",
+            "g2m-score",
+            "hello-world",
+            "hello-world",
+            "mazda-rx4",
+            "n-count",
+            "rnai-clones",
+            "tx2gene",
+            "tx2-gene-id",
+            "worfdb-html-remap",
+            "x123",
             NA
         ),
         snakeCase = c(
@@ -81,23 +136,7 @@ with_parameters_test_that(
 )
 
 with_parameters_test_that(
-    "Named", {
-        expect_identical(
-            object = f(syntactic[["character_named"]]),
-            expected = expected
-        )
-    },
-    f = funs,
-    expected = list(
-        camelCase = c(itemA = "helloWorld", itemB = "helloWORLD"),
-        dottedCase = c("Item.A" = "hello.world", "Item.B" = "HELLO.WORLD"),
-        snakeCase = c("item_a" = "hello_world", "item_b" = "hello_world"),
-        upperCamelCase = c(ItemA = "HelloWorld", ItemB = "HELLOWORLD")
-    )
-)
-
-with_parameters_test_that(
-    "Delimited numbers", {
+    "camelCase of delimited numbers", {
         object <- c(
             "1,000,000",
             "0.01",
