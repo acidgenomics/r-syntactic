@@ -33,7 +33,9 @@ mcolnames(x, ...) <- value
 Metadata column names
 }
 \examples{
-data(rse, package = "acidtest")
+data(RangedSummarizedExperiment, package = "acidtest")
+rse <- RangedSummarizedExperiment
+
 mcolnames(rse)
 
 ## Asignment method.
