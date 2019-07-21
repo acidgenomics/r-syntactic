@@ -1,48 +1,47 @@
 ## Updated 2019-07-19.
-.sanitizeAcronyms <- function(object) {
-    assert(is.atomic(object))
-    object <- as.character(object)
-
+.sanitizeAcronyms <- function(x) {
+    assert(is.atomic(x))
+    x <- as.character(x)
     ## Identifier variants (e.g. "Id" to "ID").
-    object <- gsub(
+    x <- gsub(
         pattern = "\\b(id)\\b",
         replacement = "ID",
-        x = object,
+        x = x,
         ignore.case = TRUE
     )
-    ## Plurarlized acronyms (e.g. "UMIs" to "UMIS").
-    object <- gsub(
-        pattern = "\\b([A-Z0-9]+)s\\b",
-        replacement = "\\1S",
-        x = object
-    )
-    ## Mixed case concentrations (e.g. "10nM" to "10NM").
-    object <- gsub(
+    ## Molarity (e.g. "10nM" to "10nm").
+    x <- gsub(
         pattern = "\\b([[:digit:]]+?[mnu]M)\\b",
-        replacement = "\\U\\1",
-        x = object,
+        replacement = "\\L\\1",
+        x = x,
         perl = TRUE
     )
+    ## Plurarlized acronyms (e.g. "UMIs" to "UMIS").
+    x <- gsub(
+        pattern = "\\b([A-Z0-9]+)s\\b",
+        replacement = "\\1S",
+        x = x
+    )
     ## Mixed case RNA types.
-    object <- gsub(
+    x <- gsub(
         pattern = "\\b([mi|nc|pi|r]RNA)\\b",
         replacement = "\\U\\1",
-        x = object,
+        x = x,
         perl = TRUE
     )
     ## RNA interference.
-    object <- gsub(
+    x <- gsub(
         pattern = "\\b(RNAi)\\b",
         replacement = "RNAI",
-        x = object
+        x = x
     )
     ## Ethanol. EtOH splits into 2 words otherwise.
     ## Consider spelling out "Ethanol" instead if this is too funky.
-    object <- gsub(
+    x <- gsub(
         pattern = "\\b(EtOH)\\b",
         replacement = "Etoh",
-        x = object
+        x = x
     )
-
-    object
+    ## Return.
+    x
 }
