@@ -21,7 +21,7 @@ dottedCase(object, ...)
 
 \S4method{dottedCase}{atomic}(object, names = TRUE)
 
-\S4method{dottedCase}{character}(object)
+\S4method{dottedCase}{character}(object, names = TRUE)
 
 \S4method{dottedCase}{factor}(object, names = TRUE)
 
