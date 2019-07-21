@@ -131,7 +131,7 @@ setMethod(
 
 ## Updated 2019-07-21.
 `dottedCase,character` <-  # nolint
-    function(object) {
+    function(object, names = TRUE) {
         assert(isFlag(names))
         if (isTRUE(names) && hasNames(object)) {
             names <- .dottedCase(names(object))
