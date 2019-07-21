@@ -22,74 +22,74 @@ bioverbs::dotted
 
 
 
-# Dotted case formatting is used internally by camel, kebab, and snake.
+## Dotted case formatting is used internally by camel, kebab, and snake.
 .dotted <-  # nolint
     function(object) {
         assert(is.atomic(object))
         object <- as.character(object)
 
-        # Handle "+" as a special case. Spell out as "plus".
+        ## Handle "+" as a special case. Spell out as "plus".
         object <- gsub(
             pattern = "\\+",
             replacement = ".plus.",
             x = object
         )
-        # Handle "%" as a special case. Spell out as "percent".
+        ## Handle "%" as a special case. Spell out as "percent".
         object <- gsub(
             pattern = "%",
             replacement = "percent",
             x = object
         )
 
-        # Strip comma delims in between numbers (e.g. 1,000,000).
+        ## Strip comma delims in between numbers (e.g. 1,000,000).
         object <- gsub(
             pattern = "(\\d),(\\d)",
             replacement = "\\1\\2",
             x = object
         )
 
-        # Now we're ready to sanitize using base conventions.
+        ## Now we're ready to sanitize using base conventions.
         object <- make.names(object, unique = FALSE, allow_ = FALSE)
 
-        # Ensure all non-alphanumeric characters get coerced to periods.
+        ## Ensure all non-alphanumeric characters get coerced to periods.
         object <- gsub(
             pattern = "[^[:alnum:]]",
             replacement = ".",
             x = object
         )
 
-        # Combine multiple dots.
+        ## Combine multiple dots.
         object <- gsub(
             pattern = "[\\.]+",
             replacement = ".",
             x = object
         )
-        # Strip leading or trailing dots.
+        ## Strip leading or trailing dots.
         object <- gsub(
             pattern = "(^\\.|\\.$)",
             replacement = "",
             x = object
         )
 
-        # Coerce `"NA"` back to `NA` after `make.names()` call.
+        ## Coerce `"NA"` back to `NA` after `make.names()` call.
         object <- gsub(
             pattern = "^NA$",
             replacement = NA_character_,
             x = object
         )
 
-        # Standardize any mixed case acronyms.
+        ## Standardize any mixed case acronyms.
         object <- .sanitizeAcronyms(object)
 
-        # Establish word boundaries for camelCase acronyms
-        # (e.g. `worfdbHTMLRemap` -> `worfdb.HTML.remap`).
-        # Acronym following a word.
+        ## Establish word boundaries for camelCase acronyms
+        ## (e.g. `worfdbHTMLRemap` -> `worfdb.HTML.remap`).
+        ## Acronym following a word.
         object <- gsub(
             pattern = "([a-z])([A-Z])",
             replacement = "\\1.\\2",
             x = object
         )
-        # Word following an acronym.
+        ## Word following an acronym.
         object <- gsub(
             pattern = "([A-Z0-9])([A-Z])([a-z])",
             replacement = "\\1.\\2\\3",

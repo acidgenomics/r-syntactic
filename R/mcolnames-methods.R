@@ -31,7 +31,7 @@ NULL
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `mcolnames,Vector` <-  # nolint
     function(x) {
         names(mcols(x))
@@ -49,7 +49,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `mcolnames<-,Vector,character` <-  # nolint
     function(x, value) {
         assert(
@@ -75,7 +75,7 @@ setMethod(
 
 
 
-# Updated 2019-07-19.
+## Updated 2019-07-19.
 `mcolnames<-,Vector,NULL` <-  # nolint
     function(x, value) {
         names(mcols(x)) <- NULL

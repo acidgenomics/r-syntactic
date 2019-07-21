@@ -11,7 +11,7 @@ funs <- list(
 
 
 
-# atomic =======================================================================
+## atomic =======================================================================
 with_parameters_test_that(
     "makeNames : atomic : unnamed", {
         x <- 1L
@@ -36,7 +36,7 @@ with_parameters_test_that(
 
 
 
-# character ====================================================================
+## character ====================================================================
 with_parameters_test_that(
     "makeNames : character", {
         object <- mn[["character"]]
@@ -164,7 +164,7 @@ with_parameters_test_that(
 
 
 
-# factor =======================================================================
+## factor =======================================================================
 with_parameters_test_that(
     "makeNames : factor", {
         object <- mn[["factor"]]
@@ -194,7 +194,7 @@ with_parameters_test_that(
 
 
 
-# matrix / data.frame ==========================================================
+## matrix / data.frame ==========================================================
 with_parameters_test_that(
     "makeNames : matrix", {
         object <- mn[["matrix"]][1L:3L, 1L:3L]
@@ -226,7 +226,7 @@ with_parameters_test_that(
 
 
 
-# list =========================================================================
+## list =========================================================================
 with_parameters_test_that(
     "makeNames : list", {
         object <- mn[["list"]]
@@ -246,9 +246,9 @@ with_parameters_test_that(
 
 
 
-# GRanges ======================================================================
+## GRanges ======================================================================
 test_that("camel : GRanges", {
-    # gr object is already camel formatted.
+    ## gr object is already camel formatted.
     expect <- list(
         camel = c("geneID", "geneName"),
         dotted = c("gene.ID", "gene.Name"),
@@ -264,7 +264,7 @@ test_that("camel : GRanges", {
 
 
 
-# camel-specific ===============================================================
+## camel-specific ===============================================================
 with_parameters_test_that(
     "camel : Strict mode", {
         x <- mn[["character"]]
