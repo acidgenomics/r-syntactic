@@ -107,10 +107,7 @@ NULL
 ## Updated 2019-07-21.
 `dottedCase,atomic` <-  # nolint
     function(object, names = TRUE) {
-        assert(
-            isFlag(names),
-            isFlag(strict)
-        )
+        assert(isFlag(names))
         if (isTRUE(names) && hasNames(object)) {
             names(object) <- dottedCase(names(object))
         }
