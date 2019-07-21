@@ -3,6 +3,10 @@
 #' @name params
 #' @keywords internal
 #'
+#' @param assayNames `logical(1)`.
+#'   FIXME
+#' @param colData `logical(1)`.
+#'   FIXME
 #' @param colnames `logical(1)`.
 #'   Apply sanitization on column names. This is generally recommended by
 #'   default.
@@ -13,6 +17,8 @@
 #' @param names `logical(1)`.
 #'   Sanitize names.
 #' @param object Object.
+#' @param rowData `logical(1)`.
+#'   FIXME
 #' @param rownames `logical(1)`.
 #'   Apply sanitization on row names. This is not generally recommended by
 #'   default, since rownames commonly contain gene identifiers that should not

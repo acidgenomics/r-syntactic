@@ -27,73 +27,79 @@ with_parameters_test_that(
 context("character")
 
 with_parameters_test_that(
-    "character", {
-        object <- syntactic[["character"]]
-        expect_identical(f(object), expected)
+    "Unnamed", {
+        expect_identical(
+            object = f(syntactic[["character"]]),
+            expected = expected
+        )
     },
     f = funs,
     expected = list(
-        camel = c(
+        camelCase = c(
+            "percentGC",
+            "x10um",
+            "x5x3Bias",
+            "x5prime",
+            "g2mScore",
             "helloWorld",
             "helloWORLD",
-            "rnaiClones",
+            "mazdaRX4",
             "nCount",
+            "rnaiClones",
             "tx2gene",
             "tx2GeneID",
-            "g2mScore",
             "worfdbHTMLRemap",
-            "mazdaRX4",
-            "percentGC",
-            "x5prime",
-            "x5x3Bias",
             "x123",
             NA
         ),
-        dotted = c(
+        dottedCase = c(
+            "percent.GC",
+            "X10um",
+            "X5.3.bias",
+            "X5prime",
+            "G2M.Score",
             "hello.world",
             "HELLO.WORLD",
-            "RNAI.clones",
+            "Mazda.RX4",
             "n.Count",
+            "RNAI.clones",
             "tx2gene",
             "TX2.Gene.ID",
-            "G2M.Score",
             "worfdb.HTML.Remap",
-            "Mazda.RX4",
-            "percent.GC",
-            "X5prime",
-            "X5.3.bias",
             "X123",
             NA
         ),
-        snake = c(
+        snakeCase = c(
+            "percent_gc",
+            "x10um",
+            "x5_3_bias",
+            "x5prime",
+            "g2m_score",
             "hello_world",
             "hello_world",
-            "rnai_clones",
+            "mazda_rx4",
             "n_count",
+            "rnai_clones",
             "tx2gene",
             "tx2_gene_id",
-            "g2m_score",
             "worfdb_html_remap",
-            "mazda_rx4",
-            "percent_gc",
-            "x5prime",
-            "x5_3_bias",
             "x123",
             NA
         ),
-        upperCamel = c(
+        upperCamelCase = c(
+            "PercentGC",
+            "X10um",
+            "X5X3Bias",
+            "X5prime",
+            "G2MScore",
             "HelloWorld",
-            "HELLOWORLD",  # improve this?
-            "RNAIClones",
+            "HELLOWORLD",
+            "MazdaRX4",
             "NCount",
+            "RNAIClones",
             "Tx2gene",
             "TX2GeneID",
-            "G2MScore",
             "WorfdbHTMLRemap",
-            "MazdaRX4",
-            "PercentGC",
-            "X5prime",
-            "X5X3Bias",
             "X123",
             NA
         )
@@ -101,21 +107,23 @@ with_parameters_test_that(
 )
 
 with_parameters_test_that(
-    "makeNames : character (named)", {
-        object <- syntactic[["namedCharacter"]]
-        expect_identical(f(object), expected)
+    "Named", {
+        expect_identical(
+            object = f(syntactic[["character_named"]]),
+            expected = expected
+        )
     },
     f = funs,
     expected = list(
-        camel = c(itemA = "helloWorld", itemB = "helloWORLD"),
-        dotted = c("Item.A" = "hello.world", "Item.B" = "HELLO.WORLD"),
-        snake = c("item_a" = "hello_world", "item_b" = "hello_world"),
-        upperCamel = c(ItemA = "HelloWorld", ItemB = "HELLOWORLD")
+        camelCase = c(itemA = "helloWorld", itemB = "helloWORLD"),
+        dottedCase = c("Item.A" = "hello.world", "Item.B" = "HELLO.WORLD"),
+        snakeCase = c("item_a" = "hello_world", "item_b" = "hello_world"),
+        upperCamelCase = c(ItemA = "HelloWorld", ItemB = "HELLOWORLD")
     )
 )
 
 with_parameters_test_that(
-    "makeNames : character : Delimited numbers", {
+    "Delimited numbers", {
         object <- c(
             "1,000,000",
             "0.01",
@@ -127,22 +135,30 @@ with_parameters_test_that(
             expected = expected
         )
     },
-    f = list(camel, camel, upperCamel),
-    strict = list(FALSE, TRUE, TRUE),
+    f = list(
+        camelCase,
+        camelCase,
+        upperCamelCase
+    ),
+    strict = list(
+        FALSE,
+        TRUE,
+        TRUE
+    ),
     expected = list(
-        camel_normal = c(
+        camelCase_normal = c(
             "x1000000",
             "x0x01",
             "x2018x01x01",
             "res0x1"
         ),
-        camel_strict = c(
+        camelCase_strict = c(
             "x1000000",
             "x0x01",
             "x2018x01x01",
             "res0x1"
         ),
-        upperCamel_strict = c(
+        upperCamelCase_strict = c(
             "X1000000",
             "X0X01",
             "X2018X01X01",
@@ -169,16 +185,16 @@ with_parameters_test_that(
     },
     f = funs,
     levels = list(
-        camel = c("group1", "group2"),
-        dotted = c("group.1", "group.2"),
-        snake = c("group_1", "group_2"),
-        upperCamel = c("Group1", "Group2")
+        camelCase = c("group1", "group2"),
+        dottedCase = c("group.1", "group.2"),
+        snakeCase = c("group_1", "group_2"),
+        upperCamelCase = c("Group1", "Group2")
     ),
     names = list(
-        camel = c("sample1", "sample2", "sample3", "sample4"),
-        dotted = c("sample.1", "sample.2", "sample.3", "sample.4"),
-        snake = c("sample_1", "sample_2", "sample_3", "sample_4"),
-        upperCamel = c("Sample1", "Sample2", "Sample3", "Sample4")
+        camelCase = c("sample1", "sample2", "sample3", "sample4"),
+        dottedCase = c("sample.1", "sample.2", "sample.3", "sample.4"),
+        snakeCase = c("sample_1", "sample_2", "sample_3", "sample_4"),
+        upperCamelCase = c("Sample1", "Sample2", "Sample3", "Sample4")
     )
 )
 
@@ -196,19 +212,19 @@ with_parameters_test_that(
     },
     f = funs,
     expected = list(
-        camel = list(
+        camelCase = list(
             c("alabama", "alaska", "arizona"),
             c("murder", "assault", "urbanPop")
         ),
-        dotted = list(
+        dottedCase = list(
             c("Alabama", "Alaska", "Arizona"),
             c("Murder", "Assault", "Urban.Pop")
         ),
-        snake = list(
+        snakeCase = list(
             c("alabama", "alaska", "arizona"),
             c("murder", "assault", "urban_pop")
         ),
-        upperCamel = list(
+        upperCamelCase = list(
             c("Alabama", "Alaska", "Arizona"),
             c("Murder", "Assault", "UrbanPop")
         )

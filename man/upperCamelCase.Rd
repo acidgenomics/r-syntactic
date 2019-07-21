@@ -77,6 +77,15 @@ FIXME}
 \item{metadata}{\code{logical(1)}.
 FIXME}
 
+\item{assayNames}{\code{logical(1)}.
+FIXME}
+
+\item{rowData}{\code{logical(1)}.
+FIXME}
+
+\item{colData}{\code{logical(1)}.
+FIXME}
+
 \item{...}{Additional arguments.}
 }
 \value{

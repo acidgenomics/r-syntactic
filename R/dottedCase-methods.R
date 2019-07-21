@@ -1,8 +1,9 @@
 #' @name dottedCase
 #'
-#' @note [dottedCase()] support is provided for matching against base R parameters.
-#'   However, it is recommended to avoid using it for variable assignments into
-#'   an `environment`, as that can introduce conflicts with base functions.
+#' @note [dottedCase()] support is provided for matching against base R
+#'   parameters. However, it is recommended to avoid using it for variable
+#'   assignments into an `environment`, as that can introduce conflicts with
+#'   base functions.
 #'
 #' @inherit bioverbs::dottedCase
 #' @inherit camel return
@@ -422,5 +423,5 @@ setMethod(
 #' @rdname dottedCase
 #' @export
 dotted <- function(...) {
-    dottedCase(...)
+    dottedCase(...)  # nocov
 }

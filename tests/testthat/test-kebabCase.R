@@ -4,18 +4,19 @@ test_that("kebabCase", {
     expect_identical(
         object = kebabCase(vec),
         expected = c(
+            "percent-gc",
+            "x10um",
+            "x5-3-bias",
+            "x5prime",
+            "g2m-score",
             "hello-world",
             "hello-world",
-            "rnai-clones",
+            "mazda-rx4",
             "n-count",
+            "rnai-clones",
             "tx2gene",
             "tx2-gene-id",
-            "g2m-score",
             "worfdb-html-remap",
-            "mazda-rx4",
-            "percent-gc",
-            "x5prime",
-            "x5-3-bias",
             "x123",
             NA_character_
         )

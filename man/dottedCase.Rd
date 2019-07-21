@@ -72,6 +72,15 @@ FIXME}
 \item{metadata}{\code{logical(1)}.
 FIXME}
 
+\item{assayNames}{\code{logical(1)}.
+FIXME}
+
+\item{rowData}{\code{logical(1)}.
+FIXME}
+
+\item{colData}{\code{logical(1)}.
+FIXME}
+
 \item{...}{Additional arguments.}
 }
 \value{
@@ -81,9 +90,10 @@ Modified object, with names formatted in dotted case.
 Dotted case
 }
 \note{
-\code{\link[=dottedCase]{dottedCase()}} support is provided for matching against base R parameters.
-However, it is recommended to avoid using it for variable assignments into
-an \code{environment}, as that can introduce conflicts with base functions.
+\code{\link[=dottedCase]{dottedCase()}} support is provided for matching against base R
+parameters. However, it is recommended to avoid using it for variable
+assignments into an \code{environment}, as that can introduce conflicts with
+base functions.
 }
 \examples{
 data(syntactic, package = "acidtest")

@@ -425,5 +425,5 @@ setMethod(
 #' @rdname camelCase
 #' @export
 camel <- function(...) {
-    camelCase(...)
+    camelCase(...)  # nocov
 }

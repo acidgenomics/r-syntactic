@@ -347,5 +347,5 @@ setMethod(
 #' @rdname snakeCase
 #' @export
 snake <- function(...) {
-    snakeCase(...)
+    snakeCase(...)  # nocov
 }

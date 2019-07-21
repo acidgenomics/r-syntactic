@@ -4,6 +4,12 @@
 \alias{params}
 \title{Parameters}
 \arguments{
+\item{assayNames}{\code{logical(1)}.
+FIXME}
+
+\item{colData}{\code{logical(1)}.
+FIXME}
+
 \item{colnames}{\code{logical(1)}.
 Apply sanitization on column names. This is generally recommended by
 default.}
@@ -18,6 +24,9 @@ FIXME}
 Sanitize names.}
 
 \item{object}{Object.}
+
+\item{rowData}{\code{logical(1)}.
+FIXME}
 
 \item{rownames}{\code{logical(1)}.
 Apply sanitization on row names. This is not generally recommended by
