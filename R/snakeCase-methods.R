@@ -36,10 +36,7 @@ NULL
 ## Updated 2019-07-21.
 `snakeCase,atomic` <-  # nolint
     function(object, names = TRUE) {
-        assert(
-            isFlag(names),
-            isFlag(strict)
-        )
+        assert(isFlag(names))
         if (isTRUE(names) && hasNames(object)) {
             names(object) <- snakeCase(names(object))
         }
