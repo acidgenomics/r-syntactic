@@ -113,10 +113,10 @@ setMethod(
             isFlag(rownames)
         )
         if (isTRUE(rownames) && hasRownames(object)) {
-            rownames(object) <- snakeCase.character(rownames(object))
+            rownames(object) <- snakeCase(rownames(object))
         }
         if (isTRUE(colnames) && hasColnames(object)) {
-            colnames(object) <- snakeCase.character(colnames(object))
+            colnames(object) <- snakeCase(colnames(object))
         }
         object
     }
