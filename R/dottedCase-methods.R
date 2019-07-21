@@ -1,29 +1,31 @@
-#' @name dotted
+#' @name dottedCase
 #'
-#' @note [dotted()] support is provided for matching against base R parameters.
+#' @note [dottedCase()] support is provided for matching against base R parameters.
 #'   However, it is recommended to avoid using it for variable assignments into
 #'   an `environment`, as that can introduce conflicts with base functions.
 #'
-#' @inherit bioverbs::dotted
+#' @inherit bioverbs::dottedCase
 #' @inherit camel return
 #' @inheritParams params
 #'
 #' @examples
-#' data(mn, package = "acidtest")
-#' lapply(mn, dotted)
+#' data(syntactic, package = "acidtest")
+#' lapply(syntactic, dottedCase)
 NULL
 
 
 
-#' @importFrom bioverbs dotted
-#' @aliases NULL
+#' @rdname dottedCase
+#' @name dottedCase
+#' @importFrom bioverbs dottedCase
+#' @usage dottedCase(object, ...)
 #' @export
-bioverbs::dotted
+NULL
 
 
 
 ## Dotted case formatting is used internally by camel, kebab, and snake.
-.dotted <-  # nolint
+.dottedCase <-  # nolint
     function(object) {
         assert(is.atomic(object))
         object <- as.character(object)
@@ -101,73 +103,73 @@ bioverbs::dotted
 
 
 
-dotted.ANY <-  # nolint
+dottedCase.ANY <-  # nolint
     function(object) {
         if (hasNames(object)) {
-            names(object) <- dotted(names(object))
+            names(object) <- dottedCase(names(object))
         }
         object
     }
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("ANY"),
-    definition = dotted.ANY
+    definition = dottedCase.ANY
 )
 
 
 
-dotted.character <-  # nolint
+dottedCase.character <-  # nolint
     function(object) {
         if (hasNames(object)) {
-            names <- .dotted(names(object))
+            names <- .dottedCase(names(object))
         } else {
             names <- NULL
         }
-        object <- .dotted(object)
+        object <- .dottedCase(object)
         names(object) <- names
         object
     }
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("character"),
-    definition = dotted.character
+    definition = dottedCase.character
 )
 
 
 
-dotted.factor <-  # nolint
+dottedCase.factor <-  # nolint
     function(object) {
         names <- names(object)
         object <- as.character(object)
-        object <- dotted(object)
+        object <- dottedCase(object)
         object <- as.factor(object)
-        names(object) <- dotted(names)
+        names(object) <- dottedCase(names)
         object
     }
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("factor"),
-    definition = dotted.factor
+    definition = dottedCase.factor
 )
 
 
 
-dotted.matrix <-  # nolint
+dottedCase.matrix <-  # nolint
     function(
         object,
         rownames = FALSE,
@@ -178,108 +180,117 @@ dotted.matrix <-  # nolint
             isFlag(rownames)
         )
         if (isTRUE(rownames) && hasRownames(object)) {
-            rownames(object) <- dotted(rownames(object))
+            rownames(object) <- dottedCase(rownames(object))
         }
         if (isTRUE(colnames) && hasColnames(object)) {
-            colnames(object) <- dotted(colnames(object))
+            colnames(object) <- dottedCase(colnames(object))
         }
         object
     }
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("matrix"),
-    definition = dotted.matrix
+    definition = dottedCase.matrix
 )
 
 
 
-dotted.Matrix <- dotted.matrix  # nolint
+dottedCase.Matrix <- dottedCase.matrix  # nolint
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("Matrix"),
-    definition = dotted.Matrix
+    definition = dottedCase.Matrix
 )
 
 
 
-dotted.data.frame <- dotted.matrix  # nolint
+dottedCase.data.frame <- dottedCase.matrix  # nolint
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("data.frame"),
-    definition = dotted.data.frame
+    definition = dottedCase.data.frame
 )
 
 
 
-dotted.DataFrame <- dotted.data.frame  # nolint
+dottedCase.DataFrame <- dottedCase.data.frame  # nolint
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("DataFrame"),
-    definition = dotted.DataFrame
+    definition = dottedCase.DataFrame
 )
 
 
 
-dotted.GRanges <-  # nolint
+dottedCase.GRanges <-  # nolint
     function(object) {
-        colnames(mcols(object)) <- dotted(colnames(mcols(object)))
+        colnames(mcols(object)) <- dottedCase(colnames(mcols(object)))
         object
     }
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("GRanges"),
-    definition = dotted.GRanges
+    definition = dottedCase.GRanges
 )
 
 
 
-dotted.GRangesList <- dotted.GRanges  # nolint
+dottedCase.GRangesList <- dottedCase.GRanges  # nolint
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("GRangesList"),
-    definition = dotted.GRangesList
+    definition = dottedCase.GRangesList
 )
 
 
 
-dotted.SummarizedExperiment <- dotted.matrix  # nolint
+dottedCase.SummarizedExperiment <- dottedCase.matrix  # nolint
 
 
 
-#' @rdname dotted
+#' @rdname dottedCase
 #' @export
 setMethod(
-    f = "dotted",
+    f = "dottedCase",
     signature = signature("SummarizedExperiment"),
-    definition = dotted.SummarizedExperiment
+    definition = dottedCase.SummarizedExperiment
 )
+
+
+
+## Aliases =====================================================================
+#' @rdname dottedCase
+#' @export
+dotted <- function(...) {
+    dottedCase(...)
+}

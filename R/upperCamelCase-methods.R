@@ -6,8 +6,8 @@
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(mn, package = "acidtest")
-#' lapply(mn, upperCamelCase)
+#' data(syntactic, package = "acidtest")
+#' lapply(syntactic, upperCamelCase)
 NULL
 
 
@@ -24,7 +24,7 @@ NULL
 ## Updated 2019-07-19.
 .upperCamelCase <-  # nolint
     function(object, strict = FALSE) {
-        .camel(object, format = "upper", strict = strict)
+        .camelCase(object, format = "upper", strict = strict)
     }
 
 
@@ -228,9 +228,8 @@ setMethod(
 
 
 
-## Aliases ======================================================================
+## Aliases =====================================================================
 #' @rdname upperCamelCase
-#' @usage NULL
 #' @export
 upperCamel <- function(...) {
     upperCamelCase(...)
