@@ -3,13 +3,19 @@ context("S4 : factor")
 with_parameters_test_that(
     "factor", {
         object <- syntactic[["factor"]]
+        x <- f(object, names = TRUE)
         expect_identical(
-            object = levels(f(object)),
+            object = levels(x),
             expected = levels
         )
         expect_identical(
-            object = names(f(object)),
+            object = names(x),
             expected = names
+        )
+        x <- f(object, names = FALSE)
+        expect_identical(
+            object = names(x),
+            expected = names(object)
         )
     },
     f = funs,

@@ -1,4 +1,4 @@
-context("atomic")
+context("S4 : atomic")
 
 with_parameters_test_that(
     "Unnamed", {
