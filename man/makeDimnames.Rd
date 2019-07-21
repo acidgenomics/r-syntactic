@@ -17,7 +17,7 @@ Both row and columns names will be made syntactically valid.
 Make syntactically valid dimnames
 }
 \examples{
-data(mn, package = "acidtest")
-object <- mn$matrix
+data(syntactic, package = "acidtest")
+object <- syntactic$matrix
 makeDimnames(object)
 }

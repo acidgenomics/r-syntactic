@@ -48,6 +48,8 @@ camelCase(object, ...)
 \S4method{camelCase}{SummarizedExperiment}(object, rownames = FALSE,
   colnames = TRUE, assayNames = TRUE, rowData = TRUE,
   colData = TRUE, metadata = TRUE, strict = FALSE)
+
+camel(...)
 }
 \arguments{
 \item{object}{Object.}
@@ -90,6 +92,6 @@ boundaries are defined by capitlization only (e.g. \code{thisIsCamelCase}).
 Camel case is recommended by Bioconductor for variable and function names.
 }
 \examples{
-data(mn, package = "acidtest")
-lapply(mn, camelCase)
+data(syntactic, package = "acidtest")
+lapply(syntactic, camelCase)
 }

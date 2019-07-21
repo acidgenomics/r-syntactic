@@ -10,6 +10,8 @@
 kebabCase(object, ...)
 
 \S4method{kebabCase}{character}(object)
+
+kebab(...)
 }
 \arguments{
 \item{object}{Object.}
