@@ -24,7 +24,7 @@ NULL
 
 
 
-## Dotted case formatting is used internally by camel, kebab, and snake.
+## Dotted case formatting is used internally by other naming functions.
 .dottedCase <-  # nolint
     function(object) {
         assert(is.atomic(object))
@@ -103,9 +103,15 @@ NULL
 
 
 
-dottedCase.ANY <-  # nolint
-    function(object) {
-        if (hasNames(object)) {
+## Base R classes ==============================================================
+## Updated 2019-07-21.
+`dottedCase,atomic` <-  # nolint
+    function(object, names = TRUE) {
+        assert(
+            isFlag(names),
+            isFlag(strict)
+        )
+        if (isTRUE(names) && hasNames(object)) {
             names(object) <- dottedCase(names(object))
         }
         object
@@ -117,18 +123,20 @@ dottedCase.ANY <-  # nolint
 #' @export
 setMethod(
     f = "dottedCase",
-    signature = signature("ANY"),
-    definition = dottedCase.ANY
+    signature = signature("atomic"),
+    definition = `dottedCase,atomic`
 )
 
 
 
-dottedCase.character <-  # nolint
+## Updated 2019-07-21.
+`dottedCase,character` <-  # nolint
     function(object) {
-        if (hasNames(object)) {
+        assert(isFlag(names))
+        if (isTRUE(names) && hasNames(object)) {
             names <- .dottedCase(names(object))
         } else {
-            names <- NULL
+            names <- names(object)
         }
         object <- .dottedCase(object)
         names(object) <- names
@@ -142,18 +150,24 @@ dottedCase.character <-  # nolint
 setMethod(
     f = "dottedCase",
     signature = signature("character"),
-    definition = dottedCase.character
+    definition = `dottedCase,character`
 )
 
 
 
-dottedCase.factor <-  # nolint
-    function(object) {
-        names <- names(object)
+## Updated 2019-07-21.
+`dottedCase,factor` <-  # nolint
+    function(object, names = TRUE) {
+        assert(isFlag(names))
+        if (isTRUE(names) && hasNames(object)) {
+            names <- dottedCase(names(object))
+        } else {
+            names <- names(object)
+        }
         object <- as.character(object)
         object <- dottedCase(object)
         object <- as.factor(object)
-        names(object) <- dottedCase(names)
+        names(object) <- names
         object
     }
 
@@ -164,12 +178,28 @@ dottedCase.factor <-  # nolint
 setMethod(
     f = "dottedCase",
     signature = signature("factor"),
-    definition = dottedCase.factor
+    definition = `dottedCase,factor`
 )
 
 
 
-dottedCase.matrix <-  # nolint
+## Updated 2019-07-21.
+`dottedCase,list` <- `dottedCase,atomic`  # nolint
+
+
+
+#' @rdname dottedCase
+#' @export
+setMethod(
+    f = "dottedCase",
+    signature = signature("list"),
+    definition = `dottedCase,list`
+)
+
+
+
+## Updated 2019-07-21.
+`dottedCase,matrix` <-  # nolint
     function(
         object,
         rownames = FALSE,
@@ -177,7 +207,8 @@ dottedCase.matrix <-  # nolint
     ) {
         assert(
             hasDimnames(object),
-            isFlag(rownames)
+            isFlag(rownames),
+            isFlag(colnames)
         )
         if (isTRUE(rownames) && hasRownames(object)) {
             rownames(object) <- dottedCase(rownames(object))
@@ -195,26 +226,13 @@ dottedCase.matrix <-  # nolint
 setMethod(
     f = "dottedCase",
     signature = signature("matrix"),
-    definition = dottedCase.matrix
+    definition = `dottedCase,matrix`
 )
 
 
 
-dottedCase.Matrix <- dottedCase.matrix  # nolint
-
-
-
-#' @rdname dottedCase
-#' @export
-setMethod(
-    f = "dottedCase",
-    signature = signature("Matrix"),
-    definition = dottedCase.Matrix
-)
-
-
-
-dottedCase.data.frame <- dottedCase.matrix  # nolint
+## Updated 2019-07-21.
+`dottedCase,data.frame` <- `dottedCase,matrix`  # nolint
 
 
 
@@ -223,28 +241,35 @@ dottedCase.data.frame <- dottedCase.matrix  # nolint
 setMethod(
     f = "dottedCase",
     signature = signature("data.frame"),
-    definition = dottedCase.data.frame
+    definition = `dottedCase,data.frame`
 )
 
 
 
-dottedCase.DataFrame <- dottedCase.data.frame  # nolint
-
-
-
-#' @rdname dottedCase
-#' @export
-setMethod(
-    f = "dottedCase",
-    signature = signature("DataFrame"),
-    definition = dottedCase.DataFrame
-)
-
-
-
-dottedCase.GRanges <-  # nolint
-    function(object) {
-        colnames(mcols(object)) <- dottedCase(colnames(mcols(object)))
+## S4 virtual classes ==========================================================
+## Updated 2019-07-19.
+`dottedCase,Vector` <-  # nolint
+    function(
+        object,
+        names = TRUE,
+        mcols = TRUE,
+        metadata = TRUE
+    ) {
+        validObject(object)
+        assert(
+            isFlag(names),
+            isFlag(mcols),
+            isFlag(metadata)
+        )
+        if (isTRUE(names) && hasNames(object)) {
+            names(object) <- dottedCase(names(object))
+        }
+        if (isTRUE(mcols) && hasNames(mcols(object))) {
+            mcolnames(object) <- dottedCase(mcolnames(object))
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <- dottedCase(names(metadata(object)))
+        }
         object
     }
 
@@ -254,13 +279,45 @@ dottedCase.GRanges <-  # nolint
 #' @export
 setMethod(
     f = "dottedCase",
-    signature = signature("GRanges"),
-    definition = dottedCase.GRanges
+    signature = signature("Vector"),
+    definition = `dottedCase,Vector`
 )
 
 
 
-dottedCase.GRangesList <- dottedCase.GRanges  # nolint
+## Updated 2019-07-19.
+## mcols metadata
+`dottedCase,DataTable` <-  # nolint
+    function(
+        object,
+        rownames = FALSE,
+        colnames = TRUE,
+        mcols = TRUE,
+        metadata = TRUE
+    ) {
+        validObject(object)
+        assert(
+            hasDimnames(object),
+            isFlag(rownames),
+            isFlag(colnames),
+            isFlag(mcols),
+            isFlag(metadata)
+        )
+        if (isTRUE(rownames) && hasRownames(object)) {
+            rownames(object) <- dottedCase(rownames(object))
+        }
+        if (isTRUE(colnames) && hasColnames(object)) {
+            colnames(object) <- dottedCase(colnames(object))
+        }
+        if (isTRUE(mcols) && hasNames(mcols(object))) {
+            mcolnames(object) <- dottedCase(mcolnames(object))
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <- dottedCase(names(metadata(object)))
+        }
+        object
+
+    }
 
 
 
@@ -268,13 +325,85 @@ dottedCase.GRangesList <- dottedCase.GRanges  # nolint
 #' @export
 setMethod(
     f = "dottedCase",
-    signature = signature("GRangesList"),
-    definition = dottedCase.GRangesList
+    signature = signature("DataTable"),
+    definition = `dottedCase,DataTable`
 )
 
 
 
-dottedCase.SummarizedExperiment <- dottedCase.matrix  # nolint
+## Updated 2019-07-19.
+`dottedCase,Ranges` <- `dottedCase,Vector`  # nolint
+formals(`dottedCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
+
+
+
+#' @rdname dottedCase
+#' @export
+setMethod(
+    f = "dottedCase",
+    signature = signature("Ranges"),
+    definition = `dottedCase,Ranges`
+)
+
+
+
+## Updated 2019-07-19.
+`dottedCase,Matrix` <- `dottedCase,matrix`  # nolint
+
+
+
+#' @rdname dottedCase
+#' @export
+setMethod(
+    f = "dottedCase",
+    signature = signature("Matrix"),
+    definition = `dottedCase,Matrix`
+)
+
+
+
+## S4 classes ==================================================================
+## Updated 2019-07-19.
+`dottedCase,SummarizedExperiment` <-  # nolint
+    function(
+        object,
+        rownames = FALSE,
+        colnames = TRUE,
+        assayNames = TRUE,
+        rowData = TRUE,
+        colData = TRUE,
+        metadata = TRUE
+    ) {
+        validObject(object)
+        assert(
+            isFlag(rownames),
+            isFlag(colnames),
+            isFlag(assayNames),
+            isFlag(rowData),
+            isFlag(colData),
+            isFlag(metadata)
+        )
+        if (isTRUE(rownames) && hasRownames(object)) {
+            rownames(object) <- dottedCase(rownames(object))
+        }
+        if (isTRUE(colnames) && hasColnames(object)) {
+            colnames(object) <- dottedCase(colnames(object))
+        }
+        if (isTRUE(assayNames) && isCharacter(assayNames(object))) {
+            ## `assayNames<-` assignment method doesn't work reliably.
+            names(assays(object)) <- dottedCase(names(assays(object)))
+        }
+        if (isTRUE(rowData) && hasColnames(rowData(object))) {
+            colnames(rowData(object)) <- dottedCase(colnames(rowData(object)))
+        }
+        if (isTRUE(colData) && hasColnames(colData(object))) {
+            colnames(colData(object)) <- dottedCase(colnames(colData(object)))
+        }
+        if (isTRUE(metadata) && hasNames(metadata(object))) {
+            names(metadata(object)) <- dottedCase(names(metadata(object)))
+        }
+        object
+    }
 
 
 
@@ -283,7 +412,7 @@ dottedCase.SummarizedExperiment <- dottedCase.matrix  # nolint
 setMethod(
     f = "dottedCase",
     signature = signature("SummarizedExperiment"),
-    definition = dottedCase.SummarizedExperiment
+    definition = `dottedCase,SummarizedExperiment`
 )
 
 
