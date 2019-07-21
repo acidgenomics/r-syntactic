@@ -22,12 +22,12 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.5)
 Imports:
-    bioverbs (>= 0.1.20),
+    bioverbs (>= 0.2.0),
     goalie (>= 0.2.18),
     GenomicRanges,
     S4Vectors,
     SummarizedExperiment,
-    Matrix,
+    Matrix (>= 1.2),
     methods,
     utils
 Suggests:
