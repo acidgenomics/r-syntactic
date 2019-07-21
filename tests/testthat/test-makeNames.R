@@ -4,18 +4,19 @@ test_that("makeNames", {
     expect_identical(
         object = makeNames(vec),
         expected = c(
+            "X_GC",
+            "X10uM",
+            "X5__3__bias",
+            "X5prime",
+            "G2M_Score",
             "hello_world",
             "HELLO_WORLD",
-            "RNAi_clones",
+            "Mazda_RX4",
             "nCount",
+            "RNAi_clones",
             "tx2gene",
             "TX2GeneID",
-            "G2M_Score",
             "worfdbHTMLRemap",
-            "Mazda_RX4",
-            "X_GC",
-            "X5prime",
-            "X5__3__bias",
             "X123",
             "NA_"
         )

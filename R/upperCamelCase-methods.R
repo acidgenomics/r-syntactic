@@ -376,5 +376,5 @@ setMethod(
 #' @rdname upperCamelCase
 #' @export
 upperCamel <- function(...) {
-    upperCamelCase(...)
+    upperCamelCase(...)  # nocov
 }

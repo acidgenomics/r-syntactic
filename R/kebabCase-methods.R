@@ -68,5 +68,5 @@ setMethod(
 #' @rdname kebabCase
 #' @export
 kebab <- function(...) {
-    kebabCase(...)
+    kebabCase(...)  # nocov
 }
