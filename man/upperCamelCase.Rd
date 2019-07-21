@@ -3,50 +3,60 @@
 \docType{methods}
 \name{upperCamelCase}
 \alias{upperCamelCase}
-\alias{upperCamelCase,ANY-method}
+\alias{upperCamelCase,atomic-method}
 \alias{upperCamelCase,character-method}
 \alias{upperCamelCase,factor-method}
+\alias{upperCamelCase,list-method}
 \alias{upperCamelCase,matrix-method}
-\alias{upperCamelCase,Matrix-method}
 \alias{upperCamelCase,data.frame-method}
-\alias{upperCamelCase,DataFrame-method}
-\alias{upperCamelCase,GRanges-method}
-\alias{upperCamelCase,GRangesList-method}
+\alias{upperCamelCase,Vector-method}
+\alias{upperCamelCase,DataTable-method}
+\alias{upperCamelCase,Ranges-method}
+\alias{upperCamelCase,Matrix-method}
 \alias{upperCamelCase,SummarizedExperiment-method}
 \alias{upperCamel}
 \title{Upper camel case}
 \usage{
 upperCamelCase(object, ...)
 
-\S4method{upperCamelCase}{ANY}(object, strict = FALSE)
+\S4method{upperCamelCase}{atomic}(object, names = TRUE, strict = FALSE)
 
-\S4method{upperCamelCase}{character}(object, strict = FALSE)
+\S4method{upperCamelCase}{character}(object, names = TRUE,
+  strict = FALSE)
 
-\S4method{upperCamelCase}{factor}(object, strict = FALSE)
+\S4method{upperCamelCase}{factor}(object, names = TRUE, strict = FALSE)
+
+\S4method{upperCamelCase}{list}(object, names = TRUE, strict = FALSE)
 
 \S4method{upperCamelCase}{matrix}(object, rownames = FALSE,
-  colnames = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{Matrix}(object, rownames = FALSE,
   colnames = TRUE, strict = FALSE)
 
 \S4method{upperCamelCase}{data.frame}(object, rownames = FALSE,
   colnames = TRUE, strict = FALSE)
 
-\S4method{upperCamelCase}{DataFrame}(object, rownames = FALSE,
+\S4method{upperCamelCase}{Vector}(object, names = TRUE, mcols = TRUE,
+  metadata = TRUE, strict = FALSE)
+
+\S4method{upperCamelCase}{DataTable}(object, rownames = FALSE,
+  colnames = TRUE, mcols = TRUE, metadata = TRUE, strict = FALSE)
+
+\S4method{upperCamelCase}{Ranges}(object, names = FALSE, mcols = TRUE,
+  metadata = TRUE, strict = FALSE)
+
+\S4method{upperCamelCase}{Matrix}(object, rownames = FALSE,
   colnames = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{GRanges}(object, strict = FALSE)
-
-\S4method{upperCamelCase}{GRangesList}(object, strict = FALSE)
 
 \S4method{upperCamelCase}{SummarizedExperiment}(object, rownames = FALSE,
-  colnames = TRUE, strict = FALSE)
+  colnames = TRUE, assayNames = TRUE, rowData = TRUE,
+  colData = TRUE, metadata = TRUE, strict = FALSE)
 
 upperCamel(...)
 }
 \arguments{
 \item{object}{Object.}
+
+\item{names}{\code{logical(1)}.
+Sanitize names.}
 
 \item{strict}{\code{logical(1)}.
 Enforce strict name sanitization. When \code{TRUE}, this does not allow the
@@ -60,6 +70,12 @@ be modified.}
 \item{colnames}{\code{logical(1)}.
 Apply sanitization on column names. This is generally recommended by
 default.}
+
+\item{mcols}{\code{logical(1)}.
+FIXME}
+
+\item{metadata}{\code{logical(1)}.
+FIXME}
 
 \item{...}{Additional arguments.}
 }

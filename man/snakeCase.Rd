@@ -3,48 +3,57 @@
 \docType{methods}
 \name{snakeCase}
 \alias{snakeCase}
-\alias{snakeCase,ANY-method}
+\alias{snakeCase,atomic-method}
 \alias{snakeCase,character-method}
 \alias{snakeCase,factor-method}
+\alias{snakeCase,list-method}
 \alias{snakeCase,matrix-method}
-\alias{snakeCase,Matrix-method}
 \alias{snakeCase,data.frame-method}
-\alias{snakeCase,DataFrame-method}
-\alias{snakeCase,GRanges-method}
-\alias{snakeCase,GRangesList-method}
+\alias{snakeCase,Vector-method}
+\alias{snakeCase,DataTable-method}
+\alias{snakeCase,Ranges-method}
+\alias{snakeCase,Matrix-method}
 \alias{snakeCase,SummarizedExperiment-method}
 \alias{snake}
 \title{Snake case}
 \usage{
 snakeCase(object, ...)
 
-\S4method{snakeCase}{ANY}(object)
+\S4method{snakeCase}{atomic}(object, names = TRUE)
 
-\S4method{snakeCase}{character}(object)
+\S4method{snakeCase}{character}(object, names = TRUE)
 
-\S4method{snakeCase}{factor}(object)
+\S4method{snakeCase}{factor}(object, names = TRUE)
+
+\S4method{snakeCase}{list}(object, names = TRUE)
 
 \S4method{snakeCase}{matrix}(object, rownames = FALSE, colnames = TRUE)
-
-\S4method{snakeCase}{Matrix}(object, rownames = FALSE, colnames = TRUE)
 
 \S4method{snakeCase}{data.frame}(object, rownames = FALSE,
   colnames = TRUE)
 
-\S4method{snakeCase}{DataFrame}(object, rownames = FALSE,
-  colnames = TRUE)
+\S4method{snakeCase}{Vector}(object, names = TRUE, mcols = TRUE,
+  metadata = TRUE)
 
-\S4method{snakeCase}{GRanges}(object)
+\S4method{snakeCase}{DataTable}(object, rownames = FALSE,
+  colnames = TRUE, mcols = TRUE, metadata = TRUE)
 
-\S4method{snakeCase}{GRangesList}(object)
+\S4method{snakeCase}{Ranges}(object, names = FALSE, mcols = TRUE,
+  metadata = TRUE)
+
+\S4method{snakeCase}{Matrix}(object, rownames = FALSE, colnames = TRUE)
 
 \S4method{snakeCase}{SummarizedExperiment}(object, rownames = FALSE,
-  colnames = TRUE)
+  colnames = TRUE, assayNames = TRUE, rowData = TRUE,
+  colData = TRUE, metadata = TRUE)
 
 snake(...)
 }
 \arguments{
 \item{object}{Object.}
+
+\item{names}{\code{logical(1)}.
+Sanitize names.}
 
 \item{rownames}{\code{logical(1)}.
 Apply sanitization on row names. This is not generally recommended by
@@ -54,6 +63,12 @@ be modified.}
 \item{colnames}{\code{logical(1)}.
 Apply sanitization on column names. This is generally recommended by
 default.}
+
+\item{mcols}{\code{logical(1)}.
+FIXME}
+
+\item{metadata}{\code{logical(1)}.
+FIXME}
 
 \item{...}{Additional arguments.}
 }
