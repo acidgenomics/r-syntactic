@@ -1,4 +1,4 @@
-context("GRanges")
+context("S4 : GRanges")
 
 with_parameters_test_that(
     "GRanges", {
