@@ -1,4 +1,4 @@
-context("matrix")
+context("S4 : matrix")
 
 with_parameters_test_that(
     "matrix", {

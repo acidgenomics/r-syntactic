@@ -1,4 +1,4 @@
-context("character")
+context("S4 : character")
 
 ## Don't attempt to test kebabCase here, it doesn't support names argument.
 with_parameters_test_that(
