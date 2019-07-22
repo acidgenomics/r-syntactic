@@ -1,4 +1,5 @@
 data(
+    DataFrame,
     GRanges,
     syntactic,
     package = "acidtest",
@@ -11,5 +12,9 @@ funs <- list(
     snakeCase = snakeCase,
     upperCamelCase = upperCamelCase
 )
-gr <- GRanges
+df <- DataFrame
 vec <- syntactic[["character"]]
+
+## nolint start
+DataFrame <- S4Vectors::DataFrame
+## nolint end
