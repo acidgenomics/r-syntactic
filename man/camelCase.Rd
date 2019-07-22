@@ -71,19 +71,19 @@ Apply sanitization on column names. This is generally recommended by
 default.}
 
 \item{mcols}{\code{logical(1)}.
-FIXME}
+Sanitize names of metadata columns (i.e. \code{DataFrame}).}
 
 \item{metadata}{\code{logical(1)}.
-FIXME}
+Sanitize metadata names.}
 
 \item{assayNames}{\code{logical(1)}.
-FIXME}
+Sanitize assay names.}
 
 \item{rowData}{\code{logical(1)}.
-FIXME}
+Sanitize the row data names.}
 
 \item{colData}{\code{logical(1)}.
-FIXME}
+Sanitize column names of column data.}
 
 \item{...}{Additional arguments.}
 }
