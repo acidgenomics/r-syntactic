@@ -1,10 +1,15 @@
 data(
     DataFrame,
     GRanges,
+    SummarizedExperiment,
     syntactic,
     package = "acidtest",
     envir = environment()
 )
+
+df <- DataFrame
+se <- SummarizedExperiment
+vec <- syntactic[["character"]]
 
 funs <- list(
     camelCase = camelCase,
@@ -12,8 +17,6 @@ funs <- list(
     snakeCase = snakeCase,
     upperCamelCase = upperCamelCase
 )
-df <- DataFrame
-vec <- syntactic[["character"]]
 
 ## nolint start
 DataFrame <- S4Vectors::DataFrame
