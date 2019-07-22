@@ -2,14 +2,13 @@ context("S4 : GRanges")
 
 with_parameters_test_that(
     "GRanges", {
-        x <- f(gr)
+        x <- f(GRanges)
         expect_identical(
             object = colnames(mcols(x)),
             expected = expected
         )
     },
     f = funs,
-    ## gr object is already camel formatted.
     expected = list(
         camelCase = c("geneID", "geneName"),
         dottedCase = c("gene.ID", "gene.Name"),
