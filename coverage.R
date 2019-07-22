@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
 
 ## Check package coverage with covr.
-## Updated 2019-07-21.
+## Updated 2019-07-22.
 
 options(
     error = quote(quit(status = 1L)),
