@@ -1,14 +1,15 @@
 data(
     DataFrame,
     GRanges,
-    SummarizedExperiment,
+    RangedSummarizedExperiment,
     syntactic,
     package = "acidtest",
     envir = environment()
 )
 
 df <- DataFrame
-se <- SummarizedExperiment
+gr <- GRanges
+rse <- RangedSummarizedExperiment
 vec <- syntactic[["character"]]
 
 funs <- list(
