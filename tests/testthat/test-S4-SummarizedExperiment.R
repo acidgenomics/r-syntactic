@@ -3,7 +3,7 @@ context("S4 : SummarizedExperiment")
 with_parameters_test_that(
     "SummarizedExperiment", {
         x <- f(
-            object = se,
+            object = rse,
             rownames = TRUE,
             colnames = TRUE,
             assayNames = TRUE,

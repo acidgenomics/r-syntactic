@@ -2,7 +2,12 @@ context("S4 : GRanges")
 
 with_parameters_test_that(
     "GRanges", {
-        x <- f(GRanges)
+        x <- f(
+            object = gr,
+            names = TRUE,
+            mcols = TRUE
+        )
+        expect_s4_class(x, "GRanges")
         expect_identical(
             object = colnames(mcols(x)),
             expected = expected

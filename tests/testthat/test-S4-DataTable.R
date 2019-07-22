@@ -1,5 +1,8 @@
 context("S4 : DataTable")
 
+mcols(df) <- DataFrame(TEST = seq_len(ncol(df)))
+metadata(df) <- list(TEST = "XXX")
+
 with_parameters_test_that(
     "DataFrame", {
         x <- f(
