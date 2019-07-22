@@ -6,14 +6,14 @@ mcols(object) <- DataFrame(TEST = seq_len(length(object)))
 metadata(object) <- list(TEST = "XXX")
 
 with_parameters_test_that(
-    "Vector", {
+    "SimpleList", {
         x <- f(
             object = object,
             names = TRUE,
             mcols = TRUE,
             metadata = TRUE
         )
-        expect_s4_class(x, "Vector")
+        expect_s4_class(x, "SimpleList")
     },
     f = funs
 )
