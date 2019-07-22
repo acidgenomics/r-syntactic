@@ -4,8 +4,8 @@
 #' @importClassesFrom SummarizedExperiment SummarizedExperiment
 #'
 #' @importFrom S4Vectors mcols mcols<- metadata metadata<-
-#' @importFrom SummarizedExperiment assays assays<- colData colData<- rowData
-#'   rowData<-
+#' @importFrom SummarizedExperiment assayNames assays assays<- colData colData<-
+#'   rowData rowData<-
 #' @importFrom goalie assert areSameLength hasColnames hasDimnames hasNames
 #'   hasRownames isCharacter isFlag
 #' @importFrom methods setMethod signature validObject
