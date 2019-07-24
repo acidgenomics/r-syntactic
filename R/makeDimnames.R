@@ -7,16 +7,18 @@
 #' Both row and columns names will be made syntactically valid.
 #'
 #' @examples
-#' data(mn, package = "acidtest")
-#' object <- mn$matrix
+#' data(syntactic, package = "acidtest")
+#' object <- syntactic$matrix
 #' makeDimnames(object)
+
+## Updated 2019-07-19.
 makeDimnames <- function(object) {
     assert(hasDimnames(object))
-    # Row names.
+    ## Row names.
     if (hasRownames(object)) {
         rownames(object) <- makeNames(rownames(object), unique = TRUE)
     }
-    # Column names.
+    ## Column names.
     if (hasColnames(object)) {
         colnames(object) <- makeNames(colnames(object), unique = TRUE)
     }

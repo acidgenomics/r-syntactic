@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Upper camel case — upperCamel • syntactic</title>
+<title>Upper camel case — upperCamelCase • syntactic</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -34,7 +34,7 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Upper camel case — upperCamel" />
+<meta property="og:title" content="Upper camel case — upperCamelCase" />
 
 <meta property="og:description" content="Format character strings to use upper camel-style formatting, where word
 boundaries are defined by capitlization only (e.g. ThisIsCamelCase)." />
@@ -69,7 +69,7 @@ boundaries are defined by capitlization only (e.g. ThisIsCamelCase)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -110,8 +110,8 @@ boundaries are defined by capitlization only (e.g. ThisIsCamelCase)." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Upper camel case</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/upperCamel-methods.R'><code>R/upperCamel-methods.R</code></a></small>
-    <div class="hidden name"><code>upperCamel.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/upperCamelCase-methods.R'><code>R/upperCamelCase-methods.R</code></a></small>
+    <div class="hidden name"><code>upperCamelCase.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -121,40 +121,51 @@ boundaries are defined by capitlization only (e.g. <code>ThisIsCamelCase</code>)
     
     </div>
 
-    <pre class="usage"><span class='co'># S4 method for ANY</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S4 method for atomic</span>
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S4 method for factor</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S4 method for list</span>
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S4 method for matrix</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='co'># S4 method for Matrix</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S4 method for data.frame</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
-<span class='co'># S4 method for DataFrame</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+<span class='co'># S4 method for Vector</span>
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mcols</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S4 method for DataTable</span>
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mcols</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S4 method for Ranges</span>
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>mcols</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># S4 method for Matrix</span>
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='co'># S4 method for GRanges</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='co'># S4 method for GRangesList</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='co'># S4 method for SummarizedExperiment</span>
-<span class='fu'>upperCamel</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>assayNames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rowData</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>colData</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>upperCamel</span>(<span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,6 +173,11 @@ boundaries are defined by capitlization only (e.g. <code>ThisIsCamelCase</code>)
     <tr>
       <th>object</th>
       <td><p>Object.</p></td>
+    </tr>
+    <tr>
+      <th>names</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Sanitize names.</p></td>
     </tr>
     <tr>
       <th>strict</th>
@@ -182,14 +198,40 @@ be modified.</p></td>
 Apply sanitization on column names. This is generally recommended by
 default.</p></td>
     </tr>
+    <tr>
+      <th>mcols</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Sanitize names of metadata columns (i.e. <code>DataFrame</code>).</p></td>
+    </tr>
+    <tr>
+      <th>metadata</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Sanitize metadata names.</p></td>
+    </tr>
+    <tr>
+      <th>assayNames</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Sanitize assay names.</p></td>
+    </tr>
+    <tr>
+      <th>rowData</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Sanitize the row data names.</p></td>
+    </tr>
+    <tr>
+      <th>colData</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Sanitize column names of column data.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Modified object.
-Contains syntatically valid names. For objects supporting
-<code><a href='https://rdrr.io/r/base/names.html'>names()</a></code>, the underlying data returns unchanged, except for
-<code>character</code> or <code>vector</code> class.</p>
+    <p>Modified object, with names formatted in upper camel case.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -200,14 +242,14 @@ functions.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>mn</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>mn</span>, <span class='no'>upperCamel</span>)</div><div class='output co'>#&gt; $character
-#&gt;  [1] "HelloWorld"      "HELLOWORLD"      "RNAIClones"      "NCount"         
-#&gt;  [5] "Tx2gene"         "TX2GeneID"       "G2MScore"        "WorfdbHTMLRemap"
-#&gt;  [9] "MazdaRX4"        "PercentGC"       "X5prime"         "X5X3Bias"       
-#&gt; [13] "X123"            NA               
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>syntactic</span>, <span class='no'>upperCamelCase</span>)</div><div class='output co'>#&gt; $character
+#&gt;  [1] "PercentGC"       "X10um"           "X5X3Bias"        "X5prime"        
+#&gt;  [5] "G2MScore"        "HelloWorld"      "HELLOWORLD"      "MazdaRX4"       
+#&gt;  [9] "NCount"          "RNAIClones"      "Tx2gene"         "TX2GeneID"      
+#&gt; [13] "WorfdbHTMLRemap" "X123"            NA               
 #&gt; 
-#&gt; $namedCharacter
+#&gt; $character_named
 #&gt;        ItemA        ItemB 
 #&gt; "HelloWorld" "HELLOWORLD" 
 #&gt; 
@@ -216,14 +258,13 @@ functions.</p>
 #&gt;  Group1  Group1  Group2  Group2 
 #&gt; Levels: Group1 Group2
 #&gt; 
-#&gt; $dataFrame
-#&gt;            Murder Assault UrbanPop Rape
-#&gt; Alabama      13.2     236       58 21.2
-#&gt; Alaska       10.0     263       48 44.5
-#&gt; Arizona       8.1     294       80 31.0
-#&gt; Arkansas      8.8     190       50 19.5
-#&gt; California    9.0     276       91 40.6
-#&gt; Colorado      7.9     204       78 38.7
+#&gt; $list
+#&gt; $list$ItemA
+#&gt; [1] 1 2
+#&gt; 
+#&gt; $list$ItemB
+#&gt; [1] 3 4
+#&gt; 
 #&gt; 
 #&gt; $matrix
 #&gt;            Murder Assault UrbanPop Rape
@@ -234,25 +275,15 @@ functions.</p>
 #&gt; California    9.0     276       91 40.6
 #&gt; Colorado      7.9     204       78 38.7
 #&gt; 
-#&gt; $tibble
-#&gt; <span style='color: #949494;'># A tibble: 6 x 11</span><span>
-#&gt;   Manufacturer Model Displ  Year   Cyl Trans      Drv     Cty   Hwy Fl    Class 
-#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span> 
-#&gt; </span><span style='color: #BCBCBC;'>1</span><span> audi         a4      1.8  </span><span style='text-decoration: underline;'>1</span><span>999     4 auto(l5)   f        18    29 p     compa…
-#&gt; </span><span style='color: #BCBCBC;'>2</span><span> audi         a4      1.8  </span><span style='text-decoration: underline;'>1</span><span>999     4 manual(m5) f        21    29 p     compa…
-#&gt; </span><span style='color: #BCBCBC;'>3</span><span> audi         a4      2    </span><span style='text-decoration: underline;'>2</span><span>008     4 manual(m6) f        20    31 p     compa…
-#&gt; </span><span style='color: #BCBCBC;'>4</span><span> audi         a4      2    </span><span style='text-decoration: underline;'>2</span><span>008     4 auto(av)   f        21    30 p     compa…
-#&gt; </span><span style='color: #BCBCBC;'>5</span><span> audi         a4      2.8  </span><span style='text-decoration: underline;'>1</span><span>999     6 auto(l5)   f        16    26 p     compa…
-#&gt; </span><span style='color: #BCBCBC;'>6</span><span> audi         a4      2.8  </span><span style='text-decoration: underline;'>1</span><span>999     6 manual(m5) f        18    26 p     compa…
-#&gt; 
-#&gt; $list
-#&gt; $list$ItemA
-#&gt; [1] 1 2
-#&gt; 
-#&gt; $list$ItemB
-#&gt; [1] 3 4
-#&gt; 
-#&gt; </div></span></pre>
+#&gt; $data.frame
+#&gt;            Murder Assault UrbanPop Rape
+#&gt; Alabama      13.2     236       58 21.2
+#&gt; Alaska       10.0     263       48 44.5
+#&gt; Arizona       8.1     294       80 31.0
+#&gt; Arkansas      8.8     190       50 19.5
+#&gt; California    9.0     276       91 40.6
+#&gt; Colorado      7.9     204       78 38.7
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
