@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make syntactically valid dimnames — makeDimnames • syntactic</title>
+<title>Metadata column names — mcolnames • syntactic</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -34,9 +34,9 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Make syntactically valid dimnames — makeDimnames" />
+<meta property="og:title" content="Metadata column names — mcolnames" />
 
-<meta property="og:description" content="Make syntactically valid dimnames" />
+<meta property="og:description" content="Metadata column names" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -108,44 +108,61 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make syntactically valid dimnames</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeDimnames.R'><code>R/makeDimnames.R</code></a></small>
-    <div class="hidden name"><code>makeDimnames.Rd</code></div>
+    <h1>Metadata column names</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/mcolnames-methods.R'><code>R/mcolnames-methods.R</code></a></small>
+    <div class="hidden name"><code>mcolnames.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Make syntactically valid dimnames</p>
+    <p>Metadata column names</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>makeDimnames</span>(<span class='no'>object</span>)</pre>
+    <pre class="usage"><span class='fu'>mcolnames</span>(<span class='no'>x</span>, <span class='no'>...</span>)
+
+<span class='fu'>mcolnames</span>(<span class='no'>x</span>, <span class='no'>...</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+
+<span class='co'># S4 method for Vector</span>
+<span class='fu'>mcolnames</span>(<span class='no'>x</span>)
+
+<span class='co'># S4 method for Vector,character</span>
+<span class='fu'>mcolnames</span>(<span class='no'>x</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span></pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
+      <th>x</th>
       <td><p>Object.</p></td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td><p>Value.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Modified object.
-Both row and columns names will be made syntactically valid.</p>
+    <p><code>character</code>.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/S4Vectors/man/Vector-class.html'>S4Vectors::mcols()</a></code>.</p></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
-<span class='no'>object</span> <span class='kw'>&lt;-</span> <span class='no'>syntactic</span>$<span class='no'>matrix</span>
-<span class='fu'>makeDimnames</span>(<span class='no'>object</span>)</div><div class='output co'>#&gt;            Murder Assault UrbanPop Rape
-#&gt; Alabama      13.2     236       58 21.2
-#&gt; Alaska       10.0     263       48 44.5
-#&gt; Arizona       8.1     294       80 31.0
-#&gt; Arkansas      8.8     190       50 19.5
-#&gt; California    9.0     276       91 40.6
-#&gt; Colorado      7.9     204       78 38.7</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>RangedSummarizedExperiment</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
+<span class='no'>rse</span> <span class='kw'>&lt;-</span> <span class='no'>RangedSummarizedExperiment</span>
+
+<span class='fu'>mcolnames</span>(<span class='no'>rse</span>)</div><div class='output co'>#&gt; [1] "geneID"      "geneName"    "geneBiotype" "broadClass"  "entrezID"   </div><div class='input'>
+<span class='co'>## Asignment method.</span>
+<span class='fu'>mcolnames</span>(<span class='no'>rse</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/chartr.html'>toupper</a></span>(<span class='fu'>mcolnames</span>(<span class='no'>rse</span>))
+<span class='fu'>mcolnames</span>(<span class='no'>rse</span>)</div><div class='output co'>#&gt; [1] "GENEID"      "GENENAME"    "GENEBIOTYPE" "BROADCLASS"  "ENTREZID"   </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -153,6 +170,8 @@ Both row and columns names will be made syntactically valid.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>
