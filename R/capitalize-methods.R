@@ -1,21 +1,25 @@
 #' @name capitalize
 #' @inherit bioverbs::capitalize
 #' @inheritParams params
+#' @param ... Additional arguments.
 #' @examples
 #' capitalize(c("hello", "world"))
 NULL
 
 
 
+#' @rdname capitalize
+#' @name capitalize
 #' @importFrom bioverbs capitalize
-#' @aliases NULL
+#' @usage capitalize(object, ...)
 #' @export
-bioverbs::capitalize
+NULL
 
 
 
-# Using `vapply()` call here to preserve `NA_character_`.
-capitalize.character <-  # nolint
+## Using `vapply()` call here to preserve `NA_character_`.
+## Updated 2019-07-19.
+`capitalize,character` <-  # nolint
     function(object) {
         vapply(
             X = object,
@@ -38,5 +42,5 @@ capitalize.character <-  # nolint
 setMethod(
     f = "capitalize",
     signature = signature("character"),
-    definition = capitalize.character
+    definition = `capitalize,character`
 )

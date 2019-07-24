@@ -1,3 +1,13 @@
+## syntactic 0.2.0 (2019-07-22)
+
+- Renamed case functions. `camel` to `camelCase`; `kebab` to `kebabCase`;
+  `snake` to `snakeCase`; `upperCamel` to `upperCamelCase`.
+
+### Minor changes
+
+- Updated naming consistency of internal S4 functions.
+- Updated basejump dependencies.
+
 ## syntactic 0.1.10 (2019-07-12)
 
 ### Minor changes

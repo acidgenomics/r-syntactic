@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kebab case — kebab • syntactic</title>
+<title>Kebab case — kebabCase • syntactic</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -34,7 +34,7 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Kebab case — kebab" />
+<meta property="og:title" content="Kebab case — kebabCase" />
 
 <meta property="og:description" content="Format character strings to use kebab-style formatting, where word boundaries
 are defined by dashes/hyphens (e.g. this-is-kebab-case)." />
@@ -69,7 +69,7 @@ are defined by dashes/hyphens (e.g. this-is-kebab-case)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -110,8 +110,8 @@ are defined by dashes/hyphens (e.g. this-is-kebab-case)." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Kebab case</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/kebab-methods.R'><code>R/kebab-methods.R</code></a></small>
-    <div class="hidden name"><code>kebab.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/kebabCase-methods.R'><code>R/kebabCase-methods.R</code></a></small>
+    <div class="hidden name"><code>kebabCase.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -121,8 +121,12 @@ are defined by dashes/hyphens (e.g. <code>this-is-kebab-case</code>).</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S4 method for character</span>
-<span class='fu'>kebab</span>(<span class='no'>object</span>)</pre>
+    <pre class="usage"><span class='fu'>kebabCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S4 method for character</span>
+<span class='fu'>kebabCase</span>(<span class='no'>object</span>)
+
+<span class='fu'>kebab</span>(<span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -130,6 +134,10 @@ are defined by dashes/hyphens (e.g. <code>this-is-kebab-case</code>).</p>
     <tr>
       <th>object</th>
       <td><p>Object.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
     </tr>
     </table>
     
@@ -155,7 +163,7 @@ are not syntactically valid for names in R.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>kebab</span>(<span class='st'>"this is kebab case"</span>)</div><div class='output co'>#&gt; [1] "this-is-kebab-case"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>kebabCase</span>(<span class='st'>"this is kebabCase case"</span>)</div><div class='output co'>#&gt; [1] "this-is-kebab-case-case"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
