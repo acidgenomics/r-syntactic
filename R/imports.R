@@ -7,7 +7,7 @@
 #' @importFrom SummarizedExperiment assayNames assays assays<- colData colData<-
 #'   rowData rowData<-
 #' @importFrom goalie assert areSameLength hasColnames hasDimnames hasNames
-#'   hasRownames isCharacter isFlag
+#'   hasRownames isCharacter isFlag isString
 #' @importFrom methods setMethod signature validObject
 #' @importFrom utils globalVariables
 NULL
