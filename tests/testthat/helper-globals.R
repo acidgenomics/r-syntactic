@@ -20,7 +20,7 @@ funs <- list(
 )
 
 ## makeWords check vector.
-mw = c(
+mw <- c(
     "killVMaim",
     "log10GenesPerUMI",
     "mitoVsCoding",
