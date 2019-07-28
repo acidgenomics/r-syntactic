@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>News • syntactic</title>
+<title>Make a plot axis or legend label out of a character string — label • syntactic</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -34,7 +34,10 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="News" />
+<meta property="og:title" content="Make a plot axis or legend label out of a character string — label" />
+
+<meta property="og:description" content="Doesn't modify strings already containing a space or multi-letter acronym." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -52,7 +55,7 @@
   </head>
 
   <body>
-    <div class="container template-news-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -103,17 +106,68 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Release notes</h1>
+    <h1>Make a plot axis or legend label out of a character string</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/label.R'><code>R/label.R</code></a></small>
+    <div class="hidden name"><code>label.Rd</code></div>
     </div>
-    <ul>
-    <li><a href="news-0.2.html">Version 0.2</a></li>
-    <li><a href="news-0.1.html">Version 0.1</a></li>
+
+    <div class="ref-description">
+    
+    <p>Doesn't modify strings already containing a space or multi-letter acronym.</p>
+    
+    </div>
+
+    <pre class="usage"><span class='fu'>label</span>(<span class='no'>string</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>string</th>
+      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.
+Lowercase.</p>
+    
+    <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
+
+    <p>Updated 2019-07-27.</p>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'>
+<ul>
+<li><p><code><a href='makeWords.html'>makeWords()</a></code>.</p></li>
+<li><p><code><a href='https://stringr.tidyverse.org/reference/case.html'>stringr::str_to_lower()</a></code></p></li>
+</ul>
+</div>
+    
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>label</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("mitoVsCoding"): could not find function "label"</span></div><div class='input'><span class='fu'>label</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("log10GenesPerUMI"): could not find function "label"</span></div><div class='input'><span class='fu'>label</span>(<span class='st'>"Already A Label"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("Already A Label"): could not find function "label"</span></div><div class='input'><span class='fu'>label</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("NASA"): could not find function "label"</span></div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+
+      <li><a href="#note">Note</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
     </ul>
+
   </div>
 </div>
-
 
 
       <footer>

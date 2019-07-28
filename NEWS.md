@@ -1,4 +1,16 @@
+## syntactic 0.2.1 (2019-07-28)
+
+### New functions
+
+- `makeWords`: Take a syntactic name vector and reformat to character strings
+  containing words separated by spaces.
+- `label`: Generates a character string suitable for plot axis labels. Uses the
+  new `makeWords` function internally.
+- `title`: Generate a sentence case string suitable for plot titles.
+
 ## syntactic 0.2.0 (2019-07-22)
+
+### Major changes
 
 - Renamed case functions. `camel` to `camelCase`; `kebab` to `kebabCase`;
   `snake` to `snakeCase`; `upperCamel` to `upperCamelCase`.
