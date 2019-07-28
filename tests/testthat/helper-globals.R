@@ -19,6 +19,15 @@ funs <- list(
     upperCamelCase = upperCamelCase
 )
 
+## makeWords check vector.
+mw = c(
+    "killVMaim",
+    "log10GenesPerUMI",
+    "mitoVsCoding",
+    "words already",
+    "NASA"
+)
+
 ## nolint start
 DataFrame <- S4Vectors::DataFrame
 ## nolint end

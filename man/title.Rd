@@ -14,7 +14,7 @@ title(string)
 British style sentence case.
 }
 \description{
-Make a title out of character string
+Doesn't modify strings already containing a space or multi-letter acronym.
 }
 \note{
 Updated 2019-07-27.
