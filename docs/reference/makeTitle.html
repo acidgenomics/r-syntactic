@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make a title out of character string — title • syntactic</title>
+<title>Make a title out of character string — makeTitle • syntactic</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -34,7 +34,7 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Make a title out of character string — title" />
+<meta property="og:title" content="Make a title out of character string — makeTitle" />
 
 <meta property="og:description" content="Doesn't modify strings already containing a space or multi-letter acronym." />
 <meta name="twitter:card" content="summary" />
@@ -109,8 +109,8 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Make a title out of character string</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/title.R'><code>R/title.R</code></a></small>
-    <div class="hidden name"><code>title.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeTitle.R'><code>R/makeTitle.R</code></a></small>
+    <div class="hidden name"><code>makeTitle.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -119,7 +119,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>title</span>(<span class='no'>string</span>)</pre>
+    <pre class="usage"><span class='fu'>makeTitle</span>(<span class='no'>string</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,7 +151,7 @@ British style sentence case.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>title</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in title("mitoVsCoding"): plot.new has not been called yet</span></div><div class='input'><span class='fu'>title</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in title("log10GenesPerUMI"): plot.new has not been called yet</span></div><div class='input'><span class='fu'>title</span>(<span class='st'>"Already A Title"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in title("Already A Title"): plot.new has not been called yet</span></div><div class='input'><span class='fu'>title</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in title("NASA"): plot.new has not been called yet</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeTitle("mitoVsCoding"): could not find function "makeTitle"</span></div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeTitle("log10GenesPerUMI"): could not find function "makeTitle"</span></div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"Already A Title"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeTitle("Already A Title"): could not find function "makeTitle"</span></div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeTitle("NASA"): could not find function "makeTitle"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

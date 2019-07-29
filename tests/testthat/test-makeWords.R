@@ -8,7 +8,8 @@ test_that("makeWords", {
             "log10 genes per UMI",
             "mito vs. coding",
             "words already",
-            "NASA"
+            "NASA",
+            "n gene"
         )
     )
 })

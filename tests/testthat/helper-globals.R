@@ -25,7 +25,8 @@ mw <- c(
     "log10GenesPerUMI",
     "mitoVsCoding",
     "words already",
-    "NASA"
+    "NASA",
+    "nGene"
 )
 
 ## nolint start
