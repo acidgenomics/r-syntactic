@@ -1,10 +1,10 @@
-context("title")
+context("makeTitle")
 
-test_that("title", {
+test_that("makeTitle", {
     expect_identical(
         object = vapply(
             X = mw,
-            FUN = title,
+            FUN = makeTitle,
             FUN.VALUE = character(1L),
             USE.NAMES = FALSE
         ),

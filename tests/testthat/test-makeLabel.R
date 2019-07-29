@@ -1,10 +1,10 @@
-context("label")
+context("makeLabel")
 
-test_that("label", {
+test_that("makeLabel", {
     expect_identical(
         object = vapply(
             X = mw,
-            FUN = label,
+            FUN = makeLabel,
             FUN.VALUE = character(1L),
             USE.NAMES = FALSE
         ),
