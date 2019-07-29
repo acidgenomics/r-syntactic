@@ -13,7 +13,8 @@ test_that("makeLabel", {
             "log10 genes per UMI",
             "mito vs. coding",
             "words already",
-            "NASA"
+            "NASA",
+            "genes"
         )
     )
 })

@@ -13,7 +13,8 @@ test_that("makeTitle", {
             "Log10 genes per UMI",
             "Mito vs. coding",
             "Words already",
-            "NASA"
+            "NASA",
+            "N gene"
         )
     )
 })
