@@ -1,3 +1,10 @@
+## syntactic 0.2.2 (2019-07-29)
+
+### Minor changes
+
+- Renamed `label` to `makeLabel` and `title` to `makeTitle`, so we don't mask
+  any functions in the graphics package.
+
 ## syntactic 0.2.1 (2019-07-28)
 
 ### New functions
