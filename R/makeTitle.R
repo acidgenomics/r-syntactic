@@ -1,3 +1,7 @@
+## Don't use `title`, it will mask function in graphics package.
+
+
+
 #' Make a title out of character string
 #'
 #' Doesn't modify strings already containing a space or multi-letter acronym.
@@ -16,11 +20,11 @@
 #' - [stringr::str_to_sentence()].
 #'
 #' @examples
-#' title("mitoVsCoding")
-#' title("log10GenesPerUMI")
-#' title("Already A Title")
-#' title("NASA")
-title <- function(string) {
+#' makeTitle("mitoVsCoding")
+#' makeTitle("log10GenesPerUMI")
+#' makeTitle("Already A Title")
+#' makeTitle("NASA")
+makeTitle <- function(string) {
     assert(isString(string))
     x <- makeWords(string)
     x <- capitalize(x)
