@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make a plot axis or legend label out of a character string — label • syntactic</title>
+<title>Make a plot axis or legend label out of a character string — makeLabel • syntactic</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -34,7 +34,7 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Make a plot axis or legend label out of a character string — label" />
+<meta property="og:title" content="Make a plot axis or legend label out of a character string — makeLabel" />
 
 <meta property="og:description" content="Doesn't modify strings already containing a space or multi-letter acronym." />
 <meta name="twitter:card" content="summary" />
@@ -109,8 +109,8 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Make a plot axis or legend label out of a character string</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/label.R'><code>R/label.R</code></a></small>
-    <div class="hidden name"><code>label.Rd</code></div>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeLabel.R'><code>R/makeLabel.R</code></a></small>
+    <div class="hidden name"><code>makeLabel.Rd</code></div>
     </div>
 
     <div class="ref-description">
@@ -119,7 +119,7 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>label</span>(<span class='no'>string</span>)</pre>
+    <pre class="usage"><span class='fu'>makeLabel</span>(<span class='no'>string</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,7 +150,7 @@ Lowercase.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>label</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("mitoVsCoding"): could not find function "label"</span></div><div class='input'><span class='fu'>label</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("log10GenesPerUMI"): could not find function "label"</span></div><div class='input'><span class='fu'>label</span>(<span class='st'>"Already A Label"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("Already A Label"): could not find function "label"</span></div><div class='input'><span class='fu'>label</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in label("NASA"): could not find function "label"</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeLabel("mitoVsCoding"): could not find function "makeLabel"</span></div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeLabel("log10GenesPerUMI"): could not find function "makeLabel"</span></div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"Already A Label"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeLabel("Already A Label"): could not find function "makeLabel"</span></div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeLabel("NASA"): could not find function "makeLabel"</span></div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"nGene"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in makeLabel("nGene"): could not find function "makeLabel"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -1,10 +1,10 @@
-context("label")
+context("makeLabel")
 
-test_that("label", {
+test_that("makeLabel", {
     expect_identical(
         object = vapply(
             X = mw,
-            FUN = label,
+            FUN = makeLabel,
             FUN.VALUE = character(1L),
             USE.NAMES = FALSE
         ),
@@ -13,7 +13,8 @@ test_that("label", {
             "log10 genes per UMI",
             "mito vs. coding",
             "words already",
-            "NASA"
+            "NASA",
+            "genes"
         )
     )
 })
