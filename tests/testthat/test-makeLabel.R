@@ -14,7 +14,7 @@ test_that("makeLabel", {
             "mito vs. coding",
             "words already",
             "NASA",
-            "genes"
+            "n gene"
         )
     )
 })
