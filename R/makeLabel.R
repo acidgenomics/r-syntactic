@@ -2,7 +2,7 @@
 #'
 #' Doesn't modify strings already containing a space or multi-letter acronym.
 #'
-#' @note Updated 2019-07-29.
+#' @note Updated 2019-07-31.
 #' @export
 #'
 #' @param string `character(1)`.
@@ -23,12 +23,5 @@
 makeLabel <- function(string) {
     assert(isString(string))
     x <- makeWords(string)
-    ## Handle `n` prefixed strings (e.g. `nGene`).
-    if (grepl("^n[[:space:]]", x)) {
-        if (!grepl("s$", x)) {
-            x <- paste0(x, "s")
-        }
-        x <- sub("^n[[:space:]]", "", x)
-    }
     x
 }
