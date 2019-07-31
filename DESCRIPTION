@@ -1,8 +1,8 @@
 Package: syntactic
 Title: Syntactically valid names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.2.2
-Date: 2019-07-29
+Version: 0.2.3
+Date: 2019-07-31
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",

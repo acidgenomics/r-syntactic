@@ -17,7 +17,7 @@ Lowercase.
 Doesn't modify strings already containing a space or multi-letter acronym.
 }
 \note{
-Updated 2019-07-29.
+Updated 2019-07-31.
 }
 \examples{
 makeLabel("mitoVsCoding")
