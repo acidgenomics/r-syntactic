@@ -2,7 +2,7 @@ context("S4 : matrix")
 
 with_parameters_test_that(
     "matrix", {
-        object <- syntactic[["matrix"]][1L:3L, 1L:3L]
+        object <- syntactic[["matrix"]][seq_len(3L), seq_len(3L)]
         expect_identical(
             object = dimnames(f(object, rownames = TRUE, colnames = TRUE)),
             expected = expected
