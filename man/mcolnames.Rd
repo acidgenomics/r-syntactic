@@ -19,7 +19,7 @@ mcolnames(x, ...) <- value
 \arguments{
 \item{x}{Object.}
 
-\item{value}{Value.}
+\item{value}{Value to assign.}
 
 \item{...}{Additional arguments.}
 }
