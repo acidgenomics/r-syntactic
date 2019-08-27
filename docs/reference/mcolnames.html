@@ -68,7 +68,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.3</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@
     </tr>
     <tr>
       <th>value</th>
-      <td><p>Value.</p></td>
+      <td><p>Value to assign.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -159,10 +159,12 @@
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>RangedSummarizedExperiment</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
 <span class='no'>rse</span> <span class='kw'>&lt;-</span> <span class='no'>RangedSummarizedExperiment</span>
 
-<span class='fu'>mcolnames</span>(<span class='no'>rse</span>)</div><div class='output co'>#&gt; [1] "geneID"      "geneName"    "geneBiotype" "broadClass"  "entrezID"   </div><div class='input'>
+<span class='fu'>mcolnames</span>(<span class='no'>rse</span>)</div><div class='output co'>#&gt; [1] "broadClass"     "description"    "entrezID"       "geneBiotype"   
+#&gt; [5] "geneID"         "geneIDVersion"  "geneName"       "seqCoordSystem"</div><div class='input'>
 <span class='co'>## Asignment method.</span>
 <span class='fu'>mcolnames</span>(<span class='no'>rse</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/chartr.html'>toupper</a></span>(<span class='fu'>mcolnames</span>(<span class='no'>rse</span>))
-<span class='fu'>mcolnames</span>(<span class='no'>rse</span>)</div><div class='output co'>#&gt; [1] "GENEID"      "GENENAME"    "GENEBIOTYPE" "BROADCLASS"  "ENTREZID"   </div></pre>
+<span class='fu'>mcolnames</span>(<span class='no'>rse</span>)</div><div class='output co'>#&gt; [1] "BROADCLASS"     "DESCRIPTION"    "ENTREZID"       "GENEBIOTYPE"   
+#&gt; [5] "GENEID"         "GENEIDVERSION"  "GENENAME"       "SEQCOORDSYSTEM"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
