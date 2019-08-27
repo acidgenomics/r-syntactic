@@ -1,3 +1,9 @@
+## syntactic 0.2.3 (2019-08-27)
+
+### Minor changes
+
+- Updated R dependency to 3.6.
+
 ## syntactic 0.2.2 (2019-07-29)
 
 ### Minor changes
