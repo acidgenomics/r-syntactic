@@ -1,8 +1,15 @@
-## syntactic 0.2.3 (2019-08-27)
+## syntactic 0.2.4 (2019-08-27)
 
 ### Minor changes
 
 - Updated R dependency to 3.6.
+
+## syntactic 0.2.3 (2019-08-11)
+
+### Minor changes
+
+- Documentation improvements.
+- Updated basejump dependencies.
 
 ## syntactic 0.2.2 (2019-07-29)
 
