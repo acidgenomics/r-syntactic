@@ -25,7 +25,7 @@ NULL
 
 
 
-## Updated 2019-07-19.
+## Updated 2019-09-06.
 .camelCase <-  # nolint
     function(
         object,
@@ -35,12 +35,10 @@ NULL
         object <- dotted(object)
         format <- match.arg(format)
         assert(isFlag(strict))
-
         ## Simplify mixed case acronyms in strict mode.
         if (isTRUE(strict)) {
             object <- tolower(object)
         }
-
         ## lowerCamelCase or UpperCamelCase.
         if (format == "lower") {
             ## lowerCamelCase
@@ -61,13 +59,10 @@ NULL
                 perl = TRUE
             )
         }
-
         ## Remove dots in between numbers following a letter.
         object <- gsub("([[:alpha:]])\\.([[:digit:]])", "\\1\\2", object)
-
         ## First letter of second word must be capitalized.
         object <- gsub("\\.([[:alpha:]])", "\\U\\1", object, perl = TRUE)
-
         ## Remaining dots should be sanitized with "X" character.
         pattern <- "\\."
         if (any(grepl(pattern, object))) {
@@ -78,7 +73,6 @@ NULL
             }
             object <- gsub(pattern, replacement, object)
         }
-
         object
     }
 
