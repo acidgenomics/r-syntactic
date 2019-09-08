@@ -35,10 +35,10 @@ If [syntactic][] doesn't work quite right for you, these popular packages also p
 - [lettercase][] by Christopher Brown.
 - [snakecase][] by Malte Grosser.
 
-[basejump]: https://basejump.acidgenomics.com/
 [Bioconductor]: https://bioconductor.org/
+[R]: https://www.r-project.org/
+[basejump]: https://basejump.acidgenomics.com/
 [janitor]: https://cran.r-project.org/package=janitor
 [lettercase]: https://cran.r-project.org/package=lettercase
-[R]: https://www.r-project.org/
 [snakecase]: https://cran.r-project.org/package=snakecase
 [syntactic]: https://syntactic.acidgenomics.com/
