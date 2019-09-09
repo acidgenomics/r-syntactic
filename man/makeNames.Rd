@@ -7,11 +7,13 @@
 makeNames(names, unique = TRUE)
 }
 \arguments{
-\item{names}{character vector to be coerced to syntactically valid
-   names.  This is coerced to character if necessary.}
+\item{names}{\code{character}.
+Character vector to be coerced to syntactically valid names.}
 
-\item{unique}{logical; if \code{TRUE}, the resulting elements are
-     unique.  This may be desired for, e.g., column names.}
+\item{unique}{\code{logical(1)}.
+If \code{TRUE}, the resulting elements are unique. Recommended by default, for
+syntactically valid names (e.g. column, row names). Note that this is
+disabled by default for \code{\link[base:make.names]{make.names()}}.}
 }
 \value{
 \code{character}.
@@ -24,6 +26,8 @@ and/or \code{\link[base:colnames]{colnames()}} without modification of the value
 \note{
 \code{\link[=makeNames]{makeNames()}} sanitizes names using underscores instead of dots, the
 convention used by \code{\link[base:make.names]{make.names()}}.
+
+Updated 2019-09-09.
 }
 \examples{
 data(syntactic, package = "acidtest")
@@ -31,5 +35,5 @@ names <- syntactic$character
 makeNames(names)
 }
 \seealso{
-\code{make.names()}.
+\code{\link[base:make.names]{make.names()}}.
 }

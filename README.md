@@ -15,10 +15,10 @@ This package is part of the [basejump][] toolkit. Refer to its website for insta
 
 [syntactic][] improves upon the `make.names()` functionality defined in base [R][], and is designed to return syntactically valid names from biological metadata. The package exports these primary functions:
 
-- `camel()` (e.g. `helloWorld`).
-- `dotted()` (e.g. `hello.world`).
-- `snake()` (e.g. `hello_world`).
-- `upperCamel()` (e.g. `HelloWorld`).
+- `camelCase()` (e.g. `helloWorld`).
+- `dottedCase()` (e.g. `hello.world`).
+- `snakeCase()` (e.g. `hello_world`).
+- `upperCamelCase()` (e.g. `HelloWorld`).
 
 Additionally, the package exports these utility functions:
 

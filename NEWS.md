@@ -1,3 +1,14 @@
+## syntactic 0.2.5 (2019-09-09)
+
+### Minor changes
+
+- Migrated S4 generics here from bioverbs package, because they're not really
+  "biological" per se. I consolidated the generics here in case we need to
+  submit syntactic to CRAN rather than Bioconductor.
+- Removed S4 generic methods for `mcolnames`. I'll add this into basejump
+  directly instead.
+- Improved documentation consistency and added timestamps.
+
 ## syntactic 0.2.4 (2019-08-27)
 
 ### Minor changes
