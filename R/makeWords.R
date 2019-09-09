@@ -1,7 +1,7 @@
 #' Convert syntactic names to words separated by spaces
 #'
-#' @note Updated 2019-07-27.
 #' @export
+#' @note Updated 2019-07-27.
 #'
 #' @param names `character`.
 #'

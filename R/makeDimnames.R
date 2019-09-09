@@ -1,6 +1,8 @@
 #' Make syntactically valid dimnames
 #'
 #' @export
+#' @note Updated 2019-07-19.
+#'
 #' @inheritParams params
 #'
 #' @return Modified object.
@@ -10,8 +12,6 @@
 #' data(syntactic, package = "acidtest")
 #' object <- syntactic$matrix
 #' makeDimnames(object)
-
-## Updated 2019-07-19.
 makeDimnames <- function(object) {
     assert(hasDimnames(object))
     ## Row names.

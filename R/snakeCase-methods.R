@@ -1,9 +1,13 @@
-#' @name snakeCase
+#' Snake case
 #'
-#' @inherit bioverbs::snakeCase
-#' @inherit camel return
+#' Format character strings to use snake-style formatting, where word boundaries
+#' are defined by underscores (e.g. `this_is_snake_case`).
+#'
+#' @name snakeCase
+#' @note Updated 2019-09-09.
+#'
+#' @inherit camelCase return
 #' @inheritParams params
-#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
@@ -12,16 +16,6 @@ NULL
 
 
 
-#' @rdname snakeCase
-#' @name snakeCase
-#' @importFrom bioverbs snakeCase
-#' @usage snakeCase(object, ...)
-#' @export
-NULL
-
-
-
-## Updated 2019-07-19.
 .snakeCase <-  # nolint
     function(object) {
         object <- dotted(object)
@@ -32,8 +26,6 @@ NULL
 
 
 
-## Base R classes ==============================================================
-## Updated 2019-07-21.
 `snakeCase,atomic` <-  # nolint
     function(object, names = TRUE) {
         assert(isFlag(names))
@@ -55,7 +47,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `snakeCase,character` <-  # nolint
     function(object, names = TRUE) {
         assert(isFlag(names))
@@ -81,7 +72,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `snakeCase,factor` <-  # nolint
     function(object, names = TRUE) {
         assert(isFlag(names))
@@ -109,7 +99,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `snakeCase,list` <- `snakeCase,atomic`  # nolint
 
 
@@ -124,7 +113,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `snakeCase,matrix` <-  # nolint
     function(
         object,
@@ -157,7 +145,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `snakeCase,data.frame` <- `snakeCase,matrix`  # nolint
 
 
@@ -172,8 +159,6 @@ setMethod(
 
 
 
-## S4 virtual classes ==========================================================
-## Updated 2019-07-19.
 `snakeCase,Vector` <-  # nolint
     function(
         object,
@@ -181,7 +166,6 @@ setMethod(
         mcols = TRUE,
         metadata = TRUE
     ) {
-        validObject(object)
         assert(
             isFlag(names),
             isFlag(mcols),
@@ -191,7 +175,7 @@ setMethod(
             names(object) <- snakeCase(names(object))
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <- snakeCase(mcolnames(object))
+            names(mcols(object)) <- snakeCase(names(mcols(object)))
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <- snakeCase(names(metadata(object)))
@@ -211,8 +195,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
-## mcols metadata
 `snakeCase,DataTable` <-  # nolint
     function(
         object,
@@ -221,7 +203,6 @@ setMethod(
         mcols = TRUE,
         metadata = TRUE
     ) {
-        validObject(object)
         assert(
             hasDimnames(object),
             isFlag(rownames),
@@ -236,7 +217,7 @@ setMethod(
             colnames(object) <- snakeCase(colnames(object))
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <- snakeCase(mcolnames(object))
+            names(mcols(object)) <- snakeCase(names(mcols(object)))
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <- snakeCase(names(metadata(object)))
@@ -257,7 +238,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `snakeCase,Ranges` <- `snakeCase,Vector`  # nolint
 formals(`snakeCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
 
@@ -273,7 +253,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `snakeCase,Matrix` <- `snakeCase,matrix`  # nolint
 
 
@@ -288,8 +267,6 @@ setMethod(
 
 
 
-## S4 classes ==================================================================
-## Updated 2019-07-19.
 `snakeCase,SummarizedExperiment` <-  # nolint
     function(
         object,
@@ -300,7 +277,6 @@ setMethod(
         colData = TRUE,
         metadata = TRUE
     ) {
-        validObject(object)
         assert(
             isFlag(rownames),
             isFlag(colnames),
@@ -343,7 +319,6 @@ setMethod(
 
 
 
-## Aliases =====================================================================
 #' @rdname snakeCase
 #' @export
 snake <- function(...) {
