@@ -1,15 +1,11 @@
-## Don't use `title`, it will mask function in graphics package.
-
-
-
 #' Make a title out of character string
 #'
 #' Doesn't modify strings already containing a space or multi-letter acronym.
 #'
-#' @note Updated 2019-07-27.
 #' @export
+#' @note Updated 2019-07-27.
 #'
-#' @param string `character(1)`.
+#' @inheritParams params
 #'
 #' @return `character(1)`.
 #'   British style sentence case.
