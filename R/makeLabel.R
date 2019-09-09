@@ -2,10 +2,10 @@
 #'
 #' Doesn't modify strings already containing a space or multi-letter acronym.
 #'
-#' @note Updated 2019-07-31.
 #' @export
+#' @note Updated 2019-07-31.
 #'
-#' @param string `character(1)`.
+#' @inheritParams params
 #'
 #' @return `character(1)`.
 #'   Lowercase.
