@@ -55,6 +55,8 @@ upperCamel(...)
 \arguments{
 \item{object}{Object.}
 
+\item{...}{Additional arguments.}
+
 \item{names}{\code{logical(1)}.
 Sanitize names.}
 

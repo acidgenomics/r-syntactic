@@ -40,6 +40,8 @@ return of any capitalized acronyms. "RNA" will become "Rna", for example.}
 \item{string}{\code{character(1)}.}
 
 \item{x}{Object.}
+
+\item{...}{Additional arguments.}
 }
 \description{
 Parameters
