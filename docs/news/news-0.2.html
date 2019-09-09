@@ -8,11 +8,13 @@
 
 <title>Version 0.2 • syntactic</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -34,7 +36,9 @@
 
   <link href="../extra.css" rel="stylesheet">
   
+
 <meta property="og:title" content="Version 0.2" />
+
 
 
 
@@ -65,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.5</span>
       </span>
     </div>
 
@@ -84,7 +88,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/acidgenomics/syntactic">
@@ -119,9 +122,9 @@
 <li>Renamed case functions. <code>camel</code> to <code>camelCase</code>; <code>kebab</code> to <code>kebabCase</code>; <code>snake</code> to <code>snakeCase</code>; <code>upperCamel</code> to <code>upperCamelCase</code>.</li>
 </ul>
 </div>
-<div id="minor-changes-3" class="section level3">
+<div id="minor-changes-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Updated naming consistency of internal S4 functions.</li>
 <li>Updated basejump dependencies.</li>
@@ -147,9 +150,9 @@
     <div id="syntactic-0-2-2-2019-07-29" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-2-2-2019-07-29" class="anchor"></a>syntactic 0.2.2 (2019-07-29)</h2>
-<div id="minor-changes-2" class="section level3">
+<div id="minor-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Renamed <code>label</code> to <code>makeLabel</code> and <code>title</code> to <code>makeTitle</code>, so we don’t mask any functions in the graphics package.</li>
 </ul>
@@ -158,9 +161,9 @@
     <div id="syntactic-0-2-3-2019-08-11" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-2-3-2019-08-11" class="anchor"></a>syntactic 0.2.3 (2019-08-11)</h2>
-<div id="minor-changes-1" class="section level3">
+<div id="minor-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Documentation improvements.</li>
 <li>Updated basejump dependencies.</li>
@@ -170,11 +173,24 @@
     <div id="syntactic-0-2-4-2019-08-27" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-2-4-2019-08-27" class="anchor"></a>syntactic 0.2.4 (2019-08-27)</h2>
+<div id="minor-changes-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>Updated R dependency to 3.6.</li>
+</ul>
+</div>
+</div>
+    <div id="syntactic-0-2-5-2019-09-09" class="section level2">
+<h2 class="hasAnchor">
+<a href="#syntactic-0-2-5-2019-09-09" class="anchor"></a>syntactic 0.2.5 (2019-09-09)</h2>
 <div id="minor-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h3>
 <ul>
-<li>Updated R dependency to 3.6.</li>
+<li>Migrated S4 generics here from bioverbs package, because they’re not really “biological” per se. I consolidated the generics here in case we need to submit syntactic to CRAN rather than Bioconductor.</li>
+<li>Removed S4 generic methods for <code>mcolnames</code>. I’ll add this into basejump directly instead.</li>
+<li>Improved documentation consistency and added timestamps.</li>
 </ul>
 </div>
 </div>
@@ -189,6 +205,7 @@
         <li><a href="#syntactic-0-2-2-2019-07-29">0.2.2</a></li>
         <li><a href="#syntactic-0-2-3-2019-08-11">0.2.3</a></li>
         <li><a href="#syntactic-0-2-4-2019-08-27">0.2.4</a></li>
+        <li><a href="#syntactic-0-2-5-2019-09-09">0.2.5</a></li>
       </ul>
     </div>
   </div>
@@ -202,7 +219,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.9100.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
 
       </footer>

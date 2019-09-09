@@ -16,6 +16,9 @@ Both row and columns names will be made syntactically valid.
 \description{
 Make syntactically valid dimnames
 }
+\note{
+Updated 2019-07-19.
+}
 \examples{
 data(syntactic, package = "acidtest")
 object <- syntactic$matrix
