@@ -1,24 +1,19 @@
+#' Capitalize
+#'
 #' @name capitalize
-#' @inherit bioverbs::capitalize
+#' @note Updated 2019-09-09.
+#'
 #' @inheritParams params
-#' @param ... Additional arguments.
+#'
+#' @return Modified object, with names capitalized.
+#'
 #' @examples
 #' capitalize(c("hello", "world"))
 NULL
 
 
 
-#' @rdname capitalize
-#' @name capitalize
-#' @importFrom bioverbs capitalize
-#' @usage capitalize(object, ...)
-#' @export
-NULL
-
-
-
 ## Using `vapply()` call here to preserve `NA_character_`.
-## Updated 2019-07-19.
 `capitalize,character` <-  # nolint
     function(object) {
         vapply(

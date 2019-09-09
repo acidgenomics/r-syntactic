@@ -1,8 +1,14 @@
-#' @name camelCase
+#' Camel case
 #'
-#' @inherit bioverbs::camelCase
+#' Format character strings to use (lower) camel-style formatting, where word
+#' boundaries are defined by capitlization only (e.g. `thisIsCamelCase`).
+#'
+#' Camel case is recommended by Bioconductor for variable and function names.
+#'
+#' @name camelCase
+#' @note Updated 2019-09-09.
+#'
 #' @inheritParams params
-#' @param ... Additional arguments.
 #'
 #' @return Modified object.
 #' Contains syntatically valid names. For objects supporting
@@ -16,16 +22,6 @@ NULL
 
 
 
-#' @rdname camelCase
-#' @name camelCase
-#' @importFrom bioverbs camelCase
-#' @usage camelCase(object, ...)
-#' @export
-NULL
-
-
-
-## Updated 2019-09-06.
 .camelCase <-  # nolint
     function(
         object,
@@ -40,7 +36,7 @@ NULL
             object <- tolower(object)
         }
         ## lowerCamelCase or UpperCamelCase.
-        if (format == "lower") {
+        if (identical(format, "lower")) {
             ## lowerCamelCase
             ## Coerce first word to lower.
             object <- gsub(
@@ -49,7 +45,7 @@ NULL
                 x = object,
                 perl = TRUE
             )
-        } else if (format == "upper") {
+        } else if (identical(format, "upper")) {
             ## UpperCamelCase
             ## Capitalize the first letter.
             object <- gsub(
@@ -66,9 +62,9 @@ NULL
         ## Remaining dots should be sanitized with "X" character.
         pattern <- "\\."
         if (any(grepl(pattern, object))) {
-            if (format == "lower") {
+            if (identical(format, "lower")) {
                 replacement <- "x"
-            } else if (format == "upper") {
+            } else if (identical(format, "upper")) {
                 replacement <- "X"
             }
             object <- gsub(pattern, replacement, object)
@@ -78,8 +74,6 @@ NULL
 
 
 
-## Base R classes ==============================================================
-## Updated 2019-07-19.
 `camelCase,atomic` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         assert(
@@ -104,7 +98,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `camelCase,character` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         assert(
@@ -133,7 +126,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `camelCase,factor` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         assert(
@@ -164,7 +156,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `camelCase,list` <- `camelCase,atomic`  # nolint
 
 
@@ -179,7 +170,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `camelCase,matrix` <-  # nolint
     function(
         object,
@@ -214,7 +204,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `camelCase,data.frame` <- `camelCase,matrix`  # nolint
 
 
@@ -229,8 +218,6 @@ setMethod(
 
 
 
-## S4 virtual classes ==========================================================
-## Updated 2019-07-19.
 `camelCase,Vector` <-  # nolint
     function(
         object,
@@ -239,7 +226,6 @@ setMethod(
         metadata = TRUE,
         strict = FALSE
     ) {
-        validObject(object)
         assert(
             isFlag(names),
             isFlag(mcols),
@@ -251,8 +237,8 @@ setMethod(
                 camelCase(names(object), strict = strict)
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <-
-                camelCase(mcolnames(object), strict = strict)
+            names(mcols(object)) <-
+                camelCase(names(mcols(object)), strict = strict)
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <-
@@ -273,8 +259,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
-## mcols metadata
 `camelCase,DataTable` <-  # nolint
     function(
         object,
@@ -284,7 +268,6 @@ setMethod(
         metadata = TRUE,
         strict = FALSE
     ) {
-        validObject(object)
         assert(
             hasDimnames(object),
             isFlag(rownames),
@@ -300,8 +283,8 @@ setMethod(
             colnames(object) <- camelCase(colnames(object), strict = strict)
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <-
-                camelCase(mcolnames(object), strict = strict)
+            names(mcols(object)) <-
+                camelCase(names(mcols(object)), strict = strict)
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <-
@@ -323,7 +306,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `camelCase,Ranges` <- `camelCase,Vector`  # nolint
 formals(`camelCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
 
@@ -339,7 +321,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `camelCase,Matrix` <- `camelCase,matrix`  # nolint
 
 
@@ -354,8 +335,6 @@ setMethod(
 
 
 
-## S4 classes ==================================================================
-## Updated 2019-07-19.
 `camelCase,SummarizedExperiment` <-  # nolint
     function(
         object,
@@ -367,7 +346,6 @@ setMethod(
         metadata = TRUE,
         strict = FALSE
     ) {
-        validObject(object)
         assert(
             isFlag(rownames),
             isFlag(colnames),
@@ -415,7 +393,6 @@ setMethod(
 
 
 
-## Aliases =====================================================================
 #' @rdname camelCase
 #' @export
 camel <- function(...) {

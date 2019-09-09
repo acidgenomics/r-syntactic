@@ -1,26 +1,19 @@
-#' @name dottedCase
+#' Dotted case
 #'
+#' @name dottedCase
 #' @note [dottedCase()] support is provided for matching against base R
 #'   parameters. However, it is recommended to avoid using it for variable
 #'   assignments into an `environment`, as that can introduce conflicts with
 #'   base functions.
+#' @note Updated 2019-09-09.
 #'
-#' @inherit bioverbs::dottedCase
-#' @inherit camel return
 #' @inheritParams params
+#'
+#' @return Modified object, with names formatted in dotted case.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
 #' lapply(syntactic, dottedCase)
-NULL
-
-
-
-#' @rdname dottedCase
-#' @name dottedCase
-#' @importFrom bioverbs dottedCase
-#' @usage dottedCase(object, ...)
-#' @export
 NULL
 
 
@@ -30,7 +23,6 @@ NULL
     function(object) {
         assert(is.atomic(object))
         object <- as.character(object)
-
         ## Handle "+" as a special case. Spell out as "plus".
         object <- gsub(
             pattern = "\\+",
@@ -43,28 +35,24 @@ NULL
             replacement = "percent",
             x = object
         )
-
         ## Strip comma delims in between numbers (e.g. 1,000,000).
         object <- gsub(
             pattern = "(\\d),(\\d)",
             replacement = "\\1\\2",
             x = object
         )
-
         ## Now we're ready to sanitize using base conventions.
         object <- make.names(
             names = object,
             unique = FALSE,
             allow_ = FALSE
         )
-
         ## Ensure all non-alphanumeric characters get coerced to periods.
         object <- gsub(
             pattern = "[^[:alnum:]]",
             replacement = ".",
             x = object
         )
-
         ## Combine multiple dots.
         object <- gsub(
             pattern = "[\\.]+",
@@ -77,17 +65,14 @@ NULL
             replacement = "",
             x = object
         )
-
         ## Coerce `"NA"` back to `NA` after `make.names()` call.
         object <- gsub(
             pattern = "^NA$",
             replacement = NA_character_,
             x = object
         )
-
         ## Standardize any mixed case acronyms.
         object <- .sanitizeAcronyms(object)
-
         ## Establish word boundaries for camelCase acronyms
         ## (e.g. `worfdbHTMLRemap` -> `worfdb.HTML.remap`).
         ## Acronym following a word.
@@ -102,14 +87,12 @@ NULL
             replacement = "\\1.\\2\\3",
             x = object
         )
-
+        ## Return.
         object
     }
 
 
 
-## Base R classes ==============================================================
-## Updated 2019-07-21.
 `dottedCase,atomic` <-  # nolint
     function(object, names = TRUE) {
         assert(isFlag(names))
@@ -131,7 +114,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `dottedCase,character` <-  # nolint
     function(object, names = TRUE) {
         assert(isFlag(names))
@@ -157,7 +139,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `dottedCase,factor` <-  # nolint
     function(object, names = TRUE) {
         assert(isFlag(names))
@@ -185,7 +166,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `dottedCase,list` <- `dottedCase,atomic`  # nolint
 
 
@@ -200,7 +180,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `dottedCase,matrix` <-  # nolint
     function(
         object,
@@ -233,7 +212,6 @@ setMethod(
 
 
 
-## Updated 2019-07-21.
 `dottedCase,data.frame` <- `dottedCase,matrix`  # nolint
 
 
@@ -248,8 +226,6 @@ setMethod(
 
 
 
-## S4 virtual classes ==========================================================
-## Updated 2019-07-19.
 `dottedCase,Vector` <-  # nolint
     function(
         object,
@@ -257,7 +233,6 @@ setMethod(
         mcols = TRUE,
         metadata = TRUE
     ) {
-        validObject(object)
         assert(
             isFlag(names),
             isFlag(mcols),
@@ -267,7 +242,7 @@ setMethod(
             names(object) <- dottedCase(names(object))
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <- dottedCase(mcolnames(object))
+            names(mcols(object)) <- dottedCase(names(mcols(object)))
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <- dottedCase(names(metadata(object)))
@@ -287,8 +262,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
-## mcols metadata
 `dottedCase,DataTable` <-  # nolint
     function(
         object,
@@ -297,7 +270,6 @@ setMethod(
         mcols = TRUE,
         metadata = TRUE
     ) {
-        validObject(object)
         assert(
             hasDimnames(object),
             isFlag(rownames),
@@ -312,7 +284,7 @@ setMethod(
             colnames(object) <- dottedCase(colnames(object))
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <- dottedCase(mcolnames(object))
+            names(mcols(object)) <- dottedCase(names(mcols(object)))
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <- dottedCase(names(metadata(object)))
@@ -333,7 +305,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `dottedCase,Ranges` <- `dottedCase,Vector`  # nolint
 formals(`dottedCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
 
@@ -349,7 +320,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `dottedCase,Matrix` <- `dottedCase,matrix`  # nolint
 
 
@@ -364,8 +334,6 @@ setMethod(
 
 
 
-## S4 classes ==================================================================
-## Updated 2019-07-19.
 `dottedCase,SummarizedExperiment` <-  # nolint
     function(
         object,
@@ -376,7 +344,6 @@ setMethod(
         colData = TRUE,
         metadata = TRUE
     ) {
-        validObject(object)
         assert(
             isFlag(rownames),
             isFlag(colnames),
@@ -419,7 +386,6 @@ setMethod(
 
 
 
-## Aliases =====================================================================
 #' @rdname dottedCase
 #' @export
 dotted <- function(...) {

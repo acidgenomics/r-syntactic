@@ -1,9 +1,18 @@
-#' @name upperCamelCase
+#' Upper camel case
 #'
-#' @inherit bioverbs::upperCamelCase
-#' @inherit camel return
+#' Format character strings to use upper camel-style formatting, where word
+#' boundaries are defined by capitlization only (e.g. `ThisIsCamelCase`).
+#'
+#' Note that lower camel case is generally recommended in R over the use of
+#' upper camel case. However, upper camel case is recommended by Bioconductor
+#' for S4 class names and corresponding generators, but not variables or
+#' functions.
+#'
+#' @name upperCamelCase
+#' @note Updated 2019-09-09.
+#'
+#' @inherit camelCase return
 #' @inheritParams params
-#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
@@ -12,16 +21,6 @@ NULL
 
 
 
-#' @rdname upperCamelCase
-#' @name upperCamelCase
-#' @importFrom bioverbs upperCamelCase
-#' @usage upperCamelCase(object, ...)
-#' @export
-NULL
-
-
-
-## Updated 2019-07-19.
 .upperCamelCase <-  # nolint
     function(object, strict = FALSE) {
         .camelCase(object, format = "upper", strict = strict)
@@ -29,8 +28,6 @@ NULL
 
 
 
-## Base R classes ==============================================================
-## Updated 2019-07-19.
 `upperCamelCase,atomic` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         assert(
@@ -55,7 +52,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `upperCamelCase,character` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         assert(
@@ -84,7 +80,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `upperCamelCase,factor` <-  # nolint
     function(object, names = TRUE, strict = FALSE) {
         assert(
@@ -115,7 +110,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `upperCamelCase,list` <- `upperCamelCase,atomic`  # nolint
 
 
@@ -130,7 +124,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `upperCamelCase,matrix` <-  # nolint
     function(
         object,
@@ -167,7 +160,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `upperCamelCase,data.frame` <- `upperCamelCase,matrix`  # nolint
 
 
@@ -182,8 +174,6 @@ setMethod(
 
 
 
-## S4 virtual classes ==========================================================
-## Updated 2019-07-19.
 `upperCamelCase,Vector` <-  # nolint
     function(
         object,
@@ -192,7 +182,6 @@ setMethod(
         metadata = TRUE,
         strict = FALSE
     ) {
-        validObject(object)
         assert(
             isFlag(names),
             isFlag(mcols),
@@ -204,8 +193,8 @@ setMethod(
                 upperCamelCase(names(object), strict = strict)
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <-
-                upperCamelCase(mcolnames(object), strict = strict)
+            names(mcols(object)) <-
+                upperCamelCase(names(mcols(object)), strict = strict)
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <-
@@ -226,8 +215,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
-## mcols metadata
 `upperCamelCase,DataTable` <-  # nolint
     function(
         object,
@@ -237,7 +224,6 @@ setMethod(
         metadata = TRUE,
         strict = FALSE
     ) {
-        validObject(object)
         assert(
             hasDimnames(object),
             isFlag(rownames),
@@ -255,8 +241,8 @@ setMethod(
                 upperCamelCase(colnames(object), strict = strict)
         }
         if (isTRUE(mcols) && hasNames(mcols(object))) {
-            mcolnames(object) <-
-                upperCamelCase(mcolnames(object), strict = strict)
+            names(mcols(object)) <-
+                upperCamelCase(names(mcols(object)), strict = strict)
         }
         if (isTRUE(metadata) && hasNames(metadata(object))) {
             names(metadata(object)) <-
@@ -278,7 +264,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `upperCamelCase,Ranges` <- `upperCamelCase,Vector`  # nolint
 formals(`upperCamelCase,Ranges`)[c("mcols", "names")] <- c(TRUE, FALSE)
 
@@ -294,7 +279,6 @@ setMethod(
 
 
 
-## Updated 2019-07-19.
 `upperCamelCase,Matrix` <- `upperCamelCase,matrix`  # nolint
 
 
@@ -309,8 +293,6 @@ setMethod(
 
 
 
-## S4 classes ==================================================================
-## Updated 2019-07-19.
 `upperCamelCase,SummarizedExperiment` <-  # nolint
     function(
         object,
@@ -322,7 +304,6 @@ setMethod(
         metadata = TRUE,
         strict = FALSE
     ) {
-        validObject(object)
         assert(
             isFlag(rownames),
             isFlag(colnames),
@@ -372,7 +353,6 @@ setMethod(
 
 
 
-## Aliases =====================================================================
 #' @rdname upperCamelCase
 #' @export
 upperCamel <- function(...) {
