@@ -29,10 +29,27 @@ NULL
             replacement = ".plus.",
             x = object
         )
+        ## Handle "-" as a special case. Spell out as "minus".
+        object <- gsub(
+            pattern = "-[[:space:]]",
+            replacement = ".minus.",
+            x = object
+        )
+        object <- gsub(
+            pattern = "^(.+)-$",
+            replacement = "\\1.minus",
+            x = object
+        )
+        ## Handle "/" as a special case. Spell out as "slash".
+        object <- gsub(
+            pattern = "/",
+            replacement = ".slash.",
+            x = object
+        )
         ## Handle "%" as a special case. Spell out as "percent".
         object <- gsub(
             pattern = "%",
-            replacement = "percent",
+            replacement = ".percent.",
             x = object
         )
         ## Strip comma delims in between numbers (e.g. 1,000,000).
