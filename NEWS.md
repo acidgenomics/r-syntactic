@@ -1,3 +1,11 @@
+## syntactic 0.2.6 (2019-09-13)
+
+### Minor changes
+
+- Improved handling of `"+"`, `"-"`, and `"/"` in character vectors. This update
+  is particularly useful for handling examples such as `"dox+"` and
+  `"vector +/- treatment"`.
+
 ## syntactic 0.2.5 (2019-09-09)
 
 ### Minor changes
