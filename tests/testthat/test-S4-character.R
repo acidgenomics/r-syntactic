@@ -179,3 +179,48 @@ with_parameters_test_that(
         )
     )
 )
+
+with_parameters_test_that(
+    "Plus minus handling", {
+        object <- c(
+            "100%",
+            "+/-",
+            "a +/- b",
+            "dox-",
+            "dox+",
+            "-dox",
+            "+dox",
+            "/",
+            "-"
+        )
+        expect_identical(
+            object = fun(object),
+            expected = expected
+        )
+    },
+    fun = list(camelCase, snakeCase),
+    expected = list(
+        camelCase = c(
+            "x100Percent",
+            "plusSlashMinus",
+            "aPlusSlashMinusB",
+            "doxMinus",
+            "doxPlus",
+            "xDox",
+            "plusDox",
+            "slash",
+            "x"
+        ),
+        snakeCase = c(
+            "x100_percent",
+            "plus_slash_minus",
+            "a_plus_slash_minus_b",
+            "dox_minus",
+            "dox_plus",
+            "x_dox",
+            "plus_dox",
+            "slash",
+            "x"
+        )
+    )
+)
