@@ -4,34 +4,10 @@
 \alias{params}
 \title{Parameters}
 \arguments{
-\item{assayNames}{\code{logical(1)}.
-Sanitize assay names.}
-
-\item{colData}{\code{logical(1)}.
-Sanitize column names of column data.}
-
-\item{colnames}{\code{logical(1)}.
-Apply sanitization on column names. This is generally recommended by
-default.}
-
-\item{mcols}{\code{logical(1)}.
-Sanitize names of metadata columns (i.e. \code{DataFrame}).}
-
-\item{metadata}{\code{logical(1)}.
-Sanitize metadata names.}
-
 \item{names}{\code{logical(1)}.
 Sanitize names.}
 
 \item{object}{Object.}
-
-\item{rowData}{\code{logical(1)}.
-Sanitize the row data names.}
-
-\item{rownames}{\code{logical(1)}.
-Apply sanitization on row names. This is not generally recommended by
-default, since rownames commonly contain gene identifiers that should not
-be modified.}
 
 \item{strict}{\code{logical(1)}.
 Enforce strict name sanitization. When \code{TRUE}, this does not allow the
