@@ -25,7 +25,7 @@ Additionally, the package exports these utility functions:
 - `makeNames()`: modified variant of `make.names()` that sanitizes using underscores instead of dots.
 - `capitalize()`: Capitalize the first letter of all words in a character vector.
 
-[syntactic][] is designed to handle many common mixed case acronyms (e.g. mRNA, RNAi), as well as decimals in names. Additionally, the package defines S4 method support for a number of popular [Bioconductor][] S4 classes, including `DataFrame` and `GenomicRanges`.
+[syntactic][] is designed to handle many common mixed case acronyms (e.g. mRNA, RNAi), as well as decimals in names.
 
 ## Related packages
 

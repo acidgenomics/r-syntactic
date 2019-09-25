@@ -72,7 +72,7 @@ are defined by underscores (e.g. this_is_snake_case)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -123,44 +123,8 @@ are defined by underscores (e.g. <code>this_is_snake_case</code>).</p>
 
     <pre class="usage"><span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
-<span class='co'># S4 method for atomic</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
 <span class='co'># S4 method for character</span>
 <span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for factor</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for list</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for matrix</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for data.frame</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for Vector</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mcols</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for DataTable</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>mcols</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for Ranges</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>mcols</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for Matrix</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='co'># S4 method for SummarizedExperiment</span>
-<span class='fu'>snakeCase</span>(<span class='no'>object</span>, <span class='kw'>rownames</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>assayNames</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rowData</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>colData</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>metadata</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>snake</span>(<span class='no'>...</span>)</pre>
 
@@ -180,44 +144,6 @@ are defined by underscores (e.g. <code>this_is_snake_case</code>).</p>
       <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
 Sanitize names.</p></td>
     </tr>
-    <tr>
-      <th>rownames</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Apply sanitization on row names. This is not generally recommended by
-default, since rownames commonly contain gene identifiers that should not
-be modified.</p></td>
-    </tr>
-    <tr>
-      <th>colnames</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Apply sanitization on column names. This is generally recommended by
-default.</p></td>
-    </tr>
-    <tr>
-      <th>mcols</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Sanitize names of metadata columns (i.e. <code>DataFrame</code>).</p></td>
-    </tr>
-    <tr>
-      <th>metadata</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Sanitize metadata names.</p></td>
-    </tr>
-    <tr>
-      <th>assayNames</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Sanitize assay names.</p></td>
-    </tr>
-    <tr>
-      <th>rowData</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Sanitize the row data names.</p></td>
-    </tr>
-    <tr>
-      <th>colData</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Sanitize column names of column data.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -232,48 +158,12 @@ Contains syntatically valid names. For objects supporting
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='no'>syntactic</span>, <span class='no'>snakeCase</span>)</div><div class='output co'>#&gt; $character
-#&gt;  [1] "percent_gc"        "x10um"             "x5_3_bias"        
+<span class='no'>object</span> <span class='kw'>&lt;-</span> <span class='no'>syntactic</span>$<span class='no'>character</span>
+<span class='fu'>snakeCase</span>(<span class='no'>object</span>)</div><div class='output co'>#&gt;  [1] "percent_gc"        "x10um"             "x5_3_bias"        
 #&gt;  [4] "x5prime"           "g2m_score"         "hello_world"      
 #&gt;  [7] "hello_world"       "mazda_rx4"         "n_count"          
 #&gt; [10] "rnai_clones"       "tx2gene"           "tx2_gene_id"      
-#&gt; [13] "worfdb_html_remap" "x123"              NA                 
-#&gt; 
-#&gt; $character_named
-#&gt;        item_a        item_b 
-#&gt; "hello_world" "hello_world" 
-#&gt; 
-#&gt; $factor
-#&gt; sample_1 sample_2 sample_3 sample_4 
-#&gt;  group_1  group_1  group_2  group_2 
-#&gt; Levels: group_1 group_2
-#&gt; 
-#&gt; $list
-#&gt; $list$item_a
-#&gt; [1] 1 2
-#&gt; 
-#&gt; $list$item_b
-#&gt; [1] 3 4
-#&gt; 
-#&gt; 
-#&gt; $matrix
-#&gt;            murder assault urban_pop rape
-#&gt; Alabama      13.2     236        58 21.2
-#&gt; Alaska       10.0     263        48 44.5
-#&gt; Arizona       8.1     294        80 31.0
-#&gt; Arkansas      8.8     190        50 19.5
-#&gt; California    9.0     276        91 40.6
-#&gt; Colorado      7.9     204        78 38.7
-#&gt; 
-#&gt; $data.frame
-#&gt;            murder assault urban_pop rape
-#&gt; Alabama      13.2     236        58 21.2
-#&gt; Alaska       10.0     263        48 44.5
-#&gt; Arizona       8.1     294        80 31.0
-#&gt; Arkansas      8.8     190        50 19.5
-#&gt; California    9.0     276        91 40.6
-#&gt; Colorado      7.9     204        78 38.7
-#&gt; </div></pre>
+#&gt; [13] "worfdb_html_remap" "x123"              NA                 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -294,7 +184,7 @@ Contains syntatically valid names. For objects supporting
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>
