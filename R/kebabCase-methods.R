@@ -18,7 +18,9 @@
 #' @return Modified object.
 #'
 #' @examples
-#' kebabCase("this is kebabCase case")
+#' data(syntactic, package = "acidtest")
+#' object <- syntactic$character
+#' kebabCase(object)
 NULL
 
 
