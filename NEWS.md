@@ -1,3 +1,12 @@
+## syntactic 0.3.0 (2019-09-25)
+
+### Major changes
+
+- Migrated non-character S4 methods to basejump package, to keep syntactic
+  very lightweight and fast. Defining only the character methods here allows
+  the package to start up very quickly, and improves shell scripting calls
+  defined in the koopa bootloader package.
+
 ## syntactic 0.2.6 (2019-09-13)
 
 ### Minor changes
