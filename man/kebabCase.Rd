@@ -38,5 +38,7 @@ are not syntactically valid for names in R.
 Updated 2019-09-09.
 }
 \examples{
-kebabCase("this is kebabCase case")
+data(syntactic, package = "acidtest")
+object <- syntactic$character
+kebabCase(object)
 }

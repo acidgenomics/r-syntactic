@@ -3,52 +3,14 @@
 \docType{methods}
 \name{upperCamelCase}
 \alias{upperCamelCase}
-\alias{upperCamelCase,atomic-method}
 \alias{upperCamelCase,character-method}
-\alias{upperCamelCase,factor-method}
-\alias{upperCamelCase,list-method}
-\alias{upperCamelCase,matrix-method}
-\alias{upperCamelCase,data.frame-method}
-\alias{upperCamelCase,Vector-method}
-\alias{upperCamelCase,DataTable-method}
-\alias{upperCamelCase,Ranges-method}
-\alias{upperCamelCase,Matrix-method}
-\alias{upperCamelCase,SummarizedExperiment-method}
 \alias{upperCamel}
 \title{Upper camel case}
 \usage{
 upperCamelCase(object, ...)
 
-\S4method{upperCamelCase}{atomic}(object, names = TRUE, strict = FALSE)
-
 \S4method{upperCamelCase}{character}(object, names = TRUE,
   strict = FALSE)
-
-\S4method{upperCamelCase}{factor}(object, names = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{list}(object, names = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{matrix}(object, rownames = FALSE,
-  colnames = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{data.frame}(object, rownames = FALSE,
-  colnames = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{Vector}(object, names = TRUE, mcols = TRUE,
-  metadata = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{DataTable}(object, rownames = FALSE,
-  colnames = TRUE, mcols = TRUE, metadata = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{Ranges}(object, names = FALSE, mcols = TRUE,
-  metadata = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{Matrix}(object, rownames = FALSE,
-  colnames = TRUE, strict = FALSE)
-
-\S4method{upperCamelCase}{SummarizedExperiment}(object, rownames = FALSE,
-  colnames = TRUE, assayNames = TRUE, rowData = TRUE,
-  colData = TRUE, metadata = TRUE, strict = FALSE)
 
 upperCamel(...)
 }
@@ -63,30 +25,6 @@ Sanitize names.}
 \item{strict}{\code{logical(1)}.
 Enforce strict name sanitization. When \code{TRUE}, this does not allow the
 return of any capitalized acronyms. "RNA" will become "Rna", for example.}
-
-\item{rownames}{\code{logical(1)}.
-Apply sanitization on row names. This is not generally recommended by
-default, since rownames commonly contain gene identifiers that should not
-be modified.}
-
-\item{colnames}{\code{logical(1)}.
-Apply sanitization on column names. This is generally recommended by
-default.}
-
-\item{mcols}{\code{logical(1)}.
-Sanitize names of metadata columns (i.e. \code{DataFrame}).}
-
-\item{metadata}{\code{logical(1)}.
-Sanitize metadata names.}
-
-\item{assayNames}{\code{logical(1)}.
-Sanitize assay names.}
-
-\item{rowData}{\code{logical(1)}.
-Sanitize the row data names.}
-
-\item{colData}{\code{logical(1)}.
-Sanitize column names of column data.}
 }
 \value{
 Modified object.
@@ -109,5 +47,6 @@ Updated 2019-09-09.
 }
 \examples{
 data(syntactic, package = "acidtest")
-lapply(syntactic, upperCamelCase)
+object <- syntactic$character
+upperCamelCase(object)
 }
