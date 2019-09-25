@@ -3,49 +3,13 @@
 \docType{methods}
 \name{snakeCase}
 \alias{snakeCase}
-\alias{snakeCase,atomic-method}
 \alias{snakeCase,character-method}
-\alias{snakeCase,factor-method}
-\alias{snakeCase,list-method}
-\alias{snakeCase,matrix-method}
-\alias{snakeCase,data.frame-method}
-\alias{snakeCase,Vector-method}
-\alias{snakeCase,DataTable-method}
-\alias{snakeCase,Ranges-method}
-\alias{snakeCase,Matrix-method}
-\alias{snakeCase,SummarizedExperiment-method}
 \alias{snake}
 \title{Snake case}
 \usage{
 snakeCase(object, ...)
 
-\S4method{snakeCase}{atomic}(object, names = TRUE)
-
 \S4method{snakeCase}{character}(object, names = TRUE)
-
-\S4method{snakeCase}{factor}(object, names = TRUE)
-
-\S4method{snakeCase}{list}(object, names = TRUE)
-
-\S4method{snakeCase}{matrix}(object, rownames = FALSE, colnames = TRUE)
-
-\S4method{snakeCase}{data.frame}(object, rownames = FALSE,
-  colnames = TRUE)
-
-\S4method{snakeCase}{Vector}(object, names = TRUE, mcols = TRUE,
-  metadata = TRUE)
-
-\S4method{snakeCase}{DataTable}(object, rownames = FALSE,
-  colnames = TRUE, mcols = TRUE, metadata = TRUE)
-
-\S4method{snakeCase}{Ranges}(object, names = FALSE, mcols = TRUE,
-  metadata = TRUE)
-
-\S4method{snakeCase}{Matrix}(object, rownames = FALSE, colnames = TRUE)
-
-\S4method{snakeCase}{SummarizedExperiment}(object, rownames = FALSE,
-  colnames = TRUE, assayNames = TRUE, rowData = TRUE,
-  colData = TRUE, metadata = TRUE)
 
 snake(...)
 }
@@ -56,30 +20,6 @@ snake(...)
 
 \item{names}{\code{logical(1)}.
 Sanitize names.}
-
-\item{rownames}{\code{logical(1)}.
-Apply sanitization on row names. This is not generally recommended by
-default, since rownames commonly contain gene identifiers that should not
-be modified.}
-
-\item{colnames}{\code{logical(1)}.
-Apply sanitization on column names. This is generally recommended by
-default.}
-
-\item{mcols}{\code{logical(1)}.
-Sanitize names of metadata columns (i.e. \code{DataFrame}).}
-
-\item{metadata}{\code{logical(1)}.
-Sanitize metadata names.}
-
-\item{assayNames}{\code{logical(1)}.
-Sanitize assay names.}
-
-\item{rowData}{\code{logical(1)}.
-Sanitize the row data names.}
-
-\item{colData}{\code{logical(1)}.
-Sanitize column names of column data.}
 }
 \value{
 Modified object.
@@ -96,5 +36,6 @@ Updated 2019-09-09.
 }
 \examples{
 data(syntactic, package = "acidtest")
-lapply(syntactic, snakeCase)
+object <- syntactic$character
+snakeCase(object)
 }

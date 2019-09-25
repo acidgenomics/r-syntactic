@@ -3,51 +3,13 @@
 \docType{methods}
 \name{camelCase}
 \alias{camelCase}
-\alias{camelCase,atomic-method}
 \alias{camelCase,character-method}
-\alias{camelCase,factor-method}
-\alias{camelCase,list-method}
-\alias{camelCase,matrix-method}
-\alias{camelCase,data.frame-method}
-\alias{camelCase,Vector-method}
-\alias{camelCase,DataTable-method}
-\alias{camelCase,Ranges-method}
-\alias{camelCase,Matrix-method}
-\alias{camelCase,SummarizedExperiment-method}
 \alias{camel}
 \title{Camel case}
 \usage{
 camelCase(object, ...)
 
-\S4method{camelCase}{atomic}(object, names = TRUE, strict = FALSE)
-
 \S4method{camelCase}{character}(object, names = TRUE, strict = FALSE)
-
-\S4method{camelCase}{factor}(object, names = TRUE, strict = FALSE)
-
-\S4method{camelCase}{list}(object, names = TRUE, strict = FALSE)
-
-\S4method{camelCase}{matrix}(object, rownames = FALSE, colnames = TRUE,
-  strict = FALSE)
-
-\S4method{camelCase}{data.frame}(object, rownames = FALSE,
-  colnames = TRUE, strict = FALSE)
-
-\S4method{camelCase}{Vector}(object, names = TRUE, mcols = TRUE,
-  metadata = TRUE, strict = FALSE)
-
-\S4method{camelCase}{DataTable}(object, rownames = FALSE,
-  colnames = TRUE, mcols = TRUE, metadata = TRUE, strict = FALSE)
-
-\S4method{camelCase}{Ranges}(object, names = FALSE, mcols = TRUE,
-  metadata = TRUE, strict = FALSE)
-
-\S4method{camelCase}{Matrix}(object, rownames = FALSE, colnames = TRUE,
-  strict = FALSE)
-
-\S4method{camelCase}{SummarizedExperiment}(object, rownames = FALSE,
-  colnames = TRUE, assayNames = TRUE, rowData = TRUE,
-  colData = TRUE, metadata = TRUE, strict = FALSE)
 
 camel(...)
 }
@@ -62,30 +24,6 @@ Sanitize names.}
 \item{strict}{\code{logical(1)}.
 Enforce strict name sanitization. When \code{TRUE}, this does not allow the
 return of any capitalized acronyms. "RNA" will become "Rna", for example.}
-
-\item{rownames}{\code{logical(1)}.
-Apply sanitization on row names. This is not generally recommended by
-default, since rownames commonly contain gene identifiers that should not
-be modified.}
-
-\item{colnames}{\code{logical(1)}.
-Apply sanitization on column names. This is generally recommended by
-default.}
-
-\item{mcols}{\code{logical(1)}.
-Sanitize names of metadata columns (i.e. \code{DataFrame}).}
-
-\item{metadata}{\code{logical(1)}.
-Sanitize metadata names.}
-
-\item{assayNames}{\code{logical(1)}.
-Sanitize assay names.}
-
-\item{rowData}{\code{logical(1)}.
-Sanitize the row data names.}
-
-\item{colData}{\code{logical(1)}.
-Sanitize column names of column data.}
 }
 \value{
 Modified object.
@@ -101,9 +39,10 @@ boundaries are defined by capitlization only (e.g. \code{thisIsCamelCase}).
 Camel case is recommended by Bioconductor for variable and function names.
 }
 \note{
-Updated 2019-09-09.
+Updated 2019-09-25.
 }
 \examples{
 data(syntactic, package = "acidtest")
-lapply(syntactic, camelCase)
+object <- syntactic$character
+camelCase(object)
 }
