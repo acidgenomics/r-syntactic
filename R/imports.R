@@ -1,11 +1,3 @@
-#' @importClassesFrom GenomicRanges GRanges GRangesList
-#' @importClassesFrom Matrix Matrix
-#' @importClassesFrom S4Vectors DataFrame
-#' @importClassesFrom SummarizedExperiment SummarizedExperiment
-#'
-#' @importFrom S4Vectors mcols mcols<- metadata metadata<-
-#' @importFrom SummarizedExperiment assayNames assays assays<- colData colData<-
-#'   rowData rowData<-
 #' @importFrom goalie assert areSameLength hasColnames hasDimnames hasNames
 #'   hasRownames isCharacter isFlag isString
 #' @importFrom methods setMethod signature

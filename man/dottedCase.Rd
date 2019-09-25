@@ -3,51 +3,13 @@
 \docType{methods}
 \name{dottedCase}
 \alias{dottedCase}
-\alias{dottedCase,atomic-method}
 \alias{dottedCase,character-method}
-\alias{dottedCase,factor-method}
-\alias{dottedCase,list-method}
-\alias{dottedCase,matrix-method}
-\alias{dottedCase,data.frame-method}
-\alias{dottedCase,Vector-method}
-\alias{dottedCase,DataTable-method}
-\alias{dottedCase,Ranges-method}
-\alias{dottedCase,Matrix-method}
-\alias{dottedCase,SummarizedExperiment-method}
 \alias{dotted}
 \title{Dotted case}
 \usage{
 dottedCase(object, ...)
 
-\S4method{dottedCase}{atomic}(object, names = TRUE)
-
 \S4method{dottedCase}{character}(object, names = TRUE)
-
-\S4method{dottedCase}{factor}(object, names = TRUE)
-
-\S4method{dottedCase}{list}(object, names = TRUE)
-
-\S4method{dottedCase}{matrix}(object, rownames = FALSE,
-  colnames = TRUE)
-
-\S4method{dottedCase}{data.frame}(object, rownames = FALSE,
-  colnames = TRUE)
-
-\S4method{dottedCase}{Vector}(object, names = TRUE, mcols = TRUE,
-  metadata = TRUE)
-
-\S4method{dottedCase}{DataTable}(object, rownames = FALSE,
-  colnames = TRUE, mcols = TRUE, metadata = TRUE)
-
-\S4method{dottedCase}{Ranges}(object, names = FALSE, mcols = TRUE,
-  metadata = TRUE)
-
-\S4method{dottedCase}{Matrix}(object, rownames = FALSE,
-  colnames = TRUE)
-
-\S4method{dottedCase}{SummarizedExperiment}(object, rownames = FALSE,
-  colnames = TRUE, assayNames = TRUE, rowData = TRUE,
-  colData = TRUE, metadata = TRUE)
 
 dotted(...)
 }
@@ -58,30 +20,6 @@ dotted(...)
 
 \item{names}{\code{logical(1)}.
 Sanitize names.}
-
-\item{rownames}{\code{logical(1)}.
-Apply sanitization on row names. This is not generally recommended by
-default, since rownames commonly contain gene identifiers that should not
-be modified.}
-
-\item{colnames}{\code{logical(1)}.
-Apply sanitization on column names. This is generally recommended by
-default.}
-
-\item{mcols}{\code{logical(1)}.
-Sanitize names of metadata columns (i.e. \code{DataFrame}).}
-
-\item{metadata}{\code{logical(1)}.
-Sanitize metadata names.}
-
-\item{assayNames}{\code{logical(1)}.
-Sanitize assay names.}
-
-\item{rowData}{\code{logical(1)}.
-Sanitize the row data names.}
-
-\item{colData}{\code{logical(1)}.
-Sanitize column names of column data.}
 }
 \value{
 Modified object, with names formatted in dotted case.
@@ -99,5 +37,6 @@ Updated 2019-09-09.
 }
 \examples{
 data(syntactic, package = "acidtest")
-lapply(syntactic, dottedCase)
+object <- syntactic$character
+dottedCase(object)
 }
