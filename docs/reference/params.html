@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -127,6 +127,14 @@
       <th>names</th>
       <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
 Sanitize names.</p></td>
+    </tr>
+    <tr>
+      <th>prefix</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric. Note that names
+are always made syntactically valid when applicable with "X" prefix.
+See <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code> for details.</p></td>
     </tr>
     <tr>
       <th>object</th>

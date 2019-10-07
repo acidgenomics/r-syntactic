@@ -72,7 +72,7 @@ boundaries are defined by capitlization only (e.g. ThisIsCamelCase)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -125,7 +125,7 @@ boundaries are defined by capitlization only (e.g. <code>ThisIsCamelCase</code>)
 
 <span class='co'># S4 method for character</span>
 <span class='fu'>upperCamelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+  <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>upperCamel</span>(<span class='no'>...</span>)</pre>
 
@@ -151,6 +151,14 @@ Sanitize names.</p></td>
 Enforce strict name sanitization. When <code>TRUE</code>, this does not allow the
 return of any capitalized acronyms. "RNA" will become "Rna", for example.</p></td>
     </tr>
+    <tr>
+      <th>prefix</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric. Note that names
+are always made syntactically valid when applicable with "X" prefix.
+See <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code> for details.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -167,7 +175,7 @@ for S4 class names and corresponding generators, but not variables or
 functions.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-09-09.</p>
+    <p>Updated 2019-10-07.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
