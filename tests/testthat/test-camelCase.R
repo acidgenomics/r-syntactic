@@ -1,5 +1,28 @@
 context("camelCase")
 
+test_that("Unnamed character", {
+    expect_identical(
+        object = camelCase(unnamed),
+        expected = c(
+            "percentGC",
+            "x10um",
+            "x5x3Bias",
+            "x5prime",
+            "g2mScore",
+            "helloWorld",
+            "helloWORLD",
+            "mazdaRX4",
+            "nCount",
+            "rnaiClones",
+            "tx2gene",
+            "tx2GeneID",
+            "worfdbHTMLRemap",
+            "x123",
+            NA
+        )
+    )
+})
+
 test_that("Named character", {
     expect_identical(
         object = camelCase(named, names = TRUE),
