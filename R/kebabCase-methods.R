@@ -30,7 +30,7 @@ NULL
 .kebabCase <-  # nolint
     function(x, prefix = TRUE) {
         assert(
-            isCharacter(x),
+            all(nzchar(x, keepNA = FALSE)),
             isFlag(prefix)
         )
         x <- snake(x, prefix = prefix)

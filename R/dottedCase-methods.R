@@ -27,7 +27,7 @@ NULL
             isFlag(prefix)
         )
         x <- as.character(x)
-        assert(isCharacter(x))
+        assert(all(nzchar(x, keepNA = FALSE)))
         ## Handle "+" as a special case. Spell out as "plus".
         x <- gsub(
             pattern = "\\+",
