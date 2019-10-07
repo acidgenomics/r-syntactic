@@ -27,7 +27,6 @@ Imports:
     utils
 Suggests:
     acidtest (>= 0.2.5),
-    patrick (>= 0.0.1),
     testthat (>= 2.2)
 Remotes:
     acidgenomics/acidtest,

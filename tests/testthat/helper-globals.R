@@ -15,3 +15,15 @@ mw <- c(
     "NASA",
     "nGene"
 )
+## Plus minus testing.
+pm <- c(
+    "100%",
+    "+/-",
+    "a +/- b",
+    "dox-",
+    "dox+",
+    "-dox",
+    "+dox",
+    "/",
+    "-"
+)
