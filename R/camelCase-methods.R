@@ -31,7 +31,7 @@ NULL
         prefix = TRUE
     ) {
         assert(
-            isCharacter(x),
+            all(nzchar(x, keepNA = FALSE)),
             isFlag(strict),
             isFlag(prefix)
         )

@@ -20,7 +20,7 @@ NULL
 .snakeCase <-  # nolint
     function(x, prefix = TRUE) {
         assert(
-            isCharacter(x),
+            all(nzchar(x, keepNA = FALSE)),
             isFlag(prefix)
         )
         x <- dotted(x, prefix = prefix)
