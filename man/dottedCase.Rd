@@ -9,7 +9,7 @@
 \usage{
 dottedCase(object, ...)
 
-\S4method{dottedCase}{character}(object, names = TRUE)
+\S4method{dottedCase}{character}(object, names = TRUE, prefix = TRUE)
 
 dotted(...)
 }
@@ -20,6 +20,11 @@ dotted(...)
 
 \item{names}{\code{logical(1)}.
 Sanitize names.}
+
+\item{prefix}{\code{logical(1)}.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric.
+See \code{\link[base:make.names]{make.names()}} for details.}
 }
 \value{
 Modified object, with names formatted in dotted case.
@@ -33,7 +38,7 @@ parameters. However, it is recommended to avoid using it for variable
 assignments into an \code{environment}, as that can introduce conflicts with
 base functions.
 
-Updated 2019-09-09.
+Updated 2019-10-07.
 }
 \examples{
 data(syntactic, package = "acidtest")
