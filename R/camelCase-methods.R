@@ -6,7 +6,7 @@
 #' Camel case is recommended by Bioconductor for variable and function names.
 #'
 #' @name camelCase
-#' @note Updated 2019-09-25.
+#' @note Updated 2019-10-07.
 #'
 #' @inheritParams params
 #'
@@ -25,68 +25,75 @@ NULL
 
 .camelCase <-  # nolint
     function(
-        object,
+        x,
         format = c("lower", "upper"),
-        strict = FALSE
+        strict = FALSE,
+        prefix = TRUE
     ) {
-        object <- dotted(object)
+        assert(
+            isCharacter(x),
+            isFlag(strict),
+            isFlag(prefix)
+        )
+        x <- dotted(x, prefix = prefix)
         format <- match.arg(format)
         assert(isFlag(strict))
         ## Simplify mixed case acronyms in strict mode.
         if (isTRUE(strict)) {
-            object <- tolower(object)
+            x <- tolower(x)
         }
         ## lowerCamelCase or UpperCamelCase.
         if (identical(format, "lower")) {
             ## lowerCamelCase
             ## Coerce first word to lower.
-            object <- gsub(
+            x <- gsub(
                 pattern = "^(\\w+)\\b",
                 replacement = "\\L\\1",
-                x = object,
+                x = x,
                 perl = TRUE
             )
         } else if (identical(format, "upper")) {
             ## UpperCamelCase
             ## Capitalize the first letter.
-            object <- gsub(
+            x <- gsub(
                 pattern = "^([a-z])",
                 replacement = "\\U\\1",
-                x = object,
+                x = x,
                 perl = TRUE
             )
         }
         ## Remove dots in between numbers following a letter.
-        object <- gsub("([[:alpha:]])\\.([[:digit:]])", "\\1\\2", object)
+        x <- gsub("([[:alpha:]])\\.([[:digit:]])", "\\1\\2", x)
         ## First letter of second word must be capitalized.
-        object <- gsub("\\.([[:alpha:]])", "\\U\\1", object, perl = TRUE)
+        x <- gsub("\\.([[:alpha:]])", "\\U\\1", x, perl = TRUE)
         ## Remaining dots should be sanitized with "X" character.
         pattern <- "\\."
-        if (any(grepl(pattern, object))) {
+        if (any(grepl(pattern, x))) {
             if (identical(format, "lower")) {
                 replacement <- "x"
             } else if (identical(format, "upper")) {
                 replacement <- "X"
             }
-            object <- gsub(pattern, replacement, object)
+            x <- gsub(pattern, replacement, x)
         }
-        object
+        x
     }
 
 
 
 `camelCase,character` <-  # nolint
-    function(object, names = TRUE, strict = FALSE) {
+    function(object, names = TRUE, strict = FALSE, prefix = TRUE) {
         assert(
             isFlag(names),
-            isFlag(strict)
+            isFlag(strict),
+            isFlag(prefix)
         )
         if (isTRUE(names) && hasNames(object)) {
             names <- .camelCase(names(object), strict = strict)
         } else {
             names <- names(object)
         }
-        object <- .camelCase(object, strict = strict)
+        object <- .camelCase(object, strict = strict, prefix = prefix)
         names(object) <- names
         object
     }

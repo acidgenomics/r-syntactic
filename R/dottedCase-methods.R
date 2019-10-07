@@ -27,6 +27,7 @@ NULL
             isFlag(prefix)
         )
         x <- as.character(x)
+        assert(isCharacter(x))
         ## Handle "+" as a special case. Spell out as "plus".
         x <- gsub(
             pattern = "\\+",
@@ -70,7 +71,7 @@ NULL
         )
         ## Include "X" prefix by default, but allowing manual disable, so we
         ## can pass to our shell scripts defined in koopa package.
-        if (!isTRUE(prefix)) {
+        if (identical(prefix, FALSE)) {
             x <- gsub(
                 pattern = "^X",
                 replacement = "",
@@ -126,7 +127,10 @@ NULL
 
 `dottedCase,character` <-  # nolint
     function(object, names = TRUE, prefix = TRUE) {
-        assert(isFlag(names))
+        assert(
+            isFlag(names),
+            isFlag(prefix)
+        )
         if (isTRUE(names) && hasNames(object)) {
             names <- .dottedCase(names(object))
         } else {

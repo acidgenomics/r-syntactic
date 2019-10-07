@@ -7,7 +7,8 @@
 #'   Sanitize names.
 #' @param prefix `logical(1)`.
 #'   Prepend "X" character if necessary, when string begins with a syntactically
-#'   invalid character, such as a number or non-alphanumeric.
+#'   invalid character, such as a number or non-alphanumeric. Note that names
+#'   are always made syntactically valid when applicable with "X" prefix.
 #'   See [`make.names()`][base::make.names] for details.
 #' @param object Object.
 #' @param strict `logical(1)`.
