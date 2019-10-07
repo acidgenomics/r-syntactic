@@ -1,8 +1,8 @@
 context("kebabCase")
 
-test_that("kebabCase", {
+test_that("Unnamed character", {
     expect_identical(
-        object = kebabCase(vec),
+        object = kebabCase(unnamed),
         expected = c(
             "percent-gc",
             "x10um",
@@ -18,7 +18,7 @@ test_that("kebabCase", {
             "tx2-gene-id",
             "worfdb-html-remap",
             "x123",
-            NA_character_
+            NA
         )
     )
 })
