@@ -1,3 +1,18 @@
+## syntactic 0.3.1 (2019-10-07)
+
+### Minor changes
+
+- Now allowing `prefix = FALSE` for `camelCase`, `dottedCase`, `kebabCase`,
+  `snakeCase`, and `upperCamelCase`. This override allows the user to disable
+  automatic "X" prefix defined by `make.names` internally for input that begins
+  with a syntactically invalid character, such as a number (R-specific) or a
+  non-alphanumeric. We're now allowing this override so we can pass to new
+  `camel-case`, `kebab-case`, and `snake-case` shell scripts defined in
+  [koopa][].
+- Migrated character code coverage methods back here from basejump.
+- Simplifed code coverage, removing usage of parameterized tests that depend
+  on patrick package.
+
 ## syntactic 0.3.0 (2019-09-25)
 
 ### Major changes
@@ -145,7 +160,8 @@
 Initial release. Migrated syntactic name functions from [basejump][] package
 here to form a more compact package that is easier to unit test.
 
-[Acid Genomics]: https://acidgenomics.com/
+[acid genomics]: https://acidgenomics.com/
 [basejump]: https://basejump.acidgenomics.com/
-[Matrix]: https://cran.r-project.org/package=Matrix
+[koopa]: https://koopa.acidgenomics.com/
+[matrix]: https://cran.r-project.org/package=Matrix
 [pkgdown]: https://pkgdown.r-lib.org/

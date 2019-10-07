@@ -73,8 +73,8 @@ NULL
         ## can pass to our shell scripts defined in koopa package.
         if (identical(prefix, FALSE)) {
             x <- gsub(
-                pattern = "^X",
-                replacement = "",
+                pattern = "^X(.+)$",
+                replacement = "\\1",
                 x = x,
                 ignore.case = FALSE
             )
