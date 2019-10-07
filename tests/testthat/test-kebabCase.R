@@ -22,3 +22,15 @@ test_that("kebabCase", {
         )
     )
 })
+
+test_that("Disable X prefix", {
+    object <- c("1" = "1 foo bar")
+    expect_identical(
+        object = kebabCase(object),
+        expected = c("1" = "x1-foo-bar")
+    )
+    expect_identical(
+        object = kebabCase(object, prefix = FALSE),
+        c("1" = "1-foo-bar")
+    )
+})
