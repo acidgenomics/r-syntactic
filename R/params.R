@@ -5,6 +5,10 @@
 #'
 #' @param names `logical(1)`.
 #'   Sanitize names.
+#' @param prefix `logical(1)`.
+#'   Prepend "X" character if necessary, when string begins with a syntactically
+#'   invalid character, such as a number or non-alphanumeric.
+#'   See [`make.names()`][base::make.names] for details.
 #' @param object Object.
 #' @param strict `logical(1)`.
 #'   Enforce strict name sanitization. When `TRUE`, this does not allow the
