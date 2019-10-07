@@ -9,7 +9,8 @@ Sanitize names.}
 
 \item{prefix}{\code{logical(1)}.
 Prepend "X" character if necessary, when string begins with a syntactically
-invalid character, such as a number or non-alphanumeric.
+invalid character, such as a number or non-alphanumeric. Note that names
+are always made syntactically valid when applicable with "X" prefix.
 See \code{\link[base:make.names]{make.names()}} for details.}
 
 \item{object}{Object.}
