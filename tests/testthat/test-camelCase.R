@@ -45,3 +45,15 @@ with_parameters_test_that(
         )
     )
 )
+
+test_that("Disable X prefix", {
+    object <- c("1" = "1 foo bar")
+    expect_identical(
+        object = camelCase(object),
+        expected = c("x1" = "x1FooBar")
+    )
+    expect_identical(
+        object = camelCase(object, prefix = FALSE),
+        expected = c("x1" = "1FooBar")
+    )
+})
