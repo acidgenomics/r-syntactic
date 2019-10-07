@@ -10,7 +10,7 @@
 upperCamelCase(object, ...)
 
 \S4method{upperCamelCase}{character}(object, names = TRUE,
-  strict = FALSE)
+  strict = FALSE, prefix = TRUE)
 
 upperCamel(...)
 }
@@ -25,6 +25,12 @@ Sanitize names.}
 \item{strict}{\code{logical(1)}.
 Enforce strict name sanitization. When \code{TRUE}, this does not allow the
 return of any capitalized acronyms. "RNA" will become "Rna", for example.}
+
+\item{prefix}{\code{logical(1)}.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric. Note that names
+are always made syntactically valid when applicable with "X" prefix.
+See \code{\link[base:make.names]{make.names()}} for details.}
 }
 \value{
 Modified object.
@@ -43,7 +49,7 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \note{
-Updated 2019-09-09.
+Updated 2019-10-07.
 }
 \examples{
 data(syntactic, package = "acidtest")
