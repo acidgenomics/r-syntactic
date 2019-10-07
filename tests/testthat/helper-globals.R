@@ -1,14 +1,8 @@
 data(syntactic, package = "acidtest", envir = environment())
-vec <- syntactic[["character"]]
-funs <- list(
-    camelCase = camelCase,
-    dottedCase = dottedCase,
-    snakeCase = snakeCase,
-    upperCamelCase = upperCamelCase
-)
 
-unnamed <- syntactic[["character"]]
 named <- syntactic[["character_named"]]
+unnamed <- syntactic[["character"]]
+vec <- syntactic[["character"]]
 
 ## Delimited numbers.
 dn <- c(
