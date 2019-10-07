@@ -1,5 +1,19 @@
 context("camelCase")
 
+test_that("Named character", {
+    expect_identical(
+        object = camelCase(named, names = TRUE),
+        expected = c(
+            itemA = "helloWorld",
+            itemB = "helloWORLD"
+        )
+    )
+    expect_identical(
+        object = names(camelCase(named, names = FALSE)),
+        expected = names(named)
+    )
+})
+
 test_that("Strict mode", {
     expect_identical(
         object = camelCase(vec, strict = TRUE),
@@ -19,6 +33,18 @@ test_that("Strict mode", {
             "worfdbHtmlRemap",
             "x123",
             NA
+        )
+    )
+})
+
+test_that("Delimited numbers", {
+    expect_identical(
+        object = camelCase(dn),
+        expected = c(
+            "x1000000",
+            "x0x01",
+            "x2018x01x01",
+            "res0x1"
         )
     )
 })

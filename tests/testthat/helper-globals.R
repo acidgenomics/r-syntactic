@@ -6,6 +6,17 @@ funs <- list(
     snakeCase = snakeCase,
     upperCamelCase = upperCamelCase
 )
+
+unnamed <- syntactic[["character"]]
+named <- syntactic[["character_named"]]
+
+## Delimited numbers.
+dn <- c(
+    "1,000,000",
+    "0.01",
+    "2018-01-01",
+    "res.0.1"
+)
 ## makeWords check vector.
 mw <- c(
     "killVMaim",
