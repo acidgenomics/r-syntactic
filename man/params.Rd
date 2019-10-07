@@ -7,6 +7,11 @@
 \item{names}{\code{logical(1)}.
 Sanitize names.}
 
+\item{prefix}{\code{logical(1)}.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric.
+See \code{\link[base:make.names]{make.names()}} for details.}
+
 \item{object}{Object.}
 
 \item{strict}{\code{logical(1)}.
