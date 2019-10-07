@@ -2,7 +2,7 @@ Package: syntactic
 Title: Syntactically valid names
 Description: Make syntactically valid names out of character vectors.
 Version: 0.3.0
-Date: 2019-09-25
+Date: 2019-10-07
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -22,7 +22,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.6)
 Imports:
-    goalie (>= 0.3.7),
+    goalie (>= 0.3.9),
     methods,
     utils
 Suggests:
