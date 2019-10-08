@@ -1,4 +1,4 @@
-## syntactic 0.3.1 (2019-10-07)
+## syntactic 0.3.1 (2019-10-08)
 
 ### Minor changes
 
@@ -9,6 +9,11 @@
   non-alphanumeric. We're now allowing this override so we can pass to new
   `camel-case`, `kebab-case`, and `snake-case` shell scripts defined in
   [koopa][].
+- Also now allowing `smart = FALSE`, which disables smart mode handling of
+  mixed case acronyms (e.g. "RNAi", "mRNA"), numeric delims/decimals ("," "."),
+  special characters that can represent words ("+"/"-"; plus/minus), etc.
+  Enabled by default and strongly recommended. Added a new override mode for
+  some edge cases with our new shell methods defined in koopa.
 - Migrated character code coverage methods back here from basejump.
 - Simplifed code coverage, removing usage of parameterized tests that depend
   on patrick package.
