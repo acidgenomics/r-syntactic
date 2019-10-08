@@ -18,13 +18,8 @@ NULL
 
 
 .snakeCase <-  # nolint
-    function(x, prefix = TRUE, smart = TRUE) {
-        assert(
-            all(nzchar(x, keepNA = FALSE)),
-            isFlag(prefix),
-            isFlag(smart)
-        )
-        x <- dotted(x, prefix = prefix, smart = smart)
+    function(x, ...) {
+        x <- dotted(x, ...)
         x <- tolower(x)
         x <- gsub(pattern = "\\.", replacement = "_", x = x)
         x

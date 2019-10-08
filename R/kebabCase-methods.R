@@ -28,13 +28,8 @@ NULL
 ## Note that by calling `snake()` internally, this will handle special words
 ## like "%" and "+", which we want. Refer to `dotted()` for this code.
 .kebabCase <-  # nolint
-    function(x, prefix = TRUE, smart = TRUE) {
-        assert(
-            all(nzchar(x, keepNA = FALSE)),
-            isFlag(prefix),
-            isFlag(smart)
-        )
-        x <- snake(x, prefix = prefix, smart = smart)
+    function(x, ...) {
+        x <- snake(x, ...)
         x <- gsub(pattern = "_", replacement = "-", x = x)
         x
     }

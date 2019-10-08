@@ -28,6 +28,7 @@ NULL
             isFlag(smart)
         )
         x <- as.character(x)
+        ## Error on empty strings, but allow passthrough of NA.
         assert(all(nzchar(x, keepNA = FALSE)))
         if (isTRUE(smart)) {
             ## Handle "+" as a special case. Spell out as "plus".
@@ -66,7 +67,7 @@ NULL
                 x = x
             )
         }
-        ## Ready to sanitize using base conventions.
+        ## Sanitize using base R conventions.
         x <- make.names(
             names = x,
             unique = FALSE,
