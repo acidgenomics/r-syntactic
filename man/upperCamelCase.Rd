@@ -10,7 +10,7 @@
 upperCamelCase(object, ...)
 
 \S4method{upperCamelCase}{character}(object, names = TRUE,
-  strict = FALSE, prefix = TRUE)
+  strict = FALSE, prefix = TRUE, smart = TRUE)
 
 upperCamel(...)
 }
@@ -32,6 +32,10 @@ Prepend "X" character if necessary, when string begins with a syntactically
 invalid character, such as a number or non-alphanumeric. Note that names
 are always made syntactically valid when applicable with "X" prefix.
 See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc. Recommended by default.}
 }
 \value{
 Modified object.
@@ -50,7 +54,7 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \note{
-Updated 2019-10-07.
+Updated 2019-10-08.
 }
 \examples{
 data(syntactic, package = "acidtest")
