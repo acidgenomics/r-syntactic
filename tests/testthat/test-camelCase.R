@@ -1,15 +1,46 @@
 context("camelCase")
 
-with_parameters_test_that(
-    "Strict mode", {
-        expect_identical(
-            object = f(vec, strict = TRUE),
-            expected = expected
+test_that("Unnamed character", {
+    expect_identical(
+        object = camelCase(unnamed),
+        expected = c(
+            "percentGC",
+            "x10um",
+            "x5x3Bias",
+            "x5prime",
+            "g2mScore",
+            "helloWorld",
+            "helloWORLD",
+            "mazdaRX4",
+            "nCount",
+            "rnaiClones",
+            "tx2gene",
+            "tx2GeneID",
+            "worfdbHTMLRemap",
+            "x123",
+            NA
         )
-    },
-    f = list(camelCase, upperCamelCase),
-    expected = list(
-        camelCase = c(
+    )
+})
+
+test_that("Named character", {
+    expect_identical(
+        object = camelCase(named, names = TRUE),
+        expected = c(
+            itemA = "helloWorld",
+            itemB = "helloWORLD"
+        )
+    )
+    expect_identical(
+        object = names(camelCase(named, names = FALSE)),
+        expected = names(named)
+    )
+})
+
+test_that("Strict mode", {
+    expect_identical(
+        object = camelCase(vec, strict = TRUE),
+        expected = c(
             "percentGc",
             "x10um",
             "x5x3Bias",
@@ -25,23 +56,47 @@ with_parameters_test_that(
             "worfdbHtmlRemap",
             "x123",
             NA
-        ),
-        upperCamelCase = c(
-            "PercentGc",
-            "X10um",
-            "X5X3Bias",
-            "X5prime",
-            "G2mScore",
-            "HelloWorld",
-            "HelloWorld",
-            "MazdaRx4",
-            "NCount",
-            "RnaiClones",
-            "Tx2gene",
-            "Tx2GeneId",
-            "WorfdbHtmlRemap",
-            "X123",
-            NA
         )
     )
-)
+})
+
+test_that("Delimited numbers", {
+    expect_identical(
+        object = camelCase(dn),
+        expected = c(
+            "x1000000",
+            "x0x01",
+            "x2018x01x01",
+            "res0x1"
+        )
+    )
+})
+
+test_that("Plus minus handling", {
+    expect_identical(
+        object = camelCase(pm),
+        expected = c(
+            "x100Percent",
+            "plusSlashMinus",
+            "aPlusSlashMinusB",
+            "doxMinus",
+            "doxPlus",
+            "xDox",
+            "plusDox",
+            "slash",
+            "x"
+        )
+    )
+})
+
+test_that("Disable X prefix", {
+    object <- c("1" = "1 foo bar")
+    expect_identical(
+        object = camelCase(object),
+        expected = c("x1" = "x1FooBar")
+    )
+    expect_identical(
+        object = camelCase(object, prefix = FALSE),
+        expected = c("x1" = "1FooBar")
+    )
+})

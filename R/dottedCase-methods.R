@@ -5,7 +5,7 @@
 #'   parameters. However, it is recommended to avoid using it for variable
 #'   assignments into an `environment`, as that can introduce conflicts with
 #'   base functions.
-#' @note Updated 2019-09-09.
+#' @note Updated 2019-10-08.
 #'
 #' @inheritParams params
 #'
@@ -21,105 +21,137 @@ NULL
 
 ## Dotted case formatting is used internally by other naming functions.
 .dottedCase <-  # nolint
-    function(object) {
-        assert(is.atomic(object))
-        object <- as.character(object)
-        ## Handle "+" as a special case. Spell out as "plus".
-        object <- gsub(
-            pattern = "\\+",
-            replacement = ".plus.",
-            x = object
+    function(x, prefix = TRUE, smart = TRUE) {
+        assert(
+            is.atomic(x),
+            isFlag(prefix),
+            isFlag(smart)
         )
-        ## Handle "-" as a special case. Spell out as "minus".
-        object <- gsub(
-            pattern = "-[[:space:]]",
-            replacement = ".minus.",
-            x = object
-        )
-        object <- gsub(
-            pattern = "^(.+)-$",
-            replacement = "\\1.minus",
-            x = object
-        )
-        ## Handle "/" as a special case. Spell out as "slash".
-        object <- gsub(
-            pattern = "/",
-            replacement = ".slash.",
-            x = object
-        )
-        ## Handle "%" as a special case. Spell out as "percent".
-        object <- gsub(
-            pattern = "%",
-            replacement = ".percent.",
-            x = object
-        )
-        ## Strip comma delims in between numbers (e.g. 1,000,000).
-        object <- gsub(
-            pattern = "(\\d),(\\d)",
-            replacement = "\\1\\2",
-            x = object
-        )
-        ## Now we're ready to sanitize using base conventions.
-        object <- make.names(
-            names = object,
+        x <- as.character(x)
+        ## Error on empty strings, but allow passthrough of NA.
+        assert(all(nzchar(x, keepNA = FALSE)))
+        if (isTRUE(smart)) {
+            ## Handle "+" as a special case. Spell out as "plus".
+            x <- gsub(
+                pattern = "\\+",
+                replacement = ".plus.",
+                x = x
+            )
+            ## Handle "-" as a special case. Spell out as "minus".
+            x <- gsub(
+                pattern = "-[[:space:]]",
+                replacement = ".minus.",
+                x = x
+            )
+            x <- gsub(
+                pattern = "^(.+)-$",
+                replacement = "\\1.minus",
+                x = x
+            )
+            ## Handle "/" as a special case. Spell out as "slash".
+            x <- gsub(
+                pattern = "/",
+                replacement = ".slash.",
+                x = x
+            )
+            ## Handle "%" as a special case. Spell out as "percent".
+            x <- gsub(
+                pattern = "%",
+                replacement = ".percent.",
+                x = x
+            )
+            ## Strip comma delims in between numbers (e.g. 1,000,000).
+            x <- gsub(
+                pattern = "(\\d),(\\d)",
+                replacement = "\\1\\2",
+                x = x
+            )
+        }
+        ## Sanitize using base R conventions.
+        x <- make.names(
+            names = x,
             unique = FALSE,
             allow_ = FALSE
         )
+        ## Include "X" prefix by default, but allowing manual disable, so we
+        ## can pass to our shell scripts defined in koopa package.
+        if (identical(prefix, FALSE)) {
+            x <- gsub(
+                pattern = "^X(.+)$",
+                replacement = "\\1",
+                x = x,
+                ignore.case = FALSE
+            )
+        }
         ## Ensure all non-alphanumeric characters get coerced to periods.
-        object <- gsub(
+        x <- gsub(
             pattern = "[^[:alnum:]]",
             replacement = ".",
-            x = object
+            x = x
         )
         ## Combine multiple dots.
-        object <- gsub(
+        x <- gsub(
             pattern = "[\\.]+",
             replacement = ".",
-            x = object
+            x = x
         )
         ## Strip leading or trailing dots.
-        object <- gsub(
+        x <- gsub(
             pattern = "(^\\.|\\.$)",
             replacement = "",
-            x = object
+            x = x
         )
         ## Coerce `"NA"` back to `NA` after `make.names()` call.
-        object <- gsub(
+        x <- gsub(
             pattern = "^NA$",
             replacement = NA_character_,
-            x = object
+            x = x
         )
-        ## Standardize any mixed case acronyms.
-        object <- .sanitizeAcronyms(object)
+        if (isTRUE(smart)) {
+            ## Standardize any mixed case acronyms.
+            x <- .sanitizeAcronyms(x)
+        }
         ## Establish word boundaries for camelCase acronyms
         ## (e.g. `worfdbHTMLRemap` -> `worfdb.HTML.remap`).
         ## Acronym following a word.
-        object <- gsub(
+        x <- gsub(
             pattern = "([a-z])([A-Z])",
             replacement = "\\1.\\2",
-            x = object
+            x = x
         )
         ## Word following an acronym.
-        object <- gsub(
+        x <- gsub(
             pattern = "([A-Z0-9])([A-Z])([a-z])",
             replacement = "\\1.\\2\\3",
-            x = object
+            x = x
         )
         ## Return.
-        object
+        x
     }
 
 
 
 `dottedCase,character` <-  # nolint
-    function(object, names = TRUE) {
-        assert(isFlag(names))
+    function(object, names = TRUE, prefix = TRUE, smart = TRUE) {
+        assert(
+            isFlag(names),
+            isFlag(prefix),
+            isFlag(smart)
+        )
         if (isTRUE(names) && hasNames(object)) {
-            names <- .dottedCase(names(object))
+            names <- .dottedCase(
+                x = names(object),
+                prefix = TRUE,
+                smart = smart
+            )
         } else {
             names <- names(object)
         }
-        object <- .dottedCase(object)
+        object <- .dottedCase(
+            x = object,
+            prefix = prefix,
+            smart = smart
+        )
         names(object) <- names
         object
     }

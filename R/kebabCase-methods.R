@@ -11,7 +11,7 @@
 #' @note We're not including the additional S4 methods that work on
 #' [`names()`][base::names] and/or [`dimnames()`][base::dimnames] because dashes
 #' are not syntactically valid for names in R.
-#' @note Updated 2019-09-09.
+#' @note Updated 2019-10-08.
 #'
 #' @inheritParams params
 #'
@@ -27,20 +27,23 @@ NULL
 
 ## Note that by calling `snake()` internally, this will handle special words
 ## like "%" and "+", which we want. Refer to `dotted()` for this code.
-## Updated 2019-07-21.
 .kebabCase <-  # nolint
-    function(object) {
-        object <- snake(object)
-        object <- gsub(pattern = "_", replacement = "-", x = object)
-        object
+    function(x, ...) {
+        x <- snake(x, ...)
+        x <- gsub(pattern = "_", replacement = "-", x = x)
+        x
     }
 
 
 
 `kebabCase,character` <-  # nolint
-    function(object) {
+    function(object, prefix = TRUE, smart = TRUE) {
+        assert(
+            isFlag(prefix),
+            isFlag(smart)
+        )
         names <- names(object)
-        object <- .kebabCase(object)
+        object <- .kebabCase(object, prefix = prefix, smart = smart)
         names(object) <- names
         object
     }
