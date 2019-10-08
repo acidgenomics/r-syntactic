@@ -18,12 +18,13 @@ NULL
 
 
 .snakeCase <-  # nolint
-    function(x, prefix = TRUE) {
+    function(x, prefix = TRUE, smart = TRUE) {
         assert(
             all(nzchar(x, keepNA = FALSE)),
-            isFlag(prefix)
+            isFlag(prefix),
+            isFlag(smart)
         )
-        x <- dotted(x, prefix = prefix)
+        x <- dotted(x, prefix = prefix, smart = smart)
         x <- tolower(x)
         x <- gsub(pattern = "\\.", replacement = "_", x = x)
         x
@@ -32,17 +33,26 @@ NULL
 
 
 `snakeCase,character` <-  # nolint
-    function(object, names = TRUE, prefix = TRUE) {
+    function(object, names = TRUE, prefix = TRUE, smart = TRUE) {
         assert(
             isFlag(names),
-            isFlag(prefix)
+            isFlag(prefix),
+            isFlag(smart)
         )
         if (isTRUE(names) && hasNames(object)) {
-            names <- .snakeCase(names(object))
+            names <- .snakeCase(
+                x = names(object),
+                prefix = TRUE,
+                smart = smart
+            )
         } else {
             names <- names(object)
         }
-        object <- .snakeCase(object, prefix = prefix)
+        object <- .snakeCase(
+            x = object,
+            prefix = prefix,
+            smart = smart
+        )
         names(object) <- names
         object
     }
