@@ -9,7 +9,7 @@
 #' functions.
 #'
 #' @name upperCamelCase
-#' @note Updated 2019-10-07.
+#' @note Updated 2019-10-08.
 #'
 #' @inherit camelCase return
 #' @inheritParams params
@@ -23,24 +23,42 @@ NULL
 
 
 .upperCamelCase <-  # nolint
-    function(x, strict = FALSE, prefix = TRUE) {
-        .camelCase(x, format = "upper", strict = strict, prefix = prefix)
+    function(...) {
+        .camelCase(..., format = "upper")
     }
 
 
 
 `upperCamelCase,character` <-  # nolint
-    function(object, names = TRUE, strict = FALSE, prefix = TRUE) {
+    function(
+        object,
+        names = TRUE,
+        strict = FALSE,
+        prefix = TRUE,
+        smart = TRUE
+    ) {
         assert(
             isFlag(names),
-            isFlag(strict)
+            isFlag(strict),
+            isFlag(prefix),
+            isFlag(smart)
         )
         if (isTRUE(names) && hasNames(object)) {
-            names <- .upperCamelCase(names(object), strict = strict)
+            names <- .upperCamelCase(
+                x = names(object),
+                strict = strict,
+                prefix = TRUE,
+                smart = smart
+            )
         } else {
             names <- names(object)
         }
-        object <- .upperCamelCase(object, strict = strict, prefix = prefix)
+        object <- .upperCamelCase(
+            x = object,
+            strict = strict,
+            prefix = prefix,
+            smart = smart
+        )
         names(object) <- names
         object
     }
