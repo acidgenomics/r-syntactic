@@ -9,7 +9,8 @@
 \usage{
 snakeCase(object, ...)
 
-\S4method{snakeCase}{character}(object, names = TRUE)
+\S4method{snakeCase}{character}(object, names = TRUE, prefix = TRUE,
+  smart = TRUE)
 
 snake(...)
 }
@@ -20,6 +21,16 @@ snake(...)
 
 \item{names}{\code{logical(1)}.
 Sanitize names.}
+
+\item{prefix}{\code{logical(1)}.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric. Note that names
+are always made syntactically valid when applicable with "X" prefix.
+See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc. Recommended by default.}
 }
 \value{
 Modified object.
@@ -32,7 +43,7 @@ Format character strings to use snake-style formatting, where word boundaries
 are defined by underscores (e.g. \code{this_is_snake_case}).
 }
 \note{
-Updated 2019-09-09.
+Updated 2019-10-07.
 }
 \examples{
 data(syntactic, package = "acidtest")

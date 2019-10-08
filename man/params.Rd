@@ -9,9 +9,20 @@ Sanitize names.}
 
 \item{object}{Object.}
 
+\item{prefix}{\code{logical(1)}.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric. Note that names
+are always made syntactically valid when applicable with "X" prefix.
+See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc. Recommended by default.}
+
 \item{strict}{\code{logical(1)}.
 Enforce strict name sanitization. When \code{TRUE}, this does not allow the
-return of any capitalized acronyms. "RNA" will become "Rna", for example.}
+return of any capitalized acronyms. "RNA" will become "Rna", for example.
+Disabled by default.}
 
 \item{string}{\code{character(1)}.}
 

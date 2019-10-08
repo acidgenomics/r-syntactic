@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -122,7 +122,8 @@
     <pre class="usage"><span class='fu'>dottedCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>dottedCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>dottedCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>smart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='fu'>dotted</span>(<span class='no'>...</span>)</pre>
 
@@ -142,6 +143,20 @@
       <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
 Sanitize names.</p></td>
     </tr>
+    <tr>
+      <th>prefix</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Prepend "X" character if necessary, when string begins with a syntactically
+invalid character, such as a number or non-alphanumeric. Note that names
+are always made syntactically valid when applicable with "X" prefix.
+See <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code> for details. Recommended by default.</p></td>
+    </tr>
+    <tr>
+      <th>smart</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc. Recommended by default.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -153,7 +168,7 @@ Sanitize names.</p></td>
 parameters. However, it is recommended to avoid using it for variable
 assignments into an <code>environment</code>, as that can introduce conflicts with
 base functions.</p>
-<p>Updated 2019-09-09.</p>
+<p>Updated 2019-10-08.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
