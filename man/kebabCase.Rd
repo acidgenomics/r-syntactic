@@ -9,7 +9,7 @@
 \usage{
 kebabCase(object, ...)
 
-\S4method{kebabCase}{character}(object, prefix = TRUE)
+\S4method{kebabCase}{character}(object, prefix = TRUE, smart = TRUE)
 
 kebab(...)
 }
@@ -23,6 +23,10 @@ Prepend "X" character if necessary, when string begins with a syntactically
 invalid character, such as a number or non-alphanumeric. Note that names
 are always made syntactically valid when applicable with "X" prefix.
 See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc. Recommended by default.}
 }
 \value{
 Modified object.
@@ -41,7 +45,7 @@ We're not including the additional S4 methods that work on
 \code{\link[base:names]{names()}} and/or \code{\link[base:dimnames]{dimnames()}} because dashes
 are not syntactically valid for names in R.
 
-Updated 2019-10-07.
+Updated 2019-10-08.
 }
 \examples{
 data(syntactic, package = "acidtest")
