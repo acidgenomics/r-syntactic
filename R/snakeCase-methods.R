@@ -4,7 +4,7 @@
 #' are defined by underscores (e.g. `this_is_snake_case`).
 #'
 #' @name snakeCase
-#' @note Updated 2019-09-09.
+#' @note Updated 2019-10-07.
 #'
 #' @inherit camelCase return
 #' @inheritParams params
@@ -18,24 +18,36 @@ NULL
 
 
 .snakeCase <-  # nolint
-    function(object) {
-        object <- dotted(object)
-        object <- tolower(object)
-        object <- gsub(pattern = "\\.", replacement = "_", x = object)
-        object
+    function(x, ...) {
+        x <- dotted(x, ...)
+        x <- tolower(x)
+        x <- gsub(pattern = "\\.", replacement = "_", x = x)
+        x
     }
 
 
 
 `snakeCase,character` <-  # nolint
-    function(object, names = TRUE) {
-        assert(isFlag(names))
+    function(object, names = TRUE, prefix = TRUE, smart = TRUE) {
+        assert(
+            isFlag(names),
+            isFlag(prefix),
+            isFlag(smart)
+        )
         if (isTRUE(names) && hasNames(object)) {
-            names <- .snakeCase(names(object))
+            names <- .snakeCase(
+                x = names(object),
+                prefix = TRUE,
+                smart = smart
+            )
         } else {
             names <- names(object)
         }
-        object <- .snakeCase(object)
+        object <- .snakeCase(
+            x = object,
+            prefix = prefix,
+            smart = smart
+        )
         names(object) <- names
         object
     }
