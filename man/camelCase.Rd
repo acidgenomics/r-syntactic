@@ -10,7 +10,7 @@
 camelCase(object, ...)
 
 \S4method{camelCase}{character}(object, names = TRUE, strict = FALSE,
-  prefix = TRUE)
+  prefix = TRUE, smart = TRUE)
 
 camel(...)
 }
@@ -32,6 +32,10 @@ Prepend "X" character if necessary, when string begins with a syntactically
 invalid character, such as a number or non-alphanumeric. Note that names
 are always made syntactically valid when applicable with "X" prefix.
 See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc. Recommended by default.}
 }
 \value{
 Modified object.
@@ -47,7 +51,7 @@ boundaries are defined by capitlization only (e.g. \code{thisIsCamelCase}).
 Camel case is recommended by Bioconductor for variable and function names.
 }
 \note{
-Updated 2019-10-07.
+Updated 2019-10-08.
 }
 \examples{
 data(syntactic, package = "acidtest")

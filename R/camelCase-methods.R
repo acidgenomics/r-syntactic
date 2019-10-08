@@ -6,7 +6,7 @@
 #' Camel case is recommended by Bioconductor for variable and function names.
 #'
 #' @name camelCase
-#' @note Updated 2019-10-07.
+#' @note Updated 2019-10-08.
 #'
 #' @inheritParams params
 #'
@@ -28,16 +28,17 @@ NULL
         x,
         format = c("lower", "upper"),
         strict = FALSE,
-        prefix = TRUE
+        prefix = TRUE,
+        smart = TRUE
     ) {
         assert(
             all(nzchar(x, keepNA = FALSE)),
             isFlag(strict),
-            isFlag(prefix)
+            isFlag(prefix),
+            isFlag(smart)
         )
-        x <- dotted(x, prefix = prefix)
         format <- match.arg(format)
-        assert(isFlag(strict))
+        x <- dotted(x, prefix = prefix, smart = smart)
         ## Simplify mixed case acronyms in strict mode.
         if (isTRUE(strict)) {
             x <- tolower(x)
@@ -82,18 +83,35 @@ NULL
 
 
 `camelCase,character` <-  # nolint
-    function(object, names = TRUE, strict = FALSE, prefix = TRUE) {
+    function(
+        object,
+        names = TRUE,
+        strict = FALSE,
+        prefix = TRUE,
+        smart = TRUE
+    ) {
         assert(
             isFlag(names),
             isFlag(strict),
-            isFlag(prefix)
+            isFlag(prefix),
+            isFlag(smart)
         )
         if (isTRUE(names) && hasNames(object)) {
-            names <- .camelCase(names(object), strict = strict)
+            names <- .camelCase(
+                x = names(object),
+                strict = strict,
+                prefix = TRUE,
+                smart = smart
+            )
         } else {
             names <- names(object)
         }
-        object <- .camelCase(object, strict = strict, prefix = prefix)
+        object <- .camelCase(
+            x = object,
+            strict = strict,
+            prefix = prefix,
+            smart = smart
+        )
         names(object) <- names
         object
     }
