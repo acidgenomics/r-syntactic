@@ -25,7 +25,7 @@ Sanitize names.}
 Prepend "X" character if necessary, when string begins with a syntactically
 invalid character, such as a number or non-alphanumeric. Note that names
 are always made syntactically valid when applicable with "X" prefix.
-See \code{\link[base:make.names]{make.names()}} for details.}
+See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
 }
 \value{
 Modified object.
