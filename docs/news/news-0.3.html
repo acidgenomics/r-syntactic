@@ -123,14 +123,15 @@
 </ul>
 </div>
 </div>
-    <div id="syntactic-0-3-1-2019-10-07" class="section level2">
+    <div id="syntactic-0-3-1-2019-10-08" class="section level2">
 <h2 class="hasAnchor">
-<a href="#syntactic-0-3-1-2019-10-07" class="anchor"></a>syntactic 0.3.1 (2019-10-07)</h2>
+<a href="#syntactic-0-3-1-2019-10-08" class="anchor"></a>syntactic 0.3.1 (2019-10-08)</h2>
 <div id="minor-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Now allowing <code>prefix = FALSE</code> for <code>camelCase</code>, <code>dottedCase</code>, <code>kebabCase</code>, <code>snakeCase</code>, and <code>upperCamelCase</code>. This override allows the user to disable automatic “X” prefix defined by <code>make.names</code> internally for input that begins with a syntactically invalid character, such as a number (R-specific) or a non-alphanumeric. We’re now allowing this override so we can pass to new <code>camel-case</code>, <code>kebab-case</code>, and <code>snake-case</code> shell scripts defined in <a href="https://koopa.acidgenomics.com/">koopa</a>.</li>
+<li>Also now allowing <code>smart = FALSE</code>, which disables smart mode handling of mixed case acronyms (e.g. “RNAi”, “mRNA”), numeric delims/decimals (“,” “.”), special characters that can represent words (“+”/“-”; plus/minus), etc. Enabled by default and strongly recommended. Added a new override mode for some edge cases with our new shell methods defined in koopa.</li>
 <li>Migrated character code coverage methods back here from basejump.</li>
 <li>Simplifed code coverage, removing usage of parameterized tests that depend on patrick package.</li>
 </ul>
@@ -143,7 +144,7 @@
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#syntactic-0-3-0-2019-09-25">0.3.0</a></li>
-        <li><a href="#syntactic-0-3-1-2019-10-07">0.3.1</a></li>
+        <li><a href="#syntactic-0-3-1-2019-10-08">0.3.1</a></li>
       </ul>
     </div>
   </div>
