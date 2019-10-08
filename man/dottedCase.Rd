@@ -44,7 +44,7 @@ parameters. However, it is recommended to avoid using it for variable
 assignments into an \code{environment}, as that can introduce conflicts with
 base functions.
 
-Updated 2019-10-07.
+Updated 2019-10-08.
 }
 \examples{
 data(syntactic, package = "acidtest")
