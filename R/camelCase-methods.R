@@ -28,17 +28,11 @@ NULL
         x,
         format = c("lower", "upper"),
         strict = FALSE,
-        prefix = TRUE,
-        smart = TRUE
+        ...
     ) {
-        assert(
-            all(nzchar(x, keepNA = FALSE)),
-            isFlag(strict),
-            isFlag(prefix),
-            isFlag(smart)
-        )
+        x <- dotted(x, ...)
+        assert(isFlag(strict))
         format <- match.arg(format)
-        x <- dotted(x, prefix = prefix, smart = smart)
         ## Simplify mixed case acronyms in strict mode.
         if (isTRUE(strict)) {
             x <- tolower(x)
