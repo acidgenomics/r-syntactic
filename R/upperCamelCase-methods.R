@@ -9,7 +9,7 @@
 #' functions.
 #'
 #' @name upperCamelCase
-#' @note Updated 2019-10-08.
+#' @note Updated 2019-10-22.
 #'
 #' @inherit camelCase return
 #' @inheritParams params
@@ -35,15 +35,28 @@ NULL
         names = TRUE,
         strict = FALSE,
         prefix = TRUE,
-        smart = TRUE
+        smart = TRUE,
+        rename = FALSE
     ) {
         assert(
             isCharacter(object),
             isFlag(names),
             isFlag(strict),
             isFlag(prefix),
-            isFlag(smart)
+            isFlag(smart),
+            isFlag(rename)
         )
+        ## File rename mode ----------------------------------------------------
+        if (isTRUE(rename)) {
+            files <- .rename(
+                x = object,
+                fun = "upperCamelCase",
+                prefix = prefix,
+                smart = smart
+            )
+            return(invisible(files))
+        }
+        ## String mode ---------------------------------------------------------
         if (isTRUE(names) && hasNames(object)) {
             names <- .upperCamelCase(
                 x = names(object),
