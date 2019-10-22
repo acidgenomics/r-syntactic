@@ -17,8 +17,7 @@ test_that("Unnamed character", {
             "tx2gene",
             "TX2.Gene.ID",
             "worfdb.HTML.Remap",
-            "X123",
-            NA
+            "X123"
         )
     )
 })
