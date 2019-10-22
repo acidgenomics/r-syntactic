@@ -1,24 +1,22 @@
 context("capitalize")
 
-test_that("capitalize", {
+test_that("Vectorized", {
+    object <- c(
+        "the quick Brown fox",
+        "using AIC for model selection"
+    )
     expect_identical(
-        object = capitalize(vec),
+        object = capitalize(object, strict = FALSE),
         expected = c(
-            "%GC",
-            "10uM",
-            "5'-3' bias",
-            "5prime",
-            "G2M.Score",
-            "Hello world",
-            "HELLO WORLD",
-            "Mazda RX4",
-            "NCount",
-            "RNAi clones",
-            "Tx2gene",
-            "TX2GeneID",
-            "WorfdbHTMLRemap",
-            "123",
-            NA_character_
+            "The Quick Brown Fox",
+            "Using AIC For Model Selection"
+        )
+    )
+    expect_identical(
+        object = capitalize(object, strict = TRUE),
+        expected = c(
+            "The Quick Brown Fox",
+            "Using Aic For Model Selection"
         )
     )
 })
