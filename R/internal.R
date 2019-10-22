@@ -3,6 +3,12 @@
 ## Compressed file extensions...
 
 
+## fileExt
+## dirname
+## basenameSansExt
+## isCaseSensitiveFileSystem
+## file.rename
+
 
 ## isFileSystemCaseSensitive
 .rename <- function(from, to) {
