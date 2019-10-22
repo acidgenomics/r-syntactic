@@ -30,7 +30,7 @@ test_that("makeNames", {
         expected = c("a_b", "a_b")
     )
     expect_identical(
-        object = makeNames(c(1L, 1L), unique = TRUE),
+        object = makeNames(as.character(c(1L, 1L)), unique = TRUE),
         expected = c("X1", "X1_1")
     )
 })
