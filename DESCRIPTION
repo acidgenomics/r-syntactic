@@ -22,7 +22,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Depends: R (>= 3.6)
 Imports:
-    goalie (>= 0.3.12),
+    goalie (>= 0.3.13),
     methods,
     utils
 Suggests:

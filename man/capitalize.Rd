@@ -8,15 +8,19 @@
 \usage{
 capitalize(object, ...)
 
-\S4method{capitalize}{character}(object)
+\S4method{capitalize}{character}(object, strict = FALSE)
 }
 \arguments{
 \item{object}{Object.}
 
 \item{...}{Additional arguments.}
+
+\item{strict}{\code{logical(1)}.
+Enforce strict renaming of words containing multiple capital letters,
+including acronyms.}
 }
 \value{
-Modified object, with names capitalized.
+Modified object.
 }
 \description{
 Capitalize
@@ -25,5 +29,7 @@ Capitalize
 Updated 2019-09-09.
 }
 \examples{
-capitalize(c("hello", "world"))
+x <- c("the quick Brown fox", "using AIC for model selection")
+capitalize(x, strict = FALSE)
+capitalize(x, strict = TRUE)
 }
