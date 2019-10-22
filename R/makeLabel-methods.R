@@ -2,7 +2,7 @@
 #'
 #' Doesn't modify strings already containing a space or multi-letter acronym.
 #'
-#' @export
+#' @name makeLabel
 #' @note Updated 2019-07-31.
 #'
 #' @inheritParams params
@@ -20,8 +20,22 @@
 #' makeLabel("Already A Label")
 #' makeLabel("NASA")
 #' makeLabel("nGene")
-makeLabel <- function(string) {
-    assert(isString(string))
-    x <- makeWords(string)
-    x
-}
+NULL
+
+
+
+`makeLabel,character` <-  # nolint
+    function(object) {
+        assert(isString(object))
+        makeWords(object)
+    }
+
+
+
+#' @rdname makeLabel
+#' @export
+setMethod(
+    f = "makeLabel",
+    signature = signature("character"),
+    definition = `makeLabel,character`
+)

@@ -42,6 +42,61 @@ setGeneric(
 
 
 
+#' @rdname makeDimnames
+#' @export
+setGeneric(
+    name = "makeDimnames",
+    def = function(object, ...) {
+        standardGeneric("makeDimnames")
+    }
+)
+
+
+
+#' @rdname makeLabel
+#' @export
+setGeneric(
+    name = "makeLabel",
+    def = function(object, ...) {
+        standardGeneric("makeLabel")
+    }
+)
+
+
+
+#' @rdname makeNames
+#' @export
+setGeneric(
+    name = "makeNames",
+    def = function(object, ...) {
+        standardGeneric("makeNames")
+    }
+)
+
+
+
+#' @rdname makeTitle
+#' @export
+setGeneric(
+    name = "makeTitle",
+    def = function(object, ...) {
+        standardGeneric("makeTitle")
+    }
+)
+
+
+
+#' @rdname makeWords
+#' @export
+setGeneric(
+    name = "makeWords",
+    def = function(object, ...) {
+        standardGeneric("makeWords")
+    }
+)
+
+
+
 #' @rdname sentenceCase
 #' @export
 setGeneric(

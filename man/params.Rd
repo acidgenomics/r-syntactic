@@ -30,10 +30,6 @@ Enforce strict name sanitization. When \code{TRUE}, this does not allow the
 return of any capitalized acronyms. "RNA" will become "Rna", for example.
 Disabled by default.}
 
-\item{string}{\code{character(1)}.}
-
-\item{x}{Object.}
-
 \item{...}{Additional arguments.}
 }
 \description{

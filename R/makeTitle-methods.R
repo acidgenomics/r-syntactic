@@ -2,8 +2,8 @@
 #'
 #' Doesn't modify strings already containing a space or multi-letter acronym.
 #'
-#' @export
-#' @note Updated 2019-07-27.
+#' @name makeTitle
+#' @note Updated 2019-10-21.
 #'
 #' @inheritParams params
 #'
@@ -12,7 +12,7 @@
 #'
 #' @seealso
 #' - [makeWords()].
-#' - [capitalize()].
+#' - [sentenceCase()].
 #' - [stringr::str_to_sentence()].
 #'
 #' @examples
@@ -20,9 +20,24 @@
 #' makeTitle("log10GenesPerUMI")
 #' makeTitle("Already A Title")
 #' makeTitle("NASA")
-makeTitle <- function(string) {
-    assert(isString(string))
-    x <- makeWords(string)
-    x <- capitalize(x)
-    x
-}
+NULL
+
+
+
+`makeTitle,character` <-  # nolint
+    function(object) {
+        assert(isString(object))
+        x <- makeWords(object)
+        x <- sentenceCase(x)
+        x
+    }
+
+
+
+#' @rdname makeTitle
+#' @export
+setMethod(
+    f = "makeTitle",
+    signature = signature("character"),
+    definition = `makeTitle,character`
+)
