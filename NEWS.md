@@ -1,3 +1,21 @@
+## syntactic 0.3.2 (2019-10-22)
+
+File rename mode support.
+
+`camelCase`, `kebabCase`, `snakeCase`, and `upperCamelCase` now support file
+rename mode (`rename = TRUE`). This works on either case-sensitive (Linux) or
+case-insensitive (macOS, Windows) file systems. Files and directories are
+supported, including files outside of the current working directory.
+
+I recommend using either `kebabCase` or `snakeCase` for files.
+
+When renaming with files beginning with a number, `prefix = TRUE` will prefix
+the file with an "x", similar to the behavior in `make.names`. This can be
+disabled by setting` prefix = FALSE`. Smart acronyms and other features can also
+be disabled by setting `smart = FALSE`.
+
+This code will be called internally in the upcoming [koopa][] update.
+
 ## syntactic 0.3.1 (2019-10-08)
 
 ### Minor changes
