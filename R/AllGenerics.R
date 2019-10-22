@@ -42,6 +42,17 @@ setGeneric(
 
 
 
+#' @rdname sentenceCase
+#' @export
+setGeneric(
+    name = "sentenceCase",
+    def = function(object, ...) {
+        standardGeneric("sentenceCase")
+    }
+)
+
+
+
 #' @rdname snakeCase
 #' @export
 setGeneric(
