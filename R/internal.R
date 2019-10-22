@@ -1,17 +1,53 @@
-## FIXME Need a smart approach to file extensions.
-## FIXME Need to support either .txt OR .txt.gz
-## Compressed file extensions...
-
-
-## fileExt
-## dirname
-## basenameSansExt
-## isCaseSensitiveFileSystem
-## file.rename
-
-
-## isFileSystemCaseSensitive
-.rename <- function(from, to) {
+#' Rename files and/or directories using a syntactic naming function
+#'
+#' @details
+#' Intelligently deals with a case-insensitive file system, if necessary.
+#' This is very useful for macOS and Windows.
+#'
+#' Our syntactic naming functions can result in changes that only differ in
+#' case, which are problematic on case-insensitive mounts, and require movement
+#' of the files into a temporary file name before the final rename.
+#'
+#' @note Updated 2019-10-22.
+#' @noRd
+#'
+#' @examples
+#' ## > .rename(x = "sample-1.fastq.gz", fun = "snakeCase")
+.rename <- function(x, fun) {
+    assert(isString(fun))
+    insensitive <- !isTRUE(isFileSystemCaseSensitive())
+    fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
+    from <- realpath(x)
+    to <- vapply(
+        X = x,
+        FUN = function(x) {
+            from <- x
+            dir <- dirname(from)
+            stem <- fun(basenameSansExt(from))
+            ext <- fileExt(from)
+            ## Add back extension if necessary. Note that this handles both
+            ## files without an extension and directories in the call.
+            if (!is.na(ext)) {
+                bn <- paste0(stem, ".", ext)
+            } else {
+                bn <- stem
+            }
+            to <- file.path(dir, bn)
+        },
+        FUN.VALUE = character(1L),
+        USE.NAMES = FALSE
+    )
+    if (isTRUE(insensitive)) {
+        tmpTo <- file.path(dirname(from), paste0(".tmp.", basename(from)))
+        ok <- file.rename(from = from, to = tmpTo)
+        assert(all(ok))
+        ok <- file.rename(from = tmpTo, to = to)
+        assert(all(ok))
+    } else {
+        ok <- file.rename(from = from, to = to)
+        assert(all(ok))
+    }
+    return(to)
 }
 
 
