@@ -17,8 +17,7 @@ test_that("makeNames", {
             "tx2gene",
             "TX2GeneID",
             "worfdbHTMLRemap",
-            "X123",
-            "NA_"
+            "X123"
         )
     )
     expect_identical(
