@@ -42,7 +42,7 @@
         USE.NAMES = FALSE
     )
     if (identical(from, to)) {
-        return(from)
+        return(from)  # nocov
     }
     if (isTRUE(insensitive)) {
         ## nocov start
