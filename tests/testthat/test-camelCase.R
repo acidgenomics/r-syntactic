@@ -17,8 +17,7 @@ test_that("Unnamed character", {
             "tx2gene",
             "tx2GeneID",
             "worfdbHTMLRemap",
-            "x123",
-            NA
+            "x123"
         )
     )
 })
@@ -54,8 +53,7 @@ test_that("Strict mode", {
             "tx2gene",
             "tx2GeneId",
             "worfdbHtmlRemap",
-            "x123",
-            NA
+            "x123"
         )
     )
 })
