@@ -23,7 +23,5 @@
 #'   Enforce strict name sanitization. When `TRUE`, this does not allow the
 #'   return of any capitalized acronyms. "RNA" will become "Rna", for example.
 #'   Disabled by default.
-#' @param string `character(1)`.
-#' @param x Object.
 #' @param ... Additional arguments.
 NULL
