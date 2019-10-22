@@ -13,17 +13,21 @@
 #'
 #' @examples
 #' ## > .rename(x = "sample-1.fastq.gz", fun = "snakeCase")
-.rename <- function(x, fun) {
+.rename <- function(x, fun, ...) {
     assert(isString(fun))
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
-    fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
+    FUN <- get(  # nolint
+        x = fun,
+        envir = asNamespace("syntactic"),
+        inherits = FALSE
+    )
     from <- realpath(x)
     to <- vapply(
         X = x,
         FUN = function(x) {
             from <- x
             dir <- dirname(from)
-            stem <- fun(basenameSansExt(from))
+            stem <- FUN(basenameSansExt(from), ...)
             ext <- fileExt(from)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
@@ -37,6 +41,9 @@
         FUN.VALUE = character(1L),
         USE.NAMES = FALSE
     )
+    if (identical(from, to)) {
+        return(from)
+    }
     if (isTRUE(insensitive)) {
         tmpTo <- file.path(dirname(from), paste0(".tmp.", basename(from)))
         ok <- file.rename(from = from, to = tmpTo)
@@ -47,7 +54,7 @@
         ok <- file.rename(from = from, to = to)
         assert(all(ok))
     }
-    return(to)
+    to
 }
 
 

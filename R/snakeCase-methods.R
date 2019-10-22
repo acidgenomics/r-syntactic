@@ -42,6 +42,17 @@ NULL
             isFlag(smart),
             isFlag(rename)
         )
+        ## File rename mode ----------------------------------------------------
+        if (isTRUE(rename)) {
+            files <- .rename(
+                x = object,
+                fun = "snakeCase",
+                prefix = prefix,
+                smart = smart
+            )
+            return(invisible(files))
+        }
+        ## String mode ---------------------------------------------------------
         if (isTRUE(names) && hasNames(object)) {
             names <- .snakeCase(
                 x = names(object),
