@@ -20,6 +20,7 @@ NULL
 
 `capitalize,character` <-  # nolint
     function(object, strict = FALSE) {
+        assert(isCharacter(object))
         vapply(
             X = strsplit(object, split = " "),
             FUN = function(x) {

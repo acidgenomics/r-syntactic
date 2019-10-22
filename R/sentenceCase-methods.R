@@ -16,6 +16,7 @@ NULL
 
 `sentenceCase,character` <-  # nolint
     function(object) {
+        assert(isCharacter(object))
         vapply(
             X = object,
             FUN = function(x) {

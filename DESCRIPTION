@@ -23,8 +23,7 @@ Encoding: UTF-8
 Depends: R (>= 3.6)
 Imports:
     goalie (>= 0.3.13),
-    methods,
-    utils
+    methods
 Suggests:
     acidtest (>= 0.2.5),
     testthat (>= 2.2)
