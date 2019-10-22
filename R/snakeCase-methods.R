@@ -4,7 +4,7 @@
 #' are defined by underscores (e.g. `this_is_snake_case`).
 #'
 #' @name snakeCase
-#' @note Updated 2019-10-21.
+#' @note Updated 2019-10-22.
 #'
 #' @inherit camelCase return
 #' @inheritParams params

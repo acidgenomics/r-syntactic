@@ -10,7 +10,7 @@
 upperCamelCase(object, ...)
 
 \S4method{upperCamelCase}{character}(object, names = TRUE,
-  strict = FALSE, prefix = TRUE, smart = TRUE)
+  strict = FALSE, prefix = TRUE, smart = TRUE, rename = FALSE)
 
 upperCamel(...)
 }
@@ -36,6 +36,12 @@ See \code{\link[base:make.names]{make.names()}} for details. Recommended by defa
 \item{smart}{\code{logical(1)}.
 Handle complicated special cases, such as mixed case acronyms, plus/minus,
 percentages, etc. Recommended by default.}
+
+\item{rename}{\code{logical(1)}.
+File rename mode. Requires that input contains files and/or directories
+that exist on disk. Either case-sensitive (e.g. Linux) and -insensitive
+(e.g. macOS, Winddows) file systems are supported. The \code{prefix} and \code{smart}
+arguments are supported in this mode.}
 }
 \value{
 Modified object.
@@ -54,7 +60,7 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \note{
-Updated 2019-10-08.
+Updated 2019-10-22.
 }
 \examples{
 data(syntactic, package = "acidtest")

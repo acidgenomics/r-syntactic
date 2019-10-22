@@ -33,10 +33,10 @@ Handle complicated special cases, such as mixed case acronyms, plus/minus,
 percentages, etc. Recommended by default.}
 
 \item{rename}{\code{logical(1)}.
-Enable file rename mode.
-Requires that input contains files and/or directories that exist on disk.
-Either case-sensitive (e.g. Linux) and -insensitive (e.g. macOS, Winddows)
-file systems are supported.}
+File rename mode. Requires that input contains files and/or directories
+that exist on disk. Either case-sensitive (e.g. Linux) and -insensitive
+(e.g. macOS, Winddows) file systems are supported. The \code{prefix} and \code{smart}
+arguments are supported in this mode.}
 }
 \value{
 Modified object.
@@ -49,7 +49,7 @@ Format character strings to use snake-style formatting, where word boundaries
 are defined by underscores (e.g. \code{this_is_snake_case}).
 }
 \note{
-Updated 2019-10-21.
+Updated 2019-10-22.
 }
 \examples{
 data(syntactic, package = "acidtest")
