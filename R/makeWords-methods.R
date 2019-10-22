@@ -9,7 +9,7 @@
 #'   Words separated by spaces.
 #'
 #' @examples
-#' makeWords(names = c(
+#' makeWords(c(
 #'     "killVMaim",
 #'     "log10GenesPerUMI",
 #'     "mitoVsCoding",
