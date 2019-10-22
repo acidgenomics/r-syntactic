@@ -45,11 +45,13 @@
         return(from)
     }
     if (isTRUE(insensitive)) {
+        ## nocov start
         tmpTo <- file.path(dirname(from), paste0(".tmp.", basename(from)))
         ok <- file.rename(from = from, to = tmpTo)
         assert(all(ok))
         ok <- file.rename(from = tmpTo, to = to)
         assert(all(ok))
+        ## nocov end
     } else {
         ok <- file.rename(from = from, to = to)
         assert(all(ok))
