@@ -52,3 +52,27 @@ test_that("Plus minus handling", {
         )
     )
 })
+
+test_that("File rename mode", {
+    topdir <- "XXX"
+    unlink(topdir, recursive = TRUE)
+    dirs <- file.path(topdir, c("aaa-bbb", "ccc-ddd"))
+    files <- file.path(topdir, c("1-sample-A.fastq.gz", "hello-world.txt"))
+    input <- c(files, dirs)
+    lapply(dirs, dir.create, recursive = TRUE)
+    file.create(files)
+    output <- snakeCase(input, rename = TRUE, prefix = FALSE)
+    expect_identical(
+        object = output,
+        expected = file.path(
+            topdir,
+            c(
+                "1_sample_a.fastq.gz",
+                "hello_world.txt",
+                "aaa_bbb",
+                "ccc_ddd"
+            )
+        )
+    )
+    unlink(topdir, recursive = TRUE)
+})
