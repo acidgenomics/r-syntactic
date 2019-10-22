@@ -134,6 +134,7 @@ NULL
 `dottedCase,character` <-  # nolint
     function(object, names = TRUE, prefix = TRUE, smart = TRUE) {
         assert(
+            isCharacter(object),
             isFlag(names),
             isFlag(prefix),
             isFlag(smart)

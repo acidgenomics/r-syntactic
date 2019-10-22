@@ -39,6 +39,7 @@ NULL
 `kebabCase,character` <-  # nolint
     function(object, prefix = TRUE, smart = TRUE) {
         assert(
+            isCharacter(object),
             isFlag(prefix),
             isFlag(smart)
         )

@@ -38,6 +38,7 @@ NULL
         smart = TRUE
     ) {
         assert(
+            isCharacter(object),
             isFlag(names),
             isFlag(strict),
             isFlag(prefix),
