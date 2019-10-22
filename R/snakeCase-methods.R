@@ -36,6 +36,7 @@ NULL
         rename = FALSE
     ) {
         assert(
+            isCharacter(object),
             isFlag(names),
             isFlag(prefix),
             isFlag(smart),
