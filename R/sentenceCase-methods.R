@@ -20,6 +20,7 @@ NULL
         vapply(
             X = object,
             FUN = function(x) {
+                if (!isTRUE(grepl(" ", x))) return(x)
                 x <- strsplit(x, split = " ")[[1L]]
                 ## Only capitalize the first letter of the first word.
                 firstWord <- paste0(
@@ -29,7 +30,7 @@ NULL
                 ## Loop across the other words and look for acronyms.
                 ## Convert to lower case otherwise.
                 otherWords <- vapply(
-                    X = tail(x, n = -1L),
+                    X = x[seq(from = 2L, to = length(x))],
                     FUN = function(x) {
                         if (
                             !isTRUE(grepl("^[.A-Z0-9]+$", x)) &&

@@ -26,7 +26,7 @@ Convert syntactic names to words separated by spaces
 Updated 2019-10-21.
 }
 \examples{
-makeWords(names = c(
+makeWords(c(
     "killVMaim",
     "log10GenesPerUMI",
     "mitoVsCoding",
