@@ -27,7 +27,7 @@
         FUN = function(x) {
             from <- x
             dir <- dirname(from)
-            stem <- FUN(basenameSansExt(from), ...)
+            stem <- FUN(basenameSansExt(from), rename = FALSE, ...)
             ext <- fileExt(from)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.

@@ -16,10 +16,10 @@ are always made syntactically valid when applicable with "X" prefix.
 See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
 
 \item{rename}{\code{logical(1)}.
-Enable file rename mode.
-Requires that input contains files and/or directories that exist on disk.
-Either case-sensitive (e.g. Linux) and -insensitive (e.g. macOS, Winddows)
-file systems are supported.}
+File rename mode. Requires that input contains files and/or directories
+that exist on disk. Either case-sensitive (e.g. Linux) and -insensitive
+(e.g. macOS, Winddows) file systems are supported. The \code{prefix} and \code{smart}
+arguments are supported in this mode.}
 
 \item{smart}{\code{logical(1)}.
 Handle complicated special cases, such as mixed case acronyms, plus/minus,
