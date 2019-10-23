@@ -42,7 +42,7 @@ test_that("File rename mode", {
     input <- c(files, dirs)
     lapply(dirs, dir.create, recursive = TRUE)
     file.create(files)
-    output <- kebabCase(input, rename = TRUE, prefix = FALSE)
+    output <- kebabCase(input, rename = TRUE)
     expect_identical(
         object = output,
         expected = file.path(
