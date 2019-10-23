@@ -47,3 +47,19 @@ setMethod(
     signature = signature("character"),
     definition = `makeNames,character`
 )
+
+
+
+## This is needed for compatibility with bcbioRNASeq.
+## Note that factor methods for other syntactic functions are in basejump.
+`makeNames,factor` <- `makeNames,character`  # nolint
+
+
+
+#' @rdname makeNames
+#' @export
+setMethod(
+    f = "makeNames",
+    signature = signature("factor"),
+    definition = `makeNames,factor`
+)

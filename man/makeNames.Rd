@@ -4,11 +4,14 @@
 \name{makeNames}
 \alias{makeNames}
 \alias{makeNames,character-method}
+\alias{makeNames,factor-method}
 \title{Make syntactically valid names}
 \usage{
 makeNames(object, ...)
 
 \S4method{makeNames}{character}(object, unique = TRUE)
+
+\S4method{makeNames}{factor}(object, unique = TRUE)
 }
 \arguments{
 \item{object}{Object.}
