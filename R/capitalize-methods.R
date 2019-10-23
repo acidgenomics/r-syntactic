@@ -4,26 +4,32 @@
 #' @note Updated 2019-09-09.
 #'
 #' @inheritParams params
+#' @param strict `logical(1)`.
+#'   Enforce strict renaming of words containing multiple capital letters,
+#'   including acronyms.
 #'
-#' @return Modified object, with names capitalized.
+#' @return Modified object.
 #'
 #' @examples
-#' capitalize(c("hello", "world"))
+#' x <- c("the quick Brown fox", "using AIC for model selection")
+#' capitalize(x, strict = FALSE)
+#' capitalize(x, strict = TRUE)
 NULL
 
 
 
-## Using `vapply()` call here to preserve `NA_character_`.
 `capitalize,character` <-  # nolint
-    function(object) {
+    function(object, strict = FALSE) {
+        assert(isCharacter(object))
         vapply(
-            X = object,
+            X = strsplit(object, split = " "),
             FUN = function(x) {
-                if (is.na(x)) return(x)
-                first <- substring(x, first = 1L, last = 1L)
-                first <- toupper(first)
-                tail <- substring(x, first = 2L)
-                paste(first, tail, sep = "")
+                first <- toupper(substring(x, 1L, 1L))
+                tail <- substring(x, 2L)
+                if (isTRUE(strict)) {
+                    tail <- tolower(tail)
+                }
+                paste(first, tail, sep = "", collapse = " ")
             },
             FUN.VALUE = character(1L),
             USE.NAMES = FALSE

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Capitalize — capitalize • syntactic</title>
+<title>Sentence case — sentenceCase • syntactic</title>
 
 
 <!-- jquery -->
@@ -37,8 +37,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Capitalize — capitalize" />
-<meta property="og:description" content="Capitalize" />
+<meta property="og:title" content="Sentence case — sentenceCase" />
+<meta property="og:description" content="Sentence case" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -110,19 +110,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Capitalize</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/acidgenomics/syntactic/blob/master/R/capitalize-methods.R'><code>R/capitalize-methods.R</code></a></small>
-    <div class="hidden name"><code>capitalize.Rd</code></div>
+    <h1>Sentence case</h1>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/acidgenomics/syntactic/blob/master/R/sentenceCase-methods.R'><code>R/sentenceCase-methods.R</code></a></small>
+    <div class="hidden name"><code>sentenceCase.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Capitalize</p>
+    <p>Sentence case</p>
     </div>
 
-    <pre class="usage"><span class='fu'>capitalize</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>sentenceCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>capitalize</span>(<span class='no'>object</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+<span class='fu'>sentenceCase</span>(<span class='no'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -135,12 +135,6 @@
       <th>...</th>
       <td><p>Additional arguments.</p></td>
     </tr>
-    <tr>
-      <th>strict</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Enforce strict renaming of words containing multiple capital letters,
-including acronyms.</p></td>
-    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -148,11 +142,11 @@ including acronyms.</p></td>
     <p>Modified object.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-09-09.</p>
+    <p>Updated 2019-10-21.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"the quick Brown fox"</span>, <span class='st'>"using AIC for model selection"</span>)
-<span class='fu'>capitalize</span>(<span class='no'>x</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "The Quick Brown Fox"           "Using AIC For Model Selection"</div><div class='input'><span class='fu'>capitalize</span>(<span class='no'>x</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "The Quick Brown Fox"           "Using Aic For Model Selection"</div></pre>
+<span class='fu'>sentenceCase</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; [1] "The quick brown fox"           "Using AIC for model selection"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
