@@ -79,27 +79,27 @@ NULL
 `camelCase,character` <-  # nolint
     function(
         object,
-        names = TRUE,
-        strict = FALSE,
-        prefix = TRUE,
+        rename = FALSE,
         smart = TRUE,
-        rename = FALSE
+        strict = FALSE,
+        names = !rename,
+        prefix = !rename
     ) {
         assert(
             isCharacter(object),
-            isFlag(names),
-            isFlag(strict),
-            isFlag(prefix),
+            isFlag(rename),
             isFlag(smart),
-            isFlag(rename)
+            isFlag(strict),
+            isFlag(names),
+            isFlag(prefix)
         )
         ## File rename mode ----------------------------------------------------
         if (isTRUE(rename)) {
             files <- .rename(
                 x = object,
                 fun = "camelCase",
-                prefix = prefix,
-                smart = smart
+                smart = smart,
+                prefix = prefix
             )
             return(invisible(files))
         }

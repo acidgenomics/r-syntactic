@@ -5,7 +5,7 @@
 #'   parameters. However, it is recommended to avoid using it for variable
 #'   assignments into an `environment`, as that can introduce conflicts with
 #'   base functions.
-#' @note Updated 2019-10-08.
+#' @note Updated 2019-10-22.
 #'
 #' @inheritParams params
 #'
@@ -21,11 +21,11 @@ NULL
 
 ## Dotted case formatting is used internally by other naming functions.
 .dottedCase <-  # nolint
-    function(x, prefix = TRUE, smart = TRUE) {
+    function(x, smart = TRUE, prefix = TRUE) {
         assert(
             is.atomic(x),
-            isFlag(prefix),
-            isFlag(smart)
+            isFlag(smart),
+            isFlag(prefix)
         )
         x <- as.character(x)
         ## Error on empty strings, but allow passthrough of NA.
@@ -132,12 +132,17 @@ NULL
 
 
 `dottedCase,character` <-  # nolint
-    function(object, names = TRUE, prefix = TRUE, smart = TRUE) {
+    function(
+        object,
+        smart = TRUE,
+        names = TRUE,
+        prefix = TRUE
+    ) {
         assert(
             isCharacter(object),
+            isFlag(smart),
             isFlag(names),
-            isFlag(prefix),
-            isFlag(smart)
+            isFlag(prefix)
         )
         if (isTRUE(names) && hasNames(object)) {
             names <- .dottedCase(
