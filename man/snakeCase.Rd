@@ -9,8 +9,8 @@
 \usage{
 snakeCase(object, ...)
 
-\S4method{snakeCase}{character}(object, names = TRUE, prefix = TRUE,
-  smart = TRUE)
+\S4method{snakeCase}{character}(object, rename = FALSE, smart = TRUE,
+  names = !rename, prefix = !rename)
 
 snake(...)
 }
@@ -19,18 +19,30 @@ snake(...)
 
 \item{...}{Additional arguments.}
 
+\item{rename}{\code{logical(1)}.
+File rename mode. Requires that input contains files and/or directories
+that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
+macOS, Winddows) file systems are supported.
+
+The \code{prefix} and \code{smart} arguments are supported in this mode.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc.}
+
 \item{names}{\code{logical(1)}.
-Sanitize names.}
+Sanitize names.
+
+Only applies to string mode (\code{rename = FALSE}).}
 
 \item{prefix}{\code{logical(1)}.
 Prepend "X" character if necessary, when string begins with a syntactically
 invalid character, such as a number or non-alphanumeric. Note that names
 are always made syntactically valid when applicable with "X" prefix.
-See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
+See \code{\link[base:make.names]{make.names()}} for details.
 
-\item{smart}{\code{logical(1)}.
-Handle complicated special cases, such as mixed case acronyms, plus/minus,
-percentages, etc. Recommended by default.}
+Enabled by default for string mode, but disabled by default for rename
+mode, when applicable.}
 }
 \value{
 Modified object.
@@ -43,7 +55,7 @@ Format character strings to use snake-style formatting, where word boundaries
 are defined by underscores (e.g. \code{this_is_snake_case}).
 }
 \note{
-Updated 2019-10-07.
+Updated 2019-10-22.
 }
 \examples{
 data(syntactic, package = "acidtest")

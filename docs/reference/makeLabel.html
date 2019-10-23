@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
       </span>
     </div>
 
@@ -111,7 +111,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Make a plot axis or legend label out of a character string</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeLabel.R'><code>R/makeLabel.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeLabel-methods.R'><code>R/makeLabel-methods.R</code></a></small>
     <div class="hidden name"><code>makeLabel.Rd</code></div>
     </div>
 
@@ -119,14 +119,21 @@
     <p>Doesn't modify strings already containing a space or multi-letter acronym.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>makeLabel</span>(<span class='no'>string</span>)</pre>
+    <pre class="usage"><span class='fu'>makeLabel</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S4 method for character</span>
+<span class='fu'>makeLabel</span>(<span class='no'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>string</th>
-      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p></td>
+      <th>object</th>
+      <td><p>Object.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
     </tr>
     </table>
 
