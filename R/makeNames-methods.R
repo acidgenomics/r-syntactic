@@ -29,10 +29,6 @@ NULL
 
 `makeNames,character` <-  # nolint
     function(object, unique = TRUE) {
-    assert(
-        isCharacter(object),
-        isFlag(unique)
-    )
     x <- make.names(names = object, unique = unique)
     x <- gsub(pattern = "\\.", replacement = "_", x = x)
     x
