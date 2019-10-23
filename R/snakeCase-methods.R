@@ -30,25 +30,25 @@ NULL
 `snakeCase,character` <-  # nolint
     function(
         object,
-        names = TRUE,
-        prefix = TRUE,
+        rename = FALSE,
         smart = TRUE,
-        rename = FALSE
+        names = !rename,
+        prefix = !rename
     ) {
         assert(
             isCharacter(object),
-            isFlag(names),
-            isFlag(prefix),
+            isFlag(rename),
             isFlag(smart),
-            isFlag(rename)
+            isFlag(names),
+            isFlag(prefix)
         )
         ## File rename mode ----------------------------------------------------
         if (isTRUE(rename)) {
             files <- .rename(
                 x = object,
                 fun = "snakeCase",
-                prefix = prefix,
-                smart = smart
+                smart = smart,
+                prefix = prefix
             )
             return(invisible(files))
         }

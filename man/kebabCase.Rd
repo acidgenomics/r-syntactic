@@ -9,8 +9,8 @@
 \usage{
 kebabCase(object, ...)
 
-\S4method{kebabCase}{character}(object, prefix = TRUE, smart = TRUE,
-  rename = FALSE)
+\S4method{kebabCase}{character}(object, rename = FALSE, smart = TRUE,
+  prefix = !rename)
 
 kebab(...)
 }
@@ -19,21 +19,25 @@ kebab(...)
 
 \item{...}{Additional arguments.}
 
+\item{rename}{\code{logical(1)}.
+File rename mode. Requires that input contains files and/or directories
+that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
+macOS, Winddows) file systems are supported.
+
+The \code{prefix} and \code{smart} arguments are supported in this mode.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc.}
+
 \item{prefix}{\code{logical(1)}.
 Prepend "X" character if necessary, when string begins with a syntactically
 invalid character, such as a number or non-alphanumeric. Note that names
 are always made syntactically valid when applicable with "X" prefix.
-See \code{\link[base:make.names]{make.names()}} for details. Recommended by default.}
+See \code{\link[base:make.names]{make.names()}} for details.
 
-\item{smart}{\code{logical(1)}.
-Handle complicated special cases, such as mixed case acronyms, plus/minus,
-percentages, etc. Recommended by default.}
-
-\item{rename}{\code{logical(1)}.
-File rename mode. Requires that input contains files and/or directories
-that exist on disk. Either case-sensitive (e.g. Linux) and -insensitive
-(e.g. macOS, Winddows) file systems are supported. The \code{prefix} and \code{smart}
-arguments are supported in this mode.}
+Enabled by default for string mode, but disabled by default for rename
+mode, when applicable.}
 }
 \value{
 Modified object.

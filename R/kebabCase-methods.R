@@ -39,23 +39,23 @@ NULL
 `kebabCase,character` <-  # nolint
     function(
         object,
-        prefix = TRUE,
+        rename = FALSE,
         smart = TRUE,
-        rename = FALSE
+        prefix = !rename
     ) {
         assert(
             isCharacter(object),
-            isFlag(prefix),
+            isFlag(rename),
             isFlag(smart),
-            isFlag(rename)
+            isFlag(prefix)
         )
         ## File rename mode ----------------------------------------------------
         if (isTRUE(rename)) {
             files <- .rename(
                 x = object,
                 fun = "kebabCase",
-                prefix = prefix,
-                smart = smart
+                smart = smart,
+                prefix = prefix
             )
             return(invisible(files))
         }
