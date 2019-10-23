@@ -17,8 +17,7 @@ test_that("Unnamed character", {
             "Tx2gene",
             "TX2GeneID",
             "WorfdbHTMLRemap",
-            "X123",
-            NA
+            "X123"
         )
     )
 })
@@ -54,8 +53,7 @@ test_that("Strict mode", {
             "Tx2gene",
             "Tx2GeneId",
             "WorfdbHtmlRemap",
-            "X123",
-            NA
+            "X123"
         )
     )
 })
@@ -70,4 +68,28 @@ test_that("Disable X prefix", {
         object = upperCamelCase(object, prefix = FALSE),
         expected = c("X1" = "1FooBar")
     )
+})
+
+test_that("File rename mode", {
+    topdir <- "XXX"
+    unlink(topdir, recursive = TRUE)
+    dirs <- file.path(topdir, c("aaa-bbb", "ccc-ddd"))
+    files <- file.path(topdir, c("1-sample-A.fastq.gz", "hello-world.txt"))
+    input <- c(files, dirs)
+    lapply(dirs, dir.create, recursive = TRUE)
+    file.create(files)
+    output <- upperCamelCase(input, rename = TRUE)
+    expect_identical(
+        object = output,
+        expected = file.path(
+            topdir,
+            c(
+                "1SampleA.fastq.gz",
+                "HelloWorld.txt",
+                "AaaBbb",
+                "CccDdd"
+            )
+        )
+    )
+    unlink(topdir, recursive = TRUE)
 })

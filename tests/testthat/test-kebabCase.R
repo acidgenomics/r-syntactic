@@ -17,8 +17,7 @@ test_that("Unnamed character", {
             "tx2gene",
             "tx2-gene-id",
             "worfdb-html-remap",
-            "x123",
-            NA
+            "x123"
         )
     )
 })
@@ -33,4 +32,28 @@ test_that("Disable X prefix", {
         object = kebabCase(object, prefix = FALSE),
         c("1" = "1-foo-bar")
     )
+})
+
+test_that("File rename mode", {
+    topdir <- "XXX"
+    unlink(topdir, recursive = TRUE)
+    dirs <- file.path(topdir, c("aaa_bbb", "ccc_ddd"))
+    files <- file.path(topdir, c("1_sample_A.fastq.gz", "hello_world.txt"))
+    input <- c(files, dirs)
+    lapply(dirs, dir.create, recursive = TRUE)
+    file.create(files)
+    output <- kebabCase(input, rename = TRUE)
+    expect_identical(
+        object = output,
+        expected = file.path(
+            topdir,
+            c(
+                "1-sample-a.fastq.gz",
+                "hello-world.txt",
+                "aaa-bbb",
+                "ccc-ddd"
+            )
+        )
+    )
+    unlink(topdir, recursive = TRUE)
 })
