@@ -73,7 +73,7 @@ and/or colnames() without modification of the values." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
       </span>
     </div>
 
@@ -113,7 +113,7 @@ and/or colnames() without modification of the values." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Make syntactically valid names</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeNames.R'><code>R/makeNames.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeNames-methods.R'><code>R/makeNames-methods.R</code></a></small>
     <div class="hidden name"><code>makeNames.Rd</code></div>
     </div>
 
@@ -123,15 +123,21 @@ they will set <code><a href='https://rdrr.io/r/base/names.html'>names()</a></cod
 and/or <code><a href='https://rdrr.io/r/base/colnames.html'>colnames()</a></code> without modification of the values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>makeNames</span>(<span class='no'>names</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+    <pre class="usage"><span class='fu'>makeNames</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S4 method for character</span>
+<span class='fu'>makeNames</span>(<span class='no'>object</span>, <span class='kw'>unique</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>names</th>
-      <td><p><code>character</code>.
-Character vector to be coerced to syntactically valid names.</p></td>
+      <th>object</th>
+      <td><p>Object.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
     </tr>
     <tr>
       <th>unique</th>
@@ -144,23 +150,23 @@ disabled by default for <code><a href='https://rdrr.io/r/base/make.names.html'>m
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>character</code>.</p>
+    <p>Modified object.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p><code>makeNames()</code> sanitizes names using underscores instead of dots, the
-convention used by <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code>.</p>
-<p>Updated 2019-09-09.</p>
+    <p>Sanitizes names using underscores instead of dots, the convention used
+by <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code>.</p>
+<p>Updated 2019-10-21.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
-<span class='no'>names</span> <span class='kw'>&lt;-</span> <span class='no'>syntactic</span>$<span class='no'>character</span>
-<span class='fu'>makeNames</span>(<span class='no'>names</span>)</div><div class='output co'>#&gt;  [1] "X_GC"            "X10uM"           "X5__3__bias"     "X5prime"        
+<span class='no'>object</span> <span class='kw'>&lt;-</span> <span class='no'>syntactic</span>$<span class='no'>character</span>
+<span class='fu'>makeNames</span>(<span class='no'>object</span>)</div><div class='output co'>#&gt;  [1] "X_GC"            "X10uM"           "X5__3__bias"     "X5prime"        
 #&gt;  [5] "G2M_Score"       "hello_world"     "HELLO_WORLD"     "Mazda_RX4"      
 #&gt;  [9] "nCount"          "RNAi_clones"     "tx2gene"         "TX2GeneID"      
-#&gt; [13] "worfdbHTMLRemap" "X123"            "NA_"            </div></pre>
+#&gt; [13] "worfdbHTMLRemap" "X123"           </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

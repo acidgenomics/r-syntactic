@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
       </span>
     </div>
 
@@ -137,6 +137,15 @@
 </ul>
 </div>
 </div>
+    <div id="syntactic-0-3-2-2019-10-22" class="section level2">
+<h2 class="hasAnchor">
+<a href="#syntactic-0-3-2-2019-10-22" class="anchor"></a>syntactic 0.3.2 (2019-10-22)</h2>
+<p>File rename mode support.</p>
+<p><code>camelCase</code>, <code>kebabCase</code>, <code>snakeCase</code>, and <code>upperCamelCase</code> now support file rename mode (<code>rename = TRUE</code>). This works on either case-sensitive (Linux) or case-insensitive (macOS, Windows) file systems. Files and directories are supported, including files outside of the current working directory.</p>
+<p>I recommend using either <code>kebabCase</code> or <code>snakeCase</code> for files.</p>
+<p>When renaming with files beginning with a number, <code>prefix = TRUE</code> will prefix the file with an “x”, similar to the behavior in <code>make.names</code>. This can be disabled by setting<code>prefix = FALSE</code>. Smart acronyms and other features can also be disabled by setting <code>smart = FALSE</code>.</p>
+<p>This code will be called internally in the upcoming <a href="https://koopa.acidgenomics.com/">koopa</a> update.</p>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -145,6 +154,7 @@
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#syntactic-0-3-0-2019-09-25">0.3.0</a></li>
         <li><a href="#syntactic-0-3-1-2019-10-08">0.3.1</a></li>
+        <li><a href="#syntactic-0-3-2-2019-10-22">0.3.2</a></li>
       </ul>
     </div>
   </div>

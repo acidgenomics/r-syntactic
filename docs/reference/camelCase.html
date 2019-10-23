@@ -72,7 +72,7 @@ boundaries are defined by capitlization only (e.g. thisIsCamelCase)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
       </span>
     </div>
 
@@ -124,8 +124,8 @@ boundaries are defined by capitlization only (e.g. <code>thisIsCamelCase</code>)
     <pre class="usage"><span class='fu'>camelCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>camelCase</span>(<span class='no'>object</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>smart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>camelCase</span>(<span class='no'>object</span>, <span class='kw'>rename</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>smart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>names</span> <span class='kw'>=</span> !<span class='no'>rename</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> !<span class='no'>rename</span>)
 
 <span class='fu'>camel</span>(<span class='no'>...</span>)</pre>
 
@@ -141,16 +141,30 @@ boundaries are defined by capitlization only (e.g. <code>thisIsCamelCase</code>)
       <td><p>Additional arguments.</p></td>
     </tr>
     <tr>
-      <th>names</th>
+      <th>rename</th>
       <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Sanitize names.</p></td>
+File rename mode. Requires that input contains files and/or directories
+that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
+macOS, Winddows) file systems are supported.</p>
+<p>The <code>prefix</code> and <code>smart</code> arguments are supported in this mode.</p></td>
+    </tr>
+    <tr>
+      <th>smart</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc.</p></td>
     </tr>
     <tr>
       <th>strict</th>
       <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
 Enforce strict name sanitization. When <code>TRUE</code>, this does not allow the
-return of any capitalized acronyms. "RNA" will become "Rna", for example.
-Disabled by default.</p></td>
+return of any capitalized acronyms. "RNA" will become "Rna", for example.</p></td>
+    </tr>
+    <tr>
+      <th>names</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Sanitize names.</p>
+<p>Only applies to string mode (<code>rename = FALSE</code>).</p></td>
     </tr>
     <tr>
       <th>prefix</th>
@@ -158,13 +172,9 @@ Disabled by default.</p></td>
 Prepend "X" character if necessary, when string begins with a syntactically
 invalid character, such as a number or non-alphanumeric. Note that names
 are always made syntactically valid when applicable with "X" prefix.
-See <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code> for details. Recommended by default.</p></td>
-    </tr>
-    <tr>
-      <th>smart</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Handle complicated special cases, such as mixed case acronyms, plus/minus,
-percentages, etc. Recommended by default.</p></td>
+See <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code> for details.</p>
+<p>Enabled by default for string mode, but disabled by default for rename
+mode, when applicable.</p></td>
     </tr>
     </table>
 
@@ -179,7 +189,7 @@ Contains syntatically valid names. For objects supporting
     <p>Camel case is recommended by Bioconductor for variable and function names.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-10-08.</p>
+    <p>Updated 2019-10-22.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
@@ -187,7 +197,7 @@ Contains syntatically valid names. For objects supporting
 <span class='fu'>camelCase</span>(<span class='no'>object</span>)</div><div class='output co'>#&gt;  [1] "percentGC"       "x10um"           "x5x3Bias"        "x5prime"        
 #&gt;  [5] "g2mScore"        "helloWorld"      "helloWORLD"      "mazdaRX4"       
 #&gt;  [9] "nCount"          "rnaiClones"      "tx2gene"         "tx2GeneID"      
-#&gt; [13] "worfdbHTMLRemap" "x123"            NA               </div></pre>
+#&gt; [13] "worfdbHTMLRemap" "x123"           </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
