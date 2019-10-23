@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
       </span>
     </div>
 
@@ -111,7 +111,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Make a title out of character string</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeTitle.R'><code>R/makeTitle.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/acidgenomics/syntactic/blob/master/R/makeTitle-methods.R'><code>R/makeTitle-methods.R</code></a></small>
     <div class="hidden name"><code>makeTitle.Rd</code></div>
     </div>
 
@@ -119,14 +119,21 @@
     <p>Doesn't modify strings already containing a space or multi-letter acronym.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>makeTitle</span>(<span class='no'>string</span>)</pre>
+    <pre class="usage"><span class='fu'>makeTitle</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S4 method for character</span>
+<span class='fu'>makeTitle</span>(<span class='no'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>string</th>
-      <td><p><code><a href='https://rdrr.io/r/base/character.html'>character(1)</a></code>.</p></td>
+      <th>object</th>
+      <td><p>Object.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
     </tr>
     </table>
 
@@ -136,19 +143,19 @@
 British style sentence case.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-07-27.</p>
+    <p>Updated 2019-10-21.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
 <ul>
 <li><p><code><a href='makeWords.html'>makeWords()</a></code>.</p></li>
-<li><p><code><a href='capitalize.html'>capitalize()</a></code>.</p></li>
+<li><p><code><a href='sentenceCase.html'>sentenceCase()</a></code>.</p></li>
 <li><p><code><a href='https://stringr.tidyverse.org/reference/case.html'>stringr::str_to_sentence()</a></code>.</p></li>
 </ul>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; [1] "Mito vs. coding"</div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; [1] "Log10 genes per UMI"</div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"Already A Title"</span>)</div><div class='output co'>#&gt; [1] "Already A Title"</div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; [1] "NASA"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; [1] "Mito vs. coding"</div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; [1] "Log10 genes per UMI"</div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"Already A Title"</span>)</div><div class='output co'>#&gt; [1] "Already A title"</div><div class='input'><span class='fu'>makeTitle</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; [1] "NASA"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
