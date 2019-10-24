@@ -9,7 +9,26 @@ Make syntactically valid names out of character vectors.
 
 ## Installation
 
-This package is part of the [basejump][] toolkit. Refer to its website for installation instructions.
+## Installation
+
+### [R][] method
+
+```r
+if (!requireNamespace("remotes", quietly = TRUE)) {
+    install.packages("remotes")
+}
+Sys.setenv(R_REMOTES_UPGRADE = "always")
+## Set `GITHUB_PAT` in `~/.Renviron` if you get a rate limit error.
+remotes::install_github("acidgenomics/syntactic")
+```
+
+### [conda][] method
+
+Configure [conda][] to use the [bioconda][] channels.
+
+```sh
+conda install -c bioconda r-syntactic
+```
 
 ## Overview
 
@@ -35,10 +54,12 @@ If [syntactic][] doesn't work quite right for you, these popular packages also p
 - [lettercase][] by Christopher Brown.
 - [snakecase][] by Malte Grosser.
 
-[Bioconductor]: https://bioconductor.org/
-[R]: https://www.r-project.org/
+[bioconductor]: https://bioconductor.org/
 [basejump]: https://basejump.acidgenomics.com/
+[bioconda]: https://bioconda.github.io/
+[conda]: https://conda.io/
 [janitor]: https://cran.r-project.org/package=janitor
 [lettercase]: https://cran.r-project.org/package=lettercase
+[r]: https://www.r-project.org/
 [snakecase]: https://cran.r-project.org/package=snakecase
 [syntactic]: https://syntactic.acidgenomics.com/
