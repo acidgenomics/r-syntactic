@@ -9,8 +9,6 @@ Make syntactically valid names out of character vectors.
 
 ## Installation
 
-## Installation
-
 ### [R][] method
 
 ```r
