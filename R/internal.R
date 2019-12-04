@@ -27,8 +27,15 @@
         FUN = function(x) {
             from <- x
             dir <- dirname(from)
-            stem <- FUN(basenameSansExt(from), rename = FALSE, ...)
             ext <- fileExt(from)
+            stem <- basenameSansExt(from)
+            ## Handle edge cases with file names that we want to avoid.
+            stem <- gsub(
+                pattern = " - ",
+                replacement = "-",
+                x = stem
+            )
+            stem <- FUN(stem, rename = FALSE, ...)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
