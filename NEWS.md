@@ -1,3 +1,5 @@
+## syntactic 0.3.3 (UNRELEASED)
+
 ## syntactic 0.3.2 (2019-10-22)
 
 File rename mode support.
