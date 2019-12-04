@@ -2,9 +2,9 @@
 
 ### Minor changes
 
-- Added recursive file rename support.
 - Improved handling of ' - ', avoiding return of "minus" in file rename mode.
 - File extension is automatically converted to lowercase when applicable.
+- FIXME Added recursive file rename support.
 
 ## syntactic 0.3.2 (2019-10-22)
 
