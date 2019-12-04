@@ -8,7 +8,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2019-10-22.
+#' @note Updated 2019-12-04.
 #' @noRd
 #'
 #' @examples
@@ -32,7 +32,7 @@
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
-                bn <- paste0(stem, ".", ext)
+                bn <- tolower(paste0(stem, ".", ext))
             } else {
                 bn <- stem
             }
