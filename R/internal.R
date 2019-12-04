@@ -31,7 +31,7 @@
             stem <- basenameSansExt(from)
             ## Handle edge cases with file names that we want to avoid.
             stem <- gsub(
-                pattern = " - ",
+                pattern = "[[:space:]]+-[[:space:]]+",
                 replacement = "-",
                 x = stem
             )
