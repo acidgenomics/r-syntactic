@@ -72,7 +72,7 @@ boundaries are defined by capitlization only (e.g. thisIsCamelCase)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -127,6 +127,7 @@ boundaries are defined by capitlization only (e.g. <code>thisIsCamelCase</code>)
 <span class='fu'>camelCase</span>(
   <span class='no'>object</span>,
   <span class='kw'>rename</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>smart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>strict</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>names</span> <span class='kw'>=</span> !<span class='no'>rename</span>,
@@ -153,6 +154,12 @@ File rename mode. Requires that input contains files and/or directories
 that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
 macOS, Winddows) file systems are supported.</p>
 <p>The <code>prefix</code> and <code>smart</code> arguments are supported in this mode.</p></td>
+    </tr>
+    <tr>
+      <th>recursive</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+Should the function recurse into directories?
+Only applicable when <code>rename = TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>smart</th>
@@ -189,13 +196,15 @@ mode, when applicable.</p></td>
     <p>Modified object.
 Contains syntatically valid names. For objects supporting
 <code><a href='https://rdrr.io/r/base/names.html'>names()</a></code>, the underlying data returns unchanged, except for
-<code>character</code> or <code>vector</code> class.</p>
+<code>character</code> or <code>vector</code> class.
+Returns invisible modified file path when <code>rename = TRUE</code>.
+Returns invisible <code>NULL</code> when <code>recursive = TRUE</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Camel case is recommended by Bioconductor for variable and function names.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2019-10-22.</p>
+    <p>Updated 2019-12-05.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)

@@ -53,9 +53,10 @@ test_that("Plus minus handling", {
     )
 })
 
-test_that("File rename mode", {
+test_that("Rename mode", {
     topdir <- "XXX"
     unlink(topdir, recursive = TRUE)
+    topdir <- initDir(topdir)
     dirs <- file.path(topdir, c("aaa-bbb", "ccc-ddd"))
     files <- file.path(topdir, c("1-sample-A.fastq.gz", "hello-world.txt"))
     input <- c(files, dirs)
