@@ -48,12 +48,12 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2019-12-04.
+#' @note Updated 2019-12-05.
 #' @noRd
 #'
 #' @examples
-#' ## > .rename(x = "sample-1.fastq.gz", fun = "snakeCase")
-.rename <- function(x, fun, ...) {
+#' ## > .rename(path = "sample-1.fastq.gz", fun = "snakeCase")
+.rename <- function(path, fun, ...) {
     assert(isString(fun))
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
     FUN <- get(  # nolint
@@ -61,11 +61,10 @@
         envir = asNamespace("syntactic"),
         inherits = FALSE
     )
-    from <- realpath(x)
+    from <- realpath(path)
     to <- vapply(
-        X = x,
-        FUN = function(x) {
-            from <- x
+        X = from,
+        FUN = function(from) {
             dir <- dirname(from)
             ext <- fileExt(from)
             stem <- basenameSansExt(from)

@@ -6,7 +6,7 @@
 #' Camel case is recommended by Bioconductor for variable and function names.
 #'
 #' @name camelCase
-#' @note Updated 2019-10-22.
+#' @note Updated 2019-12-05.
 #'
 #' @inheritParams params
 #'
@@ -80,6 +80,7 @@ NULL
     function(
         object,
         rename = FALSE,
+        recursive = FALSE,
         smart = TRUE,
         strict = FALSE,
         names = !rename,
@@ -88,20 +89,25 @@ NULL
         assert(
             isCharacter(object),
             isFlag(rename),
+            isFlag(recursive),
             isFlag(smart),
             isFlag(strict),
             isFlag(names),
             isFlag(prefix)
         )
-        ## File rename mode ----------------------------------------------------
+        ## Rename mode ---------------------------------------------------------
         if (isTRUE(rename)) {
-            files <- .rename(
-                x = object,
+            path <- object
+            if (isTRUE(recursive)) {
+                path <- .recursive(path)
+            }
+            path <- .rename(
+                path = path,
                 fun = "camelCase",
                 smart = smart,
                 prefix = prefix
             )
-            return(invisible(files))
+            return(invisible(path))
         }
         ## String mode ---------------------------------------------------------
         if (isTRUE(names) && hasNames(object)) {
