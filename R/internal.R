@@ -3,6 +3,8 @@
 #' Note that files will be renamed first, then directories in reverse order
 #' of deepest from shallowest.
 #'
+#' This code may be generally useful, and we may want to export in basejump.
+#'
 #' @note Alternatively, can use `file.info(path)[["isdir"]]` here for speed.
 #' @note Updated 2019-12-05.
 #' @noRd
@@ -28,9 +30,9 @@
     ## Note that use of `decreasing = TRUE` doesn't work the way I want here.
     dirs <- path[isDirectory(path)]
     dirs <- rev(dirs[order(fileDepth(dirs), decreasing = FALSE)])
-    ## Rename these first, then tackle the directories.
     files <- setdiff(path, dirs)
     files <- sort(files)
+    ## Rename files first, then tackle the directories.
     c(files, dirs)
 }
 
