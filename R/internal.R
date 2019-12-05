@@ -3,13 +3,30 @@
 #' Note that files will be renamed first, then directories in reverse order
 #' of deepest from shallowest.
 #'
+#' @note Alternatively, can use `file.info(path)[["isdir"]]` here for speed.
 #' @note Updated 2019-12-05.
 #' @noRd
-.recursiveSort <- function(path) {
-    ## Alternatively, can use `file.info(path)[["isdir"]]` approach here.
-    dirs <- path[isDirectory(path)]
+.recursive <- function(path) {
+    assert(allHaveAccess(path))
+    nested <- lapply(
+        X = path,
+        FUN = function(path) {
+            if (!isDirectory(path)) {
+                return(path)
+            }
+            list.files(
+                path = path,
+                all.files = FALSE,
+                full.names = TRUE,
+                recursive = TRUE,
+                include.dirs = TRUE
+            )
+        }
+    )
+    path <- unique(c(path, unlist(nested)))
     ## Order the deepest directories first.
     ## Note that use of `decreasing = TRUE` doesn't work the way I want here.
+    dirs <- path[isDirectory(path)]
     dirs <- rev(dirs[order(fileDepth(dirs), decreasing = FALSE)])
     ## Rename these first, then tackle the directories.
     files <- setdiff(path, dirs)
