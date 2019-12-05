@@ -6,6 +6,7 @@
 #' @note Updated 2019-12-05.
 #' @noRd
 .recursiveSort <- function(path) {
+    ## Alternatively, can use `file.info(path)[["isdir"]]` approach here.
     dirs <- path[isDirectory(path)]
     ## Order the deepest directories first.
     ## Note that use of `decreasing = TRUE` doesn't work the way I want here.
