@@ -6,7 +6,7 @@
 #' Camel case is recommended by Bioconductor for variable and function names.
 #'
 #' @name camelCase
-#' @note Updated 2019-10-22.
+#' @note Updated 2019-12-05.
 #'
 #' @inheritParams params
 #'
@@ -14,6 +14,8 @@
 #' Contains syntatically valid names. For objects supporting
 #' [`names()`][base::names], the underlying data returns unchanged, except for
 #' `character` or `vector` class.
+#' Returns invisible modified file path when `rename = TRUE`.
+#' Returns invisible `NULL` when `recursive = TRUE`.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
@@ -80,6 +82,7 @@ NULL
     function(
         object,
         rename = FALSE,
+        recursive = FALSE,
         smart = TRUE,
         strict = FALSE,
         names = !rename,
@@ -88,20 +91,22 @@ NULL
         assert(
             isCharacter(object),
             isFlag(rename),
+            isFlag(recursive),
             isFlag(smart),
             isFlag(strict),
             isFlag(names),
             isFlag(prefix)
         )
-        ## File rename mode ----------------------------------------------------
+        ## Rename mode ---------------------------------------------------------
         if (isTRUE(rename)) {
-            files <- .rename(
-                x = object,
+            path <- .rename(
+                path = object,
+                recursive = recursive,
                 fun = "camelCase",
                 smart = smart,
                 prefix = prefix
             )
-            return(invisible(files))
+            return(invisible(path))
         }
         ## String mode ---------------------------------------------------------
         if (isTRUE(names) && hasNames(object)) {

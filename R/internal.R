@@ -1,3 +1,43 @@
+#' Sort files and directories for recursive rename
+#'
+#' Note that files will be renamed first, then directories in reverse order
+#' of deepest from shallowest.
+#'
+#' This code may be generally useful, and we may want to export in basejump.
+#'
+#' @note Alternatively, can use `file.info(path)[["isdir"]]` here for speed.
+#' @note Updated 2019-12-05.
+#' @noRd
+.recursive <- function(path) {
+    assert(allHaveAccess(path))
+    nested <- lapply(
+        X = path,
+        FUN = function(path) {
+            if (!isDirectory(path)) {
+                return(path)  # nocov
+            }
+            list.files(
+                path = path,
+                all.files = FALSE,
+                full.names = TRUE,
+                recursive = TRUE,
+                include.dirs = TRUE
+            )
+        }
+    )
+    path <- unique(c(path, unlist(nested)))
+    ## Order the deepest directories first.
+    ## Note that use of `decreasing = TRUE` doesn't work the way I want here.
+    dirs <- path[isDirectory(path)]
+    dirs <- rev(dirs[order(fileDepth(dirs), decreasing = FALSE)])
+    files <- setdiff(path, dirs)
+    files <- sort(files)
+    ## Rename files first, then tackle the directories.
+    c(files, dirs)
+}
+
+
+
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @details
@@ -8,31 +48,49 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2019-10-22.
+#' @note Updated 2019-12-05.
 #' @noRd
 #'
 #' @examples
-#' ## > .rename(x = "sample-1.fastq.gz", fun = "snakeCase")
-.rename <- function(x, fun, ...) {
-    assert(isString(fun))
+#' ## > .rename(path = "sample-1.fastq.gz", fun = "snakeCase")
+.rename <- function(
+    path,
+    recursive = FALSE,
+    fun,
+    ...
+) {
+    assert(
+        allHaveAccess(path),
+        isFlag(recursive),
+        isString(fun)
+    )
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
     FUN <- get(  # nolint
         x = fun,
         envir = asNamespace("syntactic"),
         inherits = FALSE
     )
-    from <- realpath(x)
+    from <- realpath(path)
+    if (isTRUE(recursive)) {
+        from <- .recursive(from)
+    }
     to <- vapply(
-        X = x,
-        FUN = function(x) {
-            from <- x
+        X = from,
+        FUN = function(from) {
             dir <- dirname(from)
-            stem <- FUN(basenameSansExt(from), rename = FALSE, ...)
             ext <- fileExt(from)
+            stem <- basenameSansExt(from)
+            ## Handle edge cases with file names that we want to avoid.
+            stem <- gsub(
+                pattern = "[[:space:]]+-[[:space:]]+",
+                replacement = "-",
+                x = stem
+            )
+            stem <- FUN(stem, rename = FALSE, ...)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
-                bn <- paste0(stem, ".", ext)
+                bn <- paste0(stem, ".", tolower(ext))
             } else {
                 bn <- stem
             }
@@ -56,7 +114,11 @@
         ok <- file.rename(from = from, to = to)
         assert(all(ok))
     }
-    to
+    if (isTRUE(recursive)) {
+        NULL
+    } else {
+        to
+    }
 }
 
 

@@ -4,7 +4,7 @@
 #' are defined by underscores (e.g. `this_is_snake_case`).
 #'
 #' @name snakeCase
-#' @note Updated 2019-10-22.
+#' @note Updated 2019-12-05.
 #'
 #' @inherit camelCase return
 #' @inheritParams params
@@ -31,6 +31,7 @@ NULL
     function(
         object,
         rename = FALSE,
+        recursive = FALSE,
         smart = TRUE,
         names = !rename,
         prefix = !rename
@@ -38,19 +39,21 @@ NULL
         assert(
             isCharacter(object),
             isFlag(rename),
+            isFlag(recursive),
             isFlag(smart),
             isFlag(names),
             isFlag(prefix)
         )
-        ## File rename mode ----------------------------------------------------
+        ## Rename mode ---------------------------------------------------------
         if (isTRUE(rename)) {
-            files <- .rename(
-                x = object,
+            path <- .rename(
+                path = object,
+                recursive = recursive,
                 fun = "snakeCase",
                 smart = smart,
                 prefix = prefix
             )
-            return(invisible(files))
+            return(invisible(path))
         }
         ## String mode ---------------------------------------------------------
         if (isTRUE(names) && hasNames(object)) {

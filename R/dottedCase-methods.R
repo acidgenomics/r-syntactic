@@ -5,7 +5,7 @@
 #'   parameters. However, it is recommended to avoid using it for variable
 #'   assignments into an `environment`, as that can introduce conflicts with
 #'   base functions.
-#' @note Updated 2019-10-22.
+#' @note Updated 2019-12-05.
 #'
 #' @inheritParams params
 #'

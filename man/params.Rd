@@ -20,6 +20,10 @@ See \code{\link[base:make.names]{make.names()}} for details.
 Enabled by default for string mode, but disabled by default for rename
 mode, when applicable.}
 
+\item{recursive}{\code{logical(1)}.
+Should the function recurse into directories?
+Only applicable when \code{rename = TRUE}.}
+
 \item{rename}{\code{logical(1)}.
 File rename mode. Requires that input contains files and/or directories
 that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
