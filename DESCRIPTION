@@ -1,7 +1,7 @@
 Package: syntactic
 Title: Syntactically valid names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.3.2.9000
+Version: 0.3.3
 Date: 2019-12-05
 Authors@R: c(
     person(
@@ -26,7 +26,7 @@ Imports:
     goalie (>= 0.4.0),
     methods
 Suggests:
-    acidtest (>= 0.2.6),
+    acidtest (>= 0.2.8),
     testthat (>= 2.2)
 Remotes:
     acidgenomics/acidbase,

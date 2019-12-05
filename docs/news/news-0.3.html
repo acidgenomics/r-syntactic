@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -115,9 +115,9 @@
     <div id="syntactic-0-3-0-2019-09-25" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-0-2019-09-25" class="anchor"></a>syntactic 0.3.0 (2019-09-25)</h2>
-<div id="major-changes" class="section level3">
+<div id="major-changes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#major-changes" class="anchor"></a>Major changes</h3>
+<a href="#major-changes-1" class="anchor"></a>Major changes</h3>
 <ul>
 <li>Migrated non-character S4 methods to basejump package, to keep syntactic very lightweight and fast. Defining only the character methods here allows the package to start up very quickly, and improves shell scripting calls defined in the koopa bootloader package.</li>
 </ul>
@@ -126,9 +126,9 @@
     <div id="syntactic-0-3-1-2019-10-08" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-1-2019-10-08" class="anchor"></a>syntactic 0.3.1 (2019-10-08)</h2>
-<div id="minor-changes" class="section level3">
+<div id="minor-changes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Now allowing <code>prefix = FALSE</code> for <code>camelCase</code>, <code>dottedCase</code>, <code>kebabCase</code>, <code>snakeCase</code>, and <code>upperCamelCase</code>. This override allows the user to disable automatic “X” prefix defined by <code>make.names</code> internally for input that begins with a syntactically invalid character, such as a number (R-specific) or a non-alphanumeric. We’re now allowing this override so we can pass to new <code>camel-case</code>, <code>kebab-case</code>, and <code>snake-case</code> shell scripts defined in <a href="https://koopa.acidgenomics.com/">koopa</a>.</li>
 <li>Also now allowing <code>smart = FALSE</code>, which disables smart mode handling of mixed case acronyms (e.g. “RNAi”, “mRNA”), numeric delims/decimals (“,” “.”), special characters that can represent words (“+”/“-”; plus/minus), etc. Enabled by default and strongly recommended. Added a new override mode for some edge cases with our new shell methods defined in koopa.</li>
@@ -146,6 +146,25 @@
 <p>When renaming with files beginning with a number, <code>prefix = TRUE</code> will prefix the file with an “x”, similar to the behavior in <code>make.names</code>. This can be disabled by setting<code>prefix = FALSE</code>. Smart acronyms and other features can also be disabled by setting <code>smart = FALSE</code>.</p>
 <p>This code will be called internally in the upcoming <a href="https://koopa.acidgenomics.com/">koopa</a> update.</p>
 </div>
+    <div id="syntactic-0-3-3-2019-12-05" class="section level2">
+<h2 class="hasAnchor">
+<a href="#syntactic-0-3-3-2019-12-05" class="anchor"></a>syntactic 0.3.3 (2019-12-05)</h2>
+<div id="major-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#major-changes" class="anchor"></a>Major changes</h3>
+<ul>
+<li>Added recursive file rename support.</li>
+</ul>
+</div>
+<div id="minor-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>Improved handling of " - “, avoiding return of”minus" in file rename mode.</li>
+<li>File extension is automatically converted to lowercase when applicable.</li>
+</ul>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -155,6 +174,7 @@
         <li><a href="#syntactic-0-3-0-2019-09-25">0.3.0</a></li>
         <li><a href="#syntactic-0-3-1-2019-10-08">0.3.1</a></li>
         <li><a href="#syntactic-0-3-2-2019-10-22">0.3.2</a></li>
+        <li><a href="#syntactic-0-3-3-2019-12-05">0.3.3</a></li>
       </ul>
     </div>
   </div>
