@@ -49,6 +49,8 @@ mode, when applicable.}
 }
 \value{
 Modified object.
+Returns invisible modified file path when \code{rename = TRUE}.
+Returns invisible \code{NULL} when \code{recursive = TRUE}.
 }
 \description{
 Format character strings to use kebab-style formatting, where word boundaries

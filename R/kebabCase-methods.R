@@ -16,6 +16,8 @@
 #' @inheritParams params
 #'
 #' @return Modified object.
+#' Returns invisible modified file path when `rename = TRUE`.
+#' Returns invisible `NULL` when `recursive = TRUE`.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
