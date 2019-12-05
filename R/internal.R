@@ -53,8 +53,17 @@
 #'
 #' @examples
 #' ## > .rename(path = "sample-1.fastq.gz", fun = "snakeCase")
-.rename <- function(path, fun, ...) {
-    assert(isString(fun))
+.rename <- function(
+    path,
+    recursive = FALSE,
+    fun,
+    ...
+) {
+    assert(
+        allHaveAccess(path),
+        isFlag(recursive),
+        isString(fun)
+    )
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
     FUN <- get(  # nolint
         x = fun,
@@ -62,6 +71,9 @@
         inherits = FALSE
     )
     from <- realpath(path)
+    if (isTRUE(recursive)) {
+        from <- .recursive(from)
+    }
     to <- vapply(
         X = from,
         FUN = function(from) {
