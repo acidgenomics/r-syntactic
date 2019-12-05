@@ -13,11 +13,8 @@
 #' are not syntactically valid for names in R.
 #' @note Updated 2019-12-05.
 #'
+#' @inherit camelCase return
 #' @inheritParams params
-#'
-#' @return Modified object.
-#' Returns invisible modified file path when `rename = TRUE`.
-#' Returns invisible `NULL` when `recursive = TRUE`.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
