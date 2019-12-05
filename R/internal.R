@@ -1,3 +1,9 @@
+## FIXME Consider renaming the directories first, and then update the files.
+## This way the vector will return correctly....
+
+
+
+
 #' Sort files and directories for recursive rename
 #'
 #' Note that files will be renamed first, then directories in reverse order
