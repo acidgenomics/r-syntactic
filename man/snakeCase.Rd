@@ -11,6 +11,7 @@ snakeCase(object, ...)
 \S4method{snakeCase}{character}(
   object,
   rename = FALSE,
+  recursive = FALSE,
   smart = TRUE,
   names = !rename,
   prefix = !rename
@@ -29,6 +30,10 @@ that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
 macOS, Winddows) file systems are supported.
 
 The \code{prefix} and \code{smart} arguments are supported in this mode.}
+
+\item{recursive}{\code{logical(1)}.
+Should the function recurse into directories?
+Only applicable when \code{rename = TRUE}.}
 
 \item{smart}{\code{logical(1)}.
 Handle complicated special cases, such as mixed case acronyms, plus/minus,
@@ -59,7 +64,7 @@ Format character strings to use snake-style formatting, where word boundaries
 are defined by underscores (e.g. \code{this_is_snake_case}).
 }
 \note{
-Updated 2019-10-22.
+Updated 2019-12-05.
 }
 \examples{
 data(syntactic, package = "acidtest")

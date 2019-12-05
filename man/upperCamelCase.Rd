@@ -11,6 +11,7 @@ upperCamelCase(object, ...)
 \S4method{upperCamelCase}{character}(
   object,
   rename = FALSE,
+  recursive = FALSE,
   smart = TRUE,
   strict = FALSE,
   names = !rename,
@@ -30,6 +31,10 @@ that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
 macOS, Winddows) file systems are supported.
 
 The \code{prefix} and \code{smart} arguments are supported in this mode.}
+
+\item{recursive}{\code{logical(1)}.
+Should the function recurse into directories?
+Only applicable when \code{rename = TRUE}.}
 
 \item{smart}{\code{logical(1)}.
 Handle complicated special cases, such as mixed case acronyms, plus/minus,
@@ -70,7 +75,7 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \note{
-Updated 2019-10-22.
+Updated 2019-12-05.
 }
 \examples{
 data(syntactic, package = "acidtest")
