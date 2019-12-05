@@ -1,10 +1,13 @@
-## syntactic 0.3.3 (UNRELEASED)
+## syntactic 0.3.3 (2019-12-05)
+
+### Major changes
+
+- Added recursive file rename support.
 
 ### Minor changes
 
-- Improved handling of ' - ', avoiding return of "minus" in file rename mode.
+- Improved handling of " - ", avoiding return of "minus" in file rename mode.
 - File extension is automatically converted to lowercase when applicable.
-- FIXME Added recursive file rename support.
 
 ## syntactic 0.3.2 (2019-10-22)
 
