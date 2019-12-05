@@ -58,3 +58,42 @@ test_that("Rename mode", {
     )
     unlink(topdir, recursive = TRUE)
 })
+
+
+
+## FIXME Need to rethink our internal directory approach to get this to work.
+test_that("Rename mode (recursive)", {
+    path <- file.path(tempdir(), "recursive")
+    unlink(path, recursive = TRUE)
+    dir.create(path, recursive = TRUE, showWarnings = FALSE)
+    dir.create(
+        path = file.path(path, "level_1", "level_2"),
+        recursive = TRUE
+    )
+
+    file.create(
+        file.path(path, "file_x.TXT"),
+        file.path(path, "level_1", "file_x.txt"),
+        file.path(path, "level_1", "level_2", "file_x.txt")
+    )
+
+    output <- kebabCase(path, rename = TRUE, recursive = TRUE)
+
+    files <- sort(list.files(
+        path = path,
+        full.names = FALSE,
+        recursive = TRUE,
+        include.dirs = TRUE
+    ))
+    expected <- c(
+        "file-x.txt",
+        "level-1",
+        file.path("level-1", "file-x.txt"),
+        file.path("level-1", "level-2"),
+        file.path("level-1", "level-2", "file-x.txt")
+    )
+    expect_identical(
+        object = files,
+        expected = expected
+    )
+})
