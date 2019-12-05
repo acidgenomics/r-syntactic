@@ -11,7 +11,7 @@
 #' @note We're not including the additional S4 methods that work on
 #' [`names()`][base::names] and/or [`dimnames()`][base::dimnames] because dashes
 #' are not syntactically valid for names in R.
-#' @note Updated 2019-10-22.
+#' @note Updated 2019-12-05.
 #'
 #' @inheritParams params
 #'
@@ -40,24 +40,27 @@ NULL
     function(
         object,
         rename = FALSE,
+        recursive = FALSE,
         smart = TRUE,
         prefix = !rename
     ) {
         assert(
             isCharacter(object),
             isFlag(rename),
+            isFlag(recursive),
             isFlag(smart),
             isFlag(prefix)
         )
-        ## File rename mode ----------------------------------------------------
+        ## Rename mode ---------------------------------------------------------
         if (isTRUE(rename)) {
-            files <- .rename(
-                x = object,
+            path <- .rename(
+                path = object,
+                recursive = recursive,
                 fun = "kebabCase",
                 smart = smart,
                 prefix = prefix
             )
-            return(invisible(files))
+            return(invisible(path))
         }
         ## String mode ---------------------------------------------------------
         names <- names(object)

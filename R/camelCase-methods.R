@@ -97,6 +97,7 @@ NULL
         )
         ## Rename mode ---------------------------------------------------------
         if (isTRUE(rename)) {
+            ## FIXME Rework internal `.rename()` function, adding recursive.
             path <- object
             if (isTRUE(recursive)) {
                 path <- .recursive(path)
