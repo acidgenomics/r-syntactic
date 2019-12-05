@@ -14,6 +14,8 @@
 #' Contains syntatically valid names. For objects supporting
 #' [`names()`][base::names], the underlying data returns unchanged, except for
 #' `character` or `vector` class.
+#' Returns invisible modified file path when `rename = TRUE`.
+#' Returns invisible `NULL` when `recursive = TRUE`.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
