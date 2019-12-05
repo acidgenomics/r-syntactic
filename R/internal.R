@@ -1,3 +1,23 @@
+#' Sort files and directories for recursive rename
+#'
+#' Note that files will be renamed first, then directories in reverse order
+#' of deepest from shallowest.
+#'
+#' @note Updated 2019-12-05.
+#' @noRd
+.recursiveSort <- function(path) {
+    dirs <- path[isDirectory(path)]
+    ## Order the deepest directories first.
+    ## Note that use of `decreasing = TRUE` doesn't work the way I want here.
+    dirs <- rev(dirs[order(fileDepth(dirs), decreasing = FALSE)])
+    ## Rename these first, then tackle the directories.
+    files <- setdiff(path, dirs)
+    files <- sort(files)
+    c(files, dirs)
+}
+
+
+
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @details
