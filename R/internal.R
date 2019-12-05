@@ -90,7 +90,7 @@
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
-                bn <- tolower(paste0(stem, ".", ext))
+                bn <- paste0(stem, ".", tolower(ext))
             } else {
                 bn <- stem
             }
