@@ -32,3 +32,5 @@ pm <- c(
     "/",
     "-"
 )
+
+initDir <- acidbase::initDir

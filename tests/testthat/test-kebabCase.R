@@ -34,9 +34,10 @@ test_that("Disable X prefix", {
     )
 })
 
-test_that("File rename mode", {
+test_that("Rename mode", {
     topdir <- "XXX"
     unlink(topdir, recursive = TRUE)
+    topdir <- initDir(topdir)
     dirs <- file.path(topdir, c("aaa_bbb", "ccc_ddd"))
     files <- file.path(topdir, c("1_sample_A.fastq.gz", "hello_world.txt"))
     input <- c(files, dirs)
@@ -56,4 +57,44 @@ test_that("File rename mode", {
         )
     )
     unlink(topdir, recursive = TRUE)
+})
+
+test_that("Rename mode (recursive)", {
+    path <- file.path(tempdir(), "recursive")
+    unlink(path, recursive = TRUE)
+    dir.create(path, recursive = TRUE, showWarnings = FALSE)
+    dir.create(
+        path = file.path(path, "level_1", "level_2"),
+        recursive = TRUE
+    )
+    file.create(
+        file.path(path, "file_x.TXT"),
+        file.path(path, "level_1", "file_x.txt"),
+        file.path(path, "level_1", "level_2", "file_x.txt")
+    )
+    output <- kebabCase(path, rename = TRUE, recursive = TRUE)
+    expect_null(output, expected)
+    files <- sort(c(
+        path,
+        list.files(
+            path = path,
+            full.names = TRUE,
+            recursive = TRUE,
+            include.dirs = TRUE
+        )
+    ))
+    expected <- c(
+        path,
+        file.path(
+            path,
+            c(
+                "file-x.txt",
+                "level-1",
+                file.path("level-1", "file-x.txt"),
+                file.path("level-1", "level-2"),
+                file.path("level-1", "level-2", "file-x.txt")
+            )
+        )
+    )
+    expect_identical(files, expected)
 })
