@@ -10,7 +10,7 @@
 #' @noRd
 .recursive <- function(path) {
     assert(allHaveAccess(path))
-    nested <- lapply(
+    nested <- unlist(lapply(
         X = path,
         FUN = function(path) {
             if (!isDirectory(path)) {
@@ -24,8 +24,8 @@
                 include.dirs = TRUE
             )
         }
-    )
-    path <- unique(c(path, unlist(nested)))
+    ))
+    path <- realpath(unique(c(path, nested)))
     ## Order the deepest directories first.
     ## Note that use of `decreasing = TRUE` doesn't work the way I want here.
     dirs <- path[isDirectory(path)]
@@ -70,10 +70,10 @@
         envir = asNamespace("syntactic"),
         inherits = FALSE
     )
-    from <- realpath(path)
     if (isTRUE(recursive)) {
         from <- .recursive(from)
     }
+    from <- realpath(path)
     to <- vapply(
         X = from,
         FUN = function(from) {
@@ -105,15 +105,16 @@
     if (isTRUE(insensitive)) {
         ## nocov start
         tmpTo <- file.path(dirname(from), paste0(".tmp.", basename(from)))
+        ## FIXME We need to rework this approach for recursive renames.
+        ## FIXME Otherwise this will fail on a case insensitive FS.
         ok <- file.rename(from = from, to = tmpTo)
-        assert(all(ok))
+        assert(all(file.exists(tmpTo)), all(ok))
         ok <- file.rename(from = tmpTo, to = to)
-        assert(all(ok))
         ## nocov end
     } else {
         ok <- file.rename(from = from, to = to)
-        assert(all(ok))
     }
+    assert(all(file.exists(to)), all(ok))
     if (isTRUE(recursive)) {
         NULL
     } else {
