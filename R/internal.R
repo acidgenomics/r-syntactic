@@ -1,9 +1,11 @@
+## FIXME Need to keep depth here?
+
+
 #' Sort files and directories for recursive rename
 #'
 #' This function prepares files and/or directories for recursive rename by
-#' ordering the directories first, from shallowest to deepest depth, using the
-#' `fileDepth()` function. Then files are appended at the end, sorted via the
-#' `sort()` function.
+#' ordering the directories from deepest to shallowest, using the `fileDepth()`
+#' function.
 #'
 #' This code may be generally useful, and we may want to export in basejump.
 #'
@@ -11,7 +13,7 @@
 #' @note Updated 2019-12-08.
 #' @noRd
 .recursive <- function(path) {
-    assert(allHaveAccess(path))
+    path <- realpath(path)
     nested <- unlist(lapply(
         X = path,
         FUN = function(path) {
@@ -27,18 +29,14 @@
             )
         }
     ))
-    path <- realpath(unique(c(path, nested)))
-    dirs <- path[isDirectory(path)]
-    dirs <- dirs[order(fileDepth(dirs))]
-    files <- setdiff(path, dirs)
-    files <- sort(files)
-    c(dirs, files)
+    x <- unique(realpath(c(path, nested)))
+    dirs <- x[isDirectory(x)]
+    dirs <- rev(dirs[order(fileDepth(dirs))])
+    files <- sort(setdiff(x, dirs))
+    list(path = path, dirs = dirs, files = files)
 }
 
 
-
-## FIXME Need to rethink how this works. It currently doesn't perform as
-## expected on case-insensitive file systems.
 
 #' Rename files and/or directories using a syntactic naming function
 #'
@@ -77,6 +75,9 @@
         from <- .recursive(from)
     }
     from <- realpath(from)
+
+    ## FIXME Need to rethink how we handle the recursive directory paths here.
+
     to <- vapply(
         X = from,
         FUN = function(from) {
