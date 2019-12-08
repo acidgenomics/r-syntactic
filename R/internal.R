@@ -1,11 +1,7 @@
-## FIXME Need to keep depth here?
-
-
 #' Sort files and directories for recursive rename
 #'
 #' This function prepares files and/or directories for recursive rename by
-#' ordering the directories from deepest to shallowest, using the `fileDepth()`
-#' function.
+#' ordering from deepest to shallowest, using the `fileDepth()` function.
 #'
 #' This code may be generally useful, and we may want to export in basejump.
 #'
@@ -65,20 +61,14 @@
         isFlag(recursive),
         isString(fun)
     )
+    fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
-    FUN <- get(  # nolint
-        x = fun,
-        envir = asNamespace("syntactic"),
-        inherits = FALSE
-    )
-    from <- path
     if (isTRUE(recursive)) {
-        from <- .recursive(from)
+        from <- .recursive(path)
+        from <- c(from[["files"]], from[["dirs"]])
+    } else {
+        from <- realpath(path)
     }
-    from <- realpath(from)
-
-    ## FIXME Need to rethink how we handle the recursive directory paths here.
-
     to <- vapply(
         X = from,
         FUN = function(from) {
@@ -91,7 +81,7 @@
                 replacement = "-",
                 x = stem
             )
-            stem <- FUN(stem, rename = FALSE, ...)
+            stem <- fun(stem, rename = FALSE, ...)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
@@ -100,57 +90,33 @@
                 bn <- stem
             }
             to <- file.path(dir, bn)
+            if (identical(from, to)) {
+                return(from)
+            }
+            if (isTRUE(insensitive)) {
+                ## nocov start
+                tmpTo <- file.path(
+                    dirname(from),
+                    paste0(".tmp.", basename(from))
+                )
+                ok <- file.rename(from = from, to = tmpTo)
+                assert(file.exists(tmpTo), ok)
+                ok <- file.rename(from = tmpTo, to = to)
+                ## nocov end
+            } else {
+                ok <- file.rename(from = from, to = to)
+            }
+            assert(file.exists(to), ok)
+            to
         },
         FUN.VALUE = character(1L),
         USE.NAMES = FALSE
     )
-    if (identical(from, to)) {
-        return(from)  # nocov
-    }
-
-
-    ## FIXME Switch to vapply
-    mapply(
-        FUN = function(from, to, insensitive) {
-
-        },
-        from,
-        to,
-        MoreArgs = list(insensitive = insensitive),
-        SIMPLIFY = FALSE,
-        USE.NAMES = FALSE
-    )
-
-
-
-
-    ## FIXME This needs to go up into the vapply loop.
-    if (isTRUE(insensitive)) {
-        ## nocov start
-        tmpTo <- file.path(dirname(from), paste0(".tmp.", basename(from)))
-        ## FIXME We need to rework this approach for recursive renames.
-        ## FIXME Otherwise this will fail on a case insensitive FS.
-        ok <- file.rename(from = from, to = tmpTo)
-        assert(all(file.exists(tmpTo)), all(ok))
-        ok <- file.rename(from = tmpTo, to = to)
-        ## nocov end
-    } else {
-        ok <- file.rename(from = from, to = to)
-    }
-
-
-
-
-    assert(all(file.exists(to)), all(ok))
     if (isTRUE(recursive)) {
         NULL
     } else {
         to
     }
-
-
-
-
 }
 
 
