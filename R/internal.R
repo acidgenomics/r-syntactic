@@ -1,15 +1,15 @@
 #' Sort files and directories for recursive rename
 #'
-#' Note that files will be renamed first, then directories in reverse order
-#' of deepest from shallowest.
+#' This function prepares files and/or directories for recursive rename by
+#' ordering from deepest to shallowest, using the `fileDepth()` function.
 #'
 #' This code may be generally useful, and we may want to export in basejump.
 #'
 #' @note Alternatively, can use `file.info(path)[["isdir"]]` here for speed.
-#' @note Updated 2019-12-05.
+#' @note Updated 2019-12-08.
 #' @noRd
 .recursive <- function(path) {
-    assert(allHaveAccess(path))
+    path <- realpath(path)
     nested <- unlist(lapply(
         X = path,
         FUN = function(path) {
@@ -25,15 +25,12 @@
             )
         }
     ))
-    path <- realpath(unique(c(path, nested)))
-    ## Order the deepest directories first.
-    ## Note that use of `decreasing = TRUE` doesn't work the way I want here.
-    dirs <- path[isDirectory(path)]
-    dirs <- rev(dirs[order(fileDepth(dirs), decreasing = FALSE)])
-    files <- setdiff(path, dirs)
-    files <- sort(files)
-    ## Rename files first, then tackle the directories.
-    c(files, dirs)
+    x <- sort(unique(realpath(c(path, nested))))
+    dirs <- x[isDirectory(x)]
+    dirs <- rev(dirs[order(fileDepth(dirs))])
+    files <- setdiff(x, dirs)
+    files <- rev(files[order(fileDepth(files))])
+    list(path = path, dirs = dirs, files = files)
 }
 
 
@@ -48,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2019-12-05.
+#' @note Updated 2019-12-08.
 #' @noRd
 #'
 #' @examples
@@ -64,16 +61,14 @@
         isFlag(recursive),
         isString(fun)
     )
+    fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
-    FUN <- get(  # nolint
-        x = fun,
-        envir = asNamespace("syntactic"),
-        inherits = FALSE
-    )
     if (isTRUE(recursive)) {
-        from <- .recursive(from)
+        from <- .recursive(path)
+        from <- c(from[["files"]], from[["dirs"]])
+    } else {
+        from <- realpath(path)
     }
-    from <- realpath(path)
     to <- vapply(
         X = from,
         FUN = function(from) {
@@ -86,7 +81,7 @@
                 replacement = "-",
                 x = stem
             )
-            stem <- FUN(stem, rename = FALSE, ...)
+            stem <- fun(stem, rename = FALSE, ...)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
@@ -95,26 +90,28 @@
                 bn <- stem
             }
             to <- file.path(dir, bn)
+            if (identical(from, to)) {
+                return(from)
+            }
+            if (isTRUE(insensitive)) {
+                ## nocov start
+                tmpTo <- file.path(
+                    dirname(from),
+                    paste0(".tmp.", basename(from))
+                )
+                ok <- file.rename(from = from, to = tmpTo)
+                assert(file.exists(tmpTo), ok)
+                ok <- file.rename(from = tmpTo, to = to)
+                ## nocov end
+            } else {
+                ok <- file.rename(from = from, to = to)
+            }
+            assert(file.exists(to), ok)
+            to
         },
         FUN.VALUE = character(1L),
         USE.NAMES = FALSE
     )
-    if (identical(from, to)) {
-        return(from)  # nocov
-    }
-    if (isTRUE(insensitive)) {
-        ## nocov start
-        tmpTo <- file.path(dirname(from), paste0(".tmp.", basename(from)))
-        ## FIXME We need to rework this approach for recursive renames.
-        ## FIXME Otherwise this will fail on a case insensitive FS.
-        ok <- file.rename(from = from, to = tmpTo)
-        assert(all(file.exists(tmpTo)), all(ok))
-        ok <- file.rename(from = tmpTo, to = to)
-        ## nocov end
-    } else {
-        ok <- file.rename(from = from, to = to)
-    }
-    assert(all(file.exists(to)), all(ok))
     if (isTRUE(recursive)) {
         NULL
     } else {

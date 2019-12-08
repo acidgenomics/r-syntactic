@@ -1,3 +1,11 @@
+## syntactic 0.3.4 (2019-12-08)
+
+### Minor changes
+
+- Fixed expected handling of file rename mode on case insensitive file systems.
+  Had to rework the internal code to loop across the files and directories,
+  using an `apply` call internally.
+
 ## syntactic 0.3.3 (2019-12-05)
 
 ### Major changes
