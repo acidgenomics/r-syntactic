@@ -29,10 +29,11 @@
             )
         }
     ))
-    x <- unique(realpath(c(path, nested)))
+    x <- sort(unique(realpath(c(path, nested))))
     dirs <- x[isDirectory(x)]
     dirs <- rev(dirs[order(fileDepth(dirs))])
-    files <- sort(setdiff(x, dirs))
+    files <- setdiff(x, dirs)
+    files <- rev(files[order(fileDepth(files))])
     list(path = path, dirs = dirs, files = files)
 }
 
