@@ -53,12 +53,14 @@
 .rename <- function(
     path,
     recursive = FALSE,
+    smart = TRUE,
     fun,
     ...
 ) {
     assert(
         allHaveAccess(path),
         isFlag(recursive),
+        isFlag(smart),
         isString(fun)
     )
     fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
@@ -75,13 +77,27 @@
             dir <- dirname(from)
             ext <- fileExt(from)
             stem <- basenameSansExt(from)
-            ## Handle edge cases with file names that we want to avoid.
-            stem <- gsub(
-                pattern = "[[:space:]]+-[[:space:]]+",
-                replacement = "-",
-                x = stem
+            if (isTRUE(smart)) {
+                ## Deal with these mixed case acronyms.
+                stem <- gsub(
+                    pattern = "\\b(iPad|iPhone|macOS)\\b",
+                    replacement = "\\L\\1",
+                    x = stem,
+                    perl = TRUE
+                )
+                ## Handle edge cases with file names that we want to avoid.
+                stem <- gsub(
+                    pattern = "[[:space:]]+-[[:space:]]+",
+                    replacement = "-",
+                    x = stem
+                )
+            }
+            stem <- fun(
+                object = stem,
+                rename = FALSE,
+                smart = smart,
+                ...
             )
-            stem <- fun(stem, rename = FALSE, ...)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
