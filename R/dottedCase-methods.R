@@ -5,7 +5,7 @@
 #'   parameters. However, it is recommended to avoid using it for variable
 #'   assignments into an `environment`, as that can introduce conflicts with
 #'   base functions.
-#' @note Updated 2019-12-05.
+#' @note Updated 2019-12-08.
 #'
 #' @inheritParams params
 #'
@@ -31,6 +31,12 @@ NULL
         ## Error on empty strings, but allow passthrough of NA.
         assert(all(nzchar(x, keepNA = FALSE)))
         if (isTRUE(smart)) {
+            ## Handle "&" as a special case. Spell out as "and".
+            x <- gsub(
+                pattern = "\\&",
+                replacement = ".and.",
+                x = x
+            )
             ## Handle "+" as a special case. Spell out as "plus".
             x <- gsub(
                 pattern = "\\+",

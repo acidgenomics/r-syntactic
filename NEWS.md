@@ -1,3 +1,9 @@
+## syntactic 0.3.5 (UNRELEASED)
+
+### Minor changes
+
+- Syntactic naming functions now check for "&" and convert to "and".
+
 ## syntactic 0.3.4 (2019-12-08)
 
 ### Minor changes
