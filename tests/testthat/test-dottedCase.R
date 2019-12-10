@@ -35,3 +35,29 @@ test_that("Named character", {
         expected = names(named)
     )
 })
+
+test_that("X handling in prefix mode", {
+    expect_identical(
+        object = dottedCase(
+            object = c(
+                "Xenobiotic",
+                "xenobiotic",
+                "XX123",
+                "X123",
+                "xx123",
+                "x123",
+                "123"
+            ),
+            prefix = FALSE
+        ),
+        expected = c(
+            "Xenobiotic",
+            "xenobiotic",
+            "XX123",
+            "123",
+            "xx123",
+            "123",
+            "123"
+        )
+    )
+})
