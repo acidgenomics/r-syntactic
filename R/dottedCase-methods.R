@@ -86,7 +86,7 @@ NULL
                 pattern = "^X([^[:alpha:]]+)$",
                 replacement = "\\1",
                 x = x,
-                ignore.case = FALSE
+                ignore.case = TRUE
             )
         }
         ## Ensure all non-alphanumeric characters get coerced to periods.
