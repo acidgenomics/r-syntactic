@@ -45,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2019-12-08.
+#' @note Updated 2019-12-09.
 #' @noRd
 #'
 #' @examples
