@@ -63,6 +63,11 @@
         isFlag(smart),
         isString(fun)
     )
+    if (isTRUE(grepl(pattern = "camelcase", x = fun, ignore.case = TRUE))) {
+        lower <- FALSE
+    } else {
+        lower <- TRUE
+    }
     fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
     if (isTRUE(recursive)) {
@@ -78,13 +83,9 @@
             ext <- fileExt(from)
             stem <- basenameSansExt(from)
             if (isTRUE(smart)) {
-                ## Deal with these mixed case acronyms.
-                stem <- gsub(
-                    pattern = "\\b(iPad|iPhone|macOS)\\b",
-                    replacement = "\\L\\1",
-                    x = stem,
-                    perl = TRUE
-                )
+                if (isTRUE(lower)) {
+                    stem <- tolower(stem)
+                }
                 ## Handle edge cases with file names that we want to avoid.
                 stem <- gsub(
                     pattern = "[[:space:]]+-[[:space:]]+",
