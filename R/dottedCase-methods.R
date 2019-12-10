@@ -5,7 +5,7 @@
 #'   parameters. However, it is recommended to avoid using it for variable
 #'   assignments into an `environment`, as that can introduce conflicts with
 #'   base functions.
-#' @note Updated 2019-12-08.
+#' @note Updated 2019-12-09.
 #'
 #' @inheritParams params
 #'
@@ -83,7 +83,7 @@ NULL
         ## can pass to our shell scripts defined in koopa package.
         if (identical(prefix, FALSE)) {
             x <- gsub(
-                pattern = "^X(.+)$",
+                pattern = "^X([^[:alpha:]]+)$",
                 replacement = "\\1",
                 x = x,
                 ignore.case = FALSE
