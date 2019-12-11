@@ -45,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2019-12-09.
+#' @note Updated 2019-12-11.
 #' @noRd
 #'
 #' @examples
@@ -87,6 +87,11 @@
                     stem <- tolower(stem)
                 }
                 ## Handle edge cases with file names that we want to avoid.
+                stem <- gsub(
+                    pattern = "'",
+                    replacement = "",
+                    x = stem
+                )
                 stem <- gsub(
                     pattern = "[[:space:]]+-[[:space:]]+",
                     replacement = "-",
