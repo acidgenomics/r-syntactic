@@ -1,3 +1,13 @@
+## syntactic 0.3.5 (2020-01-14)
+
+### Minor changes
+
+- Syntactic naming functions now check for "&" and convert to "and". This
+  behavior can be disabled by setting `smart = FALSE`.
+- Accented characters are now coerced to plain letters by default internally
+  via `stringi::stri_trans_general`. This behavior can be disabled by setting
+  `smart = FALSE`.
+
 ## syntactic 0.3.4 (2019-12-08)
 
 ### Minor changes

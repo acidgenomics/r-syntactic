@@ -5,7 +5,7 @@
 #'   parameters. However, it is recommended to avoid using it for variable
 #'   assignments into an `environment`, as that can introduce conflicts with
 #'   base functions.
-#' @note Updated 2019-12-05.
+#' @note Updated 2019-12-09.
 #'
 #' @inheritParams params
 #'
@@ -31,6 +31,14 @@ NULL
         ## Error on empty strings, but allow passthrough of NA.
         assert(all(nzchar(x, keepNA = FALSE)))
         if (isTRUE(smart)) {
+            ## Coerce accented characters to plain letter.
+            x <- stri_trans_general(str = x, id = "Latin-ASCII")
+            ## Handle "&" as a special case. Spell out as "and".
+            x <- gsub(
+                pattern = "\\&",
+                replacement = ".and.",
+                x = x
+            )
             ## Handle "+" as a special case. Spell out as "plus".
             x <- gsub(
                 pattern = "\\+",
@@ -77,10 +85,10 @@ NULL
         ## can pass to our shell scripts defined in koopa package.
         if (identical(prefix, FALSE)) {
             x <- gsub(
-                pattern = "^X(.+)$",
+                pattern = "^X([^[:alpha:]])",
                 replacement = "\\1",
                 x = x,
-                ignore.case = FALSE
+                ignore.case = TRUE
             )
         }
         ## Ensure all non-alphanumeric characters get coerced to periods.

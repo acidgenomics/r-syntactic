@@ -45,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2019-12-08.
+#' @note Updated 2019-12-11.
 #' @noRd
 #'
 #' @examples
@@ -53,14 +53,21 @@
 .rename <- function(
     path,
     recursive = FALSE,
+    smart = TRUE,
     fun,
     ...
 ) {
     assert(
         allHaveAccess(path),
         isFlag(recursive),
+        isFlag(smart),
         isString(fun)
     )
+    if (isTRUE(grepl(pattern = "camelcase", x = fun, ignore.case = TRUE))) {
+        lower <- FALSE
+    } else {
+        lower <- TRUE
+    }
     fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
     if (isTRUE(recursive)) {
@@ -75,13 +82,28 @@
             dir <- dirname(from)
             ext <- fileExt(from)
             stem <- basenameSansExt(from)
-            ## Handle edge cases with file names that we want to avoid.
-            stem <- gsub(
-                pattern = "[[:space:]]+-[[:space:]]+",
-                replacement = "-",
-                x = stem
+            if (isTRUE(smart)) {
+                if (isTRUE(lower)) {
+                    stem <- tolower(stem)
+                }
+                ## Handle edge cases with file names that we want to avoid.
+                stem <- gsub(
+                    pattern = "'",
+                    replacement = "",
+                    x = stem
+                )
+                stem <- gsub(
+                    pattern = "[[:space:]]+-[[:space:]]+",
+                    replacement = "-",
+                    x = stem
+                )
+            }
+            stem <- fun(
+                object = stem,
+                rename = FALSE,
+                smart = smart,
+                ...
             )
-            stem <- fun(stem, rename = FALSE, ...)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {

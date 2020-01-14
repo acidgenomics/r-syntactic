@@ -121,3 +121,29 @@ test_that("Rename mode", {
     expect_identical(object = output, expected = expected)
     unlink(topdir, recursive = TRUE)
 })
+
+test_that("X handling in prefix mode", {
+    expect_identical(
+        object = camelCase(
+            object = c(
+                "Xenobiotic",
+                "xenobiotic",
+                "XX123",
+                "X123",
+                "xx123",
+                "x123",
+                "123"
+            ),
+            prefix = FALSE
+        ),
+        expected = c(
+            "xenobiotic",
+            "xenobiotic",
+            "xx123",
+            "123",
+            "xx123",
+            "123",
+            "123"
+        )
+    )
+})
