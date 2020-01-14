@@ -31,6 +31,8 @@ NULL
         ## Error on empty strings, but allow passthrough of NA.
         assert(all(nzchar(x, keepNA = FALSE)))
         if (isTRUE(smart)) {
+            ## Coerce accented characters to plain letter.
+            x <- stri_trans_general(str = x, id = "Latin-ASCII")
             ## Handle "&" as a special case. Spell out as "and".
             x <- gsub(
                 pattern = "\\&",

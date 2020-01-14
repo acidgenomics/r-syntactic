@@ -3,4 +3,5 @@
 #'   hasRownames isCharacter isDirectory isFileSystemCaseSensitive isFlag
 #'   isString
 #' @importFrom methods setMethod signature
+#' @importFrom stringi stri_trans_general
 NULL
