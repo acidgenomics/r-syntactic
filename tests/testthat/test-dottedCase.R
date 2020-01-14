@@ -35,3 +35,67 @@ test_that("Named character", {
         expected = names(named)
     )
 })
+
+test_that("X handling in prefix mode", {
+    expect_identical(
+        object = dottedCase(
+            object = c(
+                "Xenobiotic",
+                "xenobiotic",
+                "XX123",
+                "X123",
+                "xx123",
+                "x123",
+                "123"
+            ),
+            prefix = FALSE
+        ),
+        expected = c(
+            "Xenobiotic",
+            "xenobiotic",
+            "XX123",
+            "123",
+            "xx123",
+            "123",
+            "123"
+        )
+    )
+})
+
+test_that("Ampersand to 'and'", {
+    expect_identical(
+        object = dottedCase("here&there", smart = TRUE),
+        expected = "here.and.there"
+    )
+    expect_identical(
+        object = dottedCase("here&there", smart = FALSE),
+        expected = "here.there"
+    )
+})
+
+test_that("Accented characters", {
+    object <- c(
+        "bière",
+        "encyclopædia",
+        "étude",
+        "qué tal"
+    )
+    expect_identical(
+        object = dottedCase(object, smart = TRUE),
+        expected = c(
+            "biere",
+            "encyclopaedia",
+            "etude",
+            "que.tal"
+        )
+    )
+    expect_identical(
+        object = dottedCase(object, smart = FALSE),
+        expected = c(
+            "bière",
+            "encyclopædia",
+            "étude",
+            "qué.tal"
+        )
+    )
+})
