@@ -62,6 +62,17 @@ test_that("X handling in prefix mode", {
     )
 })
 
+test_that("Ampersand to 'and'", {
+    expect_identical(
+        object = dottedCase("here&there", smart = TRUE),
+        expected = "here.and.there"
+    )
+    expect_identical(
+        object = dottedCase("here&there", smart = FALSE),
+        expected = "here.there"
+    )
+})
+
 test_that("Accented characters", {
     object <- c(
         "bière",
