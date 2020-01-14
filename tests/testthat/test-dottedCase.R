@@ -61,3 +61,30 @@ test_that("X handling in prefix mode", {
         )
     )
 })
+
+test_that("Accented characters", {
+    object <- c(
+        "bière",
+        "encyclopædia",
+        "étude",
+        "qué tal"
+    )
+    expect_identical(
+        object = dottedCase(object, smart = TRUE),
+        expected = c(
+            "biere",
+            "encyclopaedia",
+            "etude",
+            "que.tal"
+        )
+    )
+    expect_identical(
+        object = dottedCase(object, smart = FALSE),
+        expected = c(
+            "bière",
+            "encyclopædia",
+            "étude",
+            "qué.tal"
+        )
+    )
+})
