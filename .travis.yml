@@ -1,7 +1,8 @@
-language: general
-
 env:
   - RCHECK_KEEP_IT_100=1
+
+os: linux
+language: shell
 
 services:
   - docker
@@ -21,8 +22,6 @@ jobs:
     - stage: test
       name: "bioc-devel"
       script: tag="bioc-devel" ./.Rcheck/docker
-
-matrix:
   allow_failures:
     - name: "bioc-devel"
   fast_finish: true
