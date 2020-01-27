@@ -74,11 +74,3 @@ setMethod(
     signature = signature("character"),
     definition = `kebabCase,character`
 )
-
-
-
-#' @rdname kebabCase
-#' @export
-kebab <- function(...) {
-    kebabCase(...)  # nocov
-}
