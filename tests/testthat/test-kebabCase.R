@@ -100,7 +100,7 @@ test_that("Rename mode (recursive)", {
 })
 
 test_that("Capitalized extensions (R, Rmd)", {
-    input <- c("loadSingleCell.R", "quality-control.Rmd")
+    input <- c("loadSingleCell.R", "quality_control.Rmd")
     unlink(input)
     file.create(input)
     output <- kebabCase(object = input, rename = TRUE)
