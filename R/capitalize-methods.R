@@ -6,6 +6,7 @@
 #' @param strict `logical(1)`.
 #'   Enforce strict renaming of words containing multiple capital letters,
 #'   including acronyms.
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' x <- c("the quick Brown fox", "using AIC for model selection")
