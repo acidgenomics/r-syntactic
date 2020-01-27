@@ -19,6 +19,13 @@ camel <- function(...) {
     camelCase(...)
 }
 
+#' @rdname deprecated
+#' @export
+dotted <- function(...) {
+    .Deprecated("dottedCase")
+    dottedCase(...)
+}
+
 
 
 ## nolint end

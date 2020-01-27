@@ -1,8 +1,20 @@
 ## syntactic 0.3.6 (2020-01-27)
 
+### Major changes
+
+- Migrated S4 generics to acidgenerics package.
+
 ### Minor changes
 
 - Fix to perserve extension case (e.g. "R", "Rmd") for files in rename mode.
+
+### Deprecations
+
+- Deprecated `camel` in favor of `camelCase`.
+- Deprecated `dotted` in favor of `dottedCase`.
+- Deprecated `kebab` in favor of `kebabCase`.
+- Deprecated `snake` in favor of `snakeCase`.
+- Deprecated `upperCamel` in favor of `upperCamelCase`.
 
 ## syntactic 0.3.5 (2020-01-14)
 
