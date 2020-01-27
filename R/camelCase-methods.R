@@ -134,11 +134,3 @@ setMethod(
     signature = signature("character"),
     definition = `camelCase,character`
 )
-
-
-
-#' @rdname camelCase
-#' @export
-camel <- function(...) {
-    camelCase(...)  # nocov
-}

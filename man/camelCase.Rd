@@ -3,7 +3,6 @@
 \name{camelCase}
 \alias{camelCase}
 \alias{camelCase,character-method}
-\alias{camel}
 \title{Camel case}
 \usage{
 camelCase(object, ...)
@@ -17,8 +16,6 @@ camelCase(object, ...)
   names = !rename,
   prefix = !rename
 )
-
-camel(...)
 }
 \arguments{
 \item{object}{Object.}
@@ -55,8 +52,6 @@ See \code{\link[base:make.names]{make.names()}} for details.
 
 Enabled by default for string mode, but disabled by default for rename
 mode, when applicable.}
-
-\item{...}{Additional arguments.}
 }
 \value{
 Modified object.
