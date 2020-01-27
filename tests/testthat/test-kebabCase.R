@@ -88,7 +88,7 @@ test_that("Rename mode (recursive)", {
         file.path(
             path,
             c(
-                "file-x.txt",
+                "file-x.TXT",
                 "level-1",
                 file.path("level-1", "file-x.txt"),
                 file.path("level-1", "level-2"),
@@ -97,4 +97,16 @@ test_that("Rename mode (recursive)", {
         )
     )
     expect_identical(files, expected)
+})
+
+test_that("Capitalized extensions (R, Rmd)", {
+    input <- c("loadSingleCell.R", "quality_control.Rmd")
+    unlink(input)
+    file.create(input)
+    output <- kebabCase(object = input, rename = TRUE)
+    expect_identical(
+        object = basename(output),
+        expected = c("loadsinglecell.R", "quality-control.Rmd")
+    )
+    file.remove(output)
 })

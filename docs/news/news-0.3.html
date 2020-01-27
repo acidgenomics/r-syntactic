@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.6</span>
       </span>
     </div>
 
@@ -126,9 +126,9 @@
     <div id="syntactic-0-3-1-2019-10-08" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-1-2019-10-08" class="anchor"></a>syntactic 0.3.1 (2019-10-08)</h2>
-<div id="minor-changes-3" class="section level3">
+<div id="minor-changes-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Now allowing <code>prefix = FALSE</code> for <code>camelCase</code>, <code>dottedCase</code>, <code>kebabCase</code>, <code>snakeCase</code>, and <code>upperCamelCase</code>. This override allows the user to disable automatic “X” prefix defined by <code>make.names</code> internally for input that begins with a syntactically invalid character, such as a number (R-specific) or a non-alphanumeric. We’re now allowing this override so we can pass to new <code>camel-case</code>, <code>kebab-case</code>, and <code>snake-case</code> shell scripts defined in <a href="https://koopa.acidgenomics.com/">koopa</a>.</li>
 <li>Also now allowing <code>smart = FALSE</code>, which disables smart mode handling of mixed case acronyms (e.g. “RNAi”, “mRNA”), numeric delims/decimals (“,” “.”), special characters that can represent words (“+”/“-”; plus/minus), etc. Enabled by default and strongly recommended. Added a new override mode for some edge cases with our new shell methods defined in koopa.</li>
@@ -156,9 +156,9 @@
 <li>Added recursive file rename support.</li>
 </ul>
 </div>
-<div id="minor-changes-2" class="section level3">
+<div id="minor-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Improved handling of " - “, avoiding return of”minus" in file rename mode.</li>
 <li>File extension is automatically converted to lowercase when applicable.</li>
@@ -168,9 +168,9 @@
     <div id="syntactic-0-3-4-2019-12-08" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-4-2019-12-08" class="anchor"></a>syntactic 0.3.4 (2019-12-08)</h2>
-<div id="minor-changes-1" class="section level3">
+<div id="minor-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Fixed expected handling of file rename mode on case insensitive file systems. Had to rework the internal code to loop across the files and directories, using an <code>apply</code> call internally.</li>
 </ul>
@@ -179,12 +179,23 @@
     <div id="syntactic-0-3-5-2020-01-14" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-5-2020-01-14" class="anchor"></a>syntactic 0.3.5 (2020-01-14)</h2>
+<div id="minor-changes-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>Syntactic naming functions now check for “&amp;” and convert to “and”. This behavior can be disabled by setting <code>smart = FALSE</code>.</li>
+<li>Accented characters are now coerced to plain letters by default internally via <code><a href="https://rdrr.io/pkg/stringi/man/stri_trans_general.html">stringi::stri_trans_general</a></code>. This behavior can be disabled by setting <code>smart = FALSE</code>.</li>
+</ul>
+</div>
+</div>
+    <div id="syntactic-0-3-6-2020-01-27" class="section level2">
+<h2 class="hasAnchor">
+<a href="#syntactic-0-3-6-2020-01-27" class="anchor"></a>syntactic 0.3.6 (2020-01-27)</h2>
 <div id="minor-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h3>
 <ul>
-<li>Syntactic naming functions now check for “&amp;” and convert to “and”. This behavior can be disabled by setting <code>smart = FALSE</code>.</li>
-<li>Accented characters are now coerced to plain letters by default internally via <code><a href="https://rdrr.io/pkg/stringi/man/stri_trans_general.html">stringi::stri_trans_general</a></code>. This behavior can be disabled by setting <code>smart = FALSE</code>.</li>
+<li>Fix to perserve extension case (e.g. “R”, “Rmd”) for files in rename mode.</li>
 </ul>
 </div>
 </div>
@@ -200,6 +211,7 @@
         <li><a href="#syntactic-0-3-3-2019-12-05">0.3.3</a></li>
         <li><a href="#syntactic-0-3-4-2019-12-08">0.3.4</a></li>
         <li><a href="#syntactic-0-3-5-2020-01-14">0.3.5</a></li>
+        <li><a href="#syntactic-0-3-6-2020-01-27">0.3.6</a></li>
       </ul>
     </div>
   </div>
