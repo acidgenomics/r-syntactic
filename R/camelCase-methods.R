@@ -29,7 +29,7 @@ NULL
         strict = FALSE,
         ...
     ) {
-        x <- dotted(x, ...)
+        x <- dottedCase(x, ...)
         assert(isFlag(strict))
         format <- match.arg(format)
         ## Simplify mixed case acronyms in strict mode.

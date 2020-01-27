@@ -36,7 +36,7 @@ NULL
             modify = modify,
             FUN = function(x, modify) {
                 if (!isTRUE(modify)) return(x)
-                x <- dotted(x)
+                x <- dottedCase(x)
                 ## Convert everything but multi-letter acronyms to lowercase.
                 x <- gsub("\\b([A-Z])\\b", "\\L\\1", x, perl = TRUE)
                 x <- gsub("\\b([A-Z][a-z0-9]+)\\b", "\\L\\1", x, perl = TRUE)

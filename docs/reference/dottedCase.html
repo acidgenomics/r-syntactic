@@ -38,7 +38,9 @@
   
 
 <meta property="og:title" content="Dotted case — dottedCase" />
-<meta property="og:description" content="Dotted case" />
+<meta property="og:description" content="Support is provided for matching against base R parameters. However, it is
+recommended to avoid using it for variable assignments into an environment,
+as that can introduce conflicts with base functions." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,20 +113,20 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Dotted case</h1>
-    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/AllGenerics.R'><code>R/AllGenerics.R</code></a>, <a href='https://github.com/acidgenomics/syntactic/blob/master/R/dottedCase-methods.R'><code>R/dottedCase-methods.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/acidgenomics/syntactic/blob/master/R/dottedCase-methods.R'><code>R/dottedCase-methods.R</code></a></small>
     <div class="hidden name"><code>dottedCase.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Dotted case</p>
+    <p>Support is provided for matching against base R parameters. However, it is
+recommended to avoid using it for variable assignments into an <code>environment</code>,
+as that can introduce conflicts with base functions.</p>
     </div>
 
     <pre class="usage"><span class='fu'>dottedCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>dottedCase</span>(<span class='no'>object</span>, <span class='kw'>smart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
-<span class='fu'>dotted</span>(<span class='no'>...</span>)</pre>
+<span class='fu'>dottedCase</span>(<span class='no'>object</span>, <span class='kw'>smart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>prefix</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -132,10 +134,6 @@
     <tr>
       <th>object</th>
       <td><p>Object.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments.</p></td>
     </tr>
     <tr>
       <th>smart</th>
@@ -159,18 +157,21 @@ See <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></cod
 <p>Enabled by default for string mode, but disabled by default for rename
 mode, when applicable.</p></td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Additional arguments.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Modified object, with names formatted in dotted case.</p>
+    <p>Modified object.
+Contains syntatically valid names.
+For objects with <code><a href='https://rdrr.io/r/base/names.html'>names()</a></code> defined, the underlying data
+returns unchanged, except for <code>character</code> or <code>vector</code> class.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p><code>dottedCase()</code> support is provided for matching against base R
-parameters. However, it is recommended to avoid using it for variable
-assignments into an <code>environment</code>, as that can introduce conflicts with
-base functions.</p>
-<p>Updated 2019-12-09.</p>
+    <p>Updated 2020-01-27.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)

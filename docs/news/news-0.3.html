@@ -115,9 +115,9 @@
     <div id="syntactic-0-3-0-2019-09-25" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-0-2019-09-25" class="anchor"></a>syntactic 0.3.0 (2019-09-25)</h2>
-<div id="major-changes-1" class="section level3">
+<div id="major-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#major-changes-1" class="anchor"></a>Major changes</h3>
+<a href="#major-changes-2" class="anchor"></a>Major changes</h3>
 <ul>
 <li>Migrated non-character S4 methods to basejump package, to keep syntactic very lightweight and fast. Defining only the character methods here allows the package to start up very quickly, and improves shell scripting calls defined in the koopa bootloader package.</li>
 </ul>
@@ -149,9 +149,9 @@
     <div id="syntactic-0-3-3-2019-12-05" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-3-2019-12-05" class="anchor"></a>syntactic 0.3.3 (2019-12-05)</h2>
-<div id="major-changes" class="section level3">
+<div id="major-changes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#major-changes" class="anchor"></a>Major changes</h3>
+<a href="#major-changes-1" class="anchor"></a>Major changes</h3>
 <ul>
 <li>Added recursive file rename support.</li>
 </ul>
@@ -191,11 +191,29 @@
     <div id="syntactic-0-3-6-2020-01-27" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-6-2020-01-27" class="anchor"></a>syntactic 0.3.6 (2020-01-27)</h2>
+<div id="major-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#major-changes" class="anchor"></a>Major changes</h3>
+<ul>
+<li>Migrated S4 generics to acidgenerics package.</li>
+</ul>
+</div>
 <div id="minor-changes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Fix to perserve extension case (e.g. “R”, “Rmd”) for files in rename mode.</li>
+</ul>
+</div>
+<div id="deprecations" class="section level3">
+<h3 class="hasAnchor">
+<a href="#deprecations" class="anchor"></a>Deprecations</h3>
+<ul>
+<li>Deprecated <code>camel</code> in favor of <code>camelCase</code>.</li>
+<li>Deprecated <code>dotted</code> in favor of <code>dottedCase</code>.</li>
+<li>Deprecated <code>kebab</code> in favor of <code>kebabCase</code>.</li>
+<li>Deprecated <code>snake</code> in favor of <code>snakeCase</code>.</li>
+<li>Deprecated <code>upperCamel</code> in favor of <code>upperCamelCase</code>.</li>
 </ul>
 </div>
 </div>
