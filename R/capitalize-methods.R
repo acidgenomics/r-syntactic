@@ -1,19 +1,25 @@
-#' Capitalize
-#'
 #' @name capitalize
-#' @note Updated 2019-09-09.
+#' @inherit acidgenerics::capitalize
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
 #' @param strict `logical(1)`.
 #'   Enforce strict renaming of words containing multiple capital letters,
 #'   including acronyms.
 #'
-#' @return Modified object.
-#'
 #' @examples
 #' x <- c("the quick Brown fox", "using AIC for model selection")
 #' capitalize(x, strict = FALSE)
 #' capitalize(x, strict = TRUE)
+NULL
+
+
+
+#' @rdname capitalize
+#' @name capitalize
+#' @importFrom acidgenerics capitalize
+#' @usage capitalize(object, ...)
+#' @export
 NULL
 
 

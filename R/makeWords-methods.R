@@ -1,12 +1,8 @@
-#' Convert syntactic names to words separated by spaces
-#'
 #' @name makeWords
-#' @note Updated 2019-10-21.
+#' @inherit acidgenerics::makeWords
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
-#'
-#' @return `character`.
-#'   Words separated by spaces.
 #'
 #' @examples
 #' makeWords(c(
@@ -16,6 +12,15 @@
 #'     "words already",
 #'     "NASA"
 #' ))
+NULL
+
+
+
+#' @rdname makeWords
+#' @name makeWords
+#' @importFrom acidgenerics makeWords
+#' @usage makeWords(object, ...)
+#' @export
 NULL
 
 
