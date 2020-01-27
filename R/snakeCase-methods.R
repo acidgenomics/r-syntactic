@@ -87,11 +87,3 @@ setMethod(
     signature = signature("character"),
     definition = `snakeCase,character`
 )
-
-
-
-#' @rdname snakeCase
-#' @export
-snake <- function(...) {
-    snakeCase(...)  # nocov
-}

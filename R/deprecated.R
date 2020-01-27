@@ -26,6 +26,27 @@ dotted <- function(...) {
     dottedCase(...)
 }
 
+#' @rdname deprecated
+#' @export
+kebab <- function(...) {
+    .Deprecated("kebabCase")
+    kebabCase(...)
+}
+
+#' @rdname deprecated
+#' @export
+snake <- function(...) {
+    .Deprecated("snakeCase")
+    snakeCase(...)
+}
+
+#' @rdname deprecated
+#' @export
+upperCamel <- function(...) {
+    .Deprecated("upperCamelCase")
+    upperCamelCase(...)
+}
+
 
 
 ## nolint end
