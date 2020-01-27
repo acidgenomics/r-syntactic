@@ -3,9 +3,21 @@
 \name{deprecated}
 \alias{deprecated}
 \alias{camel}
+\alias{dotted}
+\alias{kebab}
+\alias{snake}
+\alias{upperCamel}
 \title{Deprecated functions}
 \usage{
 camel(...)
+
+dotted(...)
+
+kebab(...)
+
+snake(...)
+
+upperCamel(...)
 }
 \arguments{
 \item{...}{Additional arguments.}
