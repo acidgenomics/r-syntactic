@@ -28,6 +28,7 @@ Imports:
     stringi (>= 1.4),
     methods
 Suggests:
+    BiocStyle (>= 2.14),
     acidtest (>= 0.2.11),
     testthat (>= 2.3)
 Remotes:
