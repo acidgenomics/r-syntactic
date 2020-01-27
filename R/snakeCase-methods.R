@@ -24,7 +24,7 @@ NULL
 
 .snakeCase <-  # nolint
     function(x, ...) {
-        x <- dotted(x, ...)
+        x <- dottedCase(x, ...)
         x <- tolower(x)
         x <- gsub(pattern = "\\.", replacement = "_", x = x)
         x

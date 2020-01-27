@@ -22,11 +22,11 @@ NULL
 
 
 
-## Note that by calling `snake()` internally, this will handle special words
-## like "%" and "+", which we want. Refer to `dotted()` for this code.
+## Note that by calling `snakeCase()` internally, this will handle special words
+## like "%" and "+", which we want. Refer to `dottedCase()` for this code.
 .kebabCase <-  # nolint
     function(x, ...) {
-        x <- snake(x, ...)
+        x <- snakeCase(x, ...)
         x <- gsub(pattern = "_", replacement = "-", x = x)
         x
     }
