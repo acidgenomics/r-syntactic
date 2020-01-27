@@ -88,7 +88,7 @@ test_that("Rename mode (recursive)", {
         file.path(
             path,
             c(
-                "file-x.txt",
+                "file-x.TXT",
                 "level-1",
                 file.path("level-1", "file-x.txt"),
                 file.path("level-1", "level-2"),
