@@ -35,8 +35,5 @@ Remotes:
     acidgenomics/acidgenerics,
     acidgenomics/acidtest,
     acidgenomics/goalie
-biocViews:
-    DataImport,
-    Preprocessing
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
