@@ -98,3 +98,15 @@ test_that("Rename mode (recursive)", {
     )
     expect_identical(files, expected)
 })
+
+test_that("Capitalized extensions (R, Rmd)", {
+    input <- c("loadSingleCell.R", "quality-control.Rmd")
+    unlink(input)
+    file.create(input)
+    output <- kebabCase(object = input, rename = TRUE)
+    expect_identical(
+        object = basename(output),
+        expected = c("loadsinglecell.R", "quality-control.Rmd")
+    )
+    file.remove(output)
+})
