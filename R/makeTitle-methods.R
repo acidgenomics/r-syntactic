@@ -1,25 +1,23 @@
-#' Make a title out of character string
-#'
-#' Doesn't modify strings already containing a space or multi-letter acronym.
-#'
 #' @name makeTitle
-#' @note Updated 2019-10-21.
+#' @inherit acidgenerics::makeTitle
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
-#'
-#' @return `character(1)`.
-#'   British style sentence case.
-#'
-#' @seealso
-#' - [makeWords()].
-#' - [sentenceCase()].
-#' - [stringr::str_to_sentence()].
 #'
 #' @examples
 #' makeTitle("mitoVsCoding")
 #' makeTitle("log10GenesPerUMI")
 #' makeTitle("Already A Title")
 #' makeTitle("NASA")
+NULL
+
+
+
+#' @rdname makeTitle
+#' @name makeTitle
+#' @importFrom acidgenerics makeTitle
+#' @usage makeTitle(object, ...)
+#' @export
 NULL
 
 

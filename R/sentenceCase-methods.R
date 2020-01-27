@@ -1,15 +1,21 @@
-#' Sentence case
-#'
 #' @name sentenceCase
-#' @note Updated 2019-10-21.
+#' @inherit acidgenerics::sentenceCase
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
-#'
-#' @return Modified object.
 #'
 #' @examples
 #' x <- c("the quick Brown fox", "using AIC for model selection")
 #' sentenceCase(x)
+NULL
+
+
+
+#' @rdname sentenceCase
+#' @name sentenceCase
+#' @importFrom acidgenerics sentenceCase
+#' @usage sentenceCase(object, ...)
+#' @export
 NULL
 
 
