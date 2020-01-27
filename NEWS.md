@@ -1,3 +1,9 @@
+## syntactic 0.3.6 (2020-01-27)
+
+### Minor changes
+
+- Fix to perserve extension case (e.g. "R", "Rmd") for files in rename mode.
+
 ## syntactic 0.3.5 (2020-01-14)
 
 ### Minor changes
