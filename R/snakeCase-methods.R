@@ -1,18 +1,22 @@
-#' Snake case
-#'
-#' Format character strings to use snake-style formatting, where word boundaries
-#' are defined by underscores (e.g. `this_is_snake_case`).
-#'
 #' @name snakeCase
-#' @note Updated 2019-12-05.
+#' @inherit acidgenerics::snakeCase
+#' @note Updated 2020-01-27.
 #'
-#' @inherit camelCase return
 #' @inheritParams params
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
 #' object <- syntactic$character
 #' snakeCase(object)
+NULL
+
+
+
+#' @rdname snakeCase
+#' @name snakeCase
+#' @importFrom acidgenerics snakeCase
+#' @usage snakeCase(object, ...)
+#' @export
 NULL
 
 

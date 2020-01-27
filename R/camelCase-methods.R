@@ -1,19 +1,8 @@
-#' Camel case
-#'
-#' Format character strings to use (lower) camel-style formatting, where word
-#' boundaries are defined by capitlization only (e.g. `thisIsCamelCase`).
-#'
-#' Camel case is recommended by Bioconductor for variable and function names.
-#'
 #' @name camelCase
-#' @note Updated 2019-12-05.
+#' @inherit acidgenerics::camelCase
+#' @note Updated 2020-01-27.
 #'
-#' @inheritParams params
-#'
-#' @return Modified object.
-#' Contains syntatically valid names. For objects supporting
-#' [`names()`][base::names], the underlying data returns unchanged, except for
-#' `character` or `vector` class.
+#' @note
 #' Returns invisible modified file path when `rename = TRUE`.
 #' Returns invisible `NULL` when `recursive = TRUE`.
 #'
@@ -21,6 +10,15 @@
 #' data(syntactic, package = "acidtest")
 #' object <- syntactic$character
 #' camelCase(object)
+NULL
+
+
+
+#' @rdname camelCase
+#' @name camelCase
+#' @importFrom acidgenerics camelCase
+#' @usage camelCase(object, ...)
+#' @export
 NULL
 
 

@@ -1,20 +1,22 @@
-#' Dotted case
-#'
 #' @name dottedCase
-#' @note [dottedCase()] support is provided for matching against base R
-#'   parameters. However, it is recommended to avoid using it for variable
-#'   assignments into an `environment`, as that can introduce conflicts with
-#'   base functions.
-#' @note Updated 2019-12-09.
+#' @inherit acidgenerics::dottedCase
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
-#'
-#' @return Modified object, with names formatted in dotted case.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
 #' object <- syntactic$character
 #' dottedCase(object)
+NULL
+
+
+
+#' @rdname dottedCase
+#' @name dottedCase
+#' @importFrom acidgenerics dottedCase
+#' @usage dottedCase(object, ...)
+#' @export
 NULL
 
 
