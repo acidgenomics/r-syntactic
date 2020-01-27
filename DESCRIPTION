@@ -23,6 +23,7 @@ Encoding: UTF-8
 Depends: R (>= 3.6)
 Imports:
     acidbase (>= 0.1.4),
+    acidgenerics (>= 0.3.1),
     goalie (>= 0.4.1),
     stringi (>= 1.4),
     methods
@@ -31,6 +32,7 @@ Suggests:
     testthat (>= 2.3)
 Remotes:
     acidgenomics/acidbase,
+    acidgenomics/acidgenerics,
     acidgenomics/acidtest,
     acidgenomics/goalie
 biocViews:
