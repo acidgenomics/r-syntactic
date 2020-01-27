@@ -2,9 +2,7 @@
 #' @inherit acidgenerics::camelCase
 #' @note Updated 2020-01-27.
 #'
-#' @note
-#' Returns invisible modified file path when `rename = TRUE`.
-#' Returns invisible `NULL` when `recursive = TRUE`.
+#' @inheritParams params
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
