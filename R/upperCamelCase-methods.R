@@ -88,11 +88,3 @@ setMethod(
     signature = signature("character"),
     definition = `upperCamelCase,character`
 )
-
-
-
-#' @rdname upperCamelCase
-#' @export
-upperCamel <- function(...) {
-    upperCamelCase(...)  # nocov
-}
