@@ -181,11 +181,3 @@ setMethod(
     signature = signature("character"),
     definition = `dottedCase,character`
 )
-
-
-
-#' @rdname dottedCase
-#' @export
-dotted <- function(...) {
-    dottedCase(...)  # nocov
-}
