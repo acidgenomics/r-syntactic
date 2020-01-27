@@ -7,6 +7,7 @@
 #'   If `TRUE`, the resulting elements are unique. Recommended by default, for
 #'   syntactically valid names (e.g. column, row names). Note that this is
 #'   disabled by default for [`make.names()`][base::make.names].
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")

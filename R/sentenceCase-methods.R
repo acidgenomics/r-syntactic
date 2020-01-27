@@ -3,6 +3,7 @@
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' x <- c("the quick Brown fox", "using AIC for model selection")

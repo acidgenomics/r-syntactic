@@ -52,6 +52,8 @@ See \code{\link[base:make.names]{make.names()}} for details.
 
 Enabled by default for string mode, but disabled by default for rename
 mode, when applicable.}
+
+\item{...}{Additional arguments.}
 }
 \value{
 Modified object.
