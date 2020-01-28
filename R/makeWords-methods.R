@@ -1,12 +1,9 @@
-#' Convert syntactic names to words separated by spaces
-#'
 #' @name makeWords
-#' @note Updated 2019-10-21.
+#' @inherit acidgenerics::makeWords
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
-#'
-#' @return `character`.
-#'   Words separated by spaces.
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' makeWords(c(
@@ -16,6 +13,15 @@
 #'     "words already",
 #'     "NASA"
 #' ))
+NULL
+
+
+
+#' @rdname makeWords
+#' @name makeWords
+#' @importFrom acidgenerics makeWords
+#' @usage makeWords(object, ...)
+#' @export
 NULL
 
 
@@ -30,7 +36,7 @@ NULL
             modify = modify,
             FUN = function(x, modify) {
                 if (!isTRUE(modify)) return(x)
-                x <- dotted(x)
+                x <- dottedCase(x)
                 ## Convert everything but multi-letter acronyms to lowercase.
                 x <- gsub("\\b([A-Z])\\b", "\\L\\1", x, perl = TRUE)
                 x <- gsub("\\b([A-Z][a-z0-9]+)\\b", "\\L\\1", x, perl = TRUE)

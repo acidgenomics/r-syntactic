@@ -1,23 +1,23 @@
-#' Upper camel case
-#'
-#' Format character strings to use upper camel-style formatting, where word
-#' boundaries are defined by capitlization only (e.g. `ThisIsCamelCase`).
-#'
-#' Note that lower camel case is generally recommended in R over the use of
-#' upper camel case. However, upper camel case is recommended by Bioconductor
-#' for S4 class names and corresponding generators, but not variables or
-#' functions.
-#'
 #' @name upperCamelCase
-#' @note Updated 2019-12-05.
+#' @inherit acidgenerics::upperCamelCase
+#' @note Updated 2020-01-27.
 #'
-#' @inherit camelCase return
 #' @inheritParams params
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
 #' object <- syntactic$character
 #' upperCamelCase(object)
+NULL
+
+
+
+#' @rdname upperCamelCase
+#' @name upperCamelCase
+#' @importFrom acidgenerics upperCamelCase
+#' @usage upperCamelCase(object, ...)
+#' @export
 NULL
 
 
@@ -89,11 +89,3 @@ setMethod(
     signature = signature("character"),
     definition = `upperCamelCase,character`
 )
-
-
-
-#' @rdname upperCamelCase
-#' @export
-upperCamel <- function(...) {
-    upperCamelCase(...)  # nocov
-}

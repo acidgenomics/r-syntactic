@@ -1,28 +1,27 @@
-#' Make syntactically valid names
-#'
-#' For `atomic` vectors, these functions will sanitize the values. Otherwise,
-#' they will set [`names()`][base::names], [`rownames()`][base::rownames()],
-#' and/or [`colnames()`][base::colnames] without modification of the values.
-#'
 #' @name makeNames
-#' @note Sanitizes names using underscores instead of dots, the convention used
-#'   by [`make.names()`][base::make.names].
-#' @note Updated 2019-10-21.
+#' @inherit acidgenerics::makeNames
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
 #' @param unique `logical(1)`.
 #'   If `TRUE`, the resulting elements are unique. Recommended by default, for
 #'   syntactically valid names (e.g. column, row names). Note that this is
 #'   disabled by default for [`make.names()`][base::make.names].
-#'
-#' @seealso [`make.names()`][base::make.names].
-#'
-#' @return Modified object.
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
 #' object <- syntactic$character
 #' makeNames(object)
+NULL
+
+
+
+#' @rdname makeNames
+#' @name makeNames
+#' @importFrom acidgenerics makeNames
+#' @usage makeNames(object, ...)
+#' @export
 NULL
 
 

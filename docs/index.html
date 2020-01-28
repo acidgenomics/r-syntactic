@@ -45,6 +45,9 @@
   </a>
 </li>
 <li>
+  <a href="articles/syntactic.html">Get started</a>
+</li>
+<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li>
@@ -94,42 +97,6 @@
 <p>Configure <a href="https://conda.io/">conda</a> to use the <a href="https://bioconda.github.io/">bioconda</a> channels.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">conda</span> install -c bioconda r-syntactic</a></code></pre></div>
 </div>
-</div>
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
-<p><a href="https://syntactic.acidgenomics.com/">syntactic</a> improves upon the <code><a href="https://rdrr.io/r/base/make.names.html">make.names()</a></code> functionality defined in base <a href="https://www.r-project.org/">R</a>, and is designed to return syntactically valid names from biological metadata. The package exports these primary functions:</p>
-<ul>
-<li>
-<code><a href="reference/camelCase.html">camelCase()</a></code> (e.g. <code>helloWorld</code>).</li>
-<li>
-<code><a href="reference/dottedCase.html">dottedCase()</a></code> (e.g. <code>hello.world</code>).</li>
-<li>
-<code><a href="reference/snakeCase.html">snakeCase()</a></code> (e.g. <code>hello_world</code>).</li>
-<li>
-<code><a href="reference/upperCamelCase.html">upperCamelCase()</a></code> (e.g. <code>HelloWorld</code>).</li>
-</ul>
-<p>Additionally, the package exports these utility functions:</p>
-<ul>
-<li>
-<code><a href="reference/makeNames.html">makeNames()</a></code>: modified variant of <code><a href="https://rdrr.io/r/base/make.names.html">make.names()</a></code> that sanitizes using underscores instead of dots.</li>
-<li>
-<code><a href="reference/capitalize.html">capitalize()</a></code>: Capitalize the first letter of all words in a character vector.</li>
-</ul>
-<p><a href="https://syntactic.acidgenomics.com/">syntactic</a> is designed to handle many common mixed case acronyms (e.g. mRNA, RNAi), as well as decimals in names.</p>
-</div>
-<div id="related-packages" class="section level2">
-<h2 class="hasAnchor">
-<a href="#related-packages" class="anchor"></a>Related packages</h2>
-<p>If <a href="https://syntactic.acidgenomics.com/">syntactic</a> doesn’t work quite right for you, these popular packages also provide excellent sanitization support:</p>
-<ul>
-<li>
-<a href="https://cran.r-project.org/package=janitor">janitor</a> by Sam Firke.</li>
-<li>
-<a href="https://cran.r-project.org/package=lettercase">lettercase</a> by Christopher Brown.</li>
-<li>
-<a href="https://cran.r-project.org/package=snakecase">snakecase</a> by Malte Grosser.</li>
-</ul>
 </div>
 </div>
   </div>

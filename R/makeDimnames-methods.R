@@ -1,17 +1,23 @@
-#' Make syntactically valid dimnames
-#'
 #' @name makeDimnames
-#' @note Updated 2019-10-21.
+#' @inherit acidgenerics::makeDimnames
+#' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
-#'
-#' @return Modified object.
-#' Both row and columns names will be made syntactically valid.
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
 #' object <- syntactic$matrix
 #' makeDimnames(object)
+NULL
+
+
+
+#' @rdname makeDimnames
+#' @name makeDimnames
+#' @importFrom acidgenerics makeDimnames
+#' @usage makeDimnames(object, ...)
+#' @export
 NULL
 
 
