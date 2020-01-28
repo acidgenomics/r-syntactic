@@ -1,3 +1,9 @@
+## syntactic 0.3.7 (2020-01-28)
+
+### Minor changes
+
+- Switched license from MIT to GPL-3.
+
 ## syntactic 0.3.6 (2020-01-27)
 
 ### Major changes

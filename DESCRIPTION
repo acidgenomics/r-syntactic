@@ -2,7 +2,7 @@ Package: syntactic
 Title: Syntactically valid names
 Description: Make syntactically valid names out of character vectors.
 Version: 0.3.6
-Date: 2020-01-27
+Date: 2020-01-28
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -18,7 +18,7 @@ URL:
     https://syntactic.acidgenomics.com/,
     https://github.com/acidgenomics/syntactic/
 BugReports: https://github.com/steinbaugh/syntactic/issues/
-License: MIT + file LICENSE
+License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 3.6)
 Imports:
