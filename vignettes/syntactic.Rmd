@@ -9,57 +9,111 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r setup, include=FALSE, message=FALSE}
-knitr::opts_chunk$set(message = FALSE)
+```{r setup, message=FALSE}
+library(syntactic)
+data(syntactic, package = "acidtest")
+object <- syntactic$character
 ```
 
 # Introduction
 
-```{r}
-library(syntactic)
-data(syntactic, package = "acidtest")
-```
+The [syntactic][] package returns syntactically valid names from user-defined sample and other biological metadata. The package improves upon the `make.names` function defined in base R, specifically by adding smart handling of mixed case acronyms (e.g. mRNA, RNAi), decimals, and other coventions commonly used in the life sciences.
 
-syntactic improves upon the `make.names()` functionality defined in base R, and is designed to return syntactically valid names from biological metadata. The package exports these primary functions:
+The package is intended to work in two modes: string mode (default) and file rename mode.
 
-- `camelCase()` (e.g. `helloWorld`).
-- `dottedCase()` (e.g. `hello.world`).
-- `snakeCase()` (e.g. `hello_world`).
-- `upperCamelCase()` (e.g. `HelloWorld`).
+There are five primary naming functions:
 
-syntactic is designed to handle many common mixed case acronyms (e.g. mRNA, RNAi), as well as decimals in names.
+- `camelCase` (e.g. "helloWorld").
+- `dottedCase` (e.g. "hello.world"). 
+- `snakeCase` (e.g. "hello_world"). 
+- `kebabCase` (e.g. "hello-world").
+- `upperCamelCase` (e.g. "HelloWorld").
+
+# Recommended naming conventions
+
+Unsure how to name variables and/or functions in R? Here are my current recommendations, *for scientists and bioinformaticians*:
+
+- When in doubt, refer to the [Bioconductor coding style guide](https://bioconductor.org/developers/how-to/coding-style/).
+- Use `snakeCase` as your daily driver, inside of scripts and R Markdown files. This convention is always legible and consistent. Don't use this convention inside of packages, however.
+- For packages, switch to `camelCase`. Use this consistently for function names, arguments, and internal variable names. Camel case is the preferred convention for [Bioconductor][], which uses the S4 class system for object-oriented programming. S4 generics on Bioconductor are primarily named in camel case; refer to [BiocGenerics][] for details. Note that snake case is used for function names in [RStudio][] / [tidyverse][] packages, but these build on top of the S3 class system, which isn't used inside of most biological R packages.
+- `upperCamelCase` should only ever be used for S4 class definitions, such as `SummarizedExperiment`. Avoid naming functions with this convention.
+- Use `kebabCase` for file names. Dashes (hyphens) serve as consistent word boundaries across platforms, whereas underscores do not. This applies in particular to URLs. [This post](https://blog.codinghorror.com/of-spaces-underscores-and-dashes/) by Jeff Atwood explains nicely why you should use dashes instead of underscores for file names.
+- Avoid using `dottedCase` in R whenever possible. It's the original naming convention defined in R, but it's smart to instead use `snakeCase` and its convention of underscores instead. The S3 class system uses a naming convention of `generic.method`, which can get mixed up by variables containing periods (dots) in the name.
+- Valid names in R can't start with a number. This is often an issue when importing sequencing data (e.g. FASTQ files). The naming functions will add an "x" prefix in this case.
 
 # String mode
 
-`camelCase`
-`dottedCase`
-`snakeCase`
-`upperCamelCase`
+In general, stick with `snakeCase` or `camelCase` when sanitizing character strings in R.
 
-Additionally, the package exports these string utility functions:
+```{r}
+print(object)
+```
 
-- `makeNames()`: modified variant of `make.names()` that sanitizes using underscores instead of dots.
-- `capitalize()`: Capitalize the first letter of all words in a character vector.
+Use snake case formatting inside of scripts.
 
-`capitalize`
-`sentenceCase`
+```{r}
+snakeCase(object)
+```
 
-`makeNames`
-`makeDimnames` works on row and column names for a matrix or data frame.
+We recommend using camel case inside of packages. The syntactic package offers two variants: relaxed (default) or strict mode. We prefer relaxed mode for function names, which generally returns acronyms (e.g. ID) more legibly.
 
-Plot utilities:
+```{r}
+camelCase(object, strict = FALSE)
+```
 
-`makeLabel`
-`makeTitle`
-`makeWords`
+If you're more old school and prefer using strict camel conventions, that's also an option.
+
+```{r}
+camelCase(object, strict = TRUE)
+```
+
+Here's the default convention in R, for comparison:
+
+```{r}
+make.names(object)
+```
+
+Additionally, the package exports these string functions:
+
+- `capitalize()`: Capitalize the first letter of all words in a string.
+- `sentenceCase`: Convert a string into sentence case.
+- `makeNames()`: A modern variant of `make.names()` that sanitizes using underscores instead of dots.
 
 # File rename mode
 
-`snakeCase`.
-`kebabCase`.
+The package also supports file name sanitization, using the `rename = TRUE` argument for supported functions. This currently includes `kebabCase` (recommended), `snakeCase`, and `camelCase`.
 
-`camelCase` and `upperCamelCase` are also supported, but not generally recommended for file names.
+Here's an example of how to quickly rename files on disk into kebab case:
 
+```{r}
+input <- c(
+    "mRNA Extraction.pdf",
+    "inDrops v3 Library Prep.pdf"
+)
+invisible(file.create(input))
+output <- kebabCase(input, rename = TRUE)
+basename(output)
+invisible(file.remove(output))
+```
+
+File names containing a prefix that is considered illegal in R can be allowed, which is often useful for sequencing data:
+
+```{r}
+input <- paste0(seq(4), "_sample_", LETTERS[seq(4)], ".fastq.gz")
+print(input)
+invisible(file.create(input))
+output <- kebabCase(input, rename = TRUE, prefix = FALSE)
+basename(output)
+invisible(file.remove(output))
+```
+
+Recursion inside of directories is supported using the `recursive = TRUE` argument.
+
+Our [koopa][] shell bootloader uses these functions internally for quick interactive file renaming. In that package, refer to `kebab-case`, `snake-case`, and/or `camel-case` documentation for details.
+
+# Additional methods
+
+The syntactic package only contains S4 methods defined for `character` vectors, to keep the package lightweight with few dependencies. Additional S4 methods for Bioconductor classes, including `DataFrame`, `GenomicRanges`, and `SummarizedExperiment`, are defined in the [basejump][] package.
 
 # Related packages
 
@@ -76,10 +130,15 @@ utils::sessionInfo()
 ```
 
 [basejump]: https://basejump.acidgenomics.com/
+[biocgenerics]: https://bioconductor.org/packages/BiocGenerics/
 [bioconda]: https://bioconda.github.io/
+[bioconductor]: http://bioconductor.org/
 [conda]: https://conda.io/
 [janitor]: https://cran.r-project.org/package=janitor
+[koopa]: https://koopa.acidgenomics.com/
 [lettercase]: https://cran.r-project.org/package=lettercase
 [r]: https://www.r-project.org/
+[rstudio]: https://rstudio.com/
 [snakecase]: https://cran.r-project.org/package=snakecase
 [syntactic]: https://syntactic.acidgenomics.com/
+[tidyverse]: https://www.tidyverse.org/
