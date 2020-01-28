@@ -68,7 +68,9 @@
     } else {
         lower <- TRUE
     }
-    fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = FALSE)
+    ## Since we're reexporting the S4 generics from acidgenerics, we must
+    ## inherit here, otherwise the function will fail.
+    fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = TRUE)
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
     if (isTRUE(recursive)) {
         from <- .recursive(path)
@@ -126,7 +128,7 @@
                 ok <- file.rename(from = tmpTo, to = to)
                 ## nocov end
             } else {
-                ok <- file.rename(from = from, to = to)
+                ok <- file.rename(from = from, to = to)  # nocov
             }
             assert(file.exists(to), ok)
             to

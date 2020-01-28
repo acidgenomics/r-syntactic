@@ -1,20 +1,9 @@
-#' Kebab case
-#'
-#' Format character strings to use kebab-style formatting, where word boundaries
-#' are defined by dashes/hyphens (e.g. `this-is-kebab-case`).
-#'
-#' Kebab case is recommended for URL slugs and file names. However, they should
-#' not be used for names in R, since dashes are not valid, and should be
-#' substituted with underscores or periods instead.
-#'
 #' @name kebabCase
-#' @note We're not including the additional S4 methods that work on
-#' [`names()`][base::names] and/or [`dimnames()`][base::dimnames] because dashes
-#' are not syntactically valid for names in R.
-#' @note Updated 2019-12-05.
+#' @inherit acidgenerics::kebabCase
+#' @note Updated 2020-01-27.
 #'
-#' @inherit camelCase return
 #' @inheritParams params
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
@@ -24,11 +13,20 @@ NULL
 
 
 
-## Note that by calling `snake()` internally, this will handle special words
-## like "%" and "+", which we want. Refer to `dotted()` for this code.
+#' @rdname kebabCase
+#' @name kebabCase
+#' @importFrom acidgenerics kebabCase
+#' @usage kebabCase(object, ...)
+#' @export
+NULL
+
+
+
+## Note that by calling `snakeCase()` internally, this will handle special words
+## like "%" and "+", which we want. Refer to `dottedCase()` for this code.
 .kebabCase <-  # nolint
     function(x, ...) {
-        x <- snake(x, ...)
+        x <- snakeCase(x, ...)
         x <- gsub(pattern = "_", replacement = "-", x = x)
         x
     }
@@ -77,11 +75,3 @@ setMethod(
     signature = signature("character"),
     definition = `kebabCase,character`
 )
-
-
-
-#' @rdname kebabCase
-#' @export
-kebab <- function(...) {
-    kebabCase(...)  # nocov
-}

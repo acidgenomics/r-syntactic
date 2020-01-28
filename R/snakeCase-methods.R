@@ -1,13 +1,9 @@
-#' Snake case
-#'
-#' Format character strings to use snake-style formatting, where word boundaries
-#' are defined by underscores (e.g. `this_is_snake_case`).
-#'
 #' @name snakeCase
-#' @note Updated 2019-12-05.
+#' @inherit acidgenerics::snakeCase
+#' @note Updated 2020-01-27.
 #'
-#' @inherit camelCase return
 #' @inheritParams params
+#' @param ... Additional arguments.
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
@@ -17,9 +13,18 @@ NULL
 
 
 
+#' @rdname snakeCase
+#' @name snakeCase
+#' @importFrom acidgenerics snakeCase
+#' @usage snakeCase(object, ...)
+#' @export
+NULL
+
+
+
 .snakeCase <-  # nolint
     function(x, ...) {
-        x <- dotted(x, ...)
+        x <- dottedCase(x, ...)
         x <- tolower(x)
         x <- gsub(pattern = "\\.", replacement = "_", x = x)
         x
@@ -83,11 +88,3 @@ setMethod(
     signature = signature("character"),
     definition = `snakeCase,character`
 )
-
-
-
-#' @rdname snakeCase
-#' @export
-snake <- function(...) {
-    snakeCase(...)  # nocov
-}
