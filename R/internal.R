@@ -45,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2020-01-27.
+#' @note Updated 2020-02-02.
 #' @noRd
 #'
 #' @examples
@@ -54,6 +54,7 @@
     path,
     recursive = FALSE,
     smart = TRUE,
+    strict = FALSE,  # camelCase only
     fun,
     ...
 ) {
@@ -70,7 +71,11 @@
     }
     ## Since we're reexporting the S4 generics from acidgenerics, we must
     ## inherit here, otherwise the function will fail.
-    fun <- get(x = fun, envir = asNamespace("syntactic"), inherits = TRUE)
+    FUN <- get(  # nolint
+        x = fun,
+        envir = asNamespace("syntactic"),
+        inherits = TRUE
+    )
     insensitive <- !isTRUE(isFileSystemCaseSensitive())
     if (isTRUE(recursive)) {
         from <- .recursive(path)
@@ -100,12 +105,16 @@
                     x = stem
                 )
             }
-            stem <- fun(
+            args <- list(
                 object = stem,
                 rename = FALSE,
                 smart = smart,
                 ...
             )
+            if (fun == "camelCase") {
+                args[["strict"]] <- strict
+            }
+            stem <- do.call(what = FUN, args = args)
             ## Add back extension if necessary. Note that this handles both
             ## files without an extension and directories in the call.
             if (!is.na(ext)) {
