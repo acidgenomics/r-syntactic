@@ -1,7 +1,9 @@
-## syntactic 0.3.7 (2020-01-28)
+## syntactic 0.3.7 (2020-02-02)
 
 ### Minor changes
 
+- `camelCase`: Bug fix for `strict = TRUE` not working as expected in rename
+  mode (`rename = TRUE`).
 - Switched license from MIT to GPL-3.
 
 ## syntactic 0.3.6 (2020-01-27)
