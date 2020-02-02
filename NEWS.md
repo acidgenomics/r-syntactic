@@ -5,6 +5,7 @@
 - `camelCase`: Bug fix for `strict = TRUE` not working as expected in rename
   mode (`rename = TRUE`).
 - Switched license from MIT to GPL-3.
+- Renamed package title to conform to CRAN requirements.
 
 ## syntactic 0.3.6 (2020-01-27)
 
