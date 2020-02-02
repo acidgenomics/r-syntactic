@@ -1,5 +1,5 @@
 Package: syntactic
-Title: Syntactically valid names
+Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
 Version: 0.3.7
 Date: 2020-02-02
