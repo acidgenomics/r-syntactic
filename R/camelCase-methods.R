@@ -101,6 +101,7 @@ NULL
                 recursive = recursive,
                 fun = "camelCase",
                 smart = smart,
+                strict = strict,
                 prefix = prefix
             )
             return(invisible(path))
