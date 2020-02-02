@@ -147,3 +147,20 @@ test_that("X handling in prefix mode", {
         )
     )
 })
+
+test_that("Strict rename mode", {
+    input <- "helloWORLD"
+    expected <- "helloWorld"
+    unlink(input)
+    file.create(input)
+    expect_identical(
+        object = camelCase(input, rename = FALSE, strict = TRUE),
+        expected = expected
+    )
+    output <- camelCase(input, rename = TRUE, strict = TRUE)
+    expect_identical(
+        object = basename(output),
+        expected = expected
+    )
+    unlink(output)
+})
