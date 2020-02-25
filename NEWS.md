@@ -1,3 +1,10 @@
+## syntactic 0.3.8 (2020-02-25)
+
+### Minor changes
+
+- Rename mode now includes a helpful message showing the original file name
+  and modified target name. This convention matches Perl File::Rename module.
+
 ## syntactic 0.3.7 (2020-02-02)
 
 ### Minor changes
