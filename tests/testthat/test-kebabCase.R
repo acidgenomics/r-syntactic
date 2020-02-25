@@ -39,7 +39,14 @@ test_that("Rename mode", {
     unlink(topdir, recursive = TRUE)
     topdir <- initDir(topdir)
     dirs <- file.path(topdir, c("aaa_bbb", "ccc_ddd"))
-    files <- file.path(topdir, c("1_sample_A.fastq.gz", "hello_world.txt"))
+    files <- file.path(
+        topdir,
+        c(
+            "1_sample_A.fastq.gz",
+            "2.sample.B.fastq.gz",
+            "hello_world.txt"
+        )
+    )
     input <- c(files, dirs)
     lapply(dirs, dir.create, recursive = TRUE)
     file.create(files)
@@ -50,6 +57,7 @@ test_that("Rename mode", {
             topdir,
             c(
                 "1-sample-a.fastq.gz",
+                "2-sample-b.fastq.gz",
                 "hello-world.txt",
                 "aaa-bbb",
                 "ccc-ddd"
