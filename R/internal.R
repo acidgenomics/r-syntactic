@@ -45,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2020-02-02.
+#' @note Updated 2020-02-24.
 #' @noRd
 #'
 #' @examples
@@ -126,6 +126,7 @@
             if (identical(from, to)) {
                 return(from)
             }
+            message(paste0("Renaming '", from, "' to '", to, "'."))
             if (isTRUE(insensitive)) {
                 ## nocov start
                 tmpTo <- file.path(
