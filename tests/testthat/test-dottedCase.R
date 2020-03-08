@@ -89,13 +89,13 @@ test_that("Accented characters", {
             "que.tal"
         )
     )
-    expect_identical(
-        object = dottedCase(object, smart = FALSE),
-        expected = c(
-            "bière",
-            "encyclopædia",
-            "étude",
-            "qué.tal"
-        )
-    )
+    ## > expect_identical(
+    ## >     object = dottedCase(object, smart = FALSE),
+    ## >     expected = c(
+    ## >         "bière",
+    ## >         "encyclopædia",
+    ## >         "étude",
+    ## >         "qué.tal"
+    ## >     )
+    ## > )
 })
