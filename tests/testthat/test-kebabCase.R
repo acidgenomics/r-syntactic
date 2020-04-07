@@ -118,3 +118,15 @@ test_that("Capitalized extensions (R, Rmd)", {
     )
     file.remove(output)
 })
+
+test_that("File prefixed with '_'", {
+    input <- "_test.txt"
+    unlink(input)
+    file.create(input)
+    output <- kebabCase(object = input, rename = TRUE)
+    expect_identical(
+        object = basename(input),
+        expected = basename(output)
+    )
+    file.remove(output)
+})

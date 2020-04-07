@@ -91,7 +91,7 @@
             stem <- basenameSansExt(from)
             ## Skip on files prefixed with "_", such as `_pkgdown.yml`.
             if (isTRUE(grepl(pattern = "^_", x = stem))) {
-                cli_alert_warning(sprintf("Skipping '%s'.", from))
+                message(sprintf("Skipping '%s'.", from))
                 return(from)
             }
             if (isTRUE(smart)) {
