@@ -1,3 +1,10 @@
+## syntactic 0.3.9 (2020-04-07)
+
+### Minor changes
+
+- Rename mode now checks for "_" prefix and will skip the file rename. This is
+  particularly useful for avoiding issues with files such as `_pkgdown.yml`.
+
 ## syntactic 0.3.8 (2020-02-25)
 
 ### Minor changes
