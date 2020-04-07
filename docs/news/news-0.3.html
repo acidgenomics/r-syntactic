@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -55,7 +59,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.9</span>
       </span>
     </div>
 
@@ -93,7 +97,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/acidgenomics/syntactic">
+  <a href="https://github.com/steinbaugh/syntactic/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -111,7 +115,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small>0.3</small></h1>
+      <h1 data-toc-skip>Changelog <small>0.3</small></h1>
       
     </div>
 
@@ -129,12 +133,12 @@
     <div id="syntactic-0-3-1-2019-10-08" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-1-2019-10-08" class="anchor"></a>syntactic 0.3.1 (2019-10-08)</h2>
-<div id="minor-changes-6" class="section level3">
+<div id="minor-changes-7" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-6" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-7" class="anchor"></a>Minor changes</h3>
 <ul>
-<li>Now allowing <code>prefix = FALSE</code> for <code>camelCase</code>, <code>dottedCase</code>, <code>kebabCase</code>, <code>snakeCase</code>, and <code>upperCamelCase</code>. This override allows the user to disable automatic “X” prefix defined by <code>make.names</code> internally for input that begins with a syntactically invalid character, such as a number (R-specific) or a non-alphanumeric. We’re now allowing this override so we can pass to new <code>camel-case</code>, <code>kebab-case</code>, and <code>snake-case</code> shell scripts defined in <a href="https://koopa.acidgenomics.com/">koopa</a>.</li>
-<li>Also now allowing <code>smart = FALSE</code>, which disables smart mode handling of mixed case acronyms (e.g. “RNAi”, “mRNA”), numeric delims/decimals (“,” “.”), special characters that can represent words (“+”/“-”; plus/minus), etc. Enabled by default and strongly recommended. Added a new override mode for some edge cases with our new shell methods defined in koopa.</li>
+<li>Now allowing <code>prefix = FALSE</code> for <code>camelCase</code>, <code>dottedCase</code>, <code>kebabCase</code>, <code>snakeCase</code>, and <code>upperCamelCase</code>. This override allows the user to disable automatic âXâ prefix defined by <code>make.names</code> internally for input that begins with a syntactically invalid character, such as a number (R-specific) or a non-alphanumeric. Weâre now allowing this override so we can pass to new <code>camel-case</code>, <code>kebab-case</code>, and <code>snake-case</code> shell scripts defined in <a href="https://koopa.acidgenomics.com/">koopa</a>.</li>
+<li>Also now allowing <code>smart = FALSE</code>, which disables smart mode handling of mixed case acronyms (e.g. âRNAiâ, âmRNAâ), numeric delims/decimals (â,â â.â), special characters that can represent words (â+â/â-â; plus/minus), etc. Enabled by default and strongly recommended. Added a new override mode for some edge cases with our new shell methods defined in koopa.</li>
 <li>Migrated character code coverage methods back here from basejump.</li>
 <li>Simplifed code coverage, removing usage of parameterized tests that depend on patrick package.</li>
 </ul>
@@ -146,7 +150,7 @@
 <p>File rename mode support.</p>
 <p><code>camelCase</code>, <code>kebabCase</code>, <code>snakeCase</code>, and <code>upperCamelCase</code> now support file rename mode (<code>rename = TRUE</code>). This works on either case-sensitive (Linux) or case-insensitive (macOS, Windows) file systems. Files and directories are supported, including files outside of the current working directory.</p>
 <p>I recommend using either <code>kebabCase</code> or <code>snakeCase</code> for files.</p>
-<p>When renaming with files beginning with a number, <code>prefix = TRUE</code> will prefix the file with an “x”, similar to the behavior in <code>make.names</code>. This can be disabled by setting<code>prefix = FALSE</code>. Smart acronyms and other features can also be disabled by setting <code>smart = FALSE</code>.</p>
+<p>When renaming with files beginning with a number, <code>prefix = TRUE</code> will prefix the file with an âxâ, similar to the behavior in <code>make.names</code>. This can be disabled by setting<code>prefix = FALSE</code>. Smart acronyms and other features can also be disabled by setting <code>smart = FALSE</code>.</p>
 <p>This code will be called internally in the upcoming <a href="https://koopa.acidgenomics.com/">koopa</a> update.</p>
 </div>
     <div id="syntactic-0-3-3-2019-12-05" class="section level2">
@@ -159,11 +163,11 @@
 <li>Added recursive file rename support.</li>
 </ul>
 </div>
-<div id="minor-changes-5" class="section level3">
+<div id="minor-changes-6" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-5" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-6" class="anchor"></a>Minor changes</h3>
 <ul>
-<li>Improved handling of " - “, avoiding return of”minus" in file rename mode.</li>
+<li>Improved handling of " - â, avoiding return ofâminus" in file rename mode.</li>
 <li>File extension is automatically converted to lowercase when applicable.</li>
 </ul>
 </div>
@@ -171,9 +175,9 @@
     <div id="syntactic-0-3-4-2019-12-08" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-4-2019-12-08" class="anchor"></a>syntactic 0.3.4 (2019-12-08)</h2>
-<div id="minor-changes-4" class="section level3">
+<div id="minor-changes-5" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-5" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Fixed expected handling of file rename mode on case insensitive file systems. Had to rework the internal code to loop across the files and directories, using an <code>apply</code> call internally.</li>
 </ul>
@@ -182,11 +186,11 @@
     <div id="syntactic-0-3-5-2020-01-14" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-5-2020-01-14" class="anchor"></a>syntactic 0.3.5 (2020-01-14)</h2>
-<div id="minor-changes-3" class="section level3">
+<div id="minor-changes-4" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-4" class="anchor"></a>Minor changes</h3>
 <ul>
-<li>Syntactic naming functions now check for “&amp;” and convert to “and”. This behavior can be disabled by setting <code>smart = FALSE</code>.</li>
+<li>Syntactic naming functions now check for â&amp;â and convert to âandâ. This behavior can be disabled by setting <code>smart = FALSE</code>.</li>
 <li>Accented characters are now coerced to plain letters by default internally via <code><a href="https://rdrr.io/pkg/stringi/man/stri_trans_general.html">stringi::stri_trans_general</a></code>. This behavior can be disabled by setting <code>smart = FALSE</code>.</li>
 </ul>
 </div>
@@ -201,11 +205,11 @@
 <li>Migrated S4 generics to acidgenerics package.</li>
 </ul>
 </div>
-<div id="minor-changes-2" class="section level3">
+<div id="minor-changes-3" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-3" class="anchor"></a>Minor changes</h3>
 <ul>
-<li>Fix to perserve extension case (e.g. “R”, “Rmd”) for files in rename mode.</li>
+<li>Fix to perserve extension case (e.g. âRâ, âRmdâ) for files in rename mode.</li>
 </ul>
 </div>
 <div id="deprecations" class="section level3">
@@ -223,9 +227,9 @@
     <div id="syntactic-0-3-7-2020-02-02" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-7-2020-02-02" class="anchor"></a>syntactic 0.3.7 (2020-02-02)</h2>
-<div id="minor-changes-1" class="section level3">
+<div id="minor-changes-2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-2" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>
 <code>camelCase</code>: Bug fix for <code>strict = TRUE</code> not working as expected in rename mode (<code>rename = TRUE</code>).</li>
@@ -237,31 +241,31 @@
     <div id="syntactic-0-3-8-2020-02-25" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0-3-8-2020-02-25" class="anchor"></a>syntactic 0.3.8 (2020-02-25)</h2>
-<div id="minor-changes" class="section level3">
+<div id="minor-changes-1" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-1" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Rename mode now includes a helpful message showing the original file name and modified target name. This convention matches Perl <a href="File::Rename" class="uri">File::Rename</a> module.</li>
 </ul>
 </div>
 </div>
+    <div id="syntactic-0-3-9-2020-04-07" class="section level2">
+<h2 class="hasAnchor">
+<a href="#syntactic-0-3-9-2020-04-07" class="anchor"></a>syntactic 0.3.9 (2020-04-07)</h2>
+<div id="minor-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>Rename mode now checks for "_" prefix and will skip the file rename. This is particularly useful for avoiding issues with files such as <code>_pkgdown.yml</code>.</li>
+</ul>
+</div>
+</div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#syntactic-0-3-0-2019-09-25">0.3.0</a></li>
-        <li><a href="#syntactic-0-3-1-2019-10-08">0.3.1</a></li>
-        <li><a href="#syntactic-0-3-2-2019-10-22">0.3.2</a></li>
-        <li><a href="#syntactic-0-3-3-2019-12-05">0.3.3</a></li>
-        <li><a href="#syntactic-0-3-4-2019-12-08">0.3.4</a></li>
-        <li><a href="#syntactic-0-3-5-2020-01-14">0.3.5</a></li>
-        <li><a href="#syntactic-0-3-6-2020-01-27">0.3.6</a></li>
-        <li><a href="#syntactic-0-3-7-2020-02-02">0.3.7</a></li>
-        <li><a href="#syntactic-0-3-8-2020-02-25">0.3.8</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -273,7 +277,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
 </div>
 
       </footer>
