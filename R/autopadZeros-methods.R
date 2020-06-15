@@ -38,11 +38,8 @@ NULL
 NULL
 
 
+
 ## FIXME Add integer method support here.
-
-
-## FIXME Need to support integer string input here better.
-## FIXME Need to import stringr now.
 
 
 
@@ -76,7 +73,7 @@ NULL
                 "Returning unmodified."
             ))
             return(object)
-        else {
+        } else {
             ## Early return if no padding is necessary.
             return(object)
         }
