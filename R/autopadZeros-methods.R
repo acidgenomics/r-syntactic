@@ -12,12 +12,6 @@
 #' - `stringr::str_pad`.
 #'
 #' @examples
-#' data(
-#'     RangedSummarizedExperiment,
-#'     SingleCellExperiment,
-#'     package = "acidtest"
-#' )
-#'
 #' ## integer ====
 #' autopadZeros(c(1L, 10L, 100L))
 #'
