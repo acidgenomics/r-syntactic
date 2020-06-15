@@ -1,3 +1,11 @@
+## syntactic 0.3.10 (2020-06-15)
+
+### New functions
+
+- `autopadZeros`: Migrated character method previously defined in basejump.
+  Also defined support for integer class objects. Improved padding support
+  of integer strings and hardened function against partial padding matches.
+
 ## syntactic 0.3.9 (2020-04-07)
 
 ### Minor changes
