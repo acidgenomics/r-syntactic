@@ -2,10 +2,13 @@
 % Please edit documentation in R/autopadZeros-methods.R
 \name{autopadZeros}
 \alias{autopadZeros}
+\alias{autopadZeros,integer-method}
 \alias{autopadZeros,character-method}
 \title{Autopad zeros}
 \usage{
 autopadZeros(object, ...)
+
+\S4method{autopadZeros}{integer}(object)
 
 \S4method{autopadZeros}{character}(object)
 }
@@ -38,4 +41,9 @@ autopadZeros(c(1L, 10L, 100L))
 autopadZeros(c("1-EV-DMSO", "10-EV-DMSO", "2-EV-DMSO-B"))
 ## Right side.
 autopadZeros(c("A1", "B10", "C100"))
+}
+\seealso{
+\itemize{
+\item \code{stringr::str_pad}.
+}
 }
