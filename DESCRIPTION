@@ -26,6 +26,7 @@ Imports:
     acidgenerics (>= 0.3.6),
     goalie (>= 0.4.4),
     stringi (>= 1.4.6),
+    stringr (>= 1.4.0),
     methods
 Suggests:
     BiocStyle (>= 2.14),
