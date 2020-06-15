@@ -39,7 +39,25 @@ NULL
 
 
 
-## FIXME Add integer method support here.
+## Updated 2020-06-15.
+`autopadZeros,integer` <-  # nolint
+    function(object) {
+        names <- names(object)
+        object <- as.character(object)
+        object <- autopadZeros(object)
+        names(object) <- names
+        object
+    }
+
+
+
+#' @rdname autopadZeros
+#' @export
+setMethod(
+    f = "autopadZeros",
+    signature = signature("integer"),
+    definition = `autopadZeros,integer`
+)
 
 
 
@@ -47,7 +65,6 @@ NULL
 `autopadZeros,character` <-  # nolint
     function(object) {
         x <- unname(object)
-        ## Detect if we need to pad the left or right side automatically.
         int <- FALSE
         intPattern <- "^([[:digit:]]+)$"
         leftPattern <- "^([[:digit:]]+)(.+)$"
@@ -61,20 +78,18 @@ NULL
             side <- "right"
             pattern <- rightPattern
         } else if (
-            ## Return unmodified with CLI warning on partial match.
             any(c(
                 isMatchingRegex(x = x, pattern = intPattern),
                 isMatchingRegex(x = x, pattern = leftPattern),
                 isMatchingRegex(x = x, pattern = rightPattern)
             ))
         ) {
-            cli_alert_warning(paste(
-                "Unable to determine correct padding.",
-                "Returning unmodified."
+            stop(paste(
+                "Partial padding match detected.",
+                printString(x),
+                sep = "\n"
             ))
-            return(object)
         } else {
-            ## Early return if no padding is necessary.
             return(object)
         }
         if (isTRUE(int)) {
