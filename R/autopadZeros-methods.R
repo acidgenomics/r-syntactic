@@ -8,6 +8,9 @@
 #'
 #' @return `character`.
 #'
+#' @seealso
+#' - `stringr::str_pad`.
+#'
 #' @examples
 #' data(
 #'     RangedSummarizedExperiment,
@@ -35,38 +38,70 @@ NULL
 NULL
 
 
+## FIXME Add integer method support here.
 
-## Updated 2019-09-05.
+
+## FIXME Need to support integer string input here better.
+## FIXME Need to import stringr now.
+
+
+
+## Updated 2020-06-15.
 `autopadZeros,character` <-  # nolint
     function(object) {
         x <- unname(object)
         ## Detect if we need to pad the left or right side automatically.
+        int <- FALSE
+        intPattern <- "^([[:digit:]]+)$"
         leftPattern <- "^([[:digit:]]+)(.+)$"
         rightPattern <- "^([^0-9]+)([[:digit:]]+)$"
-        if (allAreMatchingRegex(x = x, pattern = leftPattern)) {
+        if (allAreMatchingRegex(x = x, pattern = intPattern)) {
+            int <- TRUE
+        } else if (allAreMatchingRegex(x = x, pattern = leftPattern)) {
             side <- "left"
             pattern <- leftPattern
         } else if (allAreMatchingRegex(x = x, pattern = rightPattern)) {
             side <- "right"
             pattern <- rightPattern
-        } else {
+        } else if (
+            ## Return unmodified with CLI warning on partial match.
+            any(c(
+                isMatchingRegex(x = x, pattern = intPattern),
+                isMatchingRegex(x = x, pattern = leftPattern),
+                isMatchingRegex(x = x, pattern = rightPattern)
+            ))
+        ) {
+            cli_alert_warning(paste(
+                "Unable to determine correct padding.",
+                "Returning unmodified."
+            ))
+            return(object)
+        else {
             ## Early return if no padding is necessary.
             return(object)
         }
-        match <- str_match(string = x, pattern = pattern)
-        if (identical(side, "left")) {
-            colnames(match) <- c("string", "num", "stem")
-        } else if (identical(side, "right")) {
-            colnames(match) <- c("string", "stem", "num")
+        if (isTRUE(int)) {
+            num <- x
+        } else {
+            match <- str_match(string = x, pattern = pattern)
+            if (identical(side, "left")) {
+                colnames(match) <- c("string", "num", "stem")
+            } else if (identical(side, "right")) {
+                colnames(match) <- c("string", "stem", "num")
+            }
+            num <- match[, "num"]
         }
-        num <- match[, "num"]
         width <- max(str_length(num))
         num <- str_pad(string = num, width = width, side = "left", pad = "0")
-        stem <- match[, "stem"]
-        if (identical(side, "left")) {
-            x <- paste0(num, stem)
-        } else if (identical(side, "right")) {
-            x <- paste0(stem, num)
+        if (isTRUE(int)) {
+            x <- num
+        } else {
+            stem <- match[, "stem"]
+            if (identical(side, "left")) {
+                x <- paste0(num, stem)
+            } else if (identical(side, "right")) {
+                x <- paste0(stem, num)
+            }
         }
         names(x) <- names(object)
         x
