@@ -27,7 +27,7 @@ NULL
 
 ## Updated 2020-07-08.
 `makeNames,character` <-  # nolint
-    function(object, unique = TRUE) {
+    function(object, smart = TRUE, unique = TRUE) {
         assert(isFlag(unique))
         x <- as.character(object)
         ## Error on empty strings, but allow passthrough of NA.
@@ -36,15 +36,64 @@ NULL
         x <- stri_trans_general(str = x, id = "Latin-ASCII")
         ## Lowercase mu (micro) is an edge case.
         x <- gsub(pattern = "µ", replacement = "u", x = x)
-        ## Sanitize using base R conventions.
-        x <- make.names(names = x, unique = unique, allow_ = TRUE)
-        x <- gsub(pattern = "\\.", replacement = "_", x = x)
+        if (isTRUE(smart)) {
+            ## Handle "&" as a special case. Spell out as "and".
+            x <- gsub(
+                pattern = "\\&",
+                replacement = "_and_",
+                x = x
+            )
+            ## Handle "+" as a special case. Spell out as "plus".
+            x <- gsub(
+                pattern = "\\+",
+                replacement = "_plus_",
+                x = x
+            )
+            ## Handle "-" as a special case. Spell out as "minus".
+            x <- gsub(
+                pattern = "-[[:space:]]",
+                replacement = "_minus_",
+                x = x
+            )
+            x <- gsub(
+                pattern = "^(.+)-$",
+                replacement = "\\1_minus",
+                x = x
+            )
+            ## Handle "/" as a special case. Spell out as "slash".
+            x <- gsub(
+                pattern = "/",
+                replacement = "_slash_",
+                x = x
+            )
+            ## Handle "%" as a special case. Spell out as "percent".
+            x <- gsub(
+                pattern = "%",
+                replacement = "_percent_",
+                x = x
+            )
+            ## Strip comma delims in between numbers (e.g. 1,000,000).
+            x <- gsub(
+                pattern = "(\\d),(\\d)",
+                replacement = "\\1\\2",
+                x = x
+            )
+        }
         ## Ensure all non-alphanumeric characters get coerced to underscores.
         x <- gsub(
             pattern = "[^[:alnum:]]",
             replacement = "_",
             x = x
         )
+        ## Strip leading or trailing underscores.
+        x <- gsub(
+            pattern = "(^_|_$)",
+            replacement = "",
+            x = x
+        )
+        ## Sanitize using base R conventions.
+        x <- make.names(names = x, unique = unique, allow_ = TRUE)
+        x <- gsub(pattern = "\\.", replacement = "_", x = x)
         ## Combine multiple underscores.
         x <- gsub(
             pattern = "[_]+",
