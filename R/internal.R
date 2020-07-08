@@ -160,10 +160,12 @@
 
 
 
-## Updated 2019-07-19.
+## Updated 2019-07-08.
 .sanitizeAcronyms <- function(x) {
     assert(is.atomic(x))
     x <- as.character(x)
+    ## Note that underscores are not considered a word boundary.
+    x <- gsub(pattern = "_", replacement = ".", x = x)
     ## Identifier variants (e.g. "Id" to "ID").
     x <- gsub(
         pattern = "\\b(id)\\b",
@@ -204,6 +206,93 @@
     x <- gsub(
         pattern = "\\b(EtOH)\\b",
         replacement = "Etoh",
+        x = x
+    )
+    ## Return.
+    x <- gsub(pattern = "\\.", replacement = "_", x = x)
+    x
+}
+
+
+
+## Used internally to hand off to camel, dotted, and snake case.
+## Updated 2020-07-08.
+.syntactic <- function(x, smart = TRUE, prefix = TRUE) {
+    assert(
+        is.atomic(x),
+        isFlag(smart),
+        isFlag(prefix)
+    )
+    if (isTRUE(smart)) {
+        ## Handle "&" as a special case. Spell out as "and".
+        x <- gsub(
+            pattern = "\\&",
+            replacement = "_and_",
+            x = x
+        )
+        ## Handle "+" as a special case. Spell out as "plus".
+        x <- gsub(
+            pattern = "\\+",
+            replacement = "_plus_",
+            x = x
+        )
+        ## Handle "-" as a special case. Spell out as "minus".
+        x <- gsub(
+            pattern = "-[[:space:]]",
+            replacement = "_minus_",
+            x = x
+        )
+        x <- gsub(
+            pattern = "^(.+)-$",
+            replacement = "\\1_minus",
+            x = x
+        )
+        ## Handle "/" as a special case. Spell out as "slash".
+        x <- gsub(
+            pattern = "/",
+            replacement = "_slash_",
+            x = x
+        )
+        ## Handle "%" as a special case. Spell out as "percent".
+        x <- gsub(
+            pattern = "%",
+            replacement = "_percent_",
+            x = x
+        )
+        ## Strip comma delims in between numbers (e.g. 1,000,000).
+        x <- gsub(
+            pattern = "(\\d),(\\d)",
+            replacement = "\\1\\2",
+            x = x
+        )
+    }
+    x <- makeNames(x, unique = FALSE)
+    if (isTRUE(smart)) {
+        ## Standardize any mixed case acronyms.
+        x <- .sanitizeAcronyms(x)
+    }
+    ## Include "X" prefix by default, but allowing manual disable, so we
+    ## can pass to our shell scripts defined in koopa package.
+    if (identical(prefix, FALSE)) {
+        x <- gsub(
+            pattern = "^X([^[:alpha:]])",
+            replacement = "\\1",
+            x = x,
+            ignore.case = TRUE
+        )
+    }
+    ## Establish word boundaries for camelCase acronyms
+    ## (e.g. `worfdbHTMLRemap` -> `worfdb_HTML_remap`).
+    ## Acronym following a word.
+    x <- gsub(
+        pattern = "([a-z])([A-Z])",
+        replacement = "\\1_\\2",
+        x = x
+    )
+    ## Word following an acronym.
+    x <- gsub(
+        pattern = "([A-Z0-9])([A-Z])([a-z])",
+        replacement = "\\1_\\2\\3",
         x = x
     )
     ## Return.
