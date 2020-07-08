@@ -8,12 +8,16 @@
 \usage{
 makeNames(object, ...)
 
-\S4method{makeNames}{character}(object, unique = TRUE)
+\S4method{makeNames}{character}(object, smart = TRUE, unique = TRUE)
 
-\S4method{makeNames}{factor}(object, unique = TRUE)
+\S4method{makeNames}{factor}(object, smart = TRUE, unique = TRUE)
 }
 \arguments{
 \item{object}{Object.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc.}
 
 \item{unique}{\code{logical(1)}.
 If \code{TRUE}, the resulting elements are unique. Recommended by default, for
@@ -27,7 +31,7 @@ Modified object.
 }
 \description{
 For \code{atomic} vectors, these functions will sanitize the values. Otherwise,
-they will set \code{\link[base:names]{names()}}, \code{\link[base:rownames]{rownames()}},
+they will set \code{\link[base:names]{names()}}, \code{\link[base:colnames]{rownames()}},
 and/or \code{\link[base:colnames]{colnames()}} without modification of the values.
 }
 \details{
@@ -35,7 +39,7 @@ Sanitizes names using underscores instead of dots, the convention used by
 \code{\link[base:make.names]{make.names()}}.
 }
 \note{
-Updated 2020-01-27.
+Updated 2020-07-08.
 }
 \examples{
 data(syntactic, package = "acidtest")
@@ -43,5 +47,7 @@ object <- syntactic$character
 makeNames(object)
 }
 \seealso{
-\code{\link[base:make.names]{make.names()}}.
+\itemize{
+\item \href{https://cs.stanford.edu/people/miles/iso8859.html}{ASCII table}
+}
 }

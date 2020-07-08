@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kebab case — kebabCase • syntactic</title>
+<title>Autopad zeros — autopadZeros • syntactic</title>
 
 
 <!-- jquery -->
@@ -41,9 +41,8 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Kebab case — kebabCase" />
-<meta property="og:description" content="Format character strings to use kebab-style formatting, where word boundaries
-are defined by dashes/hyphens (e.g. this-is-kebab-case)." />
+<meta property="og:title" content="Autopad zeros — autopadZeros" />
+<meta property="og:description" content="Autopad zeros" />
 
 
 
@@ -117,26 +116,22 @@ are defined by dashes/hyphens (e.g. this-is-kebab-case)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Kebab case</h1>
-    <small class="dont-index">Source: <a href='https://github.com/steinbaugh/syntactic/blob/master/R/kebabCase-methods.R'><code>R/kebabCase-methods.R</code></a></small>
-    <div class="hidden name"><code>kebabCase.Rd</code></div>
+    <h1>Autopad zeros</h1>
+    <small class="dont-index">Source: <a href='https://github.com/steinbaugh/syntactic/blob/master/R/autopadZeros-methods.R'><code>R/autopadZeros-methods.R</code></a></small>
+    <div class="hidden name"><code>autopadZeros.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Format character strings to use kebab-style formatting, where word boundaries
-are defined by dashes/hyphens (e.g. <code>this-is-kebab-case</code>).</p>
+    <p>Autopad zeros</p>
     </div>
 
-    <pre class="usage"><span class='fu'>kebabCase</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>autopadZeros</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+
+<span class='co'># S4 method for integer</span>
+<span class='fu'>autopadZeros</span>(<span class='no'>object</span>)
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>kebabCase</span>(
-  <span class='no'>object</span>,
-  <span class='kw'>rename</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>recursive</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>smart</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>prefix</span> <span class='kw'>=</span> !<span class='no'>rename</span>
-)</pre>
+<span class='fu'>autopadZeros</span>(<span class='no'>object</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -146,36 +141,6 @@ are defined by dashes/hyphens (e.g. <code>this-is-kebab-case</code>).</p>
       <td><p>Object.</p></td>
     </tr>
     <tr>
-      <th>rename</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-File rename mode. Requires that input contains files and/or directories
-that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
-macOS, Winddows) file systems are supported.</p>
-<p>The <code>prefix</code> and <code>smart</code> arguments are supported in this mode.</p></td>
-    </tr>
-    <tr>
-      <th>recursive</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Should the function recurse into directories?
-Only applicable when <code>rename = TRUE</code>.</p></td>
-    </tr>
-    <tr>
-      <th>smart</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Handle complicated special cases, such as mixed case acronyms, plus/minus,
-percentages, etc.</p></td>
-    </tr>
-    <tr>
-      <th>prefix</th>
-      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
-Prepend "X" character if necessary, when string begins with a syntactically
-invalid character, such as a number or non-alphanumeric. Note that names
-are always made syntactically valid when applicable with "X" prefix.
-See <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code> for details.</p>
-<p>Enabled by default for string mode, but disabled by default for rename
-mode, when applicable.</p></td>
-    </tr>
-    <tr>
       <th>...</th>
       <td><p>Additional arguments.</p></td>
     </tr>
@@ -183,24 +148,25 @@ mode, when applicable.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Modified object.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Kebab case is recommended for URL slugs and file names. However, they should
-not be used for names in R, since dashes are not valid, and should be
-substituted with underscores or periods instead.</p>
+    <p><code>character</code>.</p>
     <h2 class="hasAnchor" id="note"><a class="anchor" href="#note"></a>Note</h2>
 
-    <p>Updated 2020-01-27.</p>
+    <p>Updated 2020-06-15.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'>
+<ul>
+<li><p><code><a href='https://stringr.tidyverse.org/reference/str_pad.html'>stringr::str_pad</a></code>.</p></li>
+</ul>
+</div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>syntactic</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"acidtest"</span>)
-<span class='no'>object</span> <span class='kw'>&lt;-</span> <span class='no'>syntactic</span>$<span class='no'>character</span>
-<span class='fu'>kebabCase</span>(<span class='no'>object</span>)</div><div class='output co'>#&gt;  [1] "percent-gc"        "x10um"             "x5-3-bias"        
-#&gt;  [4] "x5prime"           "g2m-score"         "hello-world"      
-#&gt;  [7] "hello-world"       "mazda-rx4"         "n-count"          
-#&gt; [10] "rnai-clones"       "tx2gene"           "tx2-gene-id"      
-#&gt; [13] "worfdb-html-remap" "x123"             </div></pre>
+    <pre class="examples"><div class='input'><span class='co'>## integer ====</span>
+<span class='fu'>autopadZeros</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>10L</span>, <span class='fl'>100L</span>))</div><div class='output co'>#&gt; [1] "001" "010" "100"</div><div class='input'>
+<span class='co'>## character ====</span>
+<span class='co'>## Left side.</span>
+<span class='fu'>autopadZeros</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"1-EV-DMSO"</span>, <span class='st'>"10-EV-DMSO"</span>, <span class='st'>"2-EV-DMSO-B"</span>))</div><div class='output co'>#&gt; [1] "01-EV-DMSO"   "10-EV-DMSO"   "02-EV-DMSO-B"</div><div class='input'><span class='co'>## Right side.</span>
+<span class='fu'>autopadZeros</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A1"</span>, <span class='st'>"B10"</span>, <span class='st'>"C100"</span>))</div><div class='output co'>#&gt; [1] "A001" "B010" "C100"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

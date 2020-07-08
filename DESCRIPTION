@@ -1,8 +1,8 @@
 Package: syntactic
 Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.3.10
-Date: 2020-06-15
+Version: 0.4.0
+Date: 2020-07-08
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -22,9 +22,9 @@ License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 3.6)
 Imports:
-    acidbase (>= 0.1.9),
-    acidgenerics (>= 0.3.6),
-    goalie (>= 0.4.4),
+    acidbase (>= 0.1.10),
+    acidgenerics (>= 0.3.7),
+    goalie (>= 0.4.5),
     stringi (>= 1.4.6),
     stringr (>= 1.4.0),
     methods
@@ -39,5 +39,5 @@ Remotes:
     acidgenomics/acidtest,
     acidgenomics/goalie
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr

@@ -4,20 +4,20 @@ test_that("Unnamed character", {
     expect_identical(
         object = dottedCase(unnamed),
         expected = c(
-            "percent.GC",
-            "X10um",
-            "X5.3.bias",
-            "X5prime",
-            "G2M.Score",
+            "percent.gc",
+            "x10um",
+            "x5.3.bias",
+            "x5prime",
+            "g2m.score",
             "hello.world",
-            "HELLO.WORLD",
-            "Mazda.RX4",
-            "n.Count",
-            "RNAI.clones",
+            "hello.world",
+            "mazda.rx4",
+            "n.count",
+            "rnai.clones",
             "tx2gene",
-            "TX2.Gene.ID",
-            "worfdb.HTML.Remap",
-            "X123"
+            "tx2.gene.id",
+            "worfdb.html.remap",
+            "x123"
         )
     )
 })
@@ -26,8 +26,8 @@ test_that("Named character", {
     expect_identical(
         object = dottedCase(named, names = TRUE),
         expected = c(
-            "Item.A" = "hello.world",
-            "Item.B" = "HELLO.WORLD"
+            "item.a" = "hello.world",
+            "item.b" = "hello.world"
         )
     )
     expect_identical(
@@ -51,9 +51,9 @@ test_that("X handling in prefix mode", {
             prefix = FALSE
         ),
         expected = c(
-            "Xenobiotic",
             "xenobiotic",
-            "XX123",
+            "xenobiotic",
+            "xx123",
             "123",
             "xx123",
             "123",

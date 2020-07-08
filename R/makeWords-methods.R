@@ -26,6 +26,7 @@ NULL
 
 
 
+## Updated 2020-07-08.
 `makeWords,character` <-  # nolint
     function(object) {
         assert(isCharacter(object))
@@ -36,11 +37,11 @@ NULL
             modify = modify,
             FUN = function(x, modify) {
                 if (!isTRUE(modify)) return(x)
-                x <- dottedCase(x)
+                x <- .syntactic(x)
+                x <- gsub("[_.]+", " ", x)
                 ## Convert everything but multi-letter acronyms to lowercase.
                 x <- gsub("\\b([A-Z])\\b", "\\L\\1", x, perl = TRUE)
                 x <- gsub("\\b([A-Z][a-z0-9]+)\\b", "\\L\\1", x, perl = TRUE)
-                x <- gsub("\\.", " ", x)
                 ## Include period for versus.
                 x <- gsub("\\b(v|vs)\\b", "\\1.", x)
                 x

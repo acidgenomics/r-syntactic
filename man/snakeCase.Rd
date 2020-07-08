@@ -61,7 +61,7 @@ Format character strings to use snake-style formatting, where word boundaries
 are defined by underscores (e.g. \code{this_is_snake_case}).
 }
 \note{
-Updated 2020-01-27.
+Updated 2020-07-08.
 }
 \examples{
 data(syntactic, package = "acidtest")

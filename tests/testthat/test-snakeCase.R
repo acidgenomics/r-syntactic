@@ -45,7 +45,7 @@ test_that("Plus minus handling", {
             "a_plus_slash_minus_b",
             "dox_minus",
             "dox_plus",
-            "x_dox",
+            "minus_dox",
             "plus_dox",
             "slash",
             "x"
