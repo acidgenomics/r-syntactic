@@ -34,8 +34,9 @@ NULL
         assert(all(nzchar(x, keepNA = FALSE)))
         ## Coerce accented characters to plain letter.
         x <- stri_trans_general(str = x, id = "Latin-ASCII")
+        ## Use \uxxxx escapes for other characters.
         ## Lowercase mu (micro) is an edge case.
-        x <- gsub(pattern = "µ", replacement = "u", x = x)
+        x <- gsub(pattern = "(\u00B5|\u03BC)", replacement = "u", x = x)
         if (isTRUE(smart)) {
             ## Handle "&" as a special case. Spell out as "and".
             x <- gsub(
@@ -53,6 +54,11 @@ NULL
             x <- gsub(
                 pattern = "-[[:space:]]",
                 replacement = "_minus_",
+                x = x
+            )
+            x <- gsub(
+                pattern = "^-(.+)$",
+                replacement = "minus_\\1",
                 x = x
             )
             x <- gsub(
