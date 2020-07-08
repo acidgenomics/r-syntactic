@@ -31,5 +31,9 @@
 #' @param strict `logical(1)`.
 #'   Enforce strict name sanitization. When `TRUE`, this does not allow the
 #'   return of any capitalized acronyms. "RNA" will become "Rna", for example.
+#' @param unique `logical(1)`.
+#'   If `TRUE`, the resulting elements are unique. Recommended by default, for
+#'   syntactically valid names (e.g. column, row names). Note that this is
+#'   disabled by default for [`make.names()`][base::make.names].
 #' @param ... Additional arguments.
 NULL

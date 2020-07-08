@@ -1,6 +1,6 @@
 #' @name snakeCase
 #' @inherit acidgenerics::snakeCase
-#' @note Updated 2020-01-27.
+#' @note Updated 2020-07-08.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -22,11 +22,11 @@ NULL
 
 
 
+## Updated 2020-07-08.
 .snakeCase <-  # nolint
-    function(x, ...) {
-        x <- dottedCase(x, ...)
+    function(...) {
+        x <- .syntactic(...)
         x <- tolower(x)
-        x <- gsub(pattern = "\\.", replacement = "_", x = x)
         x
     }
 
