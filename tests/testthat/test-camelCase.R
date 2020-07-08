@@ -79,7 +79,7 @@ test_that("Plus minus handling", {
             "aPlusSlashMinusB",
             "doxMinus",
             "doxPlus",
-            "xDox",
+            "minusDox",
             "plusDox",
             "slash",
             "x"
