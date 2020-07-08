@@ -1,3 +1,8 @@
+## FIXME CONVERT SOME OTHER CHARACTERS THAT PASS MAKE.NAMES
+## μ should be u.
+## FIXME IS THERE A LIST FOR THIS?
+## FIXME CHECK THAT SNAKE AND CAMEL WILL INHERIT.
+
 #' @name makeNames
 #' @inherit acidgenerics::makeNames
 #' @note Updated 2020-01-27.
