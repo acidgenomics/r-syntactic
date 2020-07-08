@@ -3,10 +3,6 @@
 #' @note Updated 2020-07-08.
 #'
 #' @inheritParams params
-#' @param unique `logical(1)`.
-#'   If `TRUE`, the resulting elements are unique. Recommended by default, for
-#'   syntactically valid names (e.g. column, row names). Note that this is
-#'   disabled by default for [`make.names()`][base::make.names].
 #' @param ... Additional arguments.
 #'
 #' @seealso
@@ -32,11 +28,44 @@ NULL
 ## Updated 2020-07-08.
 `makeNames,character` <-  # nolint
     function(object, unique = TRUE) {
-        x <- object
+        assert(isFlag(unique))
+        x <- as.character(object)
+        ## Error on empty strings, but allow passthrough of NA.
+        assert(all(nzchar(x, keepNA = FALSE)))
+        ## Coerce accented characters to plain letter.
         x <- stri_trans_general(str = x, id = "Latin-ASCII")
+        ## Lowercase mu (micro) is an edge case.
         x <- gsub(pattern = "µ", replacement = "u", x = x)
-        x <- make.names(names = x, unique = unique)
+        ## Sanitize using base R conventions.
+        x <- make.names(names = x, unique = unique, allow_ = TRUE)
         x <- gsub(pattern = "\\.", replacement = "_", x = x)
+        ## Ensure all non-alphanumeric characters get coerced to underscores.
+        x <- gsub(
+            pattern = "[^[:alnum:]]",
+            replacement = "_",
+            x = x
+        )
+        ## Combine multiple underscores.
+        x <- gsub(
+            pattern = "[_]+",
+            replacement = "_",
+            x = x
+        )
+        ## Strip leading or trailing underscores.
+        x <- gsub(
+            pattern = "(^_|_$)",
+            replacement = "",
+            x = x
+        )
+        ## Coerce `"NA"` back to `NA` after `make.names()` call.
+        x <- gsub(
+            pattern = "^NA$",
+            replacement = NA_character_,
+            x = x
+        )
+        if (isTRUE(unique)) {
+            assert(hasNoDuplicates(x))
+        }
         x
     }
 
