@@ -22,6 +22,7 @@ NULL
 
 
 
+## Updated 2020-07-08.
 .camelCase <-  # nolint
     function(
         x,
@@ -29,9 +30,11 @@ NULL
         strict = FALSE,
         ...
     ) {
-        x <- dottedCase(x, ...)
         assert(isFlag(strict))
         format <- match.arg(format)
+        x <- .syntactic(x, ...)
+        ## Dots but not underscores define word boundaries in grep matches.
+        x <- gsub(pattern = "_", replacement = ".", x = x)
         ## Simplify mixed case acronyms in strict mode.
         if (isTRUE(strict)) {
             x <- tolower(x)
