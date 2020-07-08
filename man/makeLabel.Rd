@@ -34,6 +34,6 @@ makeLabel("nGene")
 \seealso{
 \itemize{
 \item \code{\link[acidgenerics:makeWords]{makeWords()}}.
-\item \code{\link[stringr:str_to_lower]{stringr::str_to_lower()}}
+\item \code{\link[stringr:case]{stringr::str_to_lower()}}
 }
 }
