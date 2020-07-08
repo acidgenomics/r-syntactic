@@ -1,11 +1,6 @@
-## FIXME CONVERT SOME OTHER CHARACTERS THAT PASS MAKE.NAMES
-## μ should be u.
-## FIXME IS THERE A LIST FOR THIS?
-## FIXME CHECK THAT SNAKE AND CAMEL WILL INHERIT.
-
 #' @name makeNames
 #' @inherit acidgenerics::makeNames
-#' @note Updated 2020-01-27.
+#' @note Updated 2020-07-08.
 #'
 #' @inheritParams params
 #' @param unique `logical(1)`.
@@ -13,6 +8,9 @@
 #'   syntactically valid names (e.g. column, row names). Note that this is
 #'   disabled by default for [`make.names()`][base::make.names].
 #' @param ... Additional arguments.
+#'
+#' @seealso
+#' - [ASCII table](https://cs.stanford.edu/people/miles/iso8859.html)
 #'
 #' @examples
 #' data(syntactic, package = "acidtest")
@@ -31,12 +29,16 @@ NULL
 
 
 
+## Updated 2020-07-08.
 `makeNames,character` <-  # nolint
     function(object, unique = TRUE) {
-    x <- make.names(names = object, unique = unique)
-    x <- gsub(pattern = "\\.", replacement = "_", x = x)
-    x
-}
+        x <- object
+        x <- stri_trans_general(str = x, id = "Latin-ASCII")
+        x <- gsub(pattern = "µ", replacement = "u", x = x)
+        x <- make.names(names = x, unique = unique)
+        x <- gsub(pattern = "\\.", replacement = "_", x = x)
+        x
+    }
 
 
 
