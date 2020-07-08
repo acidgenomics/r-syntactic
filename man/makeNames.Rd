@@ -27,7 +27,7 @@ Modified object.
 }
 \description{
 For \code{atomic} vectors, these functions will sanitize the values. Otherwise,
-they will set \code{\link[base:names]{names()}}, \code{\link[base:rownames]{rownames()}},
+they will set \code{\link[base:names]{names()}}, \code{\link[base:colnames]{rownames()}},
 and/or \code{\link[base:colnames]{colnames()}} without modification of the values.
 }
 \details{
