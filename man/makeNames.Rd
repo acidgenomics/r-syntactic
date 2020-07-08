@@ -8,12 +8,16 @@
 \usage{
 makeNames(object, ...)
 
-\S4method{makeNames}{character}(object, unique = TRUE)
+\S4method{makeNames}{character}(object, smart = TRUE, unique = TRUE)
 
-\S4method{makeNames}{factor}(object, unique = TRUE)
+\S4method{makeNames}{factor}(object, smart = TRUE, unique = TRUE)
 }
 \arguments{
 \item{object}{Object.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc.}
 
 \item{unique}{\code{logical(1)}.
 If \code{TRUE}, the resulting elements are unique. Recommended by default, for

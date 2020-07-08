@@ -223,49 +223,6 @@
         isFlag(smart),
         isFlag(prefix)
     )
-    if (isTRUE(smart)) {
-        ## Handle "&" as a special case. Spell out as "and".
-        x <- gsub(
-            pattern = "\\&",
-            replacement = "_and_",
-            x = x
-        )
-        ## Handle "+" as a special case. Spell out as "plus".
-        x <- gsub(
-            pattern = "\\+",
-            replacement = "_plus_",
-            x = x
-        )
-        ## Handle "-" as a special case. Spell out as "minus".
-        x <- gsub(
-            pattern = "-[[:space:]]",
-            replacement = "_minus_",
-            x = x
-        )
-        x <- gsub(
-            pattern = "^(.+)-$",
-            replacement = "\\1_minus",
-            x = x
-        )
-        ## Handle "/" as a special case. Spell out as "slash".
-        x <- gsub(
-            pattern = "/",
-            replacement = "_slash_",
-            x = x
-        )
-        ## Handle "%" as a special case. Spell out as "percent".
-        x <- gsub(
-            pattern = "%",
-            replacement = "_percent_",
-            x = x
-        )
-        ## Strip comma delims in between numbers (e.g. 1,000,000).
-        x <- gsub(
-            pattern = "(\\d),(\\d)",
-            replacement = "\\1\\2",
-            x = x
-        )
-    }
     x <- makeNames(x, unique = FALSE)
     if (isTRUE(smart)) {
         ## Standardize any mixed case acronyms.
