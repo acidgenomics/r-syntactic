@@ -35,7 +35,7 @@ Sanitizes names using underscores instead of dots, the convention used by
 \code{\link[base:make.names]{make.names()}}.
 }
 \note{
-Updated 2020-01-27.
+Updated 2020-07-08.
 }
 \examples{
 data(syntactic, package = "acidtest")
@@ -43,5 +43,7 @@ object <- syntactic$character
 makeNames(object)
 }
 \seealso{
-\code{\link[base:make.names]{make.names()}}.
+\itemize{
+\item \href{https://cs.stanford.edu/people/miles/iso8859.html}{ASCII table}
+}
 }

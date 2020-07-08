@@ -39,6 +39,11 @@ percentages, etc.}
 Enforce strict name sanitization. When \code{TRUE}, this does not allow the
 return of any capitalized acronyms. "RNA" will become "Rna", for example.}
 
+\item{unique}{\code{logical(1)}.
+If \code{TRUE}, the resulting elements are unique. Recommended by default, for
+syntactically valid names (e.g. column, row names). Note that this is
+disabled by default for \code{\link[base:make.names]{make.names()}}.}
+
 \item{...}{Additional arguments.}
 }
 \description{
