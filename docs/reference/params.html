@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -174,6 +174,13 @@ percentages, etc.</p></td>
       <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
 Enforce strict name sanitization. When <code>TRUE</code>, this does not allow the
 return of any capitalized acronyms. "RNA" will become "Rna", for example.</p></td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td><p><code><a href='https://rdrr.io/r/base/logical.html'>logical(1)</a></code>.
+If <code>TRUE</code>, the resulting elements are unique. Recommended by default, for
+syntactically valid names (e.g. column, row names). Note that this is
+disabled by default for <code><a href='https://rdrr.io/r/base/make.names.html'>make.names()</a></code>.</p></td>
     </tr>
     <tr>
       <th>...</th>

@@ -223,7 +223,7 @@
         isFlag(smart),
         isFlag(prefix)
     )
-    x <- makeNames(x, unique = FALSE)
+    x <- makeNames(x, smart = smart, unique = FALSE)
     if (isTRUE(smart)) {
         ## Standardize any mixed case acronyms.
         x <- .sanitizeAcronyms(x)

@@ -1,3 +1,22 @@
+## syntactic 0.4.0 (2020-07-08)
+
+Reworked the internal code and improved default handling for `makeNames`. Our
+`makeNames` variant behaves a bit differently from base R `make.names`. By
+default, it returns unique values and sanitizes using underscores (`_`) rather
+than periods (`.`), which are easier to read and more compatible across
+programming languages and in file names.
+
+Now all syntactic naming functions, including `snakeCase`, `camelCase`, and
+`dottedCase` internally pass through to `makeNames`. We have added some edge
+case handlers that are now enabled by default in all of these functions,
+including automatic detection of `+`/`-`, `%` (converts to percent) and some
+other useful defaults for bioinformatics. These can be disabled by setting
+`smart = FALSE`.
+
+This release should be fully backward compatible and non-breaking with previous
+syntactic functions, but the version has been increased to denote the change
+in the internal code handling.
+
 ## syntactic 0.3.10 (2020-06-15)
 
 ### New functions
