@@ -174,10 +174,16 @@
         ignore.case = TRUE
     )
     ## Molarity (e.g. "10nM" to "10nm").
+    x <- gsub(
+        pattern = "\\b([mnu]M)\\b",
+        replacement = "\\L\\1",
+        x = x,
+        perl = TRUE
+    )
     ## Note that not including the front word boundary helps this work on
     ## examples such as "X10uM".
     x <- gsub(
-        pattern = "([[:digit:]]+?[mnu]M)\\b",
+        pattern = "([[:digit:]]+[mnu]M)\\b",
         replacement = "\\L\\1",
         x = x,
         perl = TRUE
