@@ -1,3 +1,10 @@
+## syntactic 0.4.1 (2020-07-09)
+
+### Minor changes
+
+- Added additional regular expression to catch "10uM" and "uM" edge cases in
+  names that weren't sanitizing to "um" for snake case, as expected.
+
 ## syntactic 0.4.0 (2020-07-08)
 
 Reworked the internal code and improved default handling for `makeNames`. Our
