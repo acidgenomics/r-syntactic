@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.1</span>
       </span>
     </div>
 
@@ -125,6 +125,17 @@
 <p>Reworked the internal code and improved default handling for <code>makeNames</code>. Our <code>makeNames</code> variant behaves a bit differently from base R <code>make.names</code>. By default, it returns unique values and sanitizes using underscores (<code>_</code>) rather than periods (<code>.</code>), which are easier to read and more compatible across programming languages and in file names.</p>
 <p>Now all syntactic naming functions, including <code>snakeCase</code>, <code>camelCase</code>, and <code>dottedCase</code> internally pass through to <code>makeNames</code>. We have added some edge case handlers that are now enabled by default in all of these functions, including automatic detection of <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>/<code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>, <code>%</code> (converts to percent) and some other useful defaults for bioinformatics. These can be disabled by setting <code>smart = FALSE</code>.</p>
 <p>This release should be fully backward compatible and non-breaking with previous syntactic functions, but the version has been increased to denote the change in the internal code handling.</p>
+</div>
+    <div id="syntactic-041-2020-07-09" class="section level2">
+<h2 class="hasAnchor">
+<a href="#syntactic-041-2020-07-09" class="anchor"></a>syntactic 0.4.1 (2020-07-09)</h2>
+<div id="minor-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor changes</h3>
+<ul>
+<li>Added additional regular expression to catch “10uM” and “uM” edge cases in names that weren’t sanitizing to “um” for snake case, as expected.</li>
+</ul>
+</div>
 </div>
   </div>
 
