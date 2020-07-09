@@ -160,7 +160,7 @@
 
 
 
-## Updated 2019-07-08.
+## Updated 2020-07-09.
 .sanitizeAcronyms <- function(x) {
     assert(is.atomic(x))
     x <- as.character(x)
