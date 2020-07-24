@@ -1,8 +1,8 @@
 Package: syntactic
 Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.4.1
-Date: 2020-07-09
+Version: 0.4.2
+Date: 2020-07-24
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -23,16 +23,16 @@ Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
     acidbase (>= 0.1.11),
-    acidgenerics (>= 0.3.7),
-    goalie (>= 0.4.5),
+    acidgenerics (>= 0.3.8),
+    goalie (>= 0.4.6),
+    methods,
     stringi (>= 1.4.6),
-    stringr (>= 1.4.0),
-    methods
+    stringr (>= 1.4.0)
 Suggests:
-    BiocStyle (>= 2.14),
-    acidtest (>= 0.3.0),
-    knitr (>= 1.28),
-    testthat (>= 2.3)
+    BiocStyle,
+    acidtest (>= 0.3.1),
+    knitr,
+    testthat
 Remotes:
     acidgenomics/acidbase,
     acidgenomics/acidgenerics,
