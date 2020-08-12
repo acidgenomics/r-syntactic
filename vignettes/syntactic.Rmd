@@ -1,8 +1,8 @@
 ---
 title: "syntactic"
 author: "Michael Steinbaugh"
-date: "`r BiocStyle::doc_date()`"
-output: BiocStyle::html_document
+date: "`r Sys.Date()`"
+output: html_document
 vignette: >
   %\VignetteIndexEntry{syntactic}
   %\VignetteEngine{knitr::rmarkdown}
