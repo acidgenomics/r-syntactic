@@ -29,9 +29,9 @@ Imports:
     stringi (>= 1.4.6),
     stringr (>= 1.4.0)
 Suggests:
-    BiocStyle,
     acidtest (>= 0.3.1),
     knitr,
+    rmarkdown,
     testthat
 Remotes:
     acidgenomics/acidbase,
