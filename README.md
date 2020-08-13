@@ -23,7 +23,11 @@ install.packages(
 Configure [conda][] to use the [bioconda][] channels.
 
 ```sh
-conda install -c bioconda r-syntactic
+# Don't install recipe into base environment.
+name="r-syntactic"
+conda create --name="$name" "$name"
+conda activate "$name"
+R
 ```
 
 [bioconda]: https://bioconda.github.io/
