@@ -12,12 +12,10 @@ Make syntactically valid names out of character vectors.
 ### [R][] method
 
 ```r
-if (!requireNamespace("remotes", quietly = TRUE)) {
-    install.packages("remotes")
-}
-Sys.setenv(R_REMOTES_UPGRADE = "always")
-## Set `GITHUB_PAT` in `~/.Renviron` if you get a rate limit error.
-remotes::install_github("acidgenomics/syntactic")
+install.packages(
+    pkgs = "syntactic",
+    repos = c("r.acidgenomics.com", getOption("repos"))
+)
 ```
 
 ### [conda][] method
