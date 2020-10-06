@@ -72,7 +72,7 @@ Camel case is recommended by Bioconductor for variable and function names.
 Updated 2020-01-27.
 }
 \examples{
-data(syntactic, package = "acidtest")
+data(syntactic, package = "AcidTest")
 object <- syntactic$character
 camelCase(object)
 }

@@ -64,7 +64,7 @@ are defined by underscores (e.g. \code{this_is_snake_case}).
 Updated 2020-07-08.
 }
 \examples{
-data(syntactic, package = "acidtest")
+data(syntactic, package = "AcidTest")
 object <- syntactic$character
 snakeCase(object)
 }
