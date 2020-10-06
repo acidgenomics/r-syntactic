@@ -1,5 +1,5 @@
 #' @name sentenceCase
-#' @inherit acidgenerics::sentenceCase
+#' @inherit AcidGenerics::sentenceCase
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
@@ -14,7 +14,7 @@ NULL
 
 #' @rdname sentenceCase
 #' @name sentenceCase
-#' @importFrom acidgenerics sentenceCase
+#' @importFrom AcidGenerics sentenceCase
 #' @usage sentenceCase(object, ...)
 #' @export
 NULL

@@ -1,5 +1,5 @@
 #' @name makeTitle
-#' @inherit acidgenerics::makeTitle
+#' @inherit AcidGenerics::makeTitle
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
@@ -16,7 +16,7 @@ NULL
 
 #' @rdname makeTitle
 #' @name makeTitle
-#' @importFrom acidgenerics makeTitle
+#' @importFrom AcidGenerics makeTitle
 #' @usage makeTitle(object, ...)
 #' @export
 NULL

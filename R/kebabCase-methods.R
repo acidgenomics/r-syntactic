@@ -1,12 +1,12 @@
 #' @name kebabCase
-#' @inherit acidgenerics::kebabCase
+#' @inherit AcidGenerics::kebabCase
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(syntactic, package = "acidtest")
+#' data(syntactic, package = "AcidTest")
 #' object <- syntactic$character
 #' kebabCase(object)
 NULL
@@ -15,7 +15,7 @@ NULL
 
 #' @rdname kebabCase
 #' @name kebabCase
-#' @importFrom acidgenerics kebabCase
+#' @importFrom AcidGenerics kebabCase
 #' @usage kebabCase(object, ...)
 #' @export
 NULL
