@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
       </span>
     </div>
 
@@ -45,16 +45,22 @@
   </a>
 </li>
 <li>
-  <a href="../articles/syntactic.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
+<li>
+  <a href="../articles/syntactic.html">Get started</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
 <li>
   <a href="https://github.com/steinbaugh/syntactic/">
     <span class="fab fa fab fa-github fa-lg"></span>
@@ -77,7 +83,7 @@
       <h1 data-toc-skip>syntactic</h1>
                         <h4 class="author">Michael Steinbaugh</h4>
             
-            <h4 class="date">2020-08-12</h4>
+            <h4 class="date">2020-10-06</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/steinbaugh/syntactic/blob/master/vignettes/syntactic.Rmd"><code>vignettes/syntactic.Rmd</code></a></small>
       <div class="hidden name"><code>syntactic.Rmd</code></div>
@@ -86,9 +92,10 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">syntactic</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">syntactic</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"acidtest"</span>)
-<span class="no">object</span> <span class="kw">&lt;-</span> <span class="no">syntactic</span>$<span class="no">character</span></pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://syntactic.acidgenomics.com/">syntactic</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">syntactic</span>, package <span class="op">=</span> <span class="st">"AcidTest"</span><span class="op">)</span>
+<span class="va">object</span> <span class="op">&lt;-</span> <span class="va">syntactic</span><span class="op">$</span><span class="va">character</span></pre></div>
 <div id="introduction" class="section level1">
 <h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1>
@@ -127,32 +134,37 @@
 <h1 class="hasAnchor">
 <a href="#string-mode" class="anchor"></a>String mode</h1>
 <p>In general, stick with <code>snakeCase</code> or <code>camelCase</code> when sanitizing character strings in R.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">object</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></pre></div>
 <pre><code>##  [1] "%GC"             "10uM"            "5'-3' bias"      "5prime"         
 ##  [5] "G2M.Score"       "hello world"     "HELLO WORLD"     "Mazda RX4"      
 ##  [9] "nCount"          "RNAi clones"     "tx2gene"         "TX2GeneID"      
 ## [13] "worfdbHTMLRemap" "123"</code></pre>
 <p>Use snake case formatting inside of scripts.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="../reference/snakeCase.html">snakeCase</a></span>(<span class="no">object</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="../reference/snakeCase.html">snakeCase</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></pre></div>
 <pre><code>##  [1] "percent_gc"        "x10um"             "x5_3_bias"        
 ##  [4] "x5prime"           "g2m_score"         "hello_world"      
 ##  [7] "hello_world"       "mazda_rx4"         "n_count"          
 ## [10] "rnai_clones"       "tx2gene"           "tx2_gene_id"      
 ## [13] "worfdb_html_remap" "x123"</code></pre>
 <p>We recommend using camel case inside of packages. The syntactic package offers two variants: relaxed (default) or strict mode. We prefer relaxed mode for function names, which generally returns acronyms (e.g. ID) more legibly.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="fu"><a href="../reference/camelCase.html">camelCase</a></span>(<span class="no">object</span>, <span class="kw">strict</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="../reference/camelCase.html">camelCase</a></span><span class="op">(</span><span class="va">object</span>, strict <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></pre></div>
 <pre><code>##  [1] "percentGC"       "x10um"           "x5x3Bias"        "x5prime"        
 ##  [5] "g2mScore"        "helloWorld"      "helloWORLD"      "mazdaRX4"       
 ##  [9] "nCount"          "rnaiClones"      "tx2gene"         "tx2GeneID"      
 ## [13] "worfdbHTMLRemap" "x123"</code></pre>
 <p>If you’re more old school and prefer using strict camel conventions, that’s also an option.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/camelCase.html">camelCase</a></span>(<span class="no">object</span>, <span class="kw">strict</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="../reference/camelCase.html">camelCase</a></span><span class="op">(</span><span class="va">object</span>, strict <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
 <pre><code>##  [1] "percentGc"       "x10um"           "x5x3Bias"        "x5prime"        
 ##  [5] "g2mScore"        "helloWorld"      "helloWorld"      "mazdaRx4"       
 ##  [9] "nCount"          "rnaiClones"      "tx2gene"         "tx2GeneId"      
 ## [13] "worfdbHtmlRemap" "x123"</code></pre>
 <p>Here’s the default convention in R, for comparison:</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/make.names.html">make.names</a></span>(<span class="no">object</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/make.names.html">make.names</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></pre></div>
 <pre><code>##  [1] "X.GC"            "X10uM"           "X5..3..bias"     "X5prime"        
 ##  [5] "G2M.Score"       "hello.world"     "HELLO.WORLD"     "Mazda.RX4"      
 ##  [9] "nCount"          "RNAi.clones"     "tx2gene"         "TX2GeneID"      
@@ -172,32 +184,39 @@
 <a href="#file-rename-mode" class="anchor"></a>File rename mode</h1>
 <p>The package also supports file name sanitization, using the <code>rename = TRUE</code> argument for supported functions. This currently includes <code>kebabCase</code> (recommended), <code>snakeCase</code>, and <code>camelCase</code>.</p>
 <p>Here’s an example of how to quickly rename files on disk into kebab case:</p>
-<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="no">input</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="va">input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
     <span class="st">"mRNA Extraction.pdf"</span>,
     <span class="st">"inDrops v3 Library Prep.pdf"</span>
-)
-<span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span>(<span class="no">input</span>))
-<span class="no">output</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/kebabCase.html">kebabCase</a></span>(<span class="no">input</span>, <span class="kw">rename</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></body></html></div>
-<pre><code>## Renaming '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/mRNA Extraction.pdf' to '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/mrna-extraction.pdf'.</code></pre>
-<pre><code>## Renaming '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/inDrops v3 Library Prep.pdf' to '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/indrops-v3-library-prep.pdf'.</code></pre>
-<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span>(<span class="no">output</span>)</pre></body></html></div>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span><span class="op">(</span><span class="va">input</span><span class="op">)</span><span class="op">)</span>
+<span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/kebabCase.html">kebabCase</a></span><span class="op">(</span><span class="va">input</span>, rename <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></pre></div>
+<pre><code>## Renaming '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/mRNA Extraction.pdf' to '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/mrna-extraction.pdf'.</code></pre>
+<pre><code>## Renaming '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/inDrops v3 Library Prep.pdf' to '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/indrops-v3-library-prep.pdf'.</code></pre>
+<div class="sourceCode" id="cb15"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span></pre></div>
 <pre><code>## [1] "mrna-extraction.pdf"         "indrops-v3-library-prep.pdf"</code></pre>
-<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="no">output</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb17"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span><span class="op">)</span></pre></div>
 <p>File names containing a prefix that is considered illegal in R can be allowed, which is often useful for sequencing data:</p>
-<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="no">input</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="fl">4</span>), <span class="st">"_sample_"</span>, <span class="no">LETTERS</span>[<span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="fl">4</span>)], <span class="st">".fastq.gz"</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">input</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb18"><pre class="downlit">
+<span class="va">input</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>, <span class="st">"_sample_"</span>, <span class="va">LETTERS</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span><span class="op">]</span>, <span class="st">".fastq.gz"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">input</span><span class="op">)</span></pre></div>
 <pre><code>## [1] "1_sample_A.fastq.gz" "2_sample_B.fastq.gz" "3_sample_C.fastq.gz"
 ## [4] "4_sample_D.fastq.gz"</code></pre>
-<div class="sourceCode" id="cb20"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span>(<span class="no">input</span>))
-<span class="no">output</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/kebabCase.html">kebabCase</a></span>(<span class="no">input</span>, <span class="kw">rename</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">prefix</span> <span class="kw">=</span> <span class="fl">FALSE</span>)</pre></body></html></div>
-<pre><code>## Renaming '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/1_sample_A.fastq.gz' to '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/1-sample-a.fastq.gz'.</code></pre>
-<pre><code>## Renaming '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/2_sample_B.fastq.gz' to '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/2-sample-b.fastq.gz'.</code></pre>
-<pre><code>## Renaming '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/3_sample_C.fastq.gz' to '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/3-sample-c.fastq.gz'.</code></pre>
-<pre><code>## Renaming '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/4_sample_D.fastq.gz' to '/Users/mike/git/monorepo/r-packages/syntactic/vignettes/4-sample-d.fastq.gz'.</code></pre>
-<div class="sourceCode" id="cb25"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span>(<span class="no">output</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb20"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.create</a></span><span class="op">(</span><span class="va">input</span><span class="op">)</span><span class="op">)</span>
+<span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/kebabCase.html">kebabCase</a></span><span class="op">(</span><span class="va">input</span>, rename <span class="op">=</span> <span class="cn">TRUE</span>, prefix <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></pre></div>
+<pre><code>## Renaming '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/1_sample_A.fastq.gz' to '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/1-sample-a.fastq.gz'.</code></pre>
+<pre><code>## Renaming '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/2_sample_B.fastq.gz' to '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/2-sample-b.fastq.gz'.</code></pre>
+<pre><code>## Renaming '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/3_sample_C.fastq.gz' to '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/3-sample-c.fastq.gz'.</code></pre>
+<pre><code>## Renaming '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/4_sample_D.fastq.gz' to '/Volumes/widener/git/monorepo/r-packages/syntactic/vignettes/4-sample-d.fastq.gz'.</code></pre>
+<div class="sourceCode" id="cb25"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span></pre></div>
 <pre><code>## [1] "1-sample-a.fastq.gz" "2-sample-b.fastq.gz" "3-sample-c.fastq.gz"
 ## [4] "4-sample-d.fastq.gz"</code></pre>
-<div class="sourceCode" id="cb27"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span>(<span class="no">output</span>))</pre></body></html></div>
+<div class="sourceCode" id="cb27"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/invisible.html">invisible</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files.html">file.remove</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span><span class="op">)</span></pre></div>
 <p>Recursion inside of directories is supported using the <code>recursive = TRUE</code> argument.</p>
 <p>Our <a href="https://koopa.acidgenomics.com/">koopa</a> shell bootloader uses these functions internally for quick interactive file renaming. In that package, refer to <code>kebab-case</code>, <code>snake-case</code>, and/or <code>camel-case</code> documentation for details.</p>
 </div>
@@ -222,10 +241,11 @@
 <div id="r-session-information" class="section level1">
 <h1 class="hasAnchor">
 <a href="#r-session-information" class="anchor"></a>R session information</h1>
-<div class="sourceCode" id="cb28"><html><body><pre class="r"><span class="kw pkg">utils</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span>()</pre></body></html></div>
+<div class="sourceCode" id="cb28"><pre class="downlit">
+<span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></pre></div>
 <pre><code>## R version 4.0.2 (2020-06-22)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
-## Running under: macOS Catalina 10.15.6
+## Running under: macOS Catalina 10.15.7
 ## 
 ## Matrix products: default
 ## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
@@ -238,16 +258,16 @@
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] syntactic_0.4.2
+## [1] syntactic_0.4.3
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] AcidBase_0.1.13    rprojroot_1.3-2    digest_0.6.25      crayon_1.3.4      
-##  [5] assertthat_0.2.1   MASS_7.3-51.6      R6_2.4.1           backports_1.1.8   
-##  [9] magrittr_1.5       evaluate_0.14      stringi_1.4.6      rlang_0.4.7       
-## [13] fs_1.5.0           goalie_0.4.7       rmarkdown_2.3      pkgdown_1.5.1     
-## [17] desc_1.2.0         tools_4.0.2        stringr_1.4.0      yaml_2.2.1        
-## [21] xfun_0.16          compiler_4.0.2     AcidGenerics_0.3.9 memoise_1.1.0     
-## [25] htmltools_0.5.0    knitr_1.29</code></pre>
+##  [1] AcidGenerics_0.4.0 rprojroot_1.3-2    digest_0.6.25      crayon_1.3.4      
+##  [5] assertthat_0.2.1   R6_2.4.1           backports_1.1.10   magrittr_1.5      
+##  [9] evaluate_0.14      stringi_1.5.3      rlang_0.4.7        rstudioapi_0.11   
+## [13] fs_1.5.0           goalie_0.4.9       ragg_0.3.1         rmarkdown_2.4     
+## [17] pkgdown_1.6.1      desc_1.2.0         tools_4.0.2        stringr_1.4.0     
+## [21] yaml_2.2.1         xfun_0.18          compiler_4.0.2     systemfonts_0.3.2 
+## [25] AcidBase_0.2.0     memoise_1.1.0      htmltools_0.5.0    knitr_1.30</code></pre>
 </div>
   </div>
 
@@ -266,7 +286,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
