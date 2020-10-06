@@ -73,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
       </span>
     </div>
 
@@ -86,17 +86,23 @@
   </a>
 </li>
 <li>
-  <a href="../articles/syntactic.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
+<li>
+  <a href="../articles/syntactic.html">Get started</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="https://github.com/steinbaugh/syntactic/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
@@ -127,9 +133,9 @@
     <div id="syntactic-011-2019-01-04" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-011-2019-01-04" class="anchor"></a>syntactic 0.1.1 (2019-01-04)</h2>
-<div id="minor-changes-25" class="section level3">
+<div id="minor-changes-26" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-25" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-26" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Added back <a href="https://cran.r-project.org/package=Matrix">Matrix</a> S4 class method support.</li>
 </ul>
@@ -138,9 +144,9 @@
     <div id="syntactic-012-2019-01-05" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-012-2019-01-05" class="anchor"></a>syntactic 0.1.2 (2019-01-05)</h2>
-<div id="minor-changes-24" class="section level3">
+<div id="minor-changes-25" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-24" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-25" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Matrix NAMESPACE fix.</li>
 <li>Documentation improvements.</li>
@@ -150,9 +156,9 @@
     <div id="syntactic-013-2019-01-23" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-013-2019-01-23" class="anchor"></a>syntactic 0.1.3 (2019-01-23)</h2>
-<div id="minor-changes-23" class="section level3">
+<div id="minor-changes-24" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-23" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-24" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Split out imports into <code>imports.R</code> file, to match conventions used in the other <a href="https://basejump.acidgenomics.com/">basejump</a> subpackages.</li>
 <li>Added <a href="https://pkgdown.r-lib.org/">pkgdown</a> website.</li>
@@ -162,9 +168,9 @@
     <div id="syntactic-014-2019-02-11" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-014-2019-02-11" class="anchor"></a>syntactic 0.1.4 (2019-02-11)</h2>
-<div id="minor-changes-22" class="section level3">
+<div id="minor-changes-23" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-22" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-23" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Converted <code>capitalize</code> to S4 method that dispatches on character vectors.</li>
 </ul>
@@ -181,9 +187,9 @@
 <code>kebab</code>: Added character vector method support for kebab case.</li>
 </ul>
 </div>
-<div id="minor-changes-21" class="section level3">
+<div id="minor-changes-22" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-21" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-22" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Improved internal code to remove dependency on magrittr pipe.</li>
 </ul>
@@ -192,9 +198,9 @@
     <div id="syntactic-016-2019-03-22" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-016-2019-03-22" class="anchor"></a>syntactic 0.1.6 (2019-03-22)</h2>
-<div id="minor-changes-20" class="section level3">
+<div id="minor-changes-21" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-20" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-21" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Migrated code to <a href="https://acidgenomics.com/">Acid Genomics</a>.</li>
 </ul>
@@ -203,21 +209,21 @@
     <div id="syntactic-017-2019-03-28" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-017-2019-03-28" class="anchor"></a>syntactic 0.1.7 (2019-03-28)</h2>
-<div id="minor-changes-19" class="section level3">
+<div id="minor-changes-20" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-19" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-20" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Added SummarizedExperiment methods for syntactic naming functions, which reenables support for <code>rownames</code> and <code>colnames</code> arguments.</li>
-<li>Switched to using acidtest package for example test data.</li>
+<li>Switched to using AcidTest package for example test data.</li>
 </ul>
 </div>
 </div>
     <div id="syntactic-018-2019-03-29" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-018-2019-03-29" class="anchor"></a>syntactic 0.1.8 (2019-03-29)</h2>
-<div id="minor-changes-18" class="section level3">
+<div id="minor-changes-19" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-18" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-19" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Bug fixes for <code>SummarizedExperiment</code> method support in syntactic functions. Added method suport for <code>snake</code>, which was missing, and forgot to import SummarizedExperiment as a class.</li>
 <li>100% code coverage!</li>
@@ -227,9 +233,9 @@
     <div id="syntactic-019-2019-04-25" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-019-2019-04-25" class="anchor"></a>syntactic 0.1.9 (2019-04-25)</h2>
-<div id="minor-changes-17" class="section level3">
+<div id="minor-changes-18" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-17" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-18" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>S4 generic reexport documentation fixes.</li>
 </ul>
@@ -238,9 +244,9 @@
     <div id="syntactic-0110-2019-07-12" class="section level2">
 <h2 class="hasAnchor">
 <a href="#syntactic-0110-2019-07-12" class="anchor"></a>syntactic 0.1.10 (2019-07-12)</h2>
-<div id="minor-changes-16" class="section level3">
+<div id="minor-changes-17" class="section level3">
 <h3 class="hasAnchor">
-<a href="#minor-changes-16" class="anchor"></a>Minor changes</h3>
+<a href="#minor-changes-17" class="anchor"></a>Minor changes</h3>
 <ul>
 <li>Updated R dependency to 3.5.</li>
 </ul>
@@ -263,7 +269,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -1,12 +1,12 @@
 #' @name dottedCase
-#' @inherit acidgenerics::dottedCase
+#' @inherit AcidGenerics::dottedCase
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(syntactic, package = "acidtest")
+#' data(syntactic, package = "AcidTest")
 #' object <- syntactic$character
 #' dottedCase(object)
 NULL
@@ -15,7 +15,7 @@ NULL
 
 #' @rdname dottedCase
 #' @name dottedCase
-#' @importFrom acidgenerics dottedCase
+#' @importFrom AcidGenerics dottedCase
 #' @usage dottedCase(object, ...)
 #' @export
 NULL

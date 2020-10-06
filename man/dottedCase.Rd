@@ -47,7 +47,7 @@ as that can introduce conflicts with base functions.
 Updated 2020-01-27.
 }
 \examples{
-data(syntactic, package = "acidtest")
+data(syntactic, package = "AcidTest")
 object <- syntactic$character
 dottedCase(object)
 }
