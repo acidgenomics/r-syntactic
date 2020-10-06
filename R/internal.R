@@ -69,7 +69,7 @@
     } else {
         lower <- TRUE
     }
-    ## Since we're reexporting the S4 generics from acidgenerics, we must
+    ## Since we're reexporting the S4 generics from AcidGenerics, we must
     ## inherit here, otherwise the function will fail.
     FUN <- get(  # nolint
         x = fun,

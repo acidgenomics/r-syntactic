@@ -1,3 +1,10 @@
+## syntactic 0.4.3 (2020-10-06)
+
+### Minor changes
+
+- Updated dependencies to use renamed AcidBase, AcidGenerics, and AcidRoxygen
+  packages.
+
 ## syntactic 0.4.2 (2020-07-24)
 
 ### Minor changes
@@ -243,7 +250,7 @@ This code will be called internally in the upcoming [koopa][] update.
 
 - Added SummarizedExperiment methods for syntactic naming functions, which
   reenables support for `rownames` and `colnames` arguments.
-- Switched to using acidtest package for example test data.
+- Switched to using AcidTest package for example test data.
 
 ## syntactic 0.1.6 (2019-03-22)
 

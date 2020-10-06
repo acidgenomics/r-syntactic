@@ -1,12 +1,12 @@
 #' @name upperCamelCase
-#' @inherit acidgenerics::upperCamelCase
+#' @inherit AcidGenerics::upperCamelCase
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(syntactic, package = "acidtest")
+#' data(syntactic, package = "AcidTest")
 #' object <- syntactic$character
 #' upperCamelCase(object)
 NULL
@@ -15,7 +15,7 @@ NULL
 
 #' @rdname upperCamelCase
 #' @name upperCamelCase
-#' @importFrom acidgenerics upperCamelCase
+#' @importFrom AcidGenerics upperCamelCase
 #' @usage upperCamelCase(object, ...)
 #' @export
 NULL

@@ -1,5 +1,5 @@
 #' @name makeNames
-#' @inherit acidgenerics::makeNames
+#' @inherit AcidGenerics::makeNames
 #' @note Updated 2020-07-08.
 #'
 #' @inheritParams params
@@ -9,7 +9,7 @@
 #' - [ASCII table](https://cs.stanford.edu/people/miles/iso8859.html)
 #'
 #' @examples
-#' data(syntactic, package = "acidtest")
+#' data(syntactic, package = "AcidTest")
 #' object <- syntactic$character
 #' makeNames(object)
 NULL
@@ -18,7 +18,7 @@ NULL
 
 #' @rdname makeNames
 #' @name makeNames
-#' @importFrom acidgenerics makeNames
+#' @importFrom AcidGenerics makeNames
 #' @usage makeNames(object, ...)
 #' @export
 NULL
