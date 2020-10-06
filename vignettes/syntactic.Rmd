@@ -11,7 +11,7 @@ vignette: >
 
 ```{r setup, message=FALSE}
 library(syntactic)
-data(syntactic, package = "acidtest")
+data(syntactic, package = "AcidTest")
 object <- syntactic$character
 ```
 
