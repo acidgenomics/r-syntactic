@@ -1,12 +1,12 @@
 #' @name makeDimnames
-#' @inherit acidgenerics::makeDimnames
+#' @inherit AcidGenerics::makeDimnames
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(syntactic, package = "acidtest")
+#' data(syntactic, package = "AcidTest")
 #' object <- syntactic$matrix
 #' makeDimnames(object)
 NULL
@@ -15,7 +15,7 @@ NULL
 
 #' @rdname makeDimnames
 #' @name makeDimnames
-#' @importFrom acidgenerics makeDimnames
+#' @importFrom AcidGenerics makeDimnames
 #' @usage makeDimnames(object, ...)
 #' @export
 NULL

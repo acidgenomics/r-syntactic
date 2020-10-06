@@ -1,5 +1,5 @@
 #' @name makeWords
-#' @inherit acidgenerics::makeWords
+#' @inherit AcidGenerics::makeWords
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
@@ -19,7 +19,7 @@ NULL
 
 #' @rdname makeWords
 #' @name makeWords
-#' @importFrom acidgenerics makeWords
+#' @importFrom AcidGenerics makeWords
 #' @usage makeWords(object, ...)
 #' @export
 NULL

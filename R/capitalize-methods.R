@@ -1,5 +1,5 @@
 #' @name capitalize
-#' @inherit acidgenerics::capitalize
+#' @inherit AcidGenerics::capitalize
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
@@ -18,7 +18,7 @@ NULL
 
 #' @rdname capitalize
 #' @name capitalize
-#' @importFrom acidgenerics capitalize
+#' @importFrom AcidGenerics capitalize
 #' @usage capitalize(object, ...)
 #' @export
 NULL
