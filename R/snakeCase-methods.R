@@ -1,12 +1,12 @@
 #' @name snakeCase
-#' @inherit acidgenerics::snakeCase
+#' @inherit AcidGenerics::snakeCase
 #' @note Updated 2020-07-08.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
 #'
 #' @examples
-#' data(syntactic, package = "acidtest")
+#' data(syntactic, package = "AcidTest")
 #' object <- syntactic$character
 #' snakeCase(object)
 NULL
@@ -15,7 +15,7 @@ NULL
 
 #' @rdname snakeCase
 #' @name snakeCase
-#' @importFrom acidgenerics snakeCase
+#' @importFrom AcidGenerics snakeCase
 #' @usage snakeCase(object, ...)
 #' @export
 NULL

@@ -1,5 +1,5 @@
 #' @name makeLabel
-#' @inherit acidgenerics::makeLabel
+#' @inherit AcidGenerics::makeLabel
 #' @note Updated 2020-01-27.
 #'
 #' @inheritParams params
@@ -17,7 +17,7 @@ NULL
 
 #' @rdname makeLabel
 #' @name makeLabel
-#' @importFrom acidgenerics makeLabel
+#' @importFrom AcidGenerics makeLabel
 #' @usage makeLabel(object, ...)
 #' @export
 NULL
