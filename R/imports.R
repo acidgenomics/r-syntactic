@@ -1,4 +1,4 @@
-#' @importFrom acidbase basenameSansExt fileDepth fileExt printString realpath
+#' @importFrom AcidBase basenameSansExt fileDepth fileExt printString realpath
 #' @importFrom goalie allHaveAccess allAreMatchingRegex assert hasColnames
 #'   hasDimnames hasNames hasNoDuplicates hasRownames isCharacter isDirectory
 #'   isFileSystemCaseSensitive isFlag isMatchingRegex isString

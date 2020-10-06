@@ -1,9 +1,9 @@
 #' @name autopadZeros
-#' @inherit acidgenerics::autopadZeros
+#' @inherit AcidGenerics::autopadZeros
 #'
 #' @note Updated 2020-06-15.
 #'
-#' @inheritParams acidroxygen::params
+#' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
 #'
 #' @return `character`.
@@ -26,7 +26,7 @@ NULL
 
 #' @rdname autopadZeros
 #' @name autopadZeros
-#' @importFrom acidgenerics autopadZeros
+#' @importFrom AcidGenerics autopadZeros
 #' @usage autopadZeros(object, ...)
 #' @export
 NULL

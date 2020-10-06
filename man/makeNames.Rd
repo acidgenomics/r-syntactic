@@ -42,7 +42,7 @@ Sanitizes names using underscores instead of dots, the convention used by
 Updated 2020-07-08.
 }
 \examples{
-data(syntactic, package = "acidtest")
+data(syntactic, package = "AcidTest")
 object <- syntactic$character
 makeNames(object)
 }

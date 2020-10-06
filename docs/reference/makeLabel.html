@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">syntactic</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
       </span>
     </div>
 
@@ -87,17 +87,23 @@
   </a>
 </li>
 <li>
-  <a href="../articles/syntactic.html">Get started</a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
+<li>
+  <a href="../articles/syntactic.html">Get started</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="https://acidgenomics.com/">
+    <span class="fas fa fas fa-vial fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="https://github.com/steinbaugh/syntactic/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
@@ -125,10 +131,10 @@
     <p>Doesn't modify strings already containing a space or multi-letter acronym.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>makeLabel</span>(<span class='no'>object</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>makeLabel</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S4 method for character</span>
-<span class='fu'>makeLabel</span>(<span class='no'>object</span>)</pre>
+<span class='fu'>makeLabel</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,13 +160,18 @@ Lowercase string.</p>
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='https://rdrr.io/pkg/acidgenerics/man/makeWords.html'>makeWords()</a></code>.</p></li>
+<li><p><code><a href='https://acidgenerics.acidgenomics.com/reference/makeWords.html'>makeWords()</a></code>.</p></li>
 <li><p><code><a href='https://stringr.tidyverse.org/reference/case.html'>stringr::str_to_lower()</a></code></p></li>
 </ul>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"mitoVsCoding"</span>)</div><div class='output co'>#&gt; [1] "mito vs. coding"</div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"log10GenesPerUMI"</span>)</div><div class='output co'>#&gt; [1] "log10 genes per UMI"</div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"Already A Label"</span>)</div><div class='output co'>#&gt; [1] "Already A Label"</div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"NASA"</span>)</div><div class='output co'>#&gt; [1] "NASA"</div><div class='input'><span class='fu'>makeLabel</span>(<span class='st'>"nGene"</span>)</div><div class='output co'>#&gt; [1] "n gene"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>makeLabel</span><span class='op'>(</span><span class='st'>"mitoVsCoding"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "mito vs. coding"</div><div class='input'><span class='fu'>makeLabel</span><span class='op'>(</span><span class='st'>"log10GenesPerUMI"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "log10 genes per UMI"</div><div class='input'><span class='fu'>makeLabel</span><span class='op'>(</span><span class='st'>"Already A Label"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "Already A Label"</div><div class='input'><span class='fu'>makeLabel</span><span class='op'>(</span><span class='st'>"NASA"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "NASA"</div><div class='input'><span class='fu'>makeLabel</span><span class='op'>(</span><span class='st'>"nGene"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "n gene"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -176,7 +187,7 @@ Lowercase string.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
