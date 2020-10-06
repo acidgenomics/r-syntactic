@@ -32,8 +32,8 @@ makeTitle("NASA")
 }
 \seealso{
 \itemize{
-\item \code{\link[acidgenerics:makeWords]{makeWords()}}.
-\item \code{\link[acidgenerics:sentenceCase]{sentenceCase()}}.
+\item \code{\link[AcidGenerics:makeWords]{makeWords()}}.
+\item \code{\link[AcidGenerics:sentenceCase]{sentenceCase()}}.
 \item \code{\link[stringr:case]{stringr::str_to_sentence()}}.
 }
 }

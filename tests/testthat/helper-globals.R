@@ -1,4 +1,4 @@
-data(syntactic, package = "acidtest", envir = environment())
+data(syntactic, package = "AcidTest", envir = environment())
 
 named <- syntactic[["character_named"]]
 unnamed <- syntactic[["character"]]
@@ -33,4 +33,4 @@ pm <- c(
     "-"
 )
 
-initDir <- acidbase::initDir
+initDir <- AcidBase::initDir
