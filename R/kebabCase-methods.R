@@ -13,15 +13,6 @@ NULL
 
 
 
-#' @rdname kebabCase
-#' @name kebabCase
-#' @importFrom AcidGenerics kebabCase
-#' @usage kebabCase(object, ...)
-#' @export
-NULL
-
-
-
 ## Note that by calling `snakeCase()` internally, this will handle special words
 ## like "%" and "+", which we want. Refer to `dottedCase()` for this code.
 .kebabCase <-  # nolint

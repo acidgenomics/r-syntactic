@@ -16,15 +16,6 @@ NULL
 
 
 
-#' @rdname makeNames
-#' @name makeNames
-#' @importFrom AcidGenerics makeNames
-#' @usage makeNames(object, ...)
-#' @export
-NULL
-
-
-
 ## Updated 2020-07-08.
 `makeNames,character` <-  # nolint
     function(object, smart = TRUE, unique = TRUE) {

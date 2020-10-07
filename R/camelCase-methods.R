@@ -13,15 +13,6 @@ NULL
 
 
 
-#' @rdname camelCase
-#' @name camelCase
-#' @importFrom AcidGenerics camelCase
-#' @usage camelCase(object, ...)
-#' @export
-NULL
-
-
-
 ## Updated 2020-07-08.
 .camelCase <-  # nolint
     function(

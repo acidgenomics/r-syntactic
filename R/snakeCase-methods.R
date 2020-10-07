@@ -13,15 +13,6 @@ NULL
 
 
 
-#' @rdname snakeCase
-#' @name snakeCase
-#' @importFrom AcidGenerics snakeCase
-#' @usage snakeCase(object, ...)
-#' @export
-NULL
-
-
-
 ## Updated 2020-07-08.
 .snakeCase <-  # nolint
     function(...) {

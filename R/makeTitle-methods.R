@@ -14,15 +14,6 @@ NULL
 
 
 
-#' @rdname makeTitle
-#' @name makeTitle
-#' @importFrom AcidGenerics makeTitle
-#' @usage makeTitle(object, ...)
-#' @export
-NULL
-
-
-
 `makeTitle,character` <-  # nolint
     function(object) {
         assert(isString(object))

@@ -24,15 +24,6 @@ NULL
 
 
 
-#' @rdname autopadZeros
-#' @name autopadZeros
-#' @importFrom AcidGenerics autopadZeros
-#' @usage autopadZeros(object, ...)
-#' @export
-NULL
-
-
-
 ## Updated 2020-06-15.
 `autopadZeros,integer` <-  # nolint
     function(object) {
