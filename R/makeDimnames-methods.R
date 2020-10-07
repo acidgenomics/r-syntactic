@@ -13,15 +13,6 @@ NULL
 
 
 
-#' @rdname makeDimnames
-#' @name makeDimnames
-#' @importFrom AcidGenerics makeDimnames
-#' @usage makeDimnames(object, ...)
-#' @export
-NULL
-
-
-
 `makeDimnames,ANY` <-  # nolint
     function(object) {
         assert(hasDimnames(object))
