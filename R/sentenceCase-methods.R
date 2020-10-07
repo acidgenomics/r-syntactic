@@ -12,15 +12,6 @@ NULL
 
 
 
-#' @rdname sentenceCase
-#' @name sentenceCase
-#' @importFrom AcidGenerics sentenceCase
-#' @usage sentenceCase(object, ...)
-#' @export
-NULL
-
-
-
 `sentenceCase,character` <-  # nolint
     function(object) {
         assert(isCharacter(object))

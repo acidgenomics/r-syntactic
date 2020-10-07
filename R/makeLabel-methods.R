@@ -15,15 +15,6 @@ NULL
 
 
 
-#' @rdname makeLabel
-#' @name makeLabel
-#' @importFrom AcidGenerics makeLabel
-#' @usage makeLabel(object, ...)
-#' @export
-NULL
-
-
-
 `makeLabel,character` <-  # nolint
     function(object) {
         assert(isString(object))

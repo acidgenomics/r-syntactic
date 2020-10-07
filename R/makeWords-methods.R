@@ -17,15 +17,6 @@ NULL
 
 
 
-#' @rdname makeWords
-#' @name makeWords
-#' @importFrom AcidGenerics makeWords
-#' @usage makeWords(object, ...)
-#' @export
-NULL
-
-
-
 ## Updated 2020-07-08.
 `makeWords,character` <-  # nolint
     function(object) {

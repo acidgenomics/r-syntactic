@@ -13,15 +13,6 @@ NULL
 
 
 
-#' @rdname upperCamelCase
-#' @name upperCamelCase
-#' @importFrom AcidGenerics upperCamelCase
-#' @usage upperCamelCase(object, ...)
-#' @export
-NULL
-
-
-
 .upperCamelCase <-  # nolint
     function(...) {
         .camelCase(..., format = "upper")

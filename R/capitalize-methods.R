@@ -16,15 +16,6 @@ NULL
 
 
 
-#' @rdname capitalize
-#' @name capitalize
-#' @importFrom AcidGenerics capitalize
-#' @usage capitalize(object, ...)
-#' @export
-NULL
-
-
-
 `capitalize,character` <-  # nolint
     function(object, strict = FALSE) {
         assert(isCharacter(object))
