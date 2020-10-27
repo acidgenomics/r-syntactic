@@ -13,7 +13,10 @@ Make syntactically valid names out of character vectors.
 ```r
 install.packages(
     pkgs = "syntactic",
-    repos = c("r.acidgenomics.com", getOption("repos"))
+    repos = c(
+        "https://r.acidgenomics.com",
+        getOption("repos")
+    )
 )
 ```
 
