@@ -17,7 +17,7 @@ Authors@R: c(
 URL:
     https://syntactic.acidgenomics.com/,
     https://github.com/acidgenomics/syntactic/
-BugReports: https://github.com/steinbaugh/syntactic/issues/
+BugReports: https://github.com/acidgenomics/syntactic/issues/
 License: GPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
