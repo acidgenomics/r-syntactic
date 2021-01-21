@@ -1,6 +1,6 @@
 #' @name upperCamelCase
 #' @inherit AcidGenerics::upperCamelCase
-#' @note Updated 2020-01-27.
+#' @note Updated 2021-01-21.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -26,7 +26,7 @@ NULL
         rename = FALSE,
         recursive = FALSE,
         smart = TRUE,
-        strict = FALSE,
+        strict = TRUE,
         names = !rename,
         prefix = !rename
     ) {

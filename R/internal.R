@@ -45,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2020-04-07.
+#' @note Updated 2021-01-21.
 #' @noRd
 #'
 #' @examples
@@ -54,7 +54,7 @@
     path,
     recursive = FALSE,
     smart = TRUE,
-    strict = FALSE,  # camelCase only
+    strict = TRUE,  # camelCase only.
     fun,
     ...
 ) {
