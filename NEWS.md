@@ -1,3 +1,17 @@
+## syntacitc 0.4.4 (2021-01-21)
+
+### Major changes
+
+- `camelCase` and `upperCamelCase` now default to `strict = TRUE`, which
+  enforces stricter but simpler camel case syntax by default. This converts
+  "gene_id" to "geneId" instead of "geneID" by default, which is now the
+  preferred convention for metadata columns across the Acid Genomics packages.
+
+### Minor changes
+
+- Single quotation marks are now stripped automatically when `smart = TRUE`
+  (recommended by default).
+
 ## syntactic 0.4.3 (2020-10-06)
 
 ### Minor changes

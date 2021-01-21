@@ -1,6 +1,6 @@
 #' @name camelCase
 #' @inherit AcidGenerics::camelCase
-#' @note Updated 2020-01-27.
+#' @note Updated 2021-01-21.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -13,12 +13,12 @@ NULL
 
 
 
-## Updated 2020-07-08.
+## Updated 2021-01-21.
 .camelCase <-  # nolint
     function(
         x,
         format = c("lower", "upper"),
-        strict = FALSE,
+        strict = TRUE,
         ...
     ) {
         assert(isFlag(strict))
@@ -75,7 +75,7 @@ NULL
         rename = FALSE,
         recursive = FALSE,
         smart = TRUE,
-        strict = FALSE,
+        strict = TRUE,
         names = !rename,
         prefix = !rename
     ) {
