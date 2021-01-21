@@ -12,7 +12,7 @@ upperCamelCase(object, ...)
   rename = FALSE,
   recursive = FALSE,
   smart = TRUE,
-  strict = FALSE,
+  strict = TRUE,
   names = !rename,
   prefix = !rename
 )
@@ -72,7 +72,7 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \note{
-Updated 2020-01-27.
+Updated 2021-01-21.
 }
 \examples{
 data(syntactic, package = "AcidTest")
