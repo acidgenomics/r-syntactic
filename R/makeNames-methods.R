@@ -1,6 +1,6 @@
 #' @name makeNames
 #' @inherit AcidGenerics::makeNames
-#' @note Updated 2020-07-08.
+#' @note Updated 2021-01-21.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -16,7 +16,7 @@ NULL
 
 
 
-## Updated 2020-07-08.
+## Updated 2021-01-21.
 `makeNames,character` <-  # nolint
     function(object, smart = TRUE, unique = TRUE) {
         assert(isFlag(unique))
@@ -29,6 +29,12 @@ NULL
         ## Lowercase mu (micro) is an edge case.
         x <- gsub(pattern = "(\u00B5|\u03BC)", replacement = "u", x = x)
         if (isTRUE(smart)) {
+            ## Strip single quotation marks.
+            x <- gsub(
+                pattern = "'",
+                replacement = "",
+                x = x
+            )
             ## Handle "&" as a special case. Spell out as "and".
             x <- gsub(
                 pattern = "\\&",
