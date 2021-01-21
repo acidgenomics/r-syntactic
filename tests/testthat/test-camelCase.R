@@ -1,8 +1,30 @@
 context("camelCase")
 
-test_that("Unnamed character", {
+test_that("Strict mode", {
     expect_identical(
-        object = camelCase(unnamed),
+        object = camelCase(unnamed, strict = TRUE),
+        expected = c(
+            "percentGc",
+            "x10um",
+            "x5x3Bias",
+            "x5prime",
+            "g2mScore",
+            "helloWorld",
+            "helloWorld",
+            "mazdaRx4",
+            "nCount",
+            "rnaiClones",
+            "tx2gene",
+            "tx2GeneId",
+            "worfdbHtmlRemap",
+            "x123"
+        )
+    )
+})
+
+test_that("Non-strict mode", {
+    expect_identical(
+        object = camelCase(unnamed, strict = FALSE),
         expected = c(
             "percentGC",
             "x10um",
@@ -24,37 +46,15 @@ test_that("Unnamed character", {
 
 test_that("Named character", {
     expect_identical(
-        object = camelCase(named, names = TRUE),
+        object = camelCase(named, names = TRUE, strict = TRUE),
         expected = c(
             itemA = "helloWorld",
-            itemB = "helloWORLD"
+            itemB = "helloWorld"
         )
     )
     expect_identical(
         object = names(camelCase(named, names = FALSE)),
         expected = names(named)
-    )
-})
-
-test_that("Strict mode", {
-    expect_identical(
-        object = camelCase(vec, strict = TRUE),
-        expected = c(
-            "percentGc",
-            "x10um",
-            "x5x3Bias",
-            "x5prime",
-            "g2mScore",
-            "helloWorld",
-            "helloWorld",
-            "mazdaRx4",
-            "nCount",
-            "rnaiClones",
-            "tx2gene",
-            "tx2GeneId",
-            "worfdbHtmlRemap",
-            "x123"
-        )
     )
 })
 
