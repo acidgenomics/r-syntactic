@@ -9,11 +9,14 @@ Make syntactically valid names out of character vectors.
 ### [R][] method
 
 ```r
+if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+}
 install.packages(
     pkgs = "syntactic",
     repos = c(
         "https://r.acidgenomics.com",
-        getOption("repos")
+        BiocManager::repositories()
     )
 )
 ```
