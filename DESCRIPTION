@@ -18,7 +18,7 @@ URL:
     https://r.acidgenomics.com/packages/syntactic/,
     https://github.com/acidgenomics/r-syntactic/
 BugReports: https://github.com/acidgenomics/r-syntactic/issues/
-License: GPL-3
+License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
