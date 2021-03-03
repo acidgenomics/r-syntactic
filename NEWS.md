@@ -1,3 +1,10 @@
+## syntactic 0.4.5 (2021-03-03)
+
+### Minor changes
+
+- Tweaked rules slightly to improve capitalization rules around numbers for
+  camel case in strict mode.
+
 ## syntacitc 0.4.4 (2021-01-21)
 
 ### Major changes
