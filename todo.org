@@ -1,0 +1,4 @@
+#+TITLE: syntactic
+#+STARTUP: content
+* Development
+** TODO Need to ignore files starting with "~" or "$" (Microsoft Excel).
