@@ -13,7 +13,7 @@ NULL
 
 
 
-## Updated 2021-01-21.
+## Updated 2021-03-03.
 .camelCase <-  # nolint
     function(
         x,
@@ -26,9 +26,16 @@ NULL
         x <- .syntactic(x, ...)
         ## Dots but not underscores define word boundaries in grep matches.
         x <- gsub(pattern = "_", replacement = ".", x = x)
-        ## Simplify mixed case acronyms in strict mode.
         if (isTRUE(strict)) {
+            ## Simplify mixed case acronyms in strict mode.
             x <- tolower(x)
+            ## Characters following numbers are considered new words in this
+            ## mode, which is unlike other settings in package.
+            ## > x <- gsub(
+            ## >     pattern = "([0-9]+)([a-z]+)",
+            ## >     replacement = "\\1.\\2",
+            ## >     x = x
+            ## > )
         }
         ## lowerCamelCase or UpperCamelCase.
         if (identical(format, "lower")) {
