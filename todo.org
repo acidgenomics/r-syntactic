@@ -1,4 +1,5 @@
 #+TITLE: syntactic
 #+STARTUP: content
 * Development
+** TODO `makeNames`: Consider setting `smart = FALSE` by default.
 ** TODO Need to ignore files starting with "~" or "$" (Microsoft Excel).
