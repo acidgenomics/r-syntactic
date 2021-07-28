@@ -8,21 +8,21 @@
 \usage{
 makeNames(object, ...)
 
-\S4method{makeNames}{character}(object, smart = TRUE, unique = TRUE)
+\S4method{makeNames}{character}(object, unique = TRUE, smart = FALSE)
 
-\S4method{makeNames}{factor}(object, smart = TRUE, unique = TRUE)
+\S4method{makeNames}{factor}(object, unique = TRUE, smart = FALSE)
 }
 \arguments{
 \item{object}{Object.}
-
-\item{smart}{\code{logical(1)}.
-Handle complicated special cases, such as mixed case acronyms, plus/minus,
-percentages, etc.}
 
 \item{unique}{\code{logical(1)}.
 If \code{TRUE}, the resulting elements are unique. Recommended by default, for
 syntactically valid names (e.g. column, row names). Note that this is
 disabled by default for \code{\link[base:make.names]{make.names()}}.}
+
+\item{smart}{\code{logical(1)}.
+Handle complicated special cases, such as mixed case acronyms, plus/minus,
+percentages, etc.}
 
 \item{...}{Additional arguments.}
 }
