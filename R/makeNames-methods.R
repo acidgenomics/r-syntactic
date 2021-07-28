@@ -1,6 +1,6 @@
 #' @name makeNames
 #' @inherit AcidGenerics::makeNames
-#' @note Updated 2021-01-21.
+#' @note Updated 2021-07-28.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -16,10 +16,13 @@ NULL
 
 
 
-## Updated 2021-01-21.
+## Updated 2021-07-28.
 `makeNames,character` <-  # nolint
-    function(object, smart = TRUE, unique = TRUE) {
-        assert(isFlag(unique))
+    function(object, unique = TRUE, smart = FALSE) {
+        assert(
+            isFlag(unique),
+            isFlag(smart)
+        )
         x <- as.character(object)
         ## Error on empty strings, but allow passthrough of NA.
         assert(all(nzchar(x, keepNA = FALSE)))
