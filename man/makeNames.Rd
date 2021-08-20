@@ -39,7 +39,7 @@ Sanitizes names using underscores instead of dots, the convention used by
 \code{\link[base:make.names]{make.names()}}.
 }
 \note{
-Updated 2021-01-21.
+Updated 2021-07-28.
 }
 \examples{
 data(syntactic, package = "AcidTest")
