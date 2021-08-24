@@ -1,3 +1,20 @@
+## syntactic 0.5.0 (2021-08-24)
+
+### Major changes
+
+- Reworked rename approach in package. Now defining a main `syntacticRename`
+  function that supports `kebabCase`, `snakeCase`, `camelCase`, and
+  `upperCamelCase`. Rename functionality has been removed from individual S4
+  character methods designed for syntactic string functions (e.g. `camelCase`).
+  This approach makes these commonly used functions less complicated, and the
+  behavior is more consistent with the other S4 methods defined in other packages
+  (e.g. `SummarizedExperiment` in AcidExperiment).
+
+### Minor changes
+
+- Now importing AcidCLI package, for more informative messages and errors,
+  where applicable.
+
 ## syntactic 0.4.5 (2021-03-03)
 
 ### Minor changes

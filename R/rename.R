@@ -109,7 +109,10 @@ syntacticRename <- function(
                 return(from)
             }
             if (isFALSE(quiet)) {
-                alert(sprintf("Renaming {.file %s} to {.file %s}.", from, to))
+                alert(sprintf(
+                    "Renaming {.file %s} to {.file %s}.",
+                    from, basename(to)
+                ))
             }
             ## nocov start
             if (isTRUE(insensitive)) {
