@@ -15,6 +15,9 @@ syntacticRename(
 \item{path}{\code{character}.
 File and/or directory paths.}
 
+\item{recursive}{\code{logical(1)}.
+Should the function recurse into directories?}
+
 \item{fun}{\code{character(1)}.
 Function name.}
 
