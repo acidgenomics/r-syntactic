@@ -1,6 +1,6 @@
 #' @name camelCase
 #' @inherit AcidGenerics::camelCase
-#' @note Updated 2021-01-21.
+#' @note Updated 2021-08-24.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -76,44 +76,28 @@ NULL
 
 
 
+## Updated 2021-08-24.
 `camelCase,character` <-  # nolint
     function(
         object,
-        rename = FALSE,
-        recursive = FALSE,
-        smart = TRUE,
         strict = TRUE,
-        names = !rename,
-        prefix = !rename
+        smart = TRUE,
+        names = TRUE,
+        prefix = TRUE
     ) {
         assert(
             isCharacter(object),
-            isFlag(rename),
-            isFlag(recursive),
-            isFlag(smart),
             isFlag(strict),
+            isFlag(smart),
             isFlag(names),
             isFlag(prefix)
         )
-        ## Rename mode ---------------------------------------------------------
-        if (isTRUE(rename)) {
-            path <- .rename(
-                path = object,
-                recursive = recursive,
-                fun = "camelCase",
-                smart = smart,
-                strict = strict,
-                prefix = prefix
-            )
-            return(invisible(path))
-        }
-        ## String mode ---------------------------------------------------------
         if (isTRUE(names) && hasNames(object)) {
             names <- .camelCase(
                 x = names(object),
                 strict = strict,
-                prefix = TRUE,
-                smart = smart
+                smart = smart,
+                prefix = TRUE
             )
         } else {
             names <- names(object)
@@ -121,8 +105,8 @@ NULL
         object <- .camelCase(
             x = object,
             strict = strict,
-            prefix = prefix,
-            smart = smart
+            smart = smart,
+            prefix = prefix
         )
         names(object) <- names
         object

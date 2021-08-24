@@ -7,28 +7,10 @@
 \usage{
 snakeCase(object, ...)
 
-\S4method{snakeCase}{character}(
-  object,
-  rename = FALSE,
-  recursive = FALSE,
-  smart = TRUE,
-  names = !rename,
-  prefix = !rename
-)
+\S4method{snakeCase}{character}(object, smart = TRUE, names = TRUE, prefix = TRUE)
 }
 \arguments{
 \item{object}{Object.}
-
-\item{rename}{\code{logical(1)}.
-File rename mode. Requires that input contains files and/or directories
-that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
-macOS, Winddows) file systems are supported.
-
-The \code{prefix} and \code{smart} arguments are supported in this mode.}
-
-\item{recursive}{\code{logical(1)}.
-Should the function recurse into directories?
-Only applicable when \code{rename = TRUE}.}
 
 \item{smart}{\code{logical(1)}.
 Handle complicated special cases, such as mixed case acronyms, plus/minus,
