@@ -11,7 +11,9 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @param x `character`.
+#' @inheritParams AcidRoxygen::params
+#'
+#' @param path `character`.
 #'   File and/or directory paths.
 #' @param fun `character(1)`.
 #'   Function name.
@@ -28,26 +30,36 @@
 #' print(basename(from))
 #' to <- syntacticRename(from)
 #' print(basename(to))
+#' unlink(testdir, recursive = TRUE)
 syntacticRename <- function(
     path,
     recursive = FALSE,
-    fun = c("kebabCase", "snakeCase", "camelCase")
+    fun = c(
+        "kebabCase",
+        "snakeCase",
+        "camelCase",
+        "upperCamelCase"
+    ),
+    quiet = FALSE
 ) {
     assert(
         allHaveAccess(path),
-        isFlag(recursive)
+        isFlag(recursive),
+        isFlag(quiet)
     )
     fun <- match.arg(fun)
     what <- get(x = fun, envir = asNamespace(.pkgName), inherits = TRUE)
     assert(is.function(what))
     ## Shared arguments passed per file to syntactic naming function.
     args <- list(
-        "names" = FALSE,
         "prefix" = FALSE,
         "smart" = FALSE
     )
-    if (isTRUE(grepl(pattern = "camelcase", x = fun, ignore.case = TRUE))) {
+    if (isSubset(fun, c("camelCase", "upperCamelCase"))) {
         args[["strict"]] <- TRUE
+        lower <- FALSE
+    } else {
+        lower <- TRUE
     }
     if (isTRUE(recursive)) {
         from <- .recursive(path)
@@ -61,13 +73,27 @@ syntacticRename <- function(
         what = what,
         args = args,
         insensitive = insensitive,
-        FUN = function(from, what, args, insensitive) {
+        lower = lower,
+        quiet = quiet,
+        FUN = function(
+            from,
+            what,
+            args,
+            insensitive,
+            lower,
+            quiet
+        ) {
             dir <- dirname(from)
             ext <- fileExt(from)
             stem <- basenameSansExt(from)
             if (isFALSE(grepl(pattern = "^[A-Za-z0-9]", x = stem))) {
-                alertInfo(sprintf("Skipping {.file %s}.", from))
+                if (isFALSE(quiet)) {
+                    alertInfo(sprintf("Skipping {.file %s}.", from))
+                }
                 return(from)
+            }
+            if (isTRUE(lower)) {
+                stem <- tolower(stem)
             }
             args[["object"]] <- stem
             stem <- do.call(what = what, args = args)
@@ -82,7 +108,9 @@ syntacticRename <- function(
             if (identical(from, to)) {
                 return(from)
             }
-            alert(sprintf("Renaming {.file %s} to {.file %s}.", from, to))
+            if (isFALSE(quiet)) {
+                alert(sprintf("Renaming {.file %s} to {.file %s}.", from, to))
+            }
             ## nocov start
             if (isTRUE(insensitive)) {
                 tmpTo <- file.path(
