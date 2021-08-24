@@ -7,15 +7,19 @@
 syntacticRename(
   path,
   recursive = FALSE,
-  fun = c("kebabCase", "snakeCase", "camelCase")
+  fun = c("kebabCase", "snakeCase", "camelCase", "upperCamelCase"),
+  quiet = FALSE
 )
 }
 \arguments{
+\item{path}{\code{character}.
+File and/or directory paths.}
+
 \item{fun}{\code{character(1)}.
 Function name.}
 
-\item{x}{\code{character}.
-File and/or directory paths.}
+\item{quiet}{\code{logical(1)}.
+Perform command quietly, suppressing messages.}
 }
 \value{
 \code{character}.
@@ -44,4 +48,5 @@ file.create(from)
 print(basename(from))
 to <- syntacticRename(from)
 print(basename(to))
+unlink(testdir, recursive = TRUE)
 }
