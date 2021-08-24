@@ -45,7 +45,7 @@
 #' case, which are problematic on case-insensitive mounts, and require movement
 #' of the files into a temporary file name before the final rename.
 #'
-#' @note Updated 2021-01-21.
+#' @note Updated 2021-08-24.
 #' @noRd
 #'
 #' @examples
@@ -91,7 +91,7 @@
             stem <- basenameSansExt(from)
             ## Skip on files prefixed with "_", such as `_pkgdown.yml`.
             if (isTRUE(grepl(pattern = "^_", x = stem))) {
-                message(sprintf("Skipping '%s'.", from))
+                alertInfo(sprintf("Skipping {.file %s}.", from))
                 return(from)
             }
             if (isTRUE(smart)) {
@@ -131,7 +131,7 @@
             if (identical(from, to)) {
                 return(from)
             }
-            message(paste0("Renaming '", from, "' to '", to, "'."))
+            alert(sprintf("Renaming {.file %s} to {.file %s}.", from, to))
             if (isTRUE(insensitive)) {
                 ## nocov start
                 tmpTo <- file.path(

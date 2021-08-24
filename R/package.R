@@ -5,6 +5,7 @@
 #' @keywords internal
 #'
 #' @importFrom AcidBase basenameSansExt fileDepth fileExt printString realpath
+#' @importFrom AcidCLI abort alert alertInfo
 #' @importFrom goalie allHaveAccess allAreMatchingRegex assert hasColnames
 #'   hasDimnames hasNames hasNoDuplicates hasRownames isCharacter isDirectory
 #'   isFileSystemCaseSensitive isFlag isMatchingRegex isString

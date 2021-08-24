@@ -4,7 +4,7 @@ test_that("makeNames", {
     expect_identical(
         object = makeNames(vec),
         expected = c(
-            "percent_GC",
+            "GC",
             "X10uM",
             "X5_3_bias",
             "X5prime",
