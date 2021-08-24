@@ -17,6 +17,8 @@
 #'   File and/or directory paths.
 #' @param fun `character(1)`.
 #'   Function name.
+#' @param recursive `logical(1)`.
+#'   Should the function recurse into directories?
 #'
 #' @return `character`.
 #'   Renamed file paths.
