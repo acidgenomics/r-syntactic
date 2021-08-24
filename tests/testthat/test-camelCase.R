@@ -99,29 +99,6 @@ test_that("Disable X prefix", {
     )
 })
 
-test_that("Rename mode", {
-    topdir <- "XXX"
-    unlink(topdir, recursive = TRUE)
-    topdir <- initDir(topdir)
-    dirs <- file.path(topdir, c("aaa-bbb", "ccc-ddd"))
-    files <- file.path(topdir, c("1-sample-A.fastq.gz", "hello-world.txt"))
-    input <- c(files, dirs)
-    lapply(dirs, dir.create, recursive = TRUE)
-    file.create(files)
-    output <- camelCase(input, rename = TRUE)
-    expected <- file.path(
-        topdir,
-        c(
-            "1SampleA.fastq.gz",
-            "helloWorld.txt",
-            "aaaBbb",
-            "cccDdd"
-        )
-    )
-    expect_identical(object = output, expected = expected)
-    unlink(topdir, recursive = TRUE)
-})
-
 test_that("X handling in prefix mode", {
     expect_identical(
         object = camelCase(
@@ -146,21 +123,4 @@ test_that("X handling in prefix mode", {
             "123"
         )
     )
-})
-
-test_that("Strict rename mode", {
-    input <- "helloWORLD"
-    expected <- "helloWorld"
-    unlink(input)
-    file.create(input)
-    expect_identical(
-        object = camelCase(input, rename = FALSE, strict = TRUE),
-        expected = expected
-    )
-    output <- camelCase(input, rename = TRUE, strict = TRUE)
-    expect_identical(
-        object = basename(output),
-        expected = expected
-    )
-    unlink(output)
 })
