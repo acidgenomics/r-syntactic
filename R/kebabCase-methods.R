@@ -40,7 +40,6 @@ NULL
             isFlag(prefix)
         )
         ## Rename mode ---------------------------------------------------------
-        ## FIXME Take this out and move to koopa package.
         if (isTRUE(rename)) {
             path <- .rename(
                 path = object,
