@@ -81,7 +81,7 @@ Additionally, the package exports these string functions:
 
 # File rename mode
 
-The package also supports file name sanitization, using the `rename = TRUE` argument for supported functions. This currently includes `kebabCase` (recommended), `snakeCase`, and `camelCase`.
+The package also supports file name sanitization, using the `syntacticRename` function. This currently includes support for `kebabCase` (recommended), `snakeCase`, and `camelCase`, via the `fun` argument.
 
 Here's an example of how to quickly rename files on disk into kebab case:
 
@@ -91,7 +91,7 @@ input <- c(
     "inDrops v3 Library Prep.pdf"
 )
 invisible(file.create(input))
-output <- kebabCase(input, rename = TRUE)
+output <- syntacticRename(input, fun = "kebabCase")
 basename(output)
 invisible(file.remove(output))
 ```
@@ -102,7 +102,7 @@ File names containing a prefix that is considered illegal in R can be allowed, w
 input <- paste0(seq(4), "_sample_", LETTERS[seq(4)], ".fastq.gz")
 print(input)
 invisible(file.create(input))
-output <- kebabCase(input, rename = TRUE, prefix = FALSE)
+output <- syntacticRename(input, fun = "kebabCase")
 basename(output)
 invisible(file.remove(output))
 ```
