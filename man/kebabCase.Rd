@@ -7,27 +7,10 @@
 \usage{
 kebabCase(object, ...)
 
-\S4method{kebabCase}{character}(
-  object,
-  rename = FALSE,
-  recursive = FALSE,
-  smart = TRUE,
-  prefix = !rename
-)
+\S4method{kebabCase}{character}(object, smart = TRUE, prefix = TRUE)
 }
 \arguments{
 \item{object}{Object.}
-
-\item{rename}{\code{logical(1)}.
-File rename mode. Requires that input contains files and/or directories
-that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
-macOS, Winddows) file systems are supported.
-
-The \code{prefix} and \code{smart} arguments are supported in this mode.}
-
-\item{recursive}{\code{logical(1)}.
-Should the function recurse into directories?
-Only applicable when \code{rename = TRUE}.}
 
 \item{smart}{\code{logical(1)}.
 Handle complicated special cases, such as mixed case acronyms, plus/minus,
@@ -57,7 +40,7 @@ not be used for names in R, since dashes are not valid, and should be
 substituted with underscores or periods instead.
 }
 \note{
-Updated 2020-01-27.
+Updated 2020-08-24.
 }
 \examples{
 data(syntactic, package = "AcidTest")

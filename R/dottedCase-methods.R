@@ -39,16 +39,16 @@ NULL
         if (isTRUE(names) && hasNames(object)) {
             names <- .dottedCase(
                 x = names(object),
-                prefix = TRUE,
-                smart = smart
+                smart = smart,
+                prefix = TRUE
             )
         } else {
             names <- names(object)
         }
         object <- .dottedCase(
             x = object,
-            prefix = prefix,
-            smart = smart
+            smart = smart,
+            prefix = prefix
         )
         names(object) <- names
         object

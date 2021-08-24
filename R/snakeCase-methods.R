@@ -23,48 +23,33 @@ NULL
 
 
 
+## Updated 2021-08-24.
 `snakeCase,character` <-  # nolint
     function(
         object,
-        rename = FALSE,
-        recursive = FALSE,
         smart = TRUE,
-        names = !rename,
-        prefix = !rename
+        names = TRUE,
+        prefix = TRUE
     ) {
         assert(
             isCharacter(object),
-            isFlag(rename),
-            isFlag(recursive),
             isFlag(smart),
             isFlag(names),
             isFlag(prefix)
         )
-        ## Rename mode ---------------------------------------------------------
-        if (isTRUE(rename)) {
-            path <- .rename(
-                path = object,
-                recursive = recursive,
-                fun = "snakeCase",
-                smart = smart,
-                prefix = prefix
-            )
-            return(invisible(path))
-        }
-        ## String mode ---------------------------------------------------------
         if (isTRUE(names) && hasNames(object)) {
             names <- .snakeCase(
                 x = names(object),
-                prefix = TRUE,
-                smart = smart
+                smart = smart,
+                prefix = TRUE
             )
         } else {
             names <- names(object)
         }
         object <- .snakeCase(
             x = object,
-            prefix = prefix,
-            smart = smart
+            smart = smart,
+            prefix = prefix
         )
         names(object) <- names
         object
