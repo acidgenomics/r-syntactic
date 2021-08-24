@@ -23,11 +23,11 @@ The package is intended to work in two modes: string mode (default) and file ren
 
 There are five primary naming functions:
 
-- `camelCase` (e.g. "helloWorld").
-- `dottedCase` (e.g. "hello.world"). 
-- `snakeCase` (e.g. "hello_world"). 
-- `kebabCase` (e.g. "hello-world").
-- `upperCamelCase` (e.g. "HelloWorld").
+- `camelCase` (e.g. `"helloWorld"`).
+- `dottedCase` (e.g. `"hello.world"`). 
+- `snakeCase` (e.g. `"hello_world"`). 
+- `kebabCase` (e.g. `"hello-world"`).
+- `upperCamelCase` (e.g. `"HelloWorld"`).
 
 # Recommended naming conventions
 
