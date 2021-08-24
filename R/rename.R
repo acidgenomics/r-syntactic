@@ -1,7 +1,3 @@
-## FIXME Come up with a different name here, so we don't mask R.utils.
-
-
-
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @export
