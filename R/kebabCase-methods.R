@@ -1,6 +1,6 @@
 #' @name kebabCase
 #' @inherit AcidGenerics::kebabCase
-#' @note Updated 2020-01-27.
+#' @note Updated 2020-08-24.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -24,35 +24,20 @@ NULL
 
 
 
+## Updated 2021-08-24.
 `kebabCase,character` <-  # nolint
     function(
         object,
-        rename = FALSE,
-        recursive = FALSE,
         smart = TRUE,
-        prefix = !rename
+        prefix = TRUE
     ) {
         assert(
             isCharacter(object),
-            isFlag(rename),
-            isFlag(recursive),
             isFlag(smart),
             isFlag(prefix)
         )
-        ## Rename mode ---------------------------------------------------------
-        if (isTRUE(rename)) {
-            path <- .rename(
-                path = object,
-                recursive = recursive,
-                fun = "kebabCase",
-                smart = smart,
-                prefix = prefix
-            )
-            return(invisible(path))
-        }
-        ## String mode ---------------------------------------------------------
         names <- names(object)
-        object <- .kebabCase(object, prefix = prefix, smart = smart)
+        object <- .kebabCase(object, smart = smart, prefix = prefix)
         names(object) <- names
         object
     }

@@ -9,35 +9,22 @@ upperCamelCase(object, ...)
 
 \S4method{upperCamelCase}{character}(
   object,
-  rename = FALSE,
-  recursive = FALSE,
-  smart = TRUE,
   strict = TRUE,
-  names = !rename,
-  prefix = !rename
+  smart = TRUE,
+  names = TRUE,
+  prefix = TRUE
 )
 }
 \arguments{
 \item{object}{Object.}
 
-\item{rename}{\code{logical(1)}.
-File rename mode. Requires that input contains files and/or directories
-that exist on disk. Both case-sensitive (e.g. Linux) and -insensitive (e.g.
-macOS, Winddows) file systems are supported.
-
-The \code{prefix} and \code{smart} arguments are supported in this mode.}
-
-\item{recursive}{\code{logical(1)}.
-Should the function recurse into directories?
-Only applicable when \code{rename = TRUE}.}
+\item{strict}{\code{logical(1)}.
+Enforce strict name sanitization. When \code{TRUE}, this does not allow the
+return of any capitalized acronyms. "RNA" will become "Rna", for example.}
 
 \item{smart}{\code{logical(1)}.
 Handle complicated special cases, such as mixed case acronyms, plus/minus,
 percentages, etc.}
-
-\item{strict}{\code{logical(1)}.
-Enforce strict name sanitization. When \code{TRUE}, this does not allow the
-return of any capitalized acronyms. "RNA" will become "Rna", for example.}
 
 \item{names}{\code{logical(1)}.
 Sanitize names.
@@ -72,7 +59,7 @@ for S4 class names and corresponding generators, but not variables or
 functions.
 }
 \note{
-Updated 2021-01-21.
+Updated 2021-08-24.
 }
 \examples{
 data(syntactic, package = "AcidTest")
