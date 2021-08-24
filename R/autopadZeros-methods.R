@@ -1,7 +1,7 @@
 #' @name autopadZeros
 #' @inherit AcidGenerics::autopadZeros
 #'
-#' @note Updated 2020-06-15.
+#' @note Updated 2021-08-24.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -46,7 +46,7 @@ setMethod(
 
 
 
-## Updated 2020-06-15.
+## Updated 2021-08-24.
 `autopadZeros,character` <-  # nolint
     function(object) {
         x <- unname(object)
@@ -69,7 +69,7 @@ setMethod(
                 isMatchingRegex(x = x, pattern = rightPattern)
             ))
         ) {
-            stop(paste(
+            abort(paste(
                 "Partial padding match detected.",
                 printString(x),
                 sep = "\n"
