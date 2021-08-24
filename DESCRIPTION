@@ -24,7 +24,7 @@ Depends: R (>= 4.0)
 Imports:
     AcidBase (>= 0.4.3),
     AcidCLI (>= 0.1.5),
-    AcidGenerics (>= 0.5.18),
+    AcidGenerics (>= 0.5.19),
     goalie (>= 0.5.4),
     methods,
     stringi (>= 1.7.3),
