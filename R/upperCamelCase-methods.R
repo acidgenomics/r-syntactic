@@ -62,6 +62,6 @@ NULL
 #' @export
 setMethod(
     f = "upperCamelCase",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `upperCamelCase,character`
 )
