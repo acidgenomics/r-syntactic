@@ -2,15 +2,15 @@
 % Please edit documentation in R/AllGenerics.R, R/autopadZeros-methods.R
 \name{autopadZeros}
 \alias{autopadZeros}
-\alias{autopadZeros,integer-method}
 \alias{autopadZeros,character-method}
+\alias{autopadZeros,integer-method}
 \title{Autopad zeros}
 \usage{
 autopadZeros(object, ...)
 
-\S4method{autopadZeros}{integer}(object)
-
 \S4method{autopadZeros}{character}(object)
+
+\S4method{autopadZeros}{integer}(object)
 }
 \arguments{
 \item{object}{Object.}

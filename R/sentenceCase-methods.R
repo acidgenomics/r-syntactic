@@ -18,7 +18,9 @@ NULL
         vapply(
             X = object,
             FUN = function(x) {
-                if (!isTRUE(grepl(" ", x))) return(x)
+                if (!isTRUE(grepl(" ", x))) {
+                    return(x)
+                }
                 x <- strsplit(x, split = " ")[[1L]]
                 ## Only capitalize the first letter of the first word.
                 firstWord <- paste0(
@@ -55,6 +57,6 @@ NULL
 #' @export
 setMethod(
     f = "sentenceCase",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `sentenceCase,character`
 )

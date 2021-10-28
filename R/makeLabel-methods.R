@@ -27,6 +27,6 @@ NULL
 #' @export
 setMethod(
     f = "makeLabel",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `makeLabel,character`
 )

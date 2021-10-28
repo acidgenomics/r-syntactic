@@ -27,7 +27,9 @@ NULL
             x = object,
             modify = modify,
             FUN = function(x, modify) {
-                if (!isTRUE(modify)) return(x)
+                if (!isTRUE(modify)) {
+                    return(x)
+                }
                 x <- .syntactic(x)
                 x <- gsub("[_.]+", " ", x)
                 ## Convert everything but multi-letter acronyms to lowercase.
@@ -48,6 +50,6 @@ NULL
 #' @export
 setMethod(
     f = "makeWords",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `makeWords,character`
 )

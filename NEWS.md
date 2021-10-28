@@ -1,3 +1,10 @@
+## syntactic 0.5.1 (UNRELEASED)
+
+### Minor changes
+
+- Updated R dependency to 4.1, matching Bioconductor 3.14.
+- Increased verbosity of `setMethod` calls.
+
 ## syntactic 0.5.0 (2021-08-24)
 
 ### Major changes

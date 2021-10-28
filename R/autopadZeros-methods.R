@@ -36,16 +36,6 @@ NULL
 
 
 
-#' @rdname autopadZeros
-#' @export
-setMethod(
-    f = "autopadZeros",
-    signature = signature("integer"),
-    definition = `autopadZeros,integer`
-)
-
-
-
 ## Updated 2021-08-24.
 `autopadZeros,character` <-  # nolint
     function(object) {
@@ -110,6 +100,14 @@ setMethod(
 #' @export
 setMethod(
     f = "autopadZeros",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `autopadZeros,character`
+)
+
+#' @rdname autopadZeros
+#' @export
+setMethod(
+    f = "autopadZeros",
+    signature = signature(object = "integer"),
+    definition = `autopadZeros,integer`
 )

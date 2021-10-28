@@ -60,6 +60,6 @@ NULL
 #' @export
 setMethod(
     f = "dottedCase",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `dottedCase,character`
 )
