@@ -40,6 +40,6 @@ NULL
 #' @export
 setMethod(
     f = "capitalize",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `capitalize,character`
 )

@@ -48,6 +48,6 @@ NULL
 #' @export
 setMethod(
     f = "kebabCase",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `kebabCase,character`
 )

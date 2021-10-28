@@ -61,6 +61,6 @@ NULL
 #' @export
 setMethod(
     f = "snakeCase",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `snakeCase,character`
 )

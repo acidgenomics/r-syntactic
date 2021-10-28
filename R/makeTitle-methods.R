@@ -28,6 +28,6 @@ NULL
 #' @export
 setMethod(
     f = "makeTitle",
-    signature = signature("character"),
+    signature = signature(object = "character"),
     definition = `makeTitle,character`
 )

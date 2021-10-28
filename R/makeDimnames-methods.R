@@ -33,6 +33,6 @@ NULL
 #' @export
 setMethod(
     f = "makeDimnames",
-    signature = signature("ANY"),
+    signature = signature(object = "ANY"),
     definition = `makeDimnames,ANY`
 )
