@@ -1,6 +1,7 @@
 #+TITLE: syntactic
 #+STARTUP: content
 * Development
+** TODO Add an option to also rename file extension to lowercase.
 ** TODO Migrate the file renaming capabilities to r-koopa package.
 ** TODO `makeNames`: Consider setting `smart = FALSE` by default.
 ** TODO Need to ignore files starting with "~" or "$" (Microsoft Excel).
