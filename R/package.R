@@ -1,9 +1,21 @@
+## Package description =========================================================
 #' syntactic
 #'
 #' Make syntactically valid names out of character vectors.
 #'
 #' @keywords internal
-#'
+"_PACKAGE"
+
+
+
+## Namespace ===================================================================
+## S4 generics -----------------------------------------------------------------
+#' @importFrom AcidGenerics autopadZeros camelCase capitalize dottedCase
+#'   kebabCase makeDimnames makeLabel makeNames makeTitle makeWords sentenceCase
+#'   snakeCase upperCamelCase
+NULL
+
+## Standard functions ----------------------------------------------------------
 #' @importFrom AcidBase basenameSansExt fileDepth fileExt printString realpath
 #' @importFrom AcidCLI abort alert alertInfo
 #' @importFrom goalie allHaveAccess allAreMatchingRegex assert hasColnames
@@ -13,10 +25,11 @@
 #' @importFrom stringi stri_trans_general
 #' @importFrom stringr str_length str_match str_pad
 #' @importFrom utils packageName
-"_PACKAGE"
+NULL
 
 
 
+## Shared documentation parameters =============================================
 #' Parameters
 #'
 #' @name params
