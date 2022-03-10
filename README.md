@@ -6,9 +6,7 @@ Make syntactically valid names out of character vectors.
 
 ## Installation
 
-Requirements: [R][] >= 4.0, [Bioconductor][] >= 3.13.
-
-### [R][] method
+This is an [R][] package.
 
 ```r
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
