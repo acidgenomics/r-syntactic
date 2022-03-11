@@ -1,4 +1,4 @@
-# syntactic 0.5.1 (UNRELEASED)
+# syntactic 0.5.1 (2022-03-11)
 
 ## Minor changes
 
