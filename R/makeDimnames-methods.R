@@ -13,7 +13,7 @@ NULL
 
 
 
-`makeDimnames,ANY` <-  # nolint
+`makeDimnames,ANY` <- # nolint
     function(object) {
         assert(hasDimnames(object))
         ## Row names.

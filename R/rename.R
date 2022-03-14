@@ -14,14 +14,16 @@
 #' @inheritParams AcidRoxygen::params
 #'
 #' @param path `character`.
-#'   File and/or directory paths.
+#' File and/or directory paths.
+#'
 #' @param fun `character(1)`.
-#'   Function name.
+#' Function name.
+#'
 #' @param recursive `logical(1)`.
-#'   Should the function recurse into directories?
+#' Should the function recurse into directories?
 #'
 #' @return `character`.
-#'   Renamed file paths.
+#' Renamed file paths.
 #'
 #' @examples
 #' testdir <- file.path(tempdir(), "testdata")
@@ -33,17 +35,15 @@
 #' to <- syntacticRename(from)
 #' print(basename(to))
 #' unlink(testdir, recursive = TRUE)
-syntacticRename <- function(
-    path,
-    recursive = FALSE,
-    fun = c(
-        "kebabCase",
-        "snakeCase",
-        "camelCase",
-        "upperCamelCase"
-    ),
-    quiet = FALSE
-) {
+syntacticRename <- function(path,
+                            recursive = FALSE,
+                            fun = c(
+                                "kebabCase",
+                                "snakeCase",
+                                "camelCase",
+                                "upperCamelCase"
+                            ),
+                            quiet = FALSE) {
     assert(
         allHaveAccess(path),
         isFlag(recursive),
@@ -77,14 +77,12 @@ syntacticRename <- function(
         insensitive = insensitive,
         lower = lower,
         quiet = quiet,
-        FUN = function(
-            from,
-            what,
-            args,
-            insensitive,
-            lower,
-            quiet
-        ) {
+        FUN = function(from,
+                       what,
+                       args,
+                       insensitive,
+                       lower,
+                       quiet) {
             dir <- dirname(from)
             ext <- fileExt(from)
             stem <- basenameSansExt(from)

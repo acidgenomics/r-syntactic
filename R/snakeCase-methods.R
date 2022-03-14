@@ -14,7 +14,7 @@ NULL
 
 
 ## Updated 2020-07-08.
-.snakeCase <-  # nolint
+.snakeCase <- # nolint
     function(...) {
         x <- .syntactic(...)
         x <- tolower(x)
@@ -24,13 +24,11 @@ NULL
 
 
 ## Updated 2021-08-24.
-`snakeCase,character` <-  # nolint
-    function(
-        object,
-        smart = TRUE,
-        names = TRUE,
-        prefix = TRUE
-    ) {
+`snakeCase,character` <- # nolint
+    function(object,
+             smart = TRUE,
+             names = TRUE,
+             prefix = TRUE) {
         assert(
             isCharacter(object),
             isFlag(smart),

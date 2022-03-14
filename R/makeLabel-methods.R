@@ -15,7 +15,7 @@ NULL
 
 
 
-`makeLabel,character` <-  # nolint
+`makeLabel,character` <- # nolint
     function(object) {
         assert(isString(object))
         makeWords(object)

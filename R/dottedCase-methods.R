@@ -14,7 +14,7 @@ NULL
 
 
 ## Updated 2020-07-08.
-.dottedCase <-  # nolint
+.dottedCase <- # nolint
     function(...) {
         x <- .snakeCase(...)
         x <- gsub(pattern = "_", replacement = ".", x = x)
@@ -23,13 +23,11 @@ NULL
 
 
 
-`dottedCase,character` <-  # nolint
-    function(
-        object,
-        smart = TRUE,
-        names = TRUE,
-        prefix = TRUE
-    ) {
+`dottedCase,character` <- # nolint
+    function(object,
+             smart = TRUE,
+             names = TRUE,
+             prefix = TRUE) {
         assert(
             isCharacter(object),
             isFlag(smart),
