@@ -15,7 +15,7 @@ NULL
 
 ## Note that by calling `snakeCase()` internally, this will handle special words
 ## like "%" and "+", which we want. Refer to `dottedCase()` for this code.
-.kebabCase <-  # nolint
+.kebabCase <- # nolint
     function(x, ...) {
         x <- snakeCase(x, ...)
         x <- gsub(pattern = "_", replacement = "-", x = x)
@@ -25,12 +25,10 @@ NULL
 
 
 ## Updated 2021-08-24.
-`kebabCase,character` <-  # nolint
-    function(
-        object,
-        smart = TRUE,
-        prefix = TRUE
-    ) {
+`kebabCase,character` <- # nolint
+    function(object,
+             smart = TRUE,
+             prefix = TRUE) {
         assert(
             isCharacter(object),
             isFlag(smart),

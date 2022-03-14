@@ -18,7 +18,7 @@
         X = path,
         FUN = function(path) {
             if (!isDirectory(path)) {
-                return(path)  # nocov
+                return(path) # nocov
             }
             list.files(
                 path = path,

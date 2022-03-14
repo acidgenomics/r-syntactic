@@ -14,7 +14,7 @@ NULL
 
 
 
-`makeTitle,character` <-  # nolint
+`makeTitle,character` <- # nolint
     function(object) {
         assert(isString(object))
         x <- makeWords(object)

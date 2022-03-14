@@ -18,7 +18,7 @@ NULL
 
 
 ## Updated 2020-07-08.
-`makeWords,character` <-  # nolint
+`makeWords,character` <- # nolint
     function(object) {
         assert(isCharacter(object))
         ## Don't modify strings that already contain spaces.

@@ -25,7 +25,7 @@ NULL
 
 
 ## Updated 2020-06-15.
-`autopadZeros,integer` <-  # nolint
+`autopadZeros,integer` <- # nolint
     function(object) {
         names <- names(object)
         object <- as.character(object)
@@ -37,7 +37,7 @@ NULL
 
 
 ## Updated 2021-08-24.
-`autopadZeros,character` <-  # nolint
+`autopadZeros,character` <- # nolint
     function(object) {
         x <- unname(object)
         int <- FALSE

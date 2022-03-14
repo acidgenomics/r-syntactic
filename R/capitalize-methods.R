@@ -4,8 +4,8 @@
 #'
 #' @inheritParams params
 #' @param strict `logical(1)`.
-#'   Enforce strict renaming of words containing multiple capital letters,
-#'   including acronyms.
+#' Enforce strict renaming of words containing multiple capital letters,
+#' including acronyms.
 #' @param ... Additional arguments.
 #'
 #' @examples
@@ -16,7 +16,7 @@ NULL
 
 
 
-`capitalize,character` <-  # nolint
+`capitalize,character` <- # nolint
     function(object, strict = FALSE) {
         assert(isCharacter(object))
         vapply(
