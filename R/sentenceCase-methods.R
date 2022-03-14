@@ -12,7 +12,7 @@ NULL
 
 
 
-`sentenceCase,character` <-  # nolint
+`sentenceCase,character` <- # nolint
     function(object) {
         assert(isCharacter(object))
         vapply(
@@ -34,8 +34,8 @@ NULL
                     FUN = function(x) {
                         if (
                             !isTRUE(grepl("^[.A-Z0-9]+$", x)) &&
-                            !isTRUE(grepl("[.a-z0-9][A-Z]", x)) &&
-                            !isTRUE(grepl("[A-Z]{2}", x))
+                                !isTRUE(grepl("[.a-z0-9][A-Z]", x)) &&
+                                !isTRUE(grepl("[A-Z]{2}", x))
                         ) {
                             x <- tolower(x)
                         }

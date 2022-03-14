@@ -17,7 +17,7 @@ NULL
 
 
 ## Updated 2021-07-28.
-`makeNames,character` <-  # nolint
+`makeNames,character` <- # nolint
     function(object, unique = TRUE, smart = FALSE) {
         assert(
             isFlag(unique),
@@ -128,7 +128,7 @@ NULL
 
 ## This is needed for compatibility with bcbioRNASeq.
 ## Note that factor methods for other syntactic functions are in basejump.
-`makeNames,factor` <- `makeNames,character`  # nolint
+`makeNames,factor` <- `makeNames,character` # nolint
 
 
 

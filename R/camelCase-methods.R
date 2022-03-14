@@ -14,13 +14,11 @@ NULL
 
 
 ## Updated 2021-03-03.
-.camelCase <-  # nolint
-    function(
-        x,
-        format = c("lower", "upper"),
-        strict = TRUE,
-        ...
-    ) {
+.camelCase <- # nolint
+    function(x,
+             format = c("lower", "upper"),
+             strict = TRUE,
+             ...) {
         assert(isFlag(strict))
         format <- match.arg(format)
         x <- .syntactic(x, ...)
@@ -77,14 +75,12 @@ NULL
 
 
 ## Updated 2021-08-24.
-`camelCase,character` <-  # nolint
-    function(
-        object,
-        strict = TRUE,
-        smart = TRUE,
-        names = TRUE,
-        prefix = TRUE
-    ) {
+`camelCase,character` <- # nolint
+    function(object,
+             strict = TRUE,
+             smart = TRUE,
+             names = TRUE,
+             prefix = TRUE) {
         assert(
             isCharacter(object),
             isFlag(strict),
