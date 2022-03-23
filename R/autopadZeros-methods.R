@@ -58,10 +58,22 @@ NULL
         ) {
             dict[["side"]] <- "right"
             dict[["pattern"]] <- dict[["rightPattern"]]
+        } else if (
+            any(c(
+                isMatchingRegex(x = x, pattern = dict[["intPattern"]]),
+                isMatchingRegex(x = x, pattern = dict[["leftPattern"]]),
+                isMatchingRegex(x = x, pattern = dict[["rightPattern"]])
+            ))
+        ) {
+            abort(paste(
+                "Partial padding match detected.",
+                printString(x),
+                sep = "\n"
+            ))
         } else {
             return(object)
         }
-        if (isTRUE(int)) {
+        if (isTRUE(dict[["int"]])) {
             num <- x
         } else {
             match <- str_match(string = x, pattern = dict[["pattern"]])
@@ -74,7 +86,7 @@ NULL
         }
         width <- max(str_length(num))
         num <- str_pad(string = num, width = width, side = "left", pad = "0")
-        if (isTRUE(int)) {
+        if (isTRUE(dict[["int"]])) {
             x <- num
         } else {
             stem <- match[, "stem"]
