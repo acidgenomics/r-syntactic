@@ -40,40 +40,34 @@ NULL
 `autopadZeros,character` <- # nolint
     function(object) {
         x <- unname(object)
-        int <- FALSE
-        intPattern <- "^([[:digit:]]+)$"
-        leftPattern <- "^([[:digit:]]+)(.+)$"
-        rightPattern <- "^([^0-9]+)([[:digit:]]+)$"
-        if (allAreMatchingRegex(x = x, pattern = intPattern)) {
-            int <- TRUE
-        } else if (allAreMatchingRegex(x = x, pattern = leftPattern)) {
-            side <- "left"
-            pattern <- leftPattern
-        } else if (allAreMatchingRegex(x = x, pattern = rightPattern)) {
-            side <- "right"
-            pattern <- rightPattern
+        dict <- list(
+            "int" = FALSE,
+            "intPattern" = "^([[:digit:]]+)$",
+            "leftPattern" = "^([[:digit:]]+)(.+)$",
+            "rightPattern" = "^(.*[^0-9]+)([[:digit:]]+)$"
+        )
+        if (allAreMatchingRegex(x = x, pattern = dict[["intPattern"]])) {
+            dict[["int"]] <- TRUE
         } else if (
-            any(c(
-                isMatchingRegex(x = x, pattern = intPattern),
-                isMatchingRegex(x = x, pattern = leftPattern),
-                isMatchingRegex(x = x, pattern = rightPattern)
-            ))
+            allAreMatchingRegex(x = x, pattern = dict[["leftPattern"]])
         ) {
-            abort(paste(
-                "Partial padding match detected.",
-                printString(x),
-                sep = "\n"
-            ))
+            dict[["side"]] <- "left"
+            dict[["pattern"]] <- dict[["leftPattern"]]
+        } else if (
+            allAreMatchingRegex(x = x, pattern = dict[["rightPattern"]])
+        ) {
+            dict[["side"]] <- "right"
+            dict[["pattern"]] <- dict[["rightPattern"]]
         } else {
             return(object)
         }
         if (isTRUE(int)) {
             num <- x
         } else {
-            match <- str_match(string = x, pattern = pattern)
-            if (identical(side, "left")) {
+            match <- str_match(string = x, pattern = dict[["pattern"]])
+            if (identical(dict[["side"]], "left")) {
                 colnames(match) <- c("string", "num", "stem")
-            } else if (identical(side, "right")) {
+            } else if (identical(dict[["side"]], "right")) {
                 colnames(match) <- c("string", "stem", "num")
             }
             num <- match[, "num"]
@@ -84,9 +78,9 @@ NULL
             x <- num
         } else {
             stem <- match[, "stem"]
-            if (identical(side, "left")) {
+            if (identical(dict[["side"]], "left")) {
                 x <- paste0(num, stem)
-            } else if (identical(side, "right")) {
+            } else if (identical(dict[["side"]], "right")) {
                 x <- paste0(stem, num)
             }
         }
