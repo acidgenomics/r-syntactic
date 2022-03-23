@@ -1,3 +1,10 @@
+# syntactic 0.5.2 (2022-03-23)
+
+## Minor changes
+
+- `autopadZeros`: Improved regular expression matching in cases where additional
+  numbers are present in string.
+
 # syntactic 0.5.1 (2022-03-11)
 
 ## Minor changes
