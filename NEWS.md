@@ -353,7 +353,7 @@ Initial release. Migrated syntactic name functions from [basejump][] package
 here to form a more compact package that is easier to unit test.
 
 [acid genomics]: https://acidgenomics.com/
-[basejump]: https://basejump.acidgenomics.com/
+[basejump]: https://r.acidgenomics.com/packages/basejump/
 [koopa]: https://koopa.acidgenomics.com/
 [matrix]: https://cran.r-project.org/package=Matrix
 [pkgdown]: https://pkgdown.r-lib.org/
