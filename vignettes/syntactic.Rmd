@@ -129,7 +129,7 @@ If syntactic doesn't work quite right for your workflow, these popular packages 
 utils::sessionInfo()
 ```
 
-[basejump]: https://basejump.acidgenomics.com/
+[basejump]: https://r.acidgenomics.com/packages/basejump/
 [biocgenerics]: https://bioconductor.org/packages/BiocGenerics/
 [bioconda]: https://bioconda.github.io/
 [bioconductor]: http://bioconductor.org/
@@ -138,7 +138,7 @@ utils::sessionInfo()
 [koopa]: https://koopa.acidgenomics.com/
 [lettercase]: https://cran.r-project.org/package=lettercase
 [r]: https://www.r-project.org/
-[rstudio]: https://rstudio.com/
+[rstudio]: https://www.rstudio.com/
 [snakecase]: https://cran.r-project.org/package=snakecase
-[syntactic]: https://syntactic.acidgenomics.com/
+[syntactic]: https://r.acidgenomics.com/packages/syntactic/
 [tidyverse]: https://www.tidyverse.org/
