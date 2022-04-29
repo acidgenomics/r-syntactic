@@ -1,7 +1,7 @@
 #' @name autopadZeros
 #' @inherit AcidGenerics::autopadZeros
 #'
-#' @note Updated 2021-08-24.
+#' @note Updated 2022-04-29.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -36,9 +36,10 @@ NULL
 
 
 
-## Updated 2021-08-24.
+## Updated 2022-04-29.
 `autopadZeros,character` <- # nolint
     function(object) {
+        assert(requireNamespace("stringr", quietly = TRUE))
         x <- unname(object)
         dict <- list(
             "int" = FALSE,
@@ -58,25 +59,27 @@ NULL
         ) {
             dict[["side"]] <- "right"
             dict[["pattern"]] <- dict[["rightPattern"]]
-        } else if (
-            any(c(
-                isMatchingRegex(x = x, pattern = dict[["intPattern"]]),
-                isMatchingRegex(x = x, pattern = dict[["leftPattern"]]),
-                isMatchingRegex(x = x, pattern = dict[["rightPattern"]])
-            ))
-        ) {
-            abort(paste(
-                "Partial padding match detected.",
-                printString(x),
-                sep = "\n"
-            ))
         } else {
+            assert(
+                !any(c(
+                    isMatchingRegex(x = x, pattern = dict[["intPattern"]]),
+                    isMatchingRegex(x = x, pattern = dict[["leftPattern"]]),
+                    isMatchingRegex(x = x, pattern = dict[["rightPattern"]])
+                )),
+                msg = sprintf(
+                    "Partial padding match detected: %s.",
+                    printString(x),
+                )
+            )
             return(object)
         }
         if (isTRUE(dict[["int"]])) {
             num <- x
         } else {
-            match <- str_match(string = x, pattern = dict[["pattern"]])
+            match <- stringr::str_match(
+                string = x,
+                pattern = dict[["pattern"]]
+            )
             if (identical(dict[["side"]], "left")) {
                 colnames(match) <- c("string", "num", "stem")
             } else if (identical(dict[["side"]], "right")) {
@@ -84,8 +87,13 @@ NULL
             }
             num <- match[, "num"]
         }
-        width <- max(str_length(num))
-        num <- str_pad(string = num, width = width, side = "left", pad = "0")
+        width <- max(stringr::str_length(num))
+        num <- stringr::str_pad(
+            string = num,
+            width = width,
+            side = "left",
+            pad = "0"
+        )
         if (isTRUE(dict[["int"]])) {
             x <- num
         } else {
