@@ -66,10 +66,7 @@ NULL
                     isMatchingRegex(x = x, pattern = dict[["leftPattern"]]),
                     isMatchingRegex(x = x, pattern = dict[["rightPattern"]])
                 )),
-                msg = sprintf(
-                    "Partial padding match detected: %s.",
-                    printString(x),
-                )
+                msg = "Partial padding match detected."
             )
             return(object)
         }
