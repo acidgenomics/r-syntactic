@@ -1,3 +1,11 @@
+# syntactic 0.6.0 (2022-04-29)
+
+## Major changes
+
+- Updated minimum R dependency to 4.2.
+- Reduced the number of strong dependencies, migrating AcidBase, AcidCLI,
+  stringi, and stringr to `Suggests` instead of `Imports`.
+
 # syntactic 0.5.2 (2022-03-23)
 
 ## Minor changes
