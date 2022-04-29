@@ -1,7 +1,3 @@
-.pkgName <- packageName()
-
-
-
 #' Sort files and directories for recursive rename
 #'
 #' This function prepares files and/or directories for recursive rename by
@@ -10,10 +6,11 @@
 #' This code may be generally useful, and we may want to export in basejump.
 #'
 #' @note Alternatively, can use `file.info(path)[["isdir"]]` here for speed.
-#' @note Updated 2019-12-08.
+#' @note Updated 2022-04-29.
 #' @noRd
 .recursive <- function(path) {
-    path <- realpath(path)
+    assert(requireNamespace("AcidBase", quietly = TRUE))
+    path <- AcidBase::realpath(path)
     nested <- unlist(lapply(
         X = path,
         FUN = function(path) {
@@ -29,11 +26,11 @@
             )
         }
     ))
-    x <- sort(unique(realpath(c(path, nested))))
+    x <- sort(unique(AcidBase::realpath(c(path, nested))))
     dirs <- x[isDirectory(x)]
-    dirs <- rev(dirs[order(fileDepth(dirs))])
+    dirs <- rev(dirs[order(AcidBase::fileDepth(dirs))])
     files <- setdiff(x, dirs)
-    files <- rev(files[order(fileDepth(files))])
+    files <- rev(files[order(AcidBase::fileDepth(files))])
     list(path = path, dirs = dirs, files = files)
 }
 
