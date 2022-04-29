@@ -22,18 +22,19 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.2)
 Imports:
-    AcidBase,
-    AcidCLI,
     AcidGenerics,
     goalie,
-    methods,
-    stringi,
-    stringr
+    methods
 Suggests:
+    AcidBase,
+    AcidCLI,
     AcidTest,
     knitr,
     rmarkdown,
-    testthat
+    stringi,
+    stringr,
+    testthat,
+    utils
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 VignetteBuilder: knitr

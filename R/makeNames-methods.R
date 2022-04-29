@@ -16,10 +16,11 @@ NULL
 
 
 
-## Updated 2021-07-28.
+## Updated 2022-04-29.
 `makeNames,character` <- # nolint
     function(object, unique = TRUE, smart = FALSE) {
         assert(
+            requireNamespace("stringi", quietly = TRUE),
             isFlag(unique),
             isFlag(smart)
         )
@@ -27,7 +28,7 @@ NULL
         ## Error on empty strings, but allow passthrough of NA.
         assert(all(nzchar(x, keepNA = FALSE)))
         ## Coerce accented characters to plain letter.
-        x <- stri_trans_general(str = x, id = "Latin-ASCII")
+        x <- stringi::stri_trans_general(str = x, id = "Latin-ASCII")
         ## Use \uxxxx escapes for other characters.
         ## Lowercase mu (micro) is an edge case.
         x <- gsub(pattern = "(\u00B5|\u03BC)", replacement = "u", x = x)
