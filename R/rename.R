@@ -47,7 +47,6 @@ syntacticRename <-
              quiet = FALSE) {
         assert(
             requireNamespace("AcidBase", quietly = TRUE),
-            requireNamespace("utils", quietly = TRUE),
             allHaveAccess(path),
             isFlag(recursive),
             isFlag(quiet)
@@ -58,7 +57,7 @@ syntacticRename <-
         fun <- match.arg(fun)
         what <- get(
             x = fun,
-            envir = asNamespace(utils::packageName()),
+            envir = asNamespace("AcidGenerics"),
             inherits = FALSE
         )
         assert(is.function(what))
@@ -77,7 +76,7 @@ syntacticRename <-
             from <- .recursive(path)
             from <- c(from[["files"]], from[["dirs"]])
         } else {
-            from <- realpath(path)
+            from <- AcidBase::realpath(path)
         }
         insensitive <- !isTRUE(isFileSystemCaseSensitive())
         to <- vapply(
@@ -94,8 +93,8 @@ syntacticRename <-
                            lower,
                            quiet) {
                 dir <- dirname(from)
-                ext <- fileExt(from)
-                stem <- basenameSansExt(from)
+                ext <- AcidBase::fileExt(from)
+                stem <- AcidBase::basenameSansExt(from)
                 if (isFALSE(grepl(pattern = "^[A-Za-z0-9]", x = stem))) {
                     if (isFALSE(quiet)) {
                         AcidCLI::alertInfo(
