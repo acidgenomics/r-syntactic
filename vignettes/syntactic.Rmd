@@ -10,9 +10,11 @@ vignette: >
 ---
 
 ```{r setup, message=FALSE}
-library(syntactic)
+suppressPackageStartupMessages({
+    library(syntactic)
+})
 data(syntactic, package = "AcidTest")
-object <- syntactic$character
+object <- syntactic[["character"]]
 ```
 
 # Introduction
@@ -99,7 +101,7 @@ invisible(file.remove(output))
 File names containing a prefix that is considered illegal in R can be allowed, which is often useful for sequencing data:
 
 ```{r}
-input <- paste0(seq(4), "_sample_", LETTERS[seq(4)], ".fastq.gz")
+input <- paste0(seq(4L), "_sample_", LETTERS[seq(4L)], ".fastq.gz")
 print(input)
 invisible(file.create(input))
 output <- syntacticRename(input, fun = "kebabCase")
