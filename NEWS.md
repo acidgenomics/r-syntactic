@@ -1,3 +1,9 @@
+# syntactic 0.6.1 (2022-05-23)
+
+## Minor changes
+
+- Updated lintr and testthat checks.
+
 # syntactic 0.6.0 (2022-04-29)
 
 ## Major changes
