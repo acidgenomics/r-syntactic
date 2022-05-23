@@ -1,5 +1,3 @@
-context("capitalize")
-
 test_that("Vectorized", {
     object <- c(
         "the quick Brown fox",

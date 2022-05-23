@@ -27,7 +27,7 @@ NULL
                 if (isTRUE(strict)) {
                     tail <- tolower(tail)
                 }
-                paste(first, tail, sep = "", collapse = " ")
+                paste(first, tail, sep = "", collapse = " ") # nolint
             },
             FUN.VALUE = character(1L),
             USE.NAMES = FALSE

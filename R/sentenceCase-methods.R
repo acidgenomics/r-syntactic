@@ -44,7 +44,11 @@ NULL
                     FUN.VALUE = character(1L),
                     USE.NAMES = FALSE
                 )
-                paste(c(firstWord, otherWords), sep = "", collapse = " ")
+                paste( # nolint
+                    c(firstWord, otherWords),
+                    sep = "",
+                    collapse = " "
+                )
             },
             FUN.VALUE = character(1L),
             USE.NAMES = FALSE

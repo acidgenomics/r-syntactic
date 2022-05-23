@@ -1,5 +1,3 @@
-context("sentenceCase")
-
 test_that("Vectorized", {
     expect_identical(
         object = sentenceCase(

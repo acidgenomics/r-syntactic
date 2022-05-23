@@ -17,17 +17,17 @@ NULL
 
 
 
-## Updated 2020-07-08.
+## Updated 2022-05-23.
 `makeWords,character` <- # nolint
     function(object) {
         assert(isCharacter(object))
         ## Don't modify strings that already contain spaces.
         modify <- !grepl("\\s", object)
-        mapply(
+        out <- Map(
             x = object,
             modify = modify,
-            FUN = function(x, modify) {
-                if (!isTRUE(modify)) {
+            f = function(x, modify) {
+                if (isFALSE(modify)) {
                     return(x)
                 }
                 x <- .syntactic(x)
@@ -38,10 +38,10 @@ NULL
                 ## Include period for versus.
                 x <- gsub("\\b(v|vs)\\b", "\\1.", x)
                 x
-            },
-            SIMPLIFY = TRUE,
-            USE.NAMES = FALSE
+            }
         )
+        out <- unlist(x = out, recursive = FALSE, use.names = FALSE)
+        out
     }
 
 

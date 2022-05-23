@@ -1,5 +1,3 @@
-context("kebabCase")
-
 test_that("Unnamed character", {
     expect_identical(
         object = kebabCase(unnamed),

@@ -1,5 +1,3 @@
-context("makeDimnames")
-
 test_that("makeDimnames", {
     mat <- matrix(
         data = seq_len(4L),

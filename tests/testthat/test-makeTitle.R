@@ -1,5 +1,3 @@
-context("makeTitle")
-
 test_that("makeTitle", {
     expect_identical(
         object = vapply(

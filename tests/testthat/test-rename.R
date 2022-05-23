@@ -1,5 +1,3 @@
-context("rename")
-
 test_that("kebabCase (non-recursive)", {
     testdir <- file.path(tempdir(), "XXX")
     unlink(testdir, recursive = TRUE)
@@ -56,7 +54,7 @@ test_that("kebabCase (recursive)", {
         recursive = TRUE,
         fun = "kebabCase"
     )
-    expect_is(output, "character")
+    expect_type(output, "character")
     files <- sort(append(
         x = path,
         values = list.files(

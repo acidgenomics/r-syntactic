@@ -1,5 +1,3 @@
-context("makeLabel")
-
 test_that("makeLabel", {
     expect_identical(
         object = vapply(
