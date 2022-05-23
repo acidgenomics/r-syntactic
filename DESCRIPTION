@@ -1,8 +1,8 @@
 Package: syntactic
 Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.6.1.9000
-Date: 2022-05-11
+Version: 0.6.1
+Date: 2022-05-23
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -33,8 +33,9 @@ Suggests:
     rmarkdown,
     stringi,
     stringr,
-    testthat
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
-VignetteBuilder: knitr, rmarkdown
+    testthat (>= 3.0.0)
 Additional_repositories: https://r.acidgenomics.com
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+VignetteBuilder: knitr, rmarkdown

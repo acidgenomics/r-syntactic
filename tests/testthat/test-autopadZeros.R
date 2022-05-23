@@ -1,5 +1,3 @@
-context("autopadZeros")
-
 test_that("integer", {
     ## Unmodified.
     expect_identical(

@@ -1,5 +1,3 @@
-context("makeNames")
-
 test_that("makeNames", {
     expect_identical(
         object = makeNames(vec),

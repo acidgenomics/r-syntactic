@@ -10,9 +10,11 @@ vignette: >
 ---
 
 ```{r setup, message=FALSE}
+## nolint start
 suppressPackageStartupMessages({
     library(syntactic)
 })
+## nolint end
 data(syntactic, package = "AcidTest")
 object <- syntactic[["character"]]
 ```

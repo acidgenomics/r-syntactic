@@ -1,5 +1,3 @@
-context("upperCamelCase")
-
 test_that("Strict mode", {
     expect_identical(
         object = upperCamelCase(unnamed, strict = TRUE),
@@ -52,8 +50,8 @@ test_that("Named character", {
             ItemB = "HelloWorld"
         )
     )
-    expect_identical(
-        object = names(camelCase(named, names = FALSE)),
+    expect_named(
+        object = camelCase(named, names = FALSE),
         expected = names(named)
     )
 })

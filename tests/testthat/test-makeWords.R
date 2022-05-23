@@ -1,5 +1,3 @@
-context("makeWords")
-
 test_that("makeWords", {
     expect_identical(
         object = makeWords(mw),
