@@ -40,16 +40,14 @@ case, which are problematic on case-insensitive mounts, and require movement
 of the files into a temporary file name before the final rename.
 }
 \note{
-Updated 2022-04-29.
+Updated 2022-06-02.
 }
 \examples{
-testdir <- file.path(tempdir(), "testdata")
-unlink(testdir, recursive = TRUE)
-dir.create(testdir)
+testdir <- AcidBase::tempdir2()
 from <- file.path(testdir, c("helloWorld.txt", "fooBar.R"))
 file.create(from)
 print(basename(from))
 to <- syntacticRename(from)
 print(basename(to))
-unlink(testdir, recursive = TRUE)
+AcidBase::unlink2(testdir)
 }
