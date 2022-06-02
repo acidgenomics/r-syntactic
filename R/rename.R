@@ -1,7 +1,7 @@
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @export
-#' @note Updated 2022-04-29.
+#' @note Updated 2022-06-02.
 #'
 #' @details
 #' Intelligently deals with a case-insensitive file system, if necessary.
@@ -26,15 +26,13 @@
 #' Renamed file paths.
 #'
 #' @examples
-#' testdir <- file.path(tempdir(), "testdata")
-#' unlink(testdir, recursive = TRUE)
-#' dir.create(testdir)
+#' testdir <- AcidBase::tempdir2()
 #' from <- file.path(testdir, c("helloWorld.txt", "fooBar.R"))
 #' file.create(from)
 #' print(basename(from))
 #' to <- syntacticRename(from)
 #' print(basename(to))
-#' unlink(testdir, recursive = TRUE)
+#' AcidBase::unlink2(testdir)
 syntacticRename <-
     function(path,
              recursive = FALSE,
