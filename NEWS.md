@@ -1,3 +1,10 @@
+# syntactic 0.6.2 (2022-06-02)
+
+## Minor changes
+
+- Hardened working examples and unit tests to use `tempdir2` and `unlink2`
+  from AcidBase update.
+
 # syntactic 0.6.1 (2022-05-23)
 
 ## Minor changes
