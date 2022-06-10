@@ -95,7 +95,14 @@ syntacticRename <-
                 stem <- AcidBase::basenameSansExt(from)
                 if (isFALSE(grepl(pattern = "^[A-Za-z0-9]", x = stem))) {
                     if (isFALSE(quiet)) {
-                        AcidCLI::alertInfo("Skipping {.file {from}}.")
+                        AcidCLI::alertInfo(sprintf(
+                            "Skipping {.file %s}.",
+                            gsub(
+                                pattern = "'",
+                                replacement = "",
+                                x = from
+                            )
+                        ))
                     }
                     return(from)
                 }
@@ -116,7 +123,15 @@ syntacticRename <-
                     return(from)
                 }
                 if (isFALSE(quiet)) {
-                    AcidCLI::alert("Renaming {.file {from}}.")
+                    AcidCLI::alert(sprintf(
+                        "Renaming {.file %s} to {.file %s}.",
+                        gsub(
+                            pattern = "'",
+                            replacement = "",
+                            x = from
+                        ),
+                        basename(to)
+                    ))
                 }
                 ## nocov start
                 if (isTRUE(insensitive)) {
