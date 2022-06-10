@@ -1,3 +1,11 @@
+# syntactic 0.6.3 (2022-06-10)
+
+## Minor changes
+
+- `syntacticRename`: Harden against single quotes breaking CLI alert messages,
+  due to internal glue parser.
+  See [related issue](https://github.com/r-lib/cli/issues/370).
+
 # syntactic 0.6.2 (2022-06-02)
 
 ## Minor changes
