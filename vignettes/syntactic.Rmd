@@ -37,7 +37,7 @@ There are five primary naming functions:
 
 Unsure how to name variables and/or functions in R? Here are my current recommendations, *for scientists and bioinformaticians*:
 
-- When in doubt, refer to the [Bioconductor coding style guide](https://bioconductor.org/developers/how-to/coding-style/).
+- When in doubt, refer to the [Bioconductor coding style guide](https://contributions.bioconductor.org/r-code.html#r-code).
 - Use `snakeCase` as your daily driver, inside of scripts and R Markdown files. This convention is always legible and consistent. Don't use this convention inside of packages, however.
 - For packages, switch to `camelCase`. Use this consistently for function names, arguments, and internal variable names. Camel case is the preferred convention for [Bioconductor][], which uses the S4 class system for object-oriented programming. S4 generics on Bioconductor are primarily named in camel case; refer to [BiocGenerics][] for details. Note that snake case is used for function names in [RStudio][] / [tidyverse][] packages, but these build on top of the S3 class system, which isn't used inside of most biological R packages.
 - `upperCamelCase` should only ever be used for S4 class definitions, such as `SummarizedExperiment`. Avoid naming functions with this convention.
