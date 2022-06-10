@@ -148,3 +148,12 @@ test_that("upperCamelCase (non-recursive)", {
     expect_identical(object = output, expected = expected)
     unlink2(testdir)
 })
+
+test_that("Single quote", {
+    testdir <- tempdir2()
+    input <- file.path(testdir, "Working Men's Club")
+    file.create(input)
+    output <- syntacticRename(input, fun = "kebabCase")
+    expect_true(file.exists(output))
+    unlink2(testdir)
+})

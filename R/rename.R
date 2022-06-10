@@ -1,7 +1,7 @@
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @export
-#' @note Updated 2022-06-02.
+#' @note Updated 2022-06-10.
 #'
 #' @details
 #' Intelligently deals with a case-insensitive file system, if necessary.
@@ -95,9 +95,7 @@ syntacticRename <-
                 stem <- AcidBase::basenameSansExt(from)
                 if (isFALSE(grepl(pattern = "^[A-Za-z0-9]", x = stem))) {
                     if (isFALSE(quiet)) {
-                        AcidCLI::alertInfo(
-                            sprintf("Skipping {.file %s}.", from)
-                        )
+                        AcidCLI::alertInfo("Skipping {.file {from}}.")
                     }
                     return(from)
                 }
@@ -118,10 +116,7 @@ syntacticRename <-
                     return(from)
                 }
                 if (isFALSE(quiet)) {
-                    AcidCLI::alert(sprintf(
-                        "Renaming {.file %s} to {.file %s}.",
-                        from, basename(to)
-                    ))
+                    AcidCLI::alert("Renaming {.file {from}}.")
                 }
                 ## nocov start
                 if (isTRUE(insensitive)) {
