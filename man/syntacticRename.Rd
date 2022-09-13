@@ -40,7 +40,7 @@ case, which are problematic on case-insensitive mounts, and require movement
 of the files into a temporary file name before the final rename.
 }
 \note{
-Updated 2022-06-02.
+Updated 2022-06-10.
 }
 \examples{
 testdir <- AcidBase::tempdir2()
