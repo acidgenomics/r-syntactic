@@ -1,6 +1,7 @@
 #+TITLE: syntactic
 #+STARTUP: content
 * Development
+** TODO Add '--dry-run' option to renamer functions.
 ** TODO File names with single quote can cause glue error.
     '01 Livin'\'' Loose (Instrumental).mp3' 
     Error in glue_data(.x = NULL, ..., .sep = .sep, .envir = .envir, .open = .open,  :
