@@ -1,8 +1,3 @@
-## FIXME Can we improve CLI message for complicated file names?
-## This requires the new CLI update...
-
-
-
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @export
