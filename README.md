@@ -27,7 +27,7 @@ Configure [conda][] to use the [bioconda][] channels.
 
 ```sh
 # Don't install recipe into base environment.
-name="r-syntactic"
+name='r-syntactic'
 conda create --name="$name" "$name"
 conda activate "$name"
 R
@@ -36,8 +36,8 @@ R
 ### [Docker][] method
 
 ```sh
-image="acidgenomics/r-syntactic"
-workdir="/mnt/work"
+image='acidgenomics/r-packages:syntactic'
+workdir='/mnt/work'
 docker pull "$image"
 docker run -it \
     --volume="${PWD}:${workdir}" \
