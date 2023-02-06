@@ -98,7 +98,7 @@
 
 
 ## Used internally to hand off to camel, dotted, and snake case.
-## Updated 2020-07-08.
+## Updated 2023-02-06.
 .syntactic <- function(x, smart = TRUE, prefix = TRUE) {
     assert(
         is.atomic(x),
@@ -107,6 +107,8 @@
     )
     x <- makeNames(x, smart = smart, unique = FALSE)
     if (isTRUE(smart)) {
+        ## Ignore single quotes.
+        x <- gsub(pattern = "'", replacement = "", x = x)
         ## Standardize any mixed case acronyms.
         x <- .sanitizeAcronyms(x)
     }
