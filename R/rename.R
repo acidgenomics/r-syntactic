@@ -1,7 +1,7 @@
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @export
-#' @note Updated 2022-06-10.
+#' @note Updated 2023-02-06.
 #'
 #' @details
 #' Intelligently deals with a case-insensitive file system, if necessary.
@@ -62,7 +62,7 @@ syntacticRename <-
         ## Shared arguments passed per file to syntactic naming function.
         args <- list(
             "prefix" = FALSE,
-            "smart" = FALSE
+            "smart" = TRUE
         )
         if (isSubset(fun, c("camelCase", "upperCamelCase"))) {
             args[["strict"]] <- TRUE
