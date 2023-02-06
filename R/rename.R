@@ -101,7 +101,7 @@ syntacticRename <-
             }
             file.path(dn, bn)
         }
-        what <-get(
+        what <- get(
             x = fun,
             envir = asNamespace("AcidGenerics"),
             inherits = FALSE
