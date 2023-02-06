@@ -96,8 +96,8 @@ input <- c(
 )
 invisible(file.create(input))
 output <- syntacticRename(input, fun = "kebabCase")
-basename(output)
-invisible(file.remove(output))
+print(output)
+invisible(file.remove(output[["to"]]))
 ```
 
 File names containing a prefix that is considered illegal in R can be allowed, which is often useful for sequencing data:
@@ -107,8 +107,8 @@ input <- paste0(seq(4L), "_sample_", LETTERS[seq(4L)], ".fastq.gz")
 print(input)
 invisible(file.create(input))
 output <- syntacticRename(input, fun = "kebabCase")
-basename(output)
-invisible(file.remove(output))
+print(output)
+invisible(file.remove(output[["to"]]))
 ```
 
 Recursion inside of directories is supported using the `recursive = TRUE` argument.
@@ -142,7 +142,7 @@ utils::sessionInfo()
 [koopa]: https://koopa.acidgenomics.com/
 [lettercase]: https://cran.r-project.org/package=lettercase
 [r]: https://www.r-project.org/
-[rstudio]: https://www.rstudio.com/
+[rstudio]: https://posit.co/products/open-source/rstudio/
 [snakecase]: https://cran.r-project.org/package=snakecase
 [syntactic]: https://r.acidgenomics.com/packages/syntactic/
 [tidyverse]: https://www.tidyverse.org/
