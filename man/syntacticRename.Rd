@@ -8,7 +8,8 @@ syntacticRename(
   path,
   recursive = FALSE,
   fun = c("kebabCase", "snakeCase", "camelCase", "upperCamelCase"),
-  quiet = FALSE
+  quiet = FALSE,
+  dryRun = FALSE
 )
 }
 \arguments{
@@ -23,6 +24,9 @@ Function name.}
 
 \item{quiet}{\code{logical(1)}.
 Perform command quietly, suppressing messages.}
+
+\item{dryRun}{\code{logical(1)}.
+Return the proposed file path modifications without modification.}
 }
 \value{
 \code{character}.
