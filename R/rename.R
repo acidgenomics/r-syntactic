@@ -33,8 +33,8 @@
 #' from <- file.path(testdir, c("helloWorld.txt", "fooBar.R"))
 #' file.create(from)
 #' print(basename(from))
-#' to <- syntacticRename(from)
-#' print(basename(to))
+#' output <- syntacticRename(from)
+#' print(output)
 #' AcidBase::unlink2(testdir)
 syntacticRename <-
     function(path,

@@ -29,8 +29,8 @@ Perform command quietly, suppressing messages.}
 Return the proposed file path modifications without modification.}
 }
 \value{
-\code{character}.
-Renamed file paths.
+\code{list}.
+Named list containining \code{from} and \code{to} rename operations.
 }
 \description{
 Rename files and/or directories using a syntactic naming function
@@ -51,7 +51,7 @@ testdir <- AcidBase::tempdir2()
 from <- file.path(testdir, c("helloWorld.txt", "fooBar.R"))
 file.create(from)
 print(basename(from))
-to <- syntacticRename(from)
-print(basename(to))
+output <- syntacticRename(from)
+print(output)
 AcidBase::unlink2(testdir)
 }
