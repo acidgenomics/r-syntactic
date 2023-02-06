@@ -25,8 +25,8 @@
 #' @param dryRun `logical(1)`.
 #' Return the proposed file path modifications without modification.
 #'
-#' @return `character`.
-#' Renamed file paths.
+#' @return `list`.
+#' Named list containining `from` and `to` rename operations.
 #'
 #' @examples
 #' testdir <- AcidBase::tempdir2()
@@ -78,13 +78,14 @@ syntacticRename <-
         } else {
             from <- AcidBase::realpath(path)
         }
+        assert(allHaveAccess(from))
         toPath <- function(from, what, whatArgs, lower, quiet) {
             dn <- dirname(from)
             ext <- AcidBase::fileExt(from)
             stem <- AcidBase::basenameSansExt(from)
             if (isFALSE(grepl(pattern = "^[A-Za-z0-9]", x = stem))) {
                 if (isFALSE(quiet)) {
-                    AcidCLI::alertInfo(sprintf("Skipping {.file %s}.", to))
+                    AcidCLI::alertInfo(sprintf("Skipping {.file %s}.", from))
                 }
                 return(from)
             }
@@ -100,14 +101,15 @@ syntacticRename <-
             }
             file.path(dn, bn)
         }
+        what <-get(
+            x = fun,
+            envir = asNamespace("AcidGenerics"),
+            inherits = FALSE
+        )
         to <- vapply(
             X = from,
-            what = get(
-                x = fun,
-                envir = asNamespace("AcidGenerics"),
-                inherits = FALSE
-            ),
-            args = args,
+            what = what,
+            whatArgs = whatArgs,
             lower = lower,
             quiet = quiet,
             FUN = toPath,
@@ -121,7 +123,7 @@ syntacticRename <-
                 ))
             }
             Map(f = dryRunPath, from = from, to = to, USE.NAMES = FALSE)
-            return(invisible(character()))
+            return(invisible(list("from" = character(), "to" = character())))
         }
         renamer <- function(from, to, caseSensitive) {
             if (identical(from, to)) {
@@ -151,6 +153,6 @@ syntacticRename <-
             MoreArgs = list("caseSensitive" = isFileSystemCaseSensitive()),
             USE.NAMES = FALSE
         ))
-        assert(allAreFiles(to), all(ok))
-        invisible(to)
+        assert(all(ok))
+        invisible(list("from" = from, "to" = to))
     }
