@@ -30,4 +30,20 @@ test_that("makeNames", {
         object = makeNames(as.character(c(1L, 1L)), unique = TRUE),
         expected = c("X1", "X1_1")
     )
+    expect_identical(
+        object = makeNames(
+            object = c(
+                "aaa - bbb",
+                "aaa- bbb",
+                "aaa -bbb"
+            ),
+            unique = FALSE,
+            smart = TRUE
+        ),
+        expected = c(
+            "aaa_bbb",
+            "aaa_minus_bbb",
+            "aaa_bbb"
+        )
+    )
 })
