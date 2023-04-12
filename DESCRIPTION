@@ -22,18 +22,18 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.2)
 Imports:
-    AcidGenerics (>= 0.6.5),
-    goalie (>= 0.6.7),
+    AcidGenerics (>= 0.6.6),
+    goalie (>= 0.6.8),
     methods
 Suggests:
-    AcidBase (>= 0.6.10),
-    AcidCLI (>= 0.2.6),
+    AcidBase (>= 0.6.12),
+    AcidCLI (>= 0.2.7),
     AcidTest (>= 0.7.0),
     knitr (>= 1.42),
-    rmarkdown (>= 2.20),
+    rmarkdown (>= 2.21),
     stringi (>= 1.7.12),
     stringr (>= 1.5.0),
-    testthat (>= 3.1.6)
+    testthat (>= 3.1.7)
 Additional_repositories: https://r.acidgenomics.com
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
