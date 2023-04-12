@@ -1,5 +1,12 @@
 # Release notes
 
+## syntactic 0.6.5 (2023-04-12)
+
+Minor changes:
+
+- `makeNames`: Fixed accidental sanitization of `" - "` to `"_minus_"`.
+- Improved `smart` mode coverage in `makeNames`.
+
 ## syntactic 0.6.4 (2023-02-06)
 
 Minor changes:
