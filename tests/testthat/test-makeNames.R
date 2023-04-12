@@ -33,27 +33,29 @@ test_that("makeNames", {
     expect_identical(
         object = makeNames(
             object = c(
-                "aaa - bbb",
-                "aaa- bbb",
-                "aaa -bbb",
-                "aaa+bbb",
-                "aaa/bbb",
-                "aaa&bbb",
-                "aaa'bbb",
-                "1,000"
+                "a - b",
+                "a- b",
+                "a -b",
+                "a+b",
+                "a/b",
+                "a&b",
+                "a'b",
+                "a,b",
+                "1,0"
             ),
             unique = FALSE,
             smart = TRUE
         ),
         expected = c(
-            "aaa_bbb",
-            "aaa_minus_bbb",
-            "aaa_bbb",
-            "aaa_plus_bbb",
-            "aaa_slash_bbb",
-            "aaa_and_bbb",
-            "aaabbb",
-            "X1000"
+            "a_b",
+            "a_minus_b",
+            "a_b",
+            "a_plus_b",
+            "a_slash_b",
+            "a_and_b",
+            "ab",
+            "a_b",
+            "X10"
         )
     )
 })
