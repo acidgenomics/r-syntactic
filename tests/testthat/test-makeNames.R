@@ -35,7 +35,12 @@ test_that("makeNames", {
             object = c(
                 "aaa - bbb",
                 "aaa- bbb",
-                "aaa -bbb"
+                "aaa -bbb",
+                "aaa+bbb",
+                "aaa/bbb",
+                "aaa&bbb",
+                "aaa'bbb",
+                "1,000"
             ),
             unique = FALSE,
             smart = TRUE
@@ -43,7 +48,12 @@ test_that("makeNames", {
         expected = c(
             "aaa_bbb",
             "aaa_minus_bbb",
-            "aaa_bbb"
+            "aaa_bbb",
+            "aaa_plus_bbb",
+            "aaa_slash_bbb",
+            "aaa_and_bbb",
+            "aaabbb",
+            "X1000"
         )
     )
 })
