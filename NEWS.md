@@ -6,6 +6,7 @@ Minor changes:
 
 - `makeNames`: Fixed accidental sanitization of `" - "` to `"_minus_"`.
 - Improved `smart` mode coverage in `makeNames`.
+- Removed deprecated aliases: `camel`, `snake`, `upperCamel`.
 
 ## syntactic 0.6.4 (2023-02-06)
 
