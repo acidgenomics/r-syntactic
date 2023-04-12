@@ -39,11 +39,11 @@ Sanitizes names using underscores instead of dots, the convention used by
 \code{\link[base:make.names]{make.names()}}.
 }
 \note{
-Updated 2021-07-28.
+Updated 2023-04-12.
 }
 \examples{
 data(syntactic, package = "AcidTest")
-object <- syntactic$character
+object <- syntactic[["character"]]
 makeNames(object)
 }
 \seealso{
