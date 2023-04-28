@@ -1,5 +1,12 @@
 # Release notes
 
+## syntactic 0.6.6 (2023-04-28)
+
+Minor changes:
+
+- `makeNames`: Added additional regular expression pattern matching of micro
+  character, coercing to "u".
+
 ## syntactic 0.6.5 (2023-04-12)
 
 Minor changes:
