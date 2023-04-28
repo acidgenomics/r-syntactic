@@ -16,7 +16,7 @@ NULL
 
 
 
-## Updated 2023-04-12.
+## Updated 2023-04-28.
 `makeNames,character` <- # nolint
     function(object, unique = TRUE, smart = FALSE) {
         assert(
@@ -27,7 +27,8 @@ NULL
         x <- as.character(object)
         assert(all(nzchar(x, keepNA = FALSE)))
         x <- stringi::stri_trans_general(str = x, id = "Latin-ASCII")
-        x <- gsub(pattern = "(\u00B5|\u03BC)", replacement = "u", x = x)
+        ## Ensure we convert pesky "micro" characters to "u".
+        x <- gsub(pattern = "(\u00B5|\u03BC|&#181;)", replacement = "u", x = x)
         if (isTRUE(smart)) {
             x <- gsub(pattern = "'", replacement = "", x = x)
             x <- gsub(pattern = "\\&", replacement = "_and_", x = x)
