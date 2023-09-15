@@ -136,7 +136,7 @@ utils::sessionInfo()
 [basejump]: https://r.acidgenomics.com/packages/basejump/
 [biocgenerics]: https://bioconductor.org/packages/BiocGenerics/
 [bioconda]: https://bioconda.github.io/
-[bioconductor]: http://bioconductor.org/
+[bioconductor]: https://bioconductor.org/
 [conda]: https://conda.io/
 [janitor]: https://cran.r-project.org/package=janitor
 [koopa]: https://koopa.acidgenomics.com/
