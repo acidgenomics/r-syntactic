@@ -1,7 +1,11 @@
+## FIXME Rework to take out stringr dependency.
+
+
+
 #' @name autopadZeros
 #' @inherit AcidGenerics::autopadZeros
 #'
-#' @note Updated 2022-04-29.
+#' @note Updated 2023-09-21.
 #'
 #' @inheritParams AcidRoxygen::params
 #' @param ... Additional arguments.
@@ -36,7 +40,7 @@ NULL
 
 
 
-## Updated 2022-04-29.
+## Updated 2023-09-21.
 `autopadZeros,character` <- # nolint
     function(object) {
         assert(requireNamespace("stringr", quietly = TRUE))
