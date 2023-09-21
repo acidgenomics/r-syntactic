@@ -1,16 +1,13 @@
-## FIXME Don't require stringi here.
-
-
-
 #' @name makeNames
 #' @inherit AcidGenerics::makeNames
-#' @note Updated 2023-04-12.
+#' @note Updated 2023-09-21.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
 #'
 #' @seealso
 #' - [ASCII table](https://cs.stanford.edu/people/miles/iso8859.html)
+#' - `stringi::stri_trans_general`.
 #'
 #' @examples
 #' data(syntactic, package = "AcidTest")
@@ -20,17 +17,19 @@ NULL
 
 
 
-## Updated 2023-04-28.
+## Updated 2023-09-21.
 `makeNames,character` <- # nolint
     function(object, unique = TRUE, smart = FALSE) {
         assert(
-            requireNamespace("stringi", quietly = TRUE),
             isFlag(unique),
             isFlag(smart)
         )
         x <- as.character(object)
         assert(all(nzchar(x, keepNA = FALSE)))
-        x <- stringi::stri_trans_general(str = x, id = "Latin-ASCII")
+        ## Use stringi to decode foreign characters, when possible.
+        if (isTRUE(requireNamespace("stringi", quietly = TRUE))) {
+            x <- stringi::stri_trans_general(str = x, id = "Latin-ASCII")
+        }
         ## Ensure we convert pesky "micro" characters to "u".
         x <- gsub(pattern = "(\u00B5|\u03BC|&#181;)", replacement = "u", x = x)
         if (isTRUE(smart)) {

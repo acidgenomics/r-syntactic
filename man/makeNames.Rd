@@ -39,7 +39,7 @@ Sanitizes names using underscores instead of dots, the convention used by
 \code{\link[base:make.names]{make.names()}}.
 }
 \note{
-Updated 2023-04-12.
+Updated 2023-09-21.
 }
 \examples{
 data(syntactic, package = "AcidTest")
@@ -49,5 +49,6 @@ makeNames(object)
 \seealso{
 \itemize{
 \item \href{https://cs.stanford.edu/people/miles/iso8859.html}{ASCII table}
+\item \code{stringi::stri_trans_general}.
 }
 }
