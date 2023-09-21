@@ -9,7 +9,7 @@
 #' @return `character`.
 #'
 #' @seealso
-#' - `stringr::str_pad`.
+#' - [stringr::str_pad()].
 #'
 #' @examples
 #' ## integer ====
