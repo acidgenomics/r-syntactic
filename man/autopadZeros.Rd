@@ -24,7 +24,7 @@ autopadZeros(object, ...)
 Autopad zeros
 }
 \note{
-Updated 2022-04-29.
+Updated 2023-09-21.
 }
 \examples{
 ## integer ====
