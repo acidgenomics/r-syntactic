@@ -1,3 +1,7 @@
+## FIXME Don't require stringi here.
+
+
+
 #' @name makeNames
 #' @inherit AcidGenerics::makeNames
 #' @note Updated 2023-04-12.
