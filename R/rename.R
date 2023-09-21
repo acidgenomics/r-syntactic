@@ -156,3 +156,41 @@ syntacticRename <-
         assert(all(ok))
         invisible(list("from" = from, "to" = to))
     }
+
+
+
+#' Sort files and directories for recursive rename
+#'
+#' This function prepares files and/or directories for recursive rename by
+#' ordering from deepest to shallowest, using the `fileDepth()` function.
+#'
+#' This code may be generally useful, and we may want to export in basejump.
+#'
+#' @note Alternatively, can use `file.info(path)[["isdir"]]` here for speed.
+#' @note Updated 2022-04-29.
+#' @noRd
+.recursive <- function(path) {
+    assert(requireNamespace("AcidBase", quietly = TRUE))
+    path <- AcidBase::realpath(path)
+    nested <- unlist(lapply(
+        X = path,
+        FUN = function(path) {
+            if (!isDirectory(path)) {
+                return(path) # nocov
+            }
+            list.files(
+                path = path,
+                all.files = FALSE,
+                full.names = TRUE,
+                recursive = TRUE,
+                include.dirs = TRUE
+            )
+        }
+    ))
+    x <- sort(unique(AcidBase::realpath(c(path, nested))))
+    dirs <- x[isDirectory(x)]
+    dirs <- rev(dirs[order(AcidBase::fileDepth(dirs))])
+    files <- setdiff(x, dirs)
+    files <- rev(files[order(AcidBase::fileDepth(files))])
+    list(path = path, dirs = dirs, files = files)
+}
