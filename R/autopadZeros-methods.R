@@ -100,8 +100,7 @@ NULL
             }
             num <- match[, "num"]
         }
-        ## FIXME Rework using base R.
-        width <- max(stringr::str_length(num))
+        width <- max(nchar(num))
         ## FIXME Rework using base R.
         num <- stringr::str_pad(
             string = num,
