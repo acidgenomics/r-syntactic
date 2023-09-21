@@ -24,27 +24,6 @@ NULL
 
 
 
-#' Extract components from a match
-#'
-#' @note Updated 2023-09-21.
-#' @noRd
-#'
-#' @return `matrix`.
-#' Character matrix of match groups.
-#'
-#' @seealso
-#' - [AcidBase::strMatch()].
-#' - [stringr::str_match()].
-#' - https://stringr.tidyverse.org/articles/from-base.html
-.strMatch <- function(x, pattern) {
-    m <- regexec(pattern = pattern, text = x)
-    l <- regmatches(x = x, m = m)
-    mat <- do.call(what = rbind, args = l)
-    mat
-}
-
-
-
 ## Updated 2020-06-15.
 `autopadZeros,integer` <- # nolint
     function(object) {
@@ -93,7 +72,8 @@ NULL
         if (isTRUE(dict[["int"]])) {
             num <- x
         } else {
-            match <- .strMatch(x = x, pattern = dict[["pattern"]])
+            assert(requireNamespaces("AcidBase"))
+            match <- AcidBase::strMatch(x = x, pattern = dict[["pattern"]])
             if (identical(dict[["side"]], "left")) {
                 colnames(match) <- c("string", "num", "stem")
             } else if (identical(dict[["side"]], "right")) {
