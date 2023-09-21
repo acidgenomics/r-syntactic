@@ -48,7 +48,7 @@ syntacticRename <-
              quiet = FALSE,
              dryRun = FALSE) {
         assert(
-            requireNamespace("AcidBase", quietly = TRUE),
+            requireNamespaces("AcidBase"),
             allHaveAccess(path),
             isFlag(recursive),
             isFlag(quiet),
@@ -58,7 +58,7 @@ syntacticRename <-
             assert(isFALSE(quiet))
         }
         if (isFALSE(quiet)) {
-            assert(requireNamespace("AcidCLI", quietly = TRUE))
+            assert(requireNamespaces("AcidCLI"))
         }
         fun <- match.arg(fun)
         ## Shared arguments passed per file to syntactic naming function.

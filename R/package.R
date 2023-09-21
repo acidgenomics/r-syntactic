@@ -21,6 +21,6 @@ NULL
 #' @importFrom goalie allHaveAccess allAreMatchingRegex assert hasColnames
 #' hasDimnames hasNames hasNoDuplicates hasRownames isCharacter isDirectory
 #' isFileSystemCaseSensitive isFlag isInstalled isMatchingRegex isString
-#' isSubset
+#' isSubset requireNamespaces
 #' @importFrom methods setMethod signature
 NULL
