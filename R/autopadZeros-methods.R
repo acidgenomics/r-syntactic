@@ -26,13 +26,14 @@ NULL
 
 #' Extract components from a match
 #'
-#' @note Updated 2023-09-21
+#' @note Updated 2023-09-21.
 #' @noRd
 #'
 #' @return `matrix`.
 #' Character matrix of match groups.
 #'
 #' @seealso
+#' - [AcidBase::strMatch()].
 #' - [stringr::str_match()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
 .strMatch <- function(x, pattern) {
