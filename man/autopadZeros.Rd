@@ -38,6 +38,6 @@ autopadZeros(c("A1", "B10", "C100"))
 }
 \seealso{
 \itemize{
-\item \code{stringr::str_pad}.
+\item \code{\link[stringr:str_pad]{stringr::str_pad()}}.
 }
 }
