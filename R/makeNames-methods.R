@@ -27,7 +27,7 @@ NULL
         x <- as.character(object)
         assert(all(nzchar(x, keepNA = FALSE)))
         ## Use stringi to decode foreign characters, when possible.
-        if (isTRUE(requireNamespace("stringi", quietly = TRUE))) {
+        if (isInstalled("stringi")) {
             x <- stringi::stri_trans_general(str = x, id = "Latin-ASCII")
         }
         ## Ensure we convert pesky "micro" characters to "u".

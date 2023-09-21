@@ -170,7 +170,7 @@ syntacticRename <-
 #' @note Updated 2022-04-29.
 #' @noRd
 .recursive <- function(path) {
-    assert(requireNamespace("AcidBase", quietly = TRUE))
+    assert(requireNamespaces("AcidBase"))
     path <- AcidBase::realpath(path)
     nested <- unlist(lapply(
         X = path,
