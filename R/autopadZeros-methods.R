@@ -101,13 +101,7 @@ NULL
             num <- match[, "num"]
         }
         width <- max(nchar(num))
-        ## FIXME Rework using base R.
-        num <- stringr::str_pad(
-            string = num,
-            width = width,
-            side = "left",
-            pad = "0"
-        )
+        num <- sprintf(paste0("%0", width, "s"), num)
         if (isTRUE(dict[["int"]])) {
             x <- num
         } else {
