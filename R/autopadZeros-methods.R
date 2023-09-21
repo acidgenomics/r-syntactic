@@ -33,7 +33,7 @@ NULL
 #' Character matrix of match groups.
 #'
 #' @seealso
-#' - `stringr::str_match`.
+#' - [stringr::str_match()].
 #' - https://stringr.tidyverse.org/articles/from-base.html
 .strMatch <- function(x, pattern) {
     m <- regexec(pattern = pattern, text = x)
