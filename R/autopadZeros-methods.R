@@ -1,7 +1,3 @@
-## FIXME Rework to take out stringr dependency.
-
-
-
 #' @name autopadZeros
 #' @inherit AcidGenerics::autopadZeros
 #'
@@ -28,6 +24,26 @@ NULL
 
 
 
+#' Extract components from a match
+#'
+#' @note Updated 2023-09-21
+#' @noRd
+#'
+#' @return `matrix`.
+#' Character matrix of match groups.
+#'
+#' @seealso
+#' - `stringr::str_match`.
+#' - https://stringr.tidyverse.org/articles/from-base.html
+.strMatch <- function(x, pattern) {
+    m <- regexec(pattern = pattern, text = x)
+    l <- regmatches(x = x, m = m)
+    mat <- do.call(what = rbind, args = l)
+    mat
+}
+
+
+
 ## Updated 2020-06-15.
 `autopadZeros,integer` <- # nolint
     function(object) {
@@ -43,7 +59,6 @@ NULL
 ## Updated 2023-09-21.
 `autopadZeros,character` <- # nolint
     function(object) {
-        assert(requireNamespace("stringr", quietly = TRUE))
         x <- unname(object)
         dict <- list(
             "int" = FALSE,
@@ -77,10 +92,7 @@ NULL
         if (isTRUE(dict[["int"]])) {
             num <- x
         } else {
-            match <- stringr::str_match(
-                string = x,
-                pattern = dict[["pattern"]]
-            )
+            match <- .strMatch(x = x, pattern = dict[["pattern"]])
             if (identical(dict[["side"]], "left")) {
                 colnames(match) <- c("string", "num", "stem")
             } else if (identical(dict[["side"]], "right")) {
@@ -88,7 +100,9 @@ NULL
             }
             num <- match[, "num"]
         }
+        ## FIXME Rework using base R.
         width <- max(stringr::str_length(num))
+        ## FIXME Rework using base R.
         num <- stringr::str_pad(
             string = num,
             width = width,
