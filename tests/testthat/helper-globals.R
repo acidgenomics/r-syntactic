@@ -13,7 +13,6 @@ dn <- c(
 )
 ## makeWords check vector.
 mw <- c(
-    "killVMaim",
     "log10GenesPerUMI",
     "mitoVsCoding",
     "words already",
