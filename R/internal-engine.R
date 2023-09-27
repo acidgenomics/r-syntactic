@@ -60,7 +60,7 @@
 
 
 ## Used internally to hand off to camel, dotted, and snake case.
-## Updated 2023-02-06.
+## Updated 2023-09-27.
 .syntactic <- function(x, smart = TRUE, prefix = TRUE) {
     assert(
         is.atomic(x),
@@ -94,7 +94,7 @@
     )
     ## Word following an acronym.
     x <- gsub(
-        pattern = "([A-Z0-9])([A-Z])([a-z])",
+        pattern = "([A-Z0-9]{2,})([A-Z])([a-z])",
         replacement = "\\1_\\2\\3",
         x = x
     )
