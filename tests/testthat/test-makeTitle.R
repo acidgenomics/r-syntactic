@@ -7,7 +7,6 @@ test_that("makeTitle", {
             USE.NAMES = FALSE
         ),
         expected = c(
-            "Kill v. maim",
             "Log10 genes per UMI",
             "Mito vs. coding",
             "Words already",

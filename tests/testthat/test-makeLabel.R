@@ -7,7 +7,6 @@ test_that("makeLabel", {
             USE.NAMES = FALSE
         ),
         expected = c(
-            "kill v. maim",
             "log10 genes per UMI",
             "mito vs. coding",
             "words already",
