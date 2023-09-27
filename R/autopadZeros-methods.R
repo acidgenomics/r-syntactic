@@ -1,7 +1,3 @@
-## FIXME Move this to AcidBase.
-
-
-
 #' @name autopadZeros
 #' @inherit AcidGenerics::autopadZeros
 #'
