@@ -94,7 +94,12 @@
     )
     ## Word following an acronym.
     x <- gsub(
-        pattern = "([A-Z0-9]{2,})([A-Z])([a-z])",
+        pattern = "([A-Z0-9])([A-Z])([a-z]{2,})",
+        replacement = "\\1_\\2\\3",
+        x = x
+    )
+    x <- gsub(
+        pattern = "([A-Z0-9]{2,})([A-Z])([a-z]).+",
         replacement = "\\1_\\2\\3",
         x = x
     )

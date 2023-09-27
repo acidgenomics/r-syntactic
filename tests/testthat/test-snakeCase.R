@@ -18,6 +18,18 @@ test_that("Unnamed character", {
             "x123"
         )
     )
+    expect_identical(
+        object = snakeCase(c(
+            "cliUpdateRPackages",
+            "externalIDs",
+            "externalRNAs"
+        )),
+        expected = c(
+            "cli_update_r_packages",
+            "external_ids",
+            "external_rnas"
+        )
+    )
 })
 
 test_that("Named character", {

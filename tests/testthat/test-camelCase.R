@@ -20,10 +20,18 @@ test_that("Strict mode", {
     )
     expect_identical(
         object = camelCase(
-            c("externalIDs", "externalRNAs"),
+            c(
+                "cliUpdateRPackages",
+                "externalIDs",
+                "externalRNAs"
+            ),
             strict = TRUE
         ),
-        expected = c("externalIds", "externalRnAs")
+        expected = c(
+            "cliUpdateRPackages",
+            "externalIds",
+            "externalRnas"
+        )
     )
 })
 
