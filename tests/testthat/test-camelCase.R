@@ -18,6 +18,13 @@ test_that("Strict mode", {
             "x123"
         )
     )
+    expect_identical(
+        object = camelCase(
+            c("externalIDs", "externalRNAs"),
+            strict = TRUE
+        ),
+        expected = c("externalIds", "externalRnAs")
+    )
 })
 
 test_that("Non-strict mode", {
