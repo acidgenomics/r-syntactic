@@ -1,5 +1,19 @@
 # Release notes
 
+## syntactic 0.7.0 (2023-10-03)
+
+Major changes:
+
+- Starting a new release series, based on changes in other Acid Genomics
+  dependency packages.
+- Improved some edge case handling of word boundaries for syntactic engine.
+  Added code coverage for these.
+
+Minor changes:
+
+- `makeNames` now works without stringi package installed.
+- Updated assert checks for rename mode.
+
 ## syntactic 0.6.6 (2023-04-28)
 
 Minor changes:
