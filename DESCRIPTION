@@ -1,8 +1,8 @@
 Package: syntactic
 Title: Syntactically Valid Names
 Description: Make syntactically valid names out of character vectors.
-Version: 0.6.7.9000
-Date: 2023-09-27
+Version: 0.7.0
+Date: 2023-10-03
 Authors@R: c(
     person(
         "Michael", "Steinbaugh",
@@ -22,17 +22,17 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.2)
 Imports:
-    AcidGenerics (>= 0.6.7),
-    goalie (>= 0.6.9),
+    AcidGenerics (>= 0.7.0),
+    goalie (>= 0.7.0),
     methods
 Suggests:
-    AcidBase (>= 0.6.15),
-    AcidCLI (>= 0.2.7),
+    AcidBase (>= 0.7.0),
+    AcidCLI (>= 0.2.8),
     AcidTest (>= 0.7.2),
-    knitr (>= 1.42),
-    rmarkdown (>= 2.21),
+    knitr (>= 1.44),
+    rmarkdown (>= 2.25),
     stringi (>= 1.7.12),
-    testthat (>= 3.1.7)
+    testthat (>= 3.1.10)
 Additional_repositories: https://r.acidgenomics.com
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
