@@ -1,5 +1,12 @@
 # Release notes
 
+## syntactic 0.7.1 (2023-10-27)
+
+Minor changes:
+
+- `autopadZeros`: Fix to improve `sprintf` return consistency on Linux. Need
+  to use `%d` instead of `%s` with integer to improve return consistency.
+
 ## syntactic 0.7.0 (2023-10-03)
 
 Major changes:
