@@ -82,6 +82,7 @@ NULL
             num <- match[, "num"]
         }
         width <- max(nchar(num))
+        ## FIXME This doesn't work on Linux.
         num <- sprintf(paste0("%0", width, "s"), num)
         if (isTRUE(dict[["int"]])) {
             x <- num
