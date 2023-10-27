@@ -36,7 +36,7 @@ NULL
 
 
 
-## Updated 2023-09-21.
+## Updated 2023-10-27.
 `autopadZeros,character` <- # nolint
     function(object) {
         x <- unname(object)
@@ -82,8 +82,7 @@ NULL
             num <- match[, "num"]
         }
         width <- max(nchar(num))
-        ## FIXME This doesn't work on Linux.
-        num <- sprintf(paste0("%0", width, "s"), num)
+        num <- sprintf(paste0("%0", width, "d"), as.integer(num))
         if (isTRUE(dict[["int"]])) {
             x <- num
         } else {
