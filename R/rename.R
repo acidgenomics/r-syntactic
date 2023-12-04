@@ -176,7 +176,7 @@ syntacticRename <-
         X = path,
         FUN = function(path) {
             if (!isDirectory(path)) {
-                return(path) # nocov
+                return(path)
             }
             list.files(
                 path = path,
