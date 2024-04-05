@@ -60,14 +60,14 @@
 
 
 ## Used internally to hand off to camel, dotted, and snake case.
-## Updated 2023-09-27.
+## Updated 2024-04-05.
 .syntactic <- function(x, smart = TRUE, prefix = TRUE) {
     assert(
         is.atomic(x),
         isFlag(smart),
         isFlag(prefix)
     )
-    x <- makeNames(x, smart = smart, unique = FALSE)
+    x <- makeNames(object = x, smart = smart, unique = FALSE)
     if (isTRUE(smart)) {
         ## Ignore single quotes.
         x <- gsub(pattern = "'", replacement = "", x = x)

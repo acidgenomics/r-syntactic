@@ -31,7 +31,6 @@ Suggests:
     AcidTest (>= 0.9.0),
     knitr (>= 1.45),
     rmarkdown (>= 2.26),
-    stringi (>= 1.8.3),
     testthat (>= 3.2.1)
 Additional_repositories: https://r.acidgenomics.com
 Config/testthat/edition: 3
