@@ -32,6 +32,38 @@ NULL
         ## Single character substitutions.
         x <- chartr(
             old = c(
+                "À",
+                "Á",
+                "Â",
+                "Ã",
+                "Ä",
+                "Å",
+                "Æ", # FIXME
+                "Ç",
+                "È",
+                "É",
+                "Ê",
+                "Ë",
+                "Ì",
+                "Í",
+                "Î",
+                "Ï",
+                "Ð",
+                "Ñ",
+                "Ò",
+                "Ó",
+                "Ô",
+                "Õ",
+                "Ö",
+                "×",
+                "Ø",
+                "Ù",
+                "Ú",
+                "Û",
+                "Ü",
+                "Ý",
+                "Þ",
+                "ß",
                 "à",
                 "á",
                 "â",
@@ -64,6 +96,38 @@ NULL
                 "ÿ"
             ),
             new = c(
+                "A",
+                "A",
+                "A",
+                "A",
+                "A",
+                "A",
+                "AE", # FIXME
+                "C",
+                "E",
+                "E",
+                "E",
+                "E",
+                "I",
+                "I",
+                "I",
+                "I",
+                "D",
+                "N",
+                "O",
+                "O",
+                "O",
+                "O",
+                "O",
+                "*", # FIXME
+                "O",
+                "U",
+                "U",
+                "U",
+                "U",
+                "Y",
+                "TH", # FIXME
+                "ss", # FIXME
                 "a",
                 "a",
                 "a",
@@ -98,37 +162,135 @@ NULL
             x = x
         )
         ## Multi-character substitutions.
-        x <- gsub(pattern = "æ", replacement = "ae", x = x)
-        x <- gsub(pattern = "þ", replacement = "th", x = x)
-        ## Ensure we convert pesky "micro" characters to "u".
-        x <- gsub(pattern = "(\u00B5|\u03BC|&#181;)", replacement = "u", x = x)
+        x <- gsub(
+            pattern = "æ",
+            replacement = "ae",
+            x = x,
+            fixed = TRUE
+        )
+        x <- gsub(
+            pattern = "þ",
+            replacement = "th",
+            x = x,
+            fixed = TRUE
+        )
+        ## Coerce pesky "micro" characters to "u".
+        x <- gsub(
+            pattern = "(\u00B5|\u03BC|&#181;)",
+            replacement = "u",
+            x = x,
+            fixed = FALSE
+        )
         if (isTRUE(smart)) {
-            x <- gsub(pattern = "'", replacement = "", x = x)
-            x <- gsub(pattern = "\\&", replacement = "_and_", x = x)
-            x <- gsub(pattern = "\\+", replacement = "_plus_", x = x)
+            x <- gsub(
+                pattern = "'",
+                replacement = "",
+                x = x,
+                fixed = TRUE
+            )
+            x <- gsub(
+                pattern = "\\&",
+                replacement = "_and_",
+                x = x,
+                fixed = FALSE
+            )
+            x <- gsub(
+                pattern = "\\+",
+                replacement = "_plus_",
+                x = x,
+                fixed = FALSE
+            )
             x <- gsub(
                 pattern = "[[:space:]]-[[:space:]]",
                 replacement = " ",
-                x = x
+                x = x,
+                fixed = FALSE
             )
-            x <- gsub(pattern = "-[[:space:]]", replacement = "_minus_", x = x)
-            x <- gsub(pattern = "^-(.+)$", replacement = "minus_\\1", x = x)
-            x <- gsub(pattern = "^(.+)-$", replacement = "\\1_minus", x = x)
-            x <- gsub(pattern = "/", replacement = "_slash_", x = x)
-            x <- gsub(pattern = "%", replacement = "_percent_", x = x)
-            x <- gsub(pattern = "(\\d),(\\d)", replacement = "\\1\\2", x = x)
+            x <- gsub(
+                pattern = "-[[:space:]]",
+                replacement = "_minus_",
+                x = x,
+                fixed = FALSE
+            )
+            x <- gsub(
+                pattern = "^-(.+)$",
+                replacement = "minus_\\1",
+                x = x,
+                fixed = FALSE
+            )
+            x <- gsub(
+                pattern = "^(.+)-$",
+                replacement = "\\1_minus",
+                x = x,
+                fixed = FALSE
+            )
+            x <- gsub(
+                pattern = "%",
+                replacement = "_percent_",
+                x = x,
+                fixed = TRUE
+            )
+            x <- gsub(
+                pattern = "*",
+                replacement = "_times_",
+                x = x,
+                fixed = TRUE
+            )
+            x <- gsub(
+                pattern = "/",
+                replacement = "_slash_",
+                x = x,
+                fixed = TRUE
+            )
+            x <- gsub(
+                pattern = "(\\d),(\\d)",
+                replacement = "\\1\\2",
+                x = x,
+                fixed = FALSE
+            )
         }
         ## FIXME This returns TRUE for foreign characters, which we don't want.
-        x <- gsub(pattern = "[^[:alnum:]]", replacement = "_", x = x)
-        x <- gsub(pattern = "(^_|_$)", replacement = "", x = x)
+        x <- gsub(
+            pattern = "[^[:alnum:]]",
+            replacement = "_",
+            x = x,
+            fixed = FALSE
+        )
+        x <- gsub(
+            pattern = "(^_|_$)",
+            replacement = "",
+            x = x,
+            fixed = FALSE
+        )
         x <- make.names(names = x, unique = unique, allow_ = TRUE)
-        x <- gsub(pattern = "\\.", replacement = "_", x = x)
-        x <- gsub(pattern = "[_]+", replacement = "_", x = x)
-        x <- gsub(pattern = "(^_|_$)", replacement = "", x = x)
-        x <- gsub(pattern = "^NA$", replacement = NA_character_, x = x)
+        x <- gsub(
+            pattern = "\\.",
+            replacement = "_",
+            x = x,
+            fixed = FALSE
+        )
+        x <- gsub(
+            pattern = "[_]+",
+            replacement = "_",
+            x = x,
+            fixed = FALSE
+        )
+        x <- gsub(
+            pattern = "(^_|_$)",
+            replacement = "",
+            x = x,
+            fixed = FALSE
+        )
+        x <- gsub(
+            pattern = "^NA$",
+            replacement = NA_character_,
+            x = x,
+            fixed = FALSE
+        )
         if (isTRUE(unique)) {
             assert(hasNoDuplicates(x))
         }
+        assert(all(nzchar(x, keepNA = FALSE)))
         x
     }
 
