@@ -20,6 +20,8 @@ NULL
 
 
 
+## FIXME Need to add support for greek characters.
+
 ## Updated 2024-04-05.
 `makeNames,character` <- # nolint
     function(object, unique = TRUE, smart = FALSE) {
@@ -61,8 +63,6 @@ NULL
                 "Û",
                 "Ü",
                 "Ý",
-                "Þ", # FIXME
-                "ß", # FIXME
                 "à",
                 "á",
                 "â",
@@ -124,8 +124,6 @@ NULL
                 "U",
                 "U",
                 "Y",
-                "TH", # FIXME
-                "ss", # FIXME
                 "a",
                 "a",
                 "a",
@@ -163,6 +161,18 @@ NULL
         x <- gsub(
             pattern = "Æ",
             replacement = "AE",
+            x = x,
+            fixed = TRUE
+        )
+        x <- gsub(
+            pattern = "Þ",
+            replacement = "TH",
+            x = x,
+            fixed = TRUE
+        )
+        x <- gsub(
+            pattern = "ß",
+            replacement = "ss",
             x = x,
             fixed = TRUE
         )
