@@ -38,7 +38,6 @@ NULL
                 "Ã",
                 "Ä",
                 "Å",
-                "Æ", # FIXME
                 "Ç",
                 "È",
                 "É",
@@ -62,8 +61,8 @@ NULL
                 "Û",
                 "Ü",
                 "Ý",
-                "Þ",
-                "ß",
+                "Þ", # FIXME
+                "ß", # FIXME
                 "à",
                 "á",
                 "â",
@@ -102,7 +101,6 @@ NULL
                 "A",
                 "A",
                 "A",
-                "AE", # FIXME
                 "C",
                 "E",
                 "E",
@@ -119,7 +117,7 @@ NULL
                 "O",
                 "O",
                 "O",
-                "*", # FIXME
+                "*",
                 "O",
                 "U",
                 "U",
@@ -162,6 +160,12 @@ NULL
             x = x
         )
         ## Multi-character substitutions.
+        x <- gsub(
+            pattern = "Æ",
+            replacement = "AE",
+            x = x,
+            fixed = TRUE
+        )
         x <- gsub(
             pattern = "æ",
             replacement = "ae",
