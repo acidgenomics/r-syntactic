@@ -1,6 +1,7 @@
 #+TITLE: syntactic
 #+STARTUP: content
 * Development
+** TODO syntactic rename needs to handle "'s" to simply "s".
 ** TODO Add '--dry-run' option to renamer functions.
 ** TODO Add an option to also rename file extension to lowercase.
 ** TODO Rename mode: Need to ignore files starting with "~" or "$" (Microsoft Excel).
