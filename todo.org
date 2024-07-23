@@ -1,6 +1,9 @@
 #+TITLE: syntactic
 #+STARTUP: content
 * Development
+** TODO Improve rename support for file names starting with non a-z0-9 character.
+  e.g. add coverage of '[aaa] bbb.txt' file name.
+  Currently skipping rename, which isn't desirable.
 ** TODO syntactic rename needs to handle "'s" to simply "s".
 ** TODO Add '--dry-run' option to renamer functions.
 ** TODO Add an option to also rename file extension to lowercase.
