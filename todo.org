@@ -1,6 +1,7 @@
 #+TITLE: syntactic
 #+STARTUP: content
 * Development
+** TODO Ensure that " - " doesn't process to "minus" in smart mode.
 ** TODO Improve rename support for file names starting with non a-z0-9 character.
   e.g. add coverage of '[aaa] bbb.txt' file name.
   Currently skipping rename, which isn't desirable.
