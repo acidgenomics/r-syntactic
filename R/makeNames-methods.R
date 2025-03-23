@@ -9,7 +9,7 @@
 #' - [ASCII table](https://cs.stanford.edu/people/miles/iso8859.html)
 #' - `chartr` base R function for single character substitutions.
 #' - `stringi::stri_trans_general` with `id = "Latin-ASCII"` for automatic
-#'   decoding of characters with accent marks.
+#' decoding of characters with accent marks.
 #' - https://stackoverflow.com/questions/17517319
 #'
 #' @examples
