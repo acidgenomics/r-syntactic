@@ -31,6 +31,7 @@ NULL
         assert(all(nzchar(x, keepNA = FALSE)))
         ## Single character substitutions.
         ## FIXME Need to add support for greek characters.
+        ## FIXME Rework this using an internal mapping table.
         x <- chartr(old = "À", new = "A", x = x)
         x <- chartr(old = "Á", new = "A", x = x)
         x <- chartr(old = "Â", new = "A", x = x)
