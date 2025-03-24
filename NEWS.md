@@ -1,5 +1,12 @@
 # Release notes
 
+## syntactic 0.7.2 (2025-03-24)
+
+Minor changes:
+
+- Relaxed R dependency from 4.3 to 4.0 for better compatibility with legacy
+  systems, such as Ubuntu 22 LTS.
+
 ## syntactic 0.7.1 (2023-10-27)
 
 Minor changes:
