@@ -1,7 +1,7 @@
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @export
-#' @note Updated 2023-02-06.
+#' @note Updated 2026-03-02.
 #'
 #' @details
 #' Intelligently deals with a case-insensitive file system, if necessary.
@@ -137,7 +137,7 @@ syntacticRename <-
             if (isFALSE(caseSensitive)) {
                 tmpTo <- file.path(
                     dirname(from),
-                    paste0(".tmp.", basename(from))
+                    paste0("__tmp__", basename(from))
                 )
                 ok <- file.rename(from = from, to = tmpTo)
                 ok <- file.rename(from = tmpTo, to = to)
