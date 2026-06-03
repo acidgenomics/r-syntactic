@@ -1,14 +1,24 @@
 #+TITLE: syntactic
 #+STARTUP: content
 * Development
-** TODO Rename mode needs to be smarter about handling camel case file names.
-    Maybe this needs to be a CLI override option.
-** TODO Ensure that " - " doesn't process to "minus" in smart mode.
-** TODO Improve rename support for file names starting with non a-z0-9 character.
-  e.g. add coverage of '[aaa] bbb.txt' file name.
-  Currently skipping rename, which isn't desirable.
-** TODO syntactic rename needs to handle "'s" to simply "s".
-** TODO Add '--dry-run' option to renamer functions.
-** TODO Add an option to also rename file extension to lowercase.
-** TODO Rename mode: Need to ignore files starting with "~" or "$" (Microsoft Excel).
+** DONE Rename mode needs to be smarter about handling camel case file names.
+    Removed the pre-lowercasing step in `toPath` so camelCase word-boundary
+    detection fires correctly. e.g. `loadSingleCell.R` -> `load-single-cell.R`.
+** DONE Ensure that " - " doesn't process to "minus" in smart mode.
+    Already handled correctly: `[[:space:]]-[[:space:]]` strips the dash without
+    adding "minus". Verified by existing test: "a - b" -> "a_b".
+** DONE Improve rename support for file names starting with non a-z0-9 character.
+    Changed skip guard from `^[A-Za-z0-9]` (skip if NOT alphanumeric) to
+    `^[._~$]` (skip only hidden/temp files). Jira-style `[PROJ-123] desc.txt`
+    now renames correctly.
+** DONE syntactic rename needs to handle "'s" to simply "s".
+    Already handled by smart mode apostrophe stripping in `makeNames`.
+    Verified by existing test: "mike's notes.txt" -> "mikes-notes.txt".
+** DONE Add '--dry-run' option to renamer functions.
+    `dryRun = TRUE` parameter already exists. Fixed it to return the computed
+    from/to mapping instead of empty vectors.
+** DONE Add an option to also rename file extension to lowercase.
+    Added `lowerExt = FALSE` parameter to `syntacticRename`.
+** DONE Rename mode: Need to ignore files starting with "~" or "$" (Microsoft Excel).
+    Added `~` and `$` to the skip guard pattern: `^[._~$]`.
 ** TODO `makeNames`: Consider setting `smart = FALSE` by default.

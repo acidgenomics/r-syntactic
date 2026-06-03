@@ -1,3 +1,14 @@
+test_that("Greek characters", {
+    expect_identical(
+        object = makeNames(c("alpha", "Beta", "γ", "Δ", "ε")),
+        expected = c("alpha", "Beta", "gamma", "Delta", "epsilon")
+    )
+    expect_identical(
+        object = makeNames("αβγ"),
+        expected = "alphabetagamma"
+    )
+})
+
 test_that("makeNames", {
     expect_identical(
         object = makeNames(vec),

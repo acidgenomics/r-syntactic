@@ -10,7 +10,9 @@ test_that("kebabCase (non-recursive)", {
             "loadSingleCell.R",
             "quality_control.Rmd",
             "_test.txt",
-            "mike's notes.txt"
+            "~$excel-temp.xlsx",
+            "mike's notes.txt",
+            "[PROJ-123] ticket description.txt"
         )
     )
     input <- c(files, dirs)
@@ -26,10 +28,12 @@ test_that("kebabCase (non-recursive)", {
                 "1-sample-a.fastq.gz",
                 "2-sample-b.fastq.gz",
                 "hello-world.txt",
-                "loadsinglecell.R",
+                "load-single-cell.R",
                 "quality-control.Rmd",
                 "_test.txt",
+                "~$excel-temp.xlsx",
                 "mikes-notes.txt",
+                "proj-123-ticket-description.txt",
                 "aaa-bbb",
                 "ccc-ddd"
             )
@@ -124,6 +128,18 @@ test_that("snakeCase (non-recursive)", {
     unlink2(testdir)
 })
 
+test_that("lowerExt", {
+    testdir <- tempdir2()
+    files <- file.path(testdir, c("hello_world.TXT", "data.CSV"))
+    invisible(file.create(files))
+    output <- syntacticRename(files, fun = "kebabCase", lowerExt = TRUE)
+    expect_identical(
+        object = output[["to"]],
+        expected = file.path(testdir, c("hello-world.txt", "data.csv"))
+    )
+    unlink2(testdir)
+})
+
 test_that("camelCase (non-recursive)", {
     testdir <- tempdir2()
     dirs <- file.path(testdir, c("aaa-bbb", "ccc-ddd"))
@@ -174,6 +190,20 @@ test_that("upperCamelCase (non-recursive)", {
                 "CccDdd"
             )
         )
+    )
+    unlink2(testdir)
+})
+
+test_that("dryRun returns from/to mapping", {
+    testdir <- tempdir2()
+    files <- file.path(testdir, c("hello_world.txt", "foo_bar.R"))
+    invisible(file.create(files))
+    output <- syntacticRename(files, fun = "kebabCase", dryRun = TRUE)
+    expect_type(output, "list")
+    expect_identical(output[["from"]], files)
+    expect_identical(
+        object = output[["to"]],
+        expected = file.path(testdir, c("hello-world.txt", "foo-bar.R"))
     )
     unlink2(testdir)
 })
