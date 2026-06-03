@@ -22,6 +22,9 @@
 #' @param recursive `logical(1)`.
 #' Should the function recurse into directories?
 #'
+#' @param lowerExt `logical(1)`.
+#' Should file extensions be lowercased?
+#'
 #' @param dryRun `logical(1)`.
 #' Return the proposed file path modifications without modification.
 #'

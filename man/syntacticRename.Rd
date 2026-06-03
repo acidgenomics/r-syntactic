@@ -8,6 +8,7 @@ syntacticRename(
   path,
   recursive = FALSE,
   fun = c("kebabCase", "snakeCase", "camelCase", "upperCamelCase"),
+  lowerExt = FALSE,
   quiet = FALSE,
   dryRun = FALSE
 )
@@ -21,6 +22,9 @@ Should the function recurse into directories?}
 
 \item{fun}{\code{character(1)}.
 Function name.}
+
+\item{lowerExt}{\code{logical(1)}.
+Should file extensions be lowercased?}
 
 \item{quiet}{\code{logical(1)}.
 Perform command quietly, suppressing messages.}
@@ -44,7 +48,7 @@ case, which are problematic on case-insensitive mounts, and require movement
 of the files into a temporary file name before the final rename.
 }
 \note{
-Updated 2023-02-06.
+Updated 2026-06-03.
 }
 \examples{
 testdir <- AcidBase::tempdir2()
