@@ -10,8 +10,9 @@
 ## S4 generics =================================================================
 
 #' @importFrom AcidGenerics autopadZeros camelCase capitalize dottedCase
-#' kebabCase makeDimnames makeLabel makeNames makeTitle makeWords sentenceCase
-#' snakeCase upperCamelCase
+#' @importFrom AcidGenerics kebabCase makeDimnames makeLabel makeNames
+#' @importFrom AcidGenerics makeTitle makeWords sentenceCase snakeCase
+#' @importFrom AcidGenerics upperCamelCase
 NULL
 
 
@@ -19,8 +20,9 @@ NULL
 ## Standard functions ==========================================================
 
 #' @importFrom goalie allHaveAccess allAreMatchingRegex assert hasColnames
-#' hasDimnames hasNames hasNoDuplicates hasRownames isCharacter isDirectory
-#' isFileSystemCaseSensitive isFlag isInstalled isMatchingRegex isString
-#' isSubset requireNamespaces
+#' @importFrom goalie hasDimnames hasNames hasNoDuplicates hasRownames
+#' @importFrom goalie isCharacter isDirectory isFileSystemCaseSensitive isFlag
+#' @importFrom goalie isInstalled isMatchingRegex isString isSubset
+#' @importFrom goalie requireNamespaces
 #' @importFrom methods setMethod signature
 NULL

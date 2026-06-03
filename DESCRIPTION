@@ -35,6 +35,6 @@ Suggests:
 Additional_repositories: https://r.acidgenomics.com
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 VignetteBuilder: knitr, rmarkdown
 biocViews: Infrastructure
+Config/roxygen2/version: 8.0.0

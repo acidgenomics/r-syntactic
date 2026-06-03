@@ -1,6 +1,6 @@
 #' @name makeNames
 #' @inherit AcidGenerics::makeNames
-#' @note Updated 2024-04-05.
+#' @note Updated 2026-06-03.
 #'
 #' @inheritParams params
 #' @param ... Additional arguments.
@@ -32,26 +32,26 @@ NULL
         ## Single character substitutions (Latin-1 supplement, U+00C0-U+00FF).
         x <- chartr(
             old = paste0(
-                "ÀÁÂÃÄÅ",
-                "Ç",
-                "ÈÉÊË",
-                "ÌÍÎÏ",
-                "ÐÑ",
-                "ÒÓÔÕÖ",
-                "×",
-                "Ø",
-                "ÙÚÛÜ",
-                "Ý",
-                "àáâãäå",
-                "ç",
-                "èéêë",
-                "ìíîï",
-                "ðñ",
-                "òóôõö",
-                "÷",
-                "ø",
-                "ùúûü",
-                "ýÿ"
+                "\u00C0\u00C1\u00C2\u00C3\u00C4\u00C5",
+                "\u00C7",
+                "\u00C8\u00C9\u00CA\u00CB",
+                "\u00CC\u00CD\u00CE\u00CF",
+                "\u00D0\u00D1",
+                "\u00D2\u00D3\u00D4\u00D5\u00D6",
+                "\u00D7",
+                "\u00D8",
+                "\u00D9\u00DA\u00DB\u00DC",
+                "\u00DD",
+                "\u00E0\u00E1\u00E2\u00E3\u00E4\u00E5",
+                "\u00E7",
+                "\u00E8\u00E9\u00EA\u00EB",
+                "\u00EC\u00ED\u00EE\u00EF",
+                "\u00F0\u00F1",
+                "\u00F2\u00F3\u00F4\u00F5\u00F6",
+                "\u00F7",
+                "\u00F8",
+                "\u00F9\u00FA\u00FB\u00FC",
+                "\u00FD\u00FF"
             ),
             new = paste0(
                 "AAAAAA",
@@ -79,31 +79,31 @@ NULL
         )
         ## Multi-character substitutions.
         x <- gsub(
-            pattern = "Æ",
+            pattern = "\u00C6",
             replacement = "AE",
             x = x,
             fixed = TRUE
         )
         x <- gsub(
-            pattern = "Þ",
+            pattern = "\u00DE",
             replacement = "TH",
             x = x,
             fixed = TRUE
         )
         x <- gsub(
-            pattern = "ß",
+            pattern = "\u00DF",
             replacement = "ss",
             x = x,
             fixed = TRUE
         )
         x <- gsub(
-            pattern = "æ",
+            pattern = "\u00E6",
             replacement = "ae",
             x = x,
             fixed = TRUE
         )
         x <- gsub(
-            pattern = "þ",
+            pattern = "\u00FE",
             replacement = "th",
             x = x,
             fixed = TRUE
