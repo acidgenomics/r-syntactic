@@ -22,8 +22,8 @@ License: AGPL-3
 Encoding: UTF-8
 Depends: R (>= 4.0)
 Imports:
-    AcidGenerics,
-    goalie,
+    AcidGenerics (>= 0.7.6),
+    goalie (>= 0.7.8),
     methods
 Suggests:
     AcidBase,
