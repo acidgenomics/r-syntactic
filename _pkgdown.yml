@@ -15,3 +15,24 @@ news:
 template:
   bootstrap: 5
 url: https://r.acidgenomics.com/packages/syntactic
+reference:
+  - title: Case conversion
+    contents:
+      - camelCase
+      - capitalize
+      - dottedCase
+      - kebabCase
+      - sentenceCase
+      - snakeCase
+      - upperCamelCase
+  - title: Name construction
+    contents:
+      - makeLabel
+      - makeNames
+      - makeTitle
+      - makeWords
+      - makeDimnames
+  - title: Utilities
+    contents:
+      - autopadZeros
+      - syntacticRename
