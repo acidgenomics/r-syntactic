@@ -42,6 +42,10 @@ Bug fixes:
 - `dryRun = TRUE` now returns the computed `from`/`to` path mapping instead of
   empty character vectors, enabling programmatic inspection of planned renames.
 
+License changes:
+
+- Switched from AGPL-3.0 to Apache-2.0.
+
 ## syntactic 0.7.2 (2025-03-24)
 
 Minor changes:
