@@ -1,7 +1,7 @@
 #' Rename files and/or directories using a syntactic naming function
 #'
 #' @export
-#' @note Updated 2023-02-06.
+#' @note Updated 2026-06-03.
 #'
 #' @details
 #' Intelligently deals with a case-insensitive file system, if necessary.
@@ -21,6 +21,9 @@
 #'
 #' @param recursive `logical(1)`.
 #' Should the function recurse into directories?
+#'
+#' @param lowerExt `logical(1)`.
+#' Should file extensions be lowercased?
 #'
 #' @param dryRun `logical(1)`.
 #' Return the proposed file path modifications without modification.
@@ -45,12 +48,14 @@ syntacticRename <-
                  "camelCase",
                  "upperCamelCase"
              ),
+             lowerExt = FALSE,
              quiet = FALSE,
              dryRun = FALSE) {
         assert(
             requireNamespaces("AcidBase"),
             allHaveAccess(path),
             isFlag(recursive),
+            isFlag(lowerExt),
             isFlag(quiet),
             isFlag(dryRun)
         )
@@ -68,9 +73,6 @@ syntacticRename <-
         )
         if (isSubset(fun, c("camelCase", "upperCamelCase"))) {
             whatArgs[["strict"]] <- TRUE
-            lower <- FALSE
-        } else {
-            lower <- TRUE
         }
         if (isTRUE(recursive)) {
             from <- .recursive(path)
@@ -79,22 +81,24 @@ syntacticRename <-
             from <- AcidBase::realpath(path)
         }
         assert(allHaveAccess(from))
-        toPath <- function(from, what, whatArgs, lower, quiet) {
+        toPath <- function(from, what, whatArgs, lowerExt, quiet) {
             dn <- dirname(from)
             ext <- AcidBase::fileExt(from)
             stem <- AcidBase::basenameSansExt(from)
-            if (isFALSE(grepl(pattern = "^[A-Za-z0-9]", x = stem))) {
+            ## Skip hidden files (dot/underscore prefix) and MS Office temp
+            ## files (tilde/dollar-sign prefix).
+            if (isTRUE(grepl(pattern = "^[._~$]", x = stem))) {
                 if (isFALSE(quiet)) {
                     AcidCLI::alertInfo(sprintf("Skipping {.file %s}.", from))
                 }
                 return(from)
             }
-            if (isTRUE(lower)) {
-                stem <- tolower(stem)
-            }
             whatArgs[["object"]] <- stem
             stem <- do.call(what = what, args = whatArgs)
             if (!is.na(ext)) {
+                if (isTRUE(lowerExt)) {
+                    ext <- tolower(ext)
+                }
                 bn <- paste0(stem, ".", ext)
             } else {
                 bn <- stem
@@ -110,7 +114,7 @@ syntacticRename <-
             X = from,
             what = what,
             whatArgs = whatArgs,
-            lower = lower,
+            lowerExt = lowerExt,
             quiet = quiet,
             FUN = toPath,
             FUN.VALUE = character(1L),
@@ -123,7 +127,7 @@ syntacticRename <-
                 ))
             }
             Map(f = dryRunPath, from = from, to = to, USE.NAMES = FALSE)
-            return(invisible(list("from" = character(), "to" = character())))
+            return(invisible(list("from" = from, "to" = to)))
         }
         renamer <- function(from, to, caseSensitive) {
             if (identical(from, to)) {
@@ -137,7 +141,7 @@ syntacticRename <-
             if (isFALSE(caseSensitive)) {
                 tmpTo <- file.path(
                     dirname(from),
-                    paste0(".tmp.", basename(from))
+                    paste0("__tmp__", basename(from))
                 )
                 ok <- file.rename(from = from, to = tmpTo)
                 ok <- file.rename(from = tmpTo, to = to)
@@ -176,7 +180,7 @@ syntacticRename <-
         X = path,
         FUN = function(path) {
             if (!isDirectory(path)) {
-                return(path) # nocov
+                return(path)
             }
             list.files(
                 path = path,

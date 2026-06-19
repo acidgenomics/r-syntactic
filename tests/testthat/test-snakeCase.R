@@ -62,3 +62,21 @@ test_that("Plus minus handling", {
         )
     )
 })
+
+test_that("RNA type sanitization", {
+    expect_identical(
+        object = snakeCase(c("miRNA", "ncRNA", "piRNA", "rRNA", "mRNA")),
+        expected = c("mirna", "ncrna", "pirna", "rrna", "mrna")
+    )
+    expect_identical(
+        object = snakeCase(c("miRNA_samples", "rRNA_depletion")),
+        expected = c("mirna_samples", "rrna_depletion")
+    )
+})
+
+test_that("Truncation fix: acronym before trailing content", {
+    expect_identical(
+        object = snakeCase("ABCd5test"),
+        expected = "ab_cd5test"
+    )
+})

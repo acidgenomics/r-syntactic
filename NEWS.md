@@ -1,5 +1,51 @@
 # Release notes
 
+## syntactic 0.8.0 (2026-06-03)
+
+Major changes:
+
+- `makeNames`: Added Greek character support. Greek letters (α–ω, Α–Ω) are now
+  transliterated to their spelled-out ASCII equivalents (e.g. `α` → `"alpha"`,
+  `Δ` → `"Delta"`).
+- `makeNames`: Consolidated 59 individual `chartr()` calls for Latin-1 character
+  transliteration into a single call, improving performance on large vectors.
+- `makeNames`: Changed non-alphanumeric replacement pattern from `[^[:alnum:]]`
+  to `[^A-Za-z0-9]` to avoid locale-dependent behavior with foreign characters.
+
+Bug fixes:
+
+- `.sanitizeAcronyms`: Fixed a regex where `[mi|nc|pi|r]RNA` used a character
+  class instead of alternation, causing multi-character RNA-type prefixes
+  (`miRNA`, `ncRNA`, `piRNA`) to not be recognized. These are now correctly
+  handled alongside `mRNA` and `rRNA`.
+- `.syntactic`: Fixed a truncation bug in the third word-boundary regex where
+  `.+` at the end of the pattern consumed trailing string content without
+  capturing it in the replacement, silently discarding characters after the
+  first lowercase letter following a multi-uppercase acronym.
+- `.kebabCase`: Now calls internal `.snakeCase()` instead of the exported
+  `snakeCase()` S4 generic, consistent with how `.dottedCase()` works, and
+  avoiding unnecessary name-processing overhead.
+
+`syntacticRename` changes:
+
+- Renamed files whose stems start with non-alphanumeric characters other than
+  `.`, `_`, `~`, or `$` are no longer skipped. This enables renaming of files
+  with Jira-style names (e.g. `[PROJ-123] ticket description.txt`).
+- Added `lowerExt = FALSE` parameter to optionally lowercase file extensions
+  during rename.
+- Microsoft Office temp files (stems starting with `~$`) are now skipped during
+  rename, in addition to the existing hidden-file guards (`.` and `_` prefixes).
+- Removed the pre-`tolower()` step applied to file stems before calling the
+  naming function. CamelCase stems like `loadSingleCell.R` are now handled
+  correctly by the word-boundary engine (e.g. `→ load-single-cell.R` with
+  `kebabCase`) rather than being flattened to lowercase first.
+- `dryRun = TRUE` now returns the computed `from`/`to` path mapping instead of
+  empty character vectors, enabling programmatic inspection of planned renames.
+
+License changes:
+
+- Switched from AGPL-3.0 to Apache-2.0.
+
 ## syntactic 0.7.2 (2025-03-24)
 
 Minor changes:
