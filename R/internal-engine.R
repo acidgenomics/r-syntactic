@@ -34,7 +34,7 @@
     )
     ## Mixed case RNA types.
     x <- gsub(
-        pattern = "\\b([mi|nc|pi|r]RNA)\\b",
+        pattern = "\\b((?:mi|nc|pi|m|r)RNA)\\b",
         replacement = "\\U\\1",
         x = x,
         perl = TRUE
@@ -60,14 +60,14 @@
 
 
 ## Used internally to hand off to camel, dotted, and snake case.
-## Updated 2023-09-27.
+## Updated 2026-06-03.
 .syntactic <- function(x, smart = TRUE, prefix = TRUE) {
     assert(
         is.atomic(x),
         isFlag(smart),
         isFlag(prefix)
     )
-    x <- makeNames(x, smart = smart, unique = FALSE)
+    x <- makeNames(object = x, smart = smart, unique = FALSE)
     if (isTRUE(smart)) {
         ## Ignore single quotes.
         x <- gsub(pattern = "'", replacement = "", x = x)
@@ -99,7 +99,7 @@
         x = x
     )
     x <- gsub(
-        pattern = "([A-Z0-9]{2,})([A-Z])([a-z]).+",
+        pattern = "([A-Z0-9]{2,})([A-Z])([a-z].+)",
         replacement = "\\1_\\2\\3",
         x = x
     )
