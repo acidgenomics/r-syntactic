@@ -23,7 +23,6 @@
 NULL
 
 
-
 ## Updated 2020-06-15.
 `autopadZeros,integer` <- # nolint
     function(object) {
@@ -33,7 +32,6 @@ NULL
         names(object) <- names
         object
     }
-
 
 
 ## Updated 2023-10-27.
@@ -96,7 +94,6 @@ NULL
         names(x) <- names(object)
         x
     }
-
 
 
 #' @rdname autopadZeros

@@ -35,14 +35,30 @@ test_that("Partial padding", {
         regexp = "Partial padding match detected."
     )
     object <- c(
-        "dmso-1", "dmso-2", "dmso-3",
-        "drug1-300nm-1", "drug1-300nm-2", "drug1-300nm-3",
-        "drug1-drug3-1", "drug1-drug3-2", "drug1-drug3-3",
-        "drug2-100nm-1", "drug2-100nm-2", "drug2-100nm-3",
-        "drug2-drug1-1", "drug2-drug1-2", "drug2-drug1-3",
-        "drug2-drug3-1", "drug2-drug3-2", "drug2-drug3-3",
-        "drug3-300nm-1", "drug3-300nm-2", "drug3-300nm-3",
-        "triple-combo-1", "triple-combo-2", "triple-combo-3"
+        "dmso-1",
+        "dmso-2",
+        "dmso-3",
+        "drug1-300nm-1",
+        "drug1-300nm-2",
+        "drug1-300nm-3",
+        "drug1-drug3-1",
+        "drug1-drug3-2",
+        "drug1-drug3-3",
+        "drug2-100nm-1",
+        "drug2-100nm-2",
+        "drug2-100nm-3",
+        "drug2-drug1-1",
+        "drug2-drug1-2",
+        "drug2-drug1-3",
+        "drug2-drug3-1",
+        "drug2-drug3-2",
+        "drug2-drug3-3",
+        "drug3-300nm-1",
+        "drug3-300nm-2",
+        "drug3-300nm-3",
+        "triple-combo-1",
+        "triple-combo-2",
+        "triple-combo-3"
     )
     expect_identical(autopadZeros(object), object)
 })

@@ -3,7 +3,7 @@
     assert(is.atomic(x))
     x <- as.character(x)
     ## Note that underscores are not considered a word boundary.
-    x <- gsub(pattern = "_", replacement = ".", x = x)
+    x <- gsub(pattern = "_", replacement = ".", x = x, fixed = TRUE)
     ## Identifier variants (e.g. "Id" to "ID").
     x <- gsub(
         pattern = "\\b(id)\\b",
@@ -53,10 +53,9 @@
         x = x
     )
     ## Return.
-    x <- gsub(pattern = "\\.", replacement = "_", x = x)
+    x <- gsub(pattern = ".", replacement = "_", x = x, fixed = TRUE)
     x
 }
-
 
 
 ## Used internally to hand off to camel, dotted, and snake case.
@@ -70,7 +69,7 @@
     x <- makeNames(object = x, smart = smart, unique = FALSE)
     if (isTRUE(smart)) {
         ## Ignore single quotes.
-        x <- gsub(pattern = "'", replacement = "", x = x)
+        x <- gsub(pattern = "'", replacement = "", x = x, fixed = TRUE)
         ## Standardize any mixed case acronyms.
         x <- .sanitizeAcronyms(x)
     }

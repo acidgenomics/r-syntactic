@@ -13,7 +13,6 @@
 NULL
 
 
-
 `makeTitle,character` <- # nolint
     function(object) {
         assert(isString(object))
@@ -21,7 +20,6 @@ NULL
         x <- sentenceCase(x)
         x
     }
-
 
 
 #' @rdname makeTitle
