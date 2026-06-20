@@ -16,7 +16,6 @@
 NULL
 
 
-
 ## Updated 2022-05-23.
 `makeWords,character` <- # nolint
     function(object) {
@@ -43,7 +42,6 @@ NULL
         out <- unlist(x = out, recursive = FALSE, use.names = FALSE)
         out
     }
-
 
 
 #' @rdname makeWords

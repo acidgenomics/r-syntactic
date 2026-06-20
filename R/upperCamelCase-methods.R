@@ -12,21 +12,15 @@
 NULL
 
 
-
 .upperCamelCase <- # nolint
     function(...) {
         .camelCase(..., format = "upper")
     }
 
 
-
 ## Updated 2021-08-24.
 `upperCamelCase,character` <- # nolint
-    function(object,
-             strict = TRUE,
-             smart = TRUE,
-             names = TRUE,
-             prefix = TRUE) {
+    function(object, strict = TRUE, smart = TRUE, names = TRUE, prefix = TRUE) {
         assert(
             isCharacter(object),
             isFlag(strict),
@@ -53,7 +47,6 @@ NULL
         names(object) <- names
         object
     }
-
 
 
 #' @rdname upperCamelCase
