@@ -11,17 +11,16 @@
 NULL
 
 
-
 `sentenceCase,character` <- # nolint
     function(object) {
         assert(isCharacter(object))
         vapply(
             X = object,
             FUN = function(x) {
-                if (!isTRUE(grepl(" ", x))) {
+                if (!isTRUE(grepl(" ", x, fixed = TRUE))) {
                     return(x)
                 }
-                x <- strsplit(x, split = " ")[[1L]]
+                x <- strsplit(x, split = " ", fixed = TRUE)[[1L]]
                 ## Only capitalize the first letter of the first word.
                 firstWord <- paste0(
                     toupper(substring(x[[1L]], first = 1L, last = 1L)),
@@ -44,9 +43,8 @@ NULL
                     FUN.VALUE = character(1L),
                     USE.NAMES = FALSE
                 )
-                paste( # nolint
+                paste(
                     c(firstWord, otherWords),
-                    sep = "",
                     collapse = " "
                 )
             },
@@ -54,7 +52,6 @@ NULL
             USE.NAMES = FALSE
         )
     }
-
 
 
 #' @rdname sentenceCase
