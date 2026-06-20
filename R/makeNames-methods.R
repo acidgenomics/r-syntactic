@@ -116,56 +116,33 @@ NULL
         )
         ## Greek letters (U+0391-U+03C9).
         ## Note: U+03BC (Greek small letter mu) is handled above as micro sign.
-        greekMap <- c(
-            "\u0391" = "Alpha",
-            "\u0392" = "Beta",
-            "\u0393" = "Gamma",
-            "\u0394" = "Delta",
-            "\u0395" = "Epsilon",
-            "\u0396" = "Zeta",
-            "\u0397" = "Eta",
-            "\u0398" = "Theta",
-            "\u0399" = "Iota",
-            "\u039A" = "Kappa",
-            "\u039B" = "Lambda",
-            "\u039C" = "Mu",
-            "\u039D" = "Nu",
-            "\u039E" = "Xi",
-            "\u039F" = "Omicron",
-            "\u03A0" = "Pi",
-            "\u03A1" = "Rho",
-            "\u03A3" = "Sigma",
-            "\u03A4" = "Tau",
-            "\u03A5" = "Upsilon",
-            "\u03A6" = "Phi",
-            "\u03A7" = "Chi",
-            "\u03A8" = "Psi",
-            "\u03A9" = "Omega",
-            "\u03B1" = "alpha",
-            "\u03B2" = "beta",
-            "\u03B3" = "gamma",
-            "\u03B4" = "delta",
-            "\u03B5" = "epsilon",
-            "\u03B6" = "zeta",
-            "\u03B7" = "eta",
-            "\u03B8" = "theta",
-            "\u03B9" = "iota",
-            "\u03BA" = "kappa",
-            "\u03BB" = "lambda",
-            "\u03BC" = "mu",
-            "\u03BD" = "nu",
-            "\u03BE" = "xi",
-            "\u03BF" = "omicron",
-            "\u03C0" = "pi",
-            "\u03C1" = "rho",
-            "\u03C2" = "sigma",
-            "\u03C3" = "sigma",
-            "\u03C4" = "tau",
-            "\u03C5" = "upsilon",
-            "\u03C6" = "phi",
-            "\u03C7" = "chi",
-            "\u03C8" = "psi",
-            "\u03C9" = "omega"
+        ## setNames avoids Unicode-escaped named-vector literals which crash
+        ## lintr 3.3's parser (github.com/r-lib/lintr/issues/2507).
+        greekMap <- setNames(
+            object = c(
+                "Alpha", "Beta", "Gamma", "Delta", "Epsilon",
+                "Zeta", "Eta", "Theta", "Iota", "Kappa",
+                "Lambda", "Mu", "Nu", "Xi", "Omicron",
+                "Pi", "Rho", "Sigma", "Tau", "Upsilon",
+                "Phi", "Chi", "Psi", "Omega",
+                "alpha", "beta", "gamma", "delta", "epsilon",
+                "zeta", "eta", "theta", "iota", "kappa",
+                "lambda", "mu", "nu", "xi", "omicron",
+                "pi", "rho", "sigma", "sigma", "tau",
+                "upsilon", "phi", "chi", "psi", "omega"
+            ),
+            nm = c(
+                "\u0391", "\u0392", "\u0393", "\u0394", "\u0395",
+                "\u0396", "\u0397", "\u0398", "\u0399", "\u039A",
+                "\u039B", "\u039C", "\u039D", "\u039E", "\u039F",
+                "\u03A0", "\u03A1", "\u03A3", "\u03A4", "\u03A5",
+                "\u03A6", "\u03A7", "\u03A8", "\u03A9",
+                "\u03B1", "\u03B2", "\u03B3", "\u03B4", "\u03B5",
+                "\u03B6", "\u03B7", "\u03B8", "\u03B9", "\u03BA",
+                "\u03BB", "\u03BC", "\u03BD", "\u03BE", "\u03BF",
+                "\u03C0", "\u03C1", "\u03C2", "\u03C3", "\u03C4",
+                "\u03C5", "\u03C6", "\u03C7", "\u03C8", "\u03C9"
+            )
         )
         for (i in seq_along(greekMap)) {
             x <- gsub(
@@ -257,10 +234,10 @@ NULL
         )
         x <- make.names(names = x, unique = unique, allow_ = TRUE)
         x <- gsub(
-            pattern = "\\.",
+            pattern = ".",
             replacement = "_",
             x = x,
-            fixed = FALSE
+            fixed = TRUE
         )
         x <- gsub(
             pattern = "[_]+",
