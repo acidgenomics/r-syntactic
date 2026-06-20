@@ -6,7 +6,6 @@
 "_PACKAGE"
 
 
-
 ## S4 generics =================================================================
 
 #' @importFrom AcidGenerics autopadZeros camelCase capitalize dottedCase
@@ -14,7 +13,6 @@
 #' @importFrom AcidGenerics makeTitle makeWords sentenceCase snakeCase
 #' @importFrom AcidGenerics upperCamelCase
 NULL
-
 
 
 ## Standard functions ==========================================================

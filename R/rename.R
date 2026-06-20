@@ -40,17 +40,19 @@
 #' print(output)
 #' AcidBase::unlink2(testdir)
 syntacticRename <-
-    function(path,
-             recursive = FALSE,
-             fun = c(
-                 "kebabCase",
-                 "snakeCase",
-                 "camelCase",
-                 "upperCamelCase"
-             ),
-             lowerExt = FALSE,
-             quiet = FALSE,
-             dryRun = FALSE) {
+    function(
+        path,
+        recursive = FALSE,
+        fun = c(
+            "kebabCase",
+            "snakeCase",
+            "camelCase",
+            "upperCamelCase"
+        ),
+        lowerExt = FALSE,
+        quiet = FALSE,
+        dryRun = FALSE
+    ) {
         assert(
             requireNamespaces("AcidBase"),
             allHaveAccess(path),
@@ -123,7 +125,10 @@ syntacticRename <-
         if (isTRUE(dryRun)) {
             dryRunPath <- function(from, to) {
                 AcidCLI::alertInfo(sprintf(
-                    "[%s] {.file %s} -> {.file %s}.", "dry-run", from, to
+                    "[%s] {.file %s} -> {.file %s}.",
+                    "dry-run",
+                    from,
+                    to
                 ))
             }
             Map(f = dryRunPath, from = from, to = to, USE.NAMES = FALSE)
@@ -135,7 +140,9 @@ syntacticRename <-
             }
             if (isFALSE(quiet)) {
                 AcidCLI::alert(sprintf(
-                    "Renaming {.file %s} to {.file %s}.", from, to
+                    "Renaming {.file %s} to {.file %s}.",
+                    from,
+                    to
                 ))
             }
             if (isFALSE(caseSensitive)) {
@@ -160,7 +167,6 @@ syntacticRename <-
         assert(all(ok))
         invisible(list("from" = from, "to" = to))
     }
-
 
 
 #' Sort files and directories for recursive rename

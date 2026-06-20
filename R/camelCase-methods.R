@@ -12,18 +12,14 @@
 NULL
 
 
-
 ## Updated 2021-03-03.
 .camelCase <- # nolint
-    function(x,
-             format = c("lower", "upper"),
-             strict = TRUE,
-             ...) {
+    function(x, format = c("lower", "upper"), strict = TRUE, ...) {
         assert(isFlag(strict))
         format <- match.arg(format)
         x <- .syntactic(x, ...)
         ## Dots but not underscores define word boundaries in grep matches.
-        x <- gsub(pattern = "_", replacement = ".", x = x)
+        x <- gsub(pattern = "_", replacement = ".", x = x, fixed = TRUE)
         if (isTRUE(strict)) {
             ## Simplify mixed case acronyms in strict mode.
             x <- tolower(x)
@@ -73,14 +69,9 @@ NULL
     }
 
 
-
 ## Updated 2021-08-24.
 `camelCase,character` <- # nolint
-    function(object,
-             strict = TRUE,
-             smart = TRUE,
-             names = TRUE,
-             prefix = TRUE) {
+    function(object, strict = TRUE, smart = TRUE, names = TRUE, prefix = TRUE) {
         assert(
             isCharacter(object),
             isFlag(strict),
@@ -107,7 +98,6 @@ NULL
         names(object) <- names
         object
     }
-
 
 
 #' @rdname camelCase

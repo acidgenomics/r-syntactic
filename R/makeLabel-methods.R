@@ -14,13 +14,11 @@
 NULL
 
 
-
 `makeLabel,character` <- # nolint
     function(object) {
         assert(isString(object))
         makeWords(object)
     }
-
 
 
 #' @rdname makeLabel

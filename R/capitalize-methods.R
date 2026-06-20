@@ -15,12 +15,11 @@
 NULL
 
 
-
 `capitalize,character` <- # nolint
     function(object, strict = FALSE) {
         assert(isCharacter(object))
         vapply(
-            X = strsplit(object, split = " "),
+            X = strsplit(object, split = " ", fixed = TRUE),
             FUN = function(x) {
                 first <- toupper(substring(x, 1L, 1L))
                 tail <- substring(x, 2L)
@@ -33,7 +32,6 @@ NULL
             USE.NAMES = FALSE
         )
     }
-
 
 
 #' @rdname capitalize

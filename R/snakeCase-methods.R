@@ -12,7 +12,6 @@
 NULL
 
 
-
 ## Updated 2020-07-08.
 .snakeCase <- # nolint
     function(...) {
@@ -22,13 +21,9 @@ NULL
     }
 
 
-
 ## Updated 2021-08-24.
 `snakeCase,character` <- # nolint
-    function(object,
-             smart = TRUE,
-             names = TRUE,
-             prefix = TRUE) {
+    function(object, smart = TRUE, names = TRUE, prefix = TRUE) {
         assert(
             isCharacter(object),
             isFlag(smart),
@@ -52,7 +47,6 @@ NULL
         names(object) <- names
         object
     }
-
 
 
 #' @rdname snakeCase

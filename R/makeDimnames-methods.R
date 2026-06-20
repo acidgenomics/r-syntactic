@@ -12,7 +12,6 @@
 NULL
 
 
-
 `makeDimnames,ANY` <- # nolint
     function(object) {
         assert(hasDimnames(object))
@@ -26,7 +25,6 @@ NULL
         }
         object
     }
-
 
 
 #' @rdname makeDimnames
