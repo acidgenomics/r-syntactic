@@ -11,7 +11,7 @@ Make syntactically valid names out of character vectors.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://r.acidgenomics.com/packages/syntactic/}
+  \item \url{https://r.acidgenomics.com/syntactic/}
   \item \url{https://github.com/acidgenomics/r-syntactic/}
   \item Report bugs at \url{https://github.com/acidgenomics/r-syntactic/issues/}
 }

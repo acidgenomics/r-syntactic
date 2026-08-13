@@ -15,7 +15,7 @@ Authors@R: c(
         role = c("cph", "fnd")
     ))
 URL:
-    https://r.acidgenomics.com/packages/syntactic/,
+    https://r.acidgenomics.com/syntactic/,
     https://github.com/acidgenomics/r-syntactic/
 BugReports: https://github.com/acidgenomics/r-syntactic/issues/
 License: Apache License (>= 2)

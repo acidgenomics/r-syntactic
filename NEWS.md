@@ -1,5 +1,3 @@
-# Release notes
-
 ## syntactic 0.8.1 (2026-06-19)
 
 Minor changes:
@@ -493,7 +491,7 @@ Initial release. Migrated syntactic name functions from [basejump][] package
 here to form a more compact package that is easier to unit test.
 
 [acid genomics]: https://acidgenomics.com/
-[basejump]: https://r.acidgenomics.com/packages/basejump/
+[basejump]: https://r.acidgenomics.com/basejump/
 [koopa]: https://koopa.acidgenomics.com/
 [matrix]: https://cran.r-project.org/package=Matrix
 [pkgdown]: https://pkgdown.r-lib.org/
